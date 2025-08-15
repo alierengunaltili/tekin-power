@@ -1,18 +1,17 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import Image from 'next/image';
-import { 
-  ChevronRight, 
-  ChevronLeft,
-  Ship, 
-  Car, 
-  Bus, 
-  Drone,
+import {
   ArrowRight,
-  Play
+  Bus,
+  Car,
+  ChevronLeft,
+  ChevronRight,
+  Drone,
+  Play,
+  Ship
 } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -22,6 +21,8 @@ const HeroSection = () => {
   const categoriesRef = useRef<HTMLDivElement>(null);
   const backgroundRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
+  const backgroundVideoRef = useRef<HTMLVideoElement>(null);
+  const cardVideoRef = useRef<HTMLVideoElement>(null);
   
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -94,7 +95,7 @@ const HeroSection = () => {
       description: 'Denizcilik enerji çözümleri',
       gradient: 'from-blue-500 to-cyan-500',
       bgGradient: 'from-blue-900/90 via-cyan-800/90 to-blue-900/90',
-      image: '/marin.jpg',
+      video: '/landing-page-videos/A_luxury_yacht_202508131341.mp4',
       details: 'Denizcilik sektörü için özel tasarlanmış LiFePO₄ batarya sistemleri ve solar çözümler.'
     },
     {
@@ -103,7 +104,7 @@ const HeroSection = () => {
       description: 'Solar otopark sistemleri',
       gradient: 'from-green-500 to-emerald-500',
       bgGradient: 'from-green-900/90 via-emerald-800/90 to-green-900/90',
-      image: '/carport.jpg',
+      video: '/landing-page-videos/A_fully_equipped_202508131355.mp4',
       details: 'Otopark alanlarının üzerine kurulu güneş panelleri ile enerji üretimi ve araç koruması.'
     },
     {
@@ -112,7 +113,7 @@ const HeroSection = () => {
       description: 'Elektrikli otobüs sistemleri',
       gradient: 'from-purple-500 to-violet-500',
       bgGradient: 'from-purple-900/90 via-violet-800/90 to-purple-900/90',
-      image: '/e-bus.jpg',
+      video: '/landing-page-videos/Aug_13__1322_16s_202508131415_y7xsn.mp4',
       details: 'Şehir içi toplu taşıma için sürdürülebilir ve sessiz elektrikli otobüs teknolojileri.'
     },
     {
@@ -121,7 +122,7 @@ const HeroSection = () => {
       description: 'İHA enerji teknolojileri',
       gradient: 'from-orange-500 to-red-500',
       bgGradient: 'from-orange-900/90 via-red-800/90 to-orange-900/90',
-      image: '/drone.jpg',
+      video: '/landing-page-videos/A_fully_equipped_202508131355.mp4',
       details: 'Havacılık sektörü için yüksek performanslı ve hafif enerji depolama çözümleri.'
     }
   ];
@@ -162,17 +163,48 @@ const HeroSection = () => {
       opacity: 1,
       duration: 0.4,
       ease: 'power2.out'
+    })
+    // Restart videos when slide changes
+    .call(() => {
+      const backgroundVideo = backgroundVideoRef.current;
+      const cardVideo = cardVideoRef.current;
+      
+      if (backgroundVideo) {
+        backgroundVideo.currentTime = 0;
+        backgroundVideo.play().catch(e => console.log('Video play failed:', e));
+      }
+      if (cardVideo) {
+        cardVideo.currentTime = 0;
+        cardVideo.play().catch(e => console.log('Video play failed:', e));
+      }
     });
   };
 
-  // Auto-slide effect
+  // Video event handlers
   useEffect(() => {
-    const interval = setInterval(() => {
+    const handleVideoEnd = () => {
       const newSlide = (currentSlide + 1) % categories.length;
       changeSlide(newSlide, 'next');
-    }, 10000); // 10 saniyede bir değiş
+    };
 
-    return () => clearInterval(interval);
+    const backgroundVideo = backgroundVideoRef.current;
+    const cardVideo = cardVideoRef.current;
+
+    if (backgroundVideo) {
+      backgroundVideo.addEventListener('ended', handleVideoEnd);
+    }
+    if (cardVideo) {
+      cardVideo.addEventListener('ended', handleVideoEnd);
+    }
+
+    return () => {
+      if (backgroundVideo) {
+        backgroundVideo.removeEventListener('ended', handleVideoEnd);
+      }
+      if (cardVideo) {
+        cardVideo.removeEventListener('ended', handleVideoEnd);
+      }
+    };
   }, [currentSlide, categories.length]);
 
 
@@ -183,14 +215,15 @@ const HeroSection = () => {
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20" ref={heroRef}>
       {/* Dynamic Animated Background */}
       <div ref={backgroundRef} className="absolute inset-0">
-        {/* Background Image - Full Hero */}
-        <Image
-          src={currentCategory.image}
-          alt={`${currentCategory.title} background`}
-          fill
-          className="object-cover transition-all duration-1000"
-          sizes="100vw"
-          priority
+        {/* Background Video - Full Hero */}
+        <video
+          ref={backgroundVideoRef}
+          src={currentCategory.video}
+          className="absolute inset-0 w-full h-full object-cover transition-all duration-1000"
+          autoPlay
+          muted
+          playsInline
+          preload="metadata"
         />
         
         {/* Light overlay for better text visibility */}
@@ -280,13 +313,15 @@ const HeroSection = () => {
             {/* Main Category Card */}
             <div className="relative mx-8">
               <div ref={cardRef} className="relative rounded-3xl mb-6 min-h-[400px] flex flex-col justify-center items-center text-center transition-all duration-500 hover:scale-105 overflow-hidden shadow-xl">
-                {/* Background Image - Full Card */}
-                <Image
-                  src={currentCategory.image}
-                  alt={currentCategory.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                {/* Background Video - Full Card */}
+                <video
+                  ref={cardVideoRef}
+                  src={currentCategory.video}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  autoPlay
+                  muted
+                  playsInline
+                  preload="metadata"
                 />
                 
                 {/* Overlay for better text visibility */}

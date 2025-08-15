@@ -2,10 +2,10 @@
 
 import { gsap } from 'gsap';
 import {
-    ChevronLeft,
-    ChevronRight,
-    Pause,
-    Play
+  ChevronLeft,
+  ChevronRight,
+  Pause,
+  Play
 } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
@@ -140,7 +140,7 @@ const PhotoSwiper = () => {
     // Background transition
     tl.to([backgroundRef.current, blurredImageRef.current], {
       opacity: 0,
-      duration: 0.5,
+      duration: 0.8,
       ease: 'power2.inOut'
     })
     .call(() => {
@@ -148,9 +148,9 @@ const PhotoSwiper = () => {
     })
     .to([backgroundRef.current, blurredImageRef.current], {
       opacity: 1,
-      duration: 0.5,
+      duration: 0.6,
       ease: 'power2.inOut'
-    }, '-=0.3');
+    }, '-=0.4');
 
     // Slide out current
     gsap.to(currentSlideEl, {
@@ -158,7 +158,7 @@ const PhotoSwiper = () => {
       opacity: 0,
       scale: 0.8,
       rotationY: direction === 'next' ? -15 : 15,
-      duration: 0.6,
+      duration: 1.0,
       ease: 'power2.inOut'
     });
 
@@ -175,16 +175,16 @@ const PhotoSwiper = () => {
         opacity: 1,
         scale: 1,
         rotationY: 0,
-        duration: 0.8,
+        duration: 1.0,
         ease: 'back.out(1.7)',
-        delay: 0.2
+        delay: 0.3
       }
     );
 
     // Title animation
     gsap.fromTo(titleRef.current,
       { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', delay: 0.4 }
+      { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', delay: 0.6 }
     );
 
     // Dots animation

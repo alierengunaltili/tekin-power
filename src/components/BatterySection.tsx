@@ -1,23 +1,21 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { 
-  Battery, 
-  Zap, 
-  Clock, 
-  Shield, 
-  Recycle, 
-  TrendingUp,
-  CheckCircle,
+import {
+  Battery,
   Car,
+  Clock,
   Home,
-  Truck,
-  Smartphone,
+  Recycle,
+  Shield,
   ShieldCheck,
-  ThermometerSun
+  Smartphone,
+  ThermometerSun,
+  Truck,
+  Zap
 } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 
 // GSAP ScrollTrigger plugin'ini kaydet
 if (typeof window !== 'undefined') {
@@ -88,7 +86,7 @@ const BatterySection = () => {
       gsap.fromTo('.stat-number',
         { textContent: 0 },
         {
-          textContent: (i, target) => target.getAttribute('data-value'),
+          textContent: (i: number, target: HTMLElement) => target.getAttribute('data-value'),
           duration: 2,
           ease: 'power2.out',
           snap: { textContent: 1 },
@@ -177,7 +175,7 @@ const BatterySection = () => {
   ];
 
   return (
-    <section id="battery" className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white" ref={sectionRef}>
+    <section id="battery" className="py-20 bg-gradient-to-br from-slate-300 via-blue-900 to-indigo-900 text-white" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <div ref={titleRef} className="text-center mb-16">

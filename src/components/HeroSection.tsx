@@ -103,7 +103,7 @@ const HeroSection = () => {
       title: 'Car Port',
       description: 'Solar otopark sistemleri',
       gradient: 'from-green-500 to-emerald-500',
-      bgGradient: 'from-green-900/90 via-emerald-800/90 to-green-900/90',
+      bgGradient: 'from-blue-900/90 via-cyan-800/90 to-blue-900/90',
       video: '/landing-page-videos/A_fully_equipped_202508131355.mp4',
       details: 'Otopark alanlarının üzerine kurulu güneş panelleri ile enerji üretimi ve araç koruması.'
     },
@@ -112,7 +112,7 @@ const HeroSection = () => {
       title: 'E-Bus',
       description: 'Elektrikli otobüs sistemleri',
       gradient: 'from-purple-500 to-violet-500',
-      bgGradient: 'from-purple-900/90 via-violet-800/90 to-purple-900/90',
+      bgGradient: 'from-blue-900/90 via-cyan-800/90 to-blue-900/90',
       video: '/landing-page-videos/Aug_13__1322_16s_202508131415_y7xsn.mp4',
       details: 'Şehir içi toplu taşıma için sürdürülebilir ve sessiz elektrikli otobüs teknolojileri.'
     },
@@ -121,7 +121,7 @@ const HeroSection = () => {
       title: 'Drone',
       description: 'İHA enerji teknolojileri',
       gradient: 'from-orange-500 to-red-500',
-      bgGradient: 'from-orange-900/90 via-red-800/90 to-orange-900/90',
+      bgGradient: 'from-blue-900/90 via-cyan-800/90 to-blue-900/90',
       video: '/landing-page-videos/A_fully_equipped_202508131355.mp4',
       details: 'Havacılık sektörü için yüksek performanslı ve hafif enerji depolama çözümleri.'
     }

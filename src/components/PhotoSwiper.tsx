@@ -1,0 +1,419 @@
+'use client';
+
+import { gsap } from 'gsap';
+import {
+    ChevronLeft,
+    ChevronRight,
+    Pause,
+    Play
+} from 'lucide-react';
+import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
+
+const PhotoSwiper = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const slidesRef = useRef<HTMLDivElement[]>([]);
+  const dotsRef = useRef<HTMLButtonElement[]>([]);
+  const backgroundRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const blurredImageRef = useRef<HTMLDivElement>(null);
+  
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  const slides = [
+    {
+      id: 1,
+      image: '/landing-page-photos/yat-related/y2.jpg',
+      title: 'Marine Energy Solutions',
+      description: 'Advanced battery systems for luxury yachts and marine vessels',
+      category: 'Marine',
+      gradient: 'from-blue-600 via-cyan-500 to-blue-400',
+      bgColor: 'bg-gradient-to-br from-blue-900/20 via-cyan-800/20 to-blue-600/20'
+    },
+    {
+      id: 2,
+      image: '/landing-page-photos/yat-related/y3.jpg',
+      title: 'Yacht Power Systems',
+      description: 'Sustainable energy solutions for modern maritime adventures',
+      category: 'Marine',
+      gradient: 'from-teal-600 via-blue-500 to-cyan-400',
+      bgColor: 'bg-gradient-to-br from-teal-900/20 via-blue-800/20 to-cyan-600/20'
+    },
+    {
+      id: 3,
+      image: '/landing-page-photos/yat-related/yat1.jpg',
+      title: 'Maritime Innovation',
+      description: 'Cutting-edge energy technology for the marine industry',
+      category: 'Marine',
+      gradient: 'from-indigo-600 via-blue-500 to-teal-400',
+      bgColor: 'bg-gradient-to-br from-indigo-900/20 via-blue-800/20 to-teal-600/20'
+    },
+    {
+      id: 4,
+      image: '/landing-page-photos/car-related/por4.jpg',
+      title: 'Automotive Solutions',
+      description: 'Electric vehicle charging and energy storage systems',
+      category: 'Automotive',
+      gradient: 'from-green-600 via-emerald-500 to-teal-400',
+      bgColor: 'bg-gradient-to-br from-green-900/20 via-emerald-800/20 to-teal-600/20'
+    },
+    {
+      id: 5,
+      image: '/landing-page-photos/drone/UNSON_14.jpg',
+      title: 'Drone Technology',
+      description: 'Lightweight, high-performance energy systems for UAVs',
+      category: 'Aviation',
+      gradient: 'from-orange-600 via-red-500 to-pink-400',
+      bgColor: 'bg-gradient-to-br from-orange-900/20 via-red-800/20 to-pink-600/20'
+    },
+    {
+      id: 6,
+      image: '/landing-page-photos/drone/drone-2.jpg',
+      title: 'UAV Power Solutions',
+      description: 'Advanced battery technology for unmanned aerial vehicles',
+      category: 'Aviation',
+      gradient: 'from-purple-600 via-pink-500 to-red-400',
+      bgColor: 'bg-gradient-to-br from-purple-900/20 via-pink-800/20 to-red-600/20'
+    },
+    {
+      id: 7,
+      image: '/landing-page-photos/golf-car/golf-2.jpg',
+      title: 'Golf Cart Systems',
+      description: 'Efficient energy solutions for recreational vehicles',
+      category: 'Recreation',
+      gradient: 'from-lime-600 via-green-500 to-emerald-400',
+      bgColor: 'bg-gradient-to-br from-lime-900/20 via-green-800/20 to-emerald-600/20'
+    },
+    {
+      id: 8,
+      image: '/landing-page-photos/forklift/Fk1.jpg',
+      title: 'Industrial Equipment',
+      description: 'Robust energy systems for heavy-duty industrial applications',
+      category: 'Industrial',
+      gradient: 'from-yellow-600 via-orange-500 to-red-400',
+      bgColor: 'bg-gradient-to-br from-yellow-900/20 via-orange-800/20 to-red-600/20'
+    },
+    {
+      id: 9,
+      image: '/landing-page-photos/home-related/home-solar-panel.jpg',
+      title: 'Home Solar Systems',
+      description: 'Residential energy storage and solar power solutions',
+      category: 'Residential',
+      gradient: 'from-amber-600 via-yellow-500 to-lime-400',
+      bgColor: 'bg-gradient-to-br from-amber-900/20 via-yellow-800/20 to-lime-600/20'
+    },
+    {
+      id: 10,
+      image: '/landing-page-photos/home-related/home-solar-panel-2.jpg',
+      title: 'Smart Home Energy',
+      description: 'Intelligent energy management for modern homes',
+      category: 'Residential',
+      gradient: 'from-emerald-600 via-teal-500 to-cyan-400',
+      bgColor: 'bg-gradient-to-br from-emerald-900/20 via-teal-800/20 to-cyan-600/20'
+    }
+  ];
+
+  const addToRefs = (el: HTMLDivElement | null, index: number) => {
+    if (el && !slidesRef.current.includes(el)) {
+      slidesRef.current[index] = el;
+    }
+  };
+
+  const addToDotsRefs = (el: HTMLButtonElement | null, index: number) => {
+    if (el && !dotsRef.current.includes(el)) {
+      dotsRef.current[index] = el;
+    }
+  };
+
+  const animateSlide = (newIndex: number, direction: 'next' | 'prev' = 'next') => {
+    const currentSlideEl = slidesRef.current[currentSlide];
+    const newSlideEl = slidesRef.current[newIndex];
+    const currentDot = dotsRef.current[currentSlide];
+    const newDot = dotsRef.current[newIndex];
+
+    if (!currentSlideEl || !newSlideEl) return;
+
+    const tl = gsap.timeline();
+
+    // Background transition
+    tl.to([backgroundRef.current, blurredImageRef.current], {
+      opacity: 0,
+      duration: 0.5,
+      ease: 'power2.inOut'
+    })
+    .call(() => {
+      setCurrentSlide(newIndex);
+    })
+    .to([backgroundRef.current, blurredImageRef.current], {
+      opacity: 1,
+      duration: 0.5,
+      ease: 'power2.inOut'
+    }, '-=0.3');
+
+    // Slide out current
+    gsap.to(currentSlideEl, {
+      x: direction === 'next' ? -100 : 100,
+      opacity: 0,
+      scale: 0.8,
+      rotationY: direction === 'next' ? -15 : 15,
+      duration: 0.6,
+      ease: 'power2.inOut'
+    });
+
+    // Slide in new
+    gsap.fromTo(newSlideEl, 
+      { 
+        x: direction === 'next' ? 100 : -100,
+        opacity: 0,
+        scale: 0.8,
+        rotationY: direction === 'next' ? 15 : -15
+      },
+      { 
+        x: 0,
+        opacity: 1,
+        scale: 1,
+        rotationY: 0,
+        duration: 0.8,
+        ease: 'back.out(1.7)',
+        delay: 0.2
+      }
+    );
+
+    // Title animation
+    gsap.fromTo(titleRef.current,
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', delay: 0.4 }
+    );
+
+    // Dots animation
+    if (currentDot) {
+      gsap.to(currentDot, {
+        scale: 1,
+        duration: 0.3,
+        ease: 'power2.out'
+      });
+    }
+    
+    if (newDot) {
+      gsap.to(newDot, {
+        scale: 1.3,
+        duration: 0.3,
+        ease: 'back.out(1.7)'
+      });
+    }
+  };
+
+  const nextSlide = () => {
+    const newIndex = (currentSlide + 1) % slides.length;
+    animateSlide(newIndex, 'next');
+  };
+
+  const prevSlide = () => {
+    const newIndex = (currentSlide - 1 + slides.length) % slides.length;
+    animateSlide(newIndex, 'prev');
+  };
+
+  const goToSlide = (index: number) => {
+    if (index === currentSlide) return;
+    const direction = index > currentSlide ? 'next' : 'prev';
+    animateSlide(index, direction);
+  };
+
+  const toggleAutoplay = () => {
+    setIsPlaying(!isPlaying);
+  };
+
+  // Auto-play functionality
+  useEffect(() => {
+    if (isPlaying) {
+      intervalRef.current = setInterval(() => {
+        nextSlide();
+      }, 4000);
+    } else {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    }
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [isPlaying, currentSlide]);
+
+  // Initial animation
+  useEffect(() => {
+    const tl = gsap.timeline({ delay: 0.5 });
+    
+    tl.fromTo(containerRef.current,
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }
+    )
+    .fromTo(slidesRef.current[0],
+      { scale: 0.8, opacity: 0, rotationY: 15 },
+      { scale: 1, opacity: 1, rotationY: 0, duration: 1, ease: 'back.out(1.7)' },
+      '-=0.5'
+    )
+    .fromTo(titleRef.current,
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
+      '-=0.3'
+    );
+
+    // Set initial dot state
+    if (dotsRef.current[0]) {
+      gsap.set(dotsRef.current[0], { scale: 1.3 });
+    }
+  }, []);
+
+  const currentSlideData = slides[currentSlide];
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
+      {/* Dynamic Background */}
+      <div ref={backgroundRef} className="absolute inset-0">
+        {/* Blurred background image */}
+        <div ref={blurredImageRef} className="absolute inset-0">
+          <div className="relative w-full h-full overflow-hidden">
+            <Image
+              src={currentSlideData.image}
+              alt={`${currentSlideData.title} background`}
+              fill
+              className="object-cover blur-2xl scale-110 transition-all duration-1000"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-black/40"></div>
+          </div>
+        </div>
+        
+        <div className={`absolute inset-0 ${currentSlideData.bgColor} transition-all duration-1000`}></div>
+        <div className={`absolute inset-0 bg-gradient-to-br ${currentSlideData.gradient} opacity-10 transition-all duration-1000`}></div>
+        
+        {/* Animated background elements */}
+        <div className="absolute top-20 left-20 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-white/5 rounded-full blur-2xl animate-pulse delay-500"></div>
+      </div>
+
+      <div ref={containerRef} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <div ref={titleRef}>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+              <span className="block">Energy Solutions</span>
+              <span className={`block bg-gradient-to-r ${currentSlideData.gradient} bg-clip-text text-transparent transition-all duration-1000`}>
+                Portfolio
+              </span>
+            </h2>
+            <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
+              Discover our comprehensive range of advanced battery and energy solutions 
+              across multiple industries and applications.
+            </p>
+          </div>
+        </div>
+
+        {/* Main Swiper Container */}
+        <div className="relative">
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-16 z-20 w-14 h-14 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300 group shadow-xl"
+          >
+            <ChevronLeft className="w-7 h-7 text-white group-hover:scale-110 transition-transform duration-300" />
+          </button>
+          
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-16 z-20 w-14 h-14 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300 group shadow-xl"
+          >
+            <ChevronRight className="w-7 h-7 text-white group-hover:scale-110 transition-transform duration-300" />
+          </button>
+
+          {/* Slides Container */}
+          <div className="relative w-full h-[600px] perspective-1000">
+            {slides.map((slide, index) => (
+              <div
+                key={slide.id}
+                ref={el => addToRefs(el, index)}
+                className={`absolute inset-0 ${index === currentSlide ? 'z-10' : 'z-0'}`}
+                style={{ display: index === currentSlide ? 'block' : 'none' }}
+              >
+                <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl">
+                  <Image
+                    src={slide.image}
+                    alt={slide.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 80vw"
+                    priority={index === 0}
+                  />
+                  
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                  
+                  {/* Content */}
+                  <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12">
+                    <div className="max-w-2xl">
+                      <span className={`inline-block px-4 py-2 bg-gradient-to-r ${slide.gradient} text-white text-sm font-semibold rounded-full mb-4 shadow-lg`}>
+                        {slide.category}
+                      </span>
+                      <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4 drop-shadow-lg">
+                        {slide.title}
+                      </h3>
+                      <p className="text-lg text-white/90 leading-relaxed drop-shadow-md">
+                        {slide.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Controls */}
+        <div className="flex flex-col items-center justify-center mt-8 space-y-4">
+          {/* Interaction Hint */}
+          <div className="text-center">
+            <p className="text-white/70 text-sm font-medium mb-2">
+              Click arrows or dots to navigate
+            </p>
+            <div className="flex items-center justify-center space-x-6">
+              {/* Dots */}
+              <div className="flex space-x-3">
+                {slides.map((_, index) => (
+                  <button
+                    key={index}
+                    ref={el => addToDotsRefs(el, index)}
+                    onClick={() => goToSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentSlide 
+                        ? `bg-gradient-to-r ${slides[index].gradient}` 
+                        : 'bg-white/30 hover:bg-white/50'
+                    }`}
+                  />
+                ))}
+              </div>
+
+              {/* Play/Pause Button */}
+              <button
+                onClick={toggleAutoplay}
+                className="w-12 h-12 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 group shadow-lg"
+              >
+                {isPlaying ? (
+                  <Pause className="w-5 h-5 text-white group-hover:scale-110 transition-transform duration-300" />
+                ) : (
+                  <Play className="w-5 h-5 text-white group-hover:scale-110 transition-transform duration-300" />
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default PhotoSwiper;

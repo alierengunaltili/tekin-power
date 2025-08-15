@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Zap } from 'lucide-react';
 import { gsap } from 'gsap';
+import { Menu, X, Zap } from 'lucide-react';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,12 +37,20 @@ const Navbar = () => {
     }
   };
 
+  const handleNavClick = (item: { label: string; href: string; type: string }) => {
+    if (item.type === 'scroll') {
+      scrollToSection(item.href);
+    }
+    // For navigation type, Link component will handle the routing
+    setIsMenuOpen(false);
+  };
+
   const navItems = [
-    { label: 'Ana Sayfa', href: 'hero' },
-    { label: 'Hizmetlerimiz', href: 'services' },
-    { label: 'Kurumsal', href: 'about' },
-    { label: 'Projeler', href: 'projects' },
-    { label: 'İletişim', href: 'contact' }
+    { label: 'Ana Sayfa', href: '/', type: 'navigate' },
+    { label: 'Hizmetlerimiz', href: '/hizmetlerimiz', type: 'navigate' },
+    { label: 'Kurumsal', href: 'about', type: 'scroll' },
+    { label: 'Projeler', href: 'projects', type: 'scroll' },
+    { label: 'İletişim', href: 'contact', type: 'scroll' }
   ];
 
   return (
@@ -53,9 +62,9 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <div 
+          <Link 
+            href="/"
             className="flex items-center space-x-2 cursor-pointer"
-            onClick={() => scrollToSection('hero')}
           >
             <div className="relative">
               <Zap className={`h-8 w-8 transition-colors duration-300 ${
@@ -68,24 +77,42 @@ const Navbar = () => {
             }`}>
               Tekin Power
             </span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item, index) => (
-              <button
-                key={item.href}
-                onClick={() => scrollToSection(item.href)}
-                className={`relative text-sm font-medium transition-all duration-300 hover:scale-105 ${
-                  isScrolled 
-                    ? 'text-gray-700 hover:text-blue-600' 
-                    : 'text-white/90 hover:text-white'
-                } group`}
-              >
-                {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-blue-600 transition-all duration-300 group-hover:w-full"></span>
-              </button>
-            ))}
+            {navItems.map((item, index) => {
+              const baseClasses = `relative text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                isScrolled 
+                  ? 'text-gray-700 hover:text-blue-600' 
+                  : 'text-white/90 hover:text-white'
+              } group`;
+
+              if (item.type === 'navigate') {
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={baseClasses}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                  </Link>
+                );
+              }
+
+              return (
+                <button
+                  key={item.href}
+                  onClick={() => handleNavClick(item)}
+                  className={baseClasses}
+                >
+                  {item.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                </button>
+              );
+            })}
             
             {/* CTA Button */}
             <button 
@@ -116,15 +143,32 @@ const Navbar = () => {
           isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}>
           <div className="py-4 space-y-3 bg-white/95 backdrop-blur-lg rounded-lg mt-4 shadow-lg border border-blue-100">
-            {navItems.map((item, index) => (
-              <button
-                key={item.href}
-                onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left px-6 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200 font-medium"
-              >
-                {item.label}
-              </button>
-            ))}
+            {navItems.map((item, index) => {
+              const baseClasses = "block w-full text-left px-6 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200 font-medium";
+              
+              if (item.type === 'navigate') {
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={baseClasses}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              }
+
+              return (
+                <button
+                  key={item.href}
+                  onClick={() => handleNavClick(item)}
+                  className={baseClasses}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
             <div className="px-6 py-3">
               <button 
                 onClick={() => scrollToSection('contact')}

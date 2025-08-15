@@ -1,4 +1,3 @@
-import BatterySection from '@/components/BatterySection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
@@ -18,10 +17,7 @@ export default function HizmetlerimizPage() {
         
         {/* Services Section */}
         <ServicesSection />
-        
-        {/* Battery Technology Section */}
-        <BatterySection />
-        
+                
         {/* Contact Section */}
         <ContactSection />
       </main>

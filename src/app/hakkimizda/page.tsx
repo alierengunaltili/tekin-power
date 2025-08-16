@@ -4,16 +4,16 @@ import Navbar from '@/components/Navbar';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
-    Award,
-    Battery,
-    ChevronLeft,
-    ChevronRight,
-    Eye,
-    Globe,
-    Leaf,
-    Target,
-    Users,
-    Zap
+  Award,
+  Battery,
+  ChevronLeft,
+  ChevronRight,
+  Eye,
+  Globe,
+  Leaf,
+  Target,
+  Users,
+  Zap
 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
@@ -186,193 +186,229 @@ const HakkimizdaPage = () => {
               />
             ))}
           </div>
+
+          {/* Services Button */}
+          <div className="absolute bottom-6 right-6 z-30">
+            <a
+              href="/hizmetlerimiz"
+              className="group bg-gradient-to-r from-blue-500/90 to-cyan-500/90 backdrop-blur-lg border border-white/20 text-white px-6 py-3 rounded-full font-semibold text-sm md:text-base transition-all duration-300 hover:from-blue-600/90 hover:to-cyan-600/90 hover:scale-105 hover:shadow-xl shadow-blue-500/25 flex items-center space-x-2"
+            >
+              <span>Hizmetlerimizi Detaylı Görüntüle</span>
+              <svg 
+                className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
         </div>
       </section>
 
       {/* Content Sections */}
-      <div ref={sectionsRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-24">
-        
-        {/* About Us Section */}
-        <section className="text-center">
-          <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Hakkımızda
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto mb-8"></div>
-          </div>
+      <div className="bg-gray-50 min-h-screen w-full">
+        <div ref={sectionsRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-12">
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="text-left space-y-6">
-              <p className="text-lg text-gray-700 leading-relaxed">
-                <span className="font-semibold text-gray-900">Enerji SA</span>, gelişmiş LiFePO₄ batarya teknolojileri 
-                ve yenilikçi güneş enerjisi sistemleri konusunda uzmanlaşmış, öncü bir enerji çözümleri şirketidir. 
-                2010 yılından bu yana, sürdürülebilir ve güvenilir enerji çözümleri sunarak sektörde öncü rol oynamaktayız.
-              </p>
+          {/* About Us Section */}
+          <section className="text-center">
+            <div className="mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Hakkımızda
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto mb-8"></div>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Content Card */}
+              <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
+                <div className="text-left space-y-6">
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    <span className="font-semibold text-gray-900">Enerji SA</span>, gelişmiş LiFePO₄ batarya teknolojileri 
+                    ve yenilikçi güneş enerjisi sistemleri konusunda uzmanlaşmış, öncü bir enerji çözümleri şirketidir. 
+                    2010 yılından bu yana, sürdürülebilir ve güvenilir enerji çözümleri sunarak sektörde öncü rol oynamaktayız.
+                  </p>
+                  
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    Denizcilik, havacılık, endüstriyel otomasyon ve elektrikli ulaşım gibi kritik sektörlerde 
+                    faaliyet gösteren müşterilerimize, özel tasarlanmış enerji depolama ve yönetim sistemleri 
+                    geliştiriyoruz. Teknolojik yeniliği sürdürülebilirlik ile harmanlayarak, geleceğin enerji 
+                    ihtiyaçlarına bugünden cevap veriyoruz.
+                  </p>
+
+                  <div className="flex flex-wrap gap-4 pt-4">
+                    <div className="flex items-center space-x-2 text-blue-600">
+                      <Award className="w-5 h-5" />
+                      <span className="font-medium">ISO 9001 Belgeli</span>
+                    </div>
+                    <div className="flex items-center space-x-2 text-green-600">
+                      <Battery className="w-5 h-5" />
+                      <span className="font-medium">LiFePO₄ Uzmanı</span>
+                    </div>
+                    <div className="flex items-center space-x-2 text-cyan-600">
+                      <Globe className="w-5 h-5" />
+                      <span className="font-medium">Uluslararası Hizmet</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Statistics Card */}
+              <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <Users className="w-8 h-8 text-white" />
+                    </div>
+                    <h4 className="text-2xl font-bold text-gray-900">500+</h4>
+                    <p className="text-gray-600">Müşteri</p>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <Zap className="w-8 h-8 text-white" />
+                    </div>
+                    <h4 className="text-2xl font-bold text-gray-900">1000+</h4>
+                    <p className="text-gray-600">Proje</p>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <Battery className="w-8 h-8 text-white" />
+                    </div>
+                    <h4 className="text-2xl font-bold text-gray-900">50MW</h4>
+                    <p className="text-gray-600">Kurulu Güç</p>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <Leaf className="w-8 h-8 text-white" />
+                    </div>
+                    <h4 className="text-2xl font-bold text-gray-900">25K</h4>
+                    <p className="text-gray-600">Ton CO₂ Tasarruf</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Vision & Mission Section */}
+          <section className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Vision Card */}
+            <div className="bg-gradient-to-br from-blue-500 to-cyan-500 rounded-3xl p-8 text-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 group">
+              <div className="flex items-center mb-6">
+                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                  <Eye className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-3xl font-bold">Vizyonumuz</h3>
+              </div>
               
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Denizcilik, havacılık, endüstriyel otomasyon ve elektrikli ulaşım gibi kritik sektörlerde 
-                faaliyet gösteren müşterilerimize, özel tasarlanmış enerji depolama ve yönetim sistemleri 
-                geliştiriyoruz. Teknolojik yeniliği sürdürülebilirlik ile harmanlayarak, geleceğin enerji 
-                ihtiyaçlarına bugünden cevap veriyoruz.
+              <p className="text-lg leading-relaxed opacity-95 mb-6">
+                Sürdürülebilir enerji teknolojilerinde küresel bir lider olmak ve gelecek nesillere 
+                temiz, güvenilir enerji çözümleri bırakmak. Teknolojik yeniliği çevresel sorumluluk 
+                ile harmanlayarak, karbon nötr bir dünya vizyonuna katkıda bulunmak.
               </p>
 
-              <div className="flex flex-wrap gap-4 pt-4">
-                <div className="flex items-center space-x-2 text-blue-600">
-                  <Award className="w-5 h-5" />
-                  <span className="font-medium">ISO 9001 Belgeli</span>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                  <span>Karbon nötr enerji çözümleri</span>
                 </div>
-                <div className="flex items-center space-x-2 text-green-600">
-                  <Battery className="w-5 h-5" />
-                  <span className="font-medium">LiFePO₄ Uzmanı</span>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                  <span>Teknolojik liderlik</span>
                 </div>
-                <div className="flex items-center space-x-2 text-cyan-600">
-                  <Globe className="w-5 h-5" />
-                  <span className="font-medium">Uluslararası Hizmet</span>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                  <span>Sürdürülebilir gelecek</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8">
-              <div className="grid grid-cols-2 gap-6">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Users className="w-8 h-8 text-white" />
-                  </div>
-                  <h4 className="text-2xl font-bold text-gray-900">500+</h4>
-                  <p className="text-gray-600">Müşteri</p>
+            {/* Mission Card */}
+            <div className="bg-gradient-to-br from-green-500 to-emerald-500 rounded-3xl p-8 text-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 group">
+              <div className="flex items-center mb-6">
+                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                  <Target className="w-8 h-8 text-white" />
                 </div>
-                
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Zap className="w-8 h-8 text-white" />
-                  </div>
-                  <h4 className="text-2xl font-bold text-gray-900">1000+</h4>
-                  <p className="text-gray-600">Proje</p>
+                <h3 className="text-3xl font-bold">Misyonumuz</h3>
+              </div>
+              
+              <p className="text-lg leading-relaxed opacity-95 mb-6">
+                En ileri LiFePO₄ batarya teknolojisi ve güneş enerjisi sistemleri ile müşterilerimize 
+                özel tasarlanmış, güvenilir ve verimli enerji çözümleri sunmak. Her projede kalite, 
+                güvenlik ve sürdürülebilirliği ön planda tutarak sektörde standartları belirlemek.
+              </p>
+
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                  <span>Müşteri odaklı çözümler</span>
                 </div>
-                
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                  <span>Kalite ve güvenilirlik</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                  <span>Yenilikçi teknoloji</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Values Section */}
+          <section className="text-center">
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">Değerlerimiz</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* Innovation Card */}
+              <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 group">
+                <div className="space-y-4">
+                  <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
                     <Battery className="w-8 h-8 text-white" />
                   </div>
-                  <h4 className="text-2xl font-bold text-gray-900">50MW</h4>
-                  <p className="text-gray-600">Kurulu Güç</p>
+                  <h4 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">Yenilikçilik</h4>
+                  <p className="text-gray-600">Sürekli araştırma ve geliştirme ile teknolojide öncü olmak</p>
                 </div>
-                
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              </div>
+              
+              {/* Sustainability Card */}
+              <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 group">
+                <div className="space-y-4">
+                  <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
                     <Leaf className="w-8 h-8 text-white" />
                   </div>
-                  <h4 className="text-2xl font-bold text-gray-900">25K</h4>
-                  <p className="text-gray-600">Ton CO₂ Tasarruf</p>
+                  <h4 className="text-xl font-semibold text-gray-900 group-hover:text-green-600 transition-colors duration-300">Sürdürülebilirlik</h4>
+                  <p className="text-gray-600">Çevre dostu teknolojiler ile geleceği korumak</p>
+                </div>
+              </div>
+              
+              {/* Quality Card */}
+              <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 group">
+                <div className="space-y-4">
+                  <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
+                    <Award className="w-8 h-8 text-white" />
+                  </div>
+                  <h4 className="text-xl font-semibold text-gray-900 group-hover:text-orange-600 transition-colors duration-300">Kalite</h4>
+                  <p className="text-gray-600">Her projede mükemmelliği hedeflemek</p>
+                </div>
+              </div>
+              
+              {/* Collaboration Card */}
+              <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 group">
+                <div className="space-y-4">
+                  <div className="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
+                    <Users className="w-8 h-8 text-white" />
+                  </div>
+                  <h4 className="text-xl font-semibold text-gray-900 group-hover:text-purple-600 transition-colors duration-300">İşbirliği</h4>
+                  <p className="text-gray-600">Müşterilerle güçlü ortaklıklar kurmak</p>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Vision & Mission Section */}
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Vision */}
-          <div className="bg-gradient-to-br from-blue-500 to-cyan-500 rounded-3xl p-8 text-white">
-            <div className="flex items-center mb-6">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mr-4">
-                <Eye className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-3xl font-bold">Vizyonumuz</h3>
-            </div>
-            
-            <p className="text-lg leading-relaxed opacity-95">
-              Sürdürülebilir enerji teknolojilerinde küresel bir lider olmak ve gelecek nesillere 
-              temiz, güvenilir enerji çözümleri bırakmak. Teknolojik yeniliği çevresel sorumluluk 
-              ile harmanlayarak, karbon nötr bir dünya vizyonuna katkıda bulunmak.
-            </p>
-
-            <div className="mt-6 space-y-3">
-              <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-white rounded-full"></div>
-                <span>Karbon nötr enerji çözümleri</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-white rounded-full"></div>
-                <span>Teknolojik liderlik</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-white rounded-full"></div>
-                <span>Sürdürülebilir gelecek</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Mission */}
-          <div className="bg-gradient-to-br from-green-500 to-emerald-500 rounded-3xl p-8 text-white">
-            <div className="flex items-center mb-6">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mr-4">
-                <Target className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-3xl font-bold">Misyonumuz</h3>
-            </div>
-            
-            <p className="text-lg leading-relaxed opacity-95">
-              En ileri LiFePO₄ batarya teknolojisi ve güneş enerjisi sistemleri ile müşterilerimize 
-              özel tasarlanmış, güvenilir ve verimli enerji çözümleri sunmak. Her projede kalite, 
-              güvenlik ve sürdürülebilirliği ön planda tutarak sektörde standartları belirlemek.
-            </p>
-
-            <div className="mt-6 space-y-3">
-              <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-white rounded-full"></div>
-                <span>Müşteri odaklı çözümler</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-white rounded-full"></div>
-                <span>Kalite ve güvenilirlik</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-white rounded-full"></div>
-                <span>Yenilikçi teknoloji</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Values Section */}
-        <section className="text-center bg-gray-50 rounded-3xl p-12">
-          <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">Değerlerimiz</h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="space-y-4">
-              <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto">
-                <Battery className="w-8 h-8 text-white" />
-              </div>
-              <h4 className="text-xl font-semibold text-gray-900">Yenilikçilik</h4>
-              <p className="text-gray-600">Sürekli araştırma ve geliştirme ile teknolojide öncü olmak</p>
-            </div>
-            
-            <div className="space-y-4">
-              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto">
-                <Leaf className="w-8 h-8 text-white" />
-              </div>
-              <h4 className="text-xl font-semibold text-gray-900">Sürdürülebilirlik</h4>
-              <p className="text-gray-600">Çevre dostu teknolojiler ile geleceği korumak</p>
-            </div>
-            
-            <div className="space-y-4">
-              <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto">
-                <Award className="w-8 h-8 text-white" />
-              </div>
-              <h4 className="text-xl font-semibold text-gray-900">Kalite</h4>
-              <p className="text-gray-600">Her projede mükemmelliği hedeflemek</p>
-            </div>
-            
-            <div className="space-y-4">
-              <div className="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto">
-                <Users className="w-8 h-8 text-white" />
-              </div>
-              <h4 className="text-xl font-semibold text-gray-900">İşbirliği</h4>
-              <p className="text-gray-600">Müşterilerle güçlü ortaklıklar kurmak</p>
-            </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
     </div>
   );

@@ -26,90 +26,90 @@ const PhotoSwiper = () => {
     {
       id: 1,
       image: '/landing-page-photos/yat-related/y2.jpg',
-      title: 'Marine Energy Solutions',
-      description: 'Advanced battery systems for luxury yachts and marine vessels',
-      category: 'Marine',
+      title: 'Denizcilik LiFePO4 Çözümleri',
+      description: '6000-10000 şarj döngüsüne sahip yüksek enerji yoğunluklu LiFePO4 bataryalar, deniz araçları için üstün güvenlik ve çevresel performans sağlar',
+      category: 'Denizcilik',
       gradient: 'from-blue-600 via-cyan-500 to-blue-400',
       bgColor: 'bg-gradient-to-br from-blue-900/20 via-cyan-800/20 to-blue-600/20'
     },
     {
       id: 2,
       image: '/landing-page-photos/yat-related/y3.jpg',
-      title: 'Yacht Power Systems',
-      description: 'Sustainable energy solutions for modern maritime adventures',
-      category: 'Marine',
+      title: 'Denizcilik Güç Sistemleri',
+      description: 'Modern denizcilik uygulamaları için yüksek güç kapasitesi ve operasyonel süreklilik sunan hızlı şarj LiFePO4 teknolojisi',
+      category: 'Denizcilik',
       gradient: 'from-teal-600 via-blue-500 to-cyan-400',
       bgColor: 'bg-gradient-to-br from-teal-900/20 via-blue-800/20 to-cyan-600/20'
     },
     {
       id: 3,
       image: '/landing-page-photos/yat-related/yat1.jpg',
-      title: 'Maritime Innovation',
-      description: 'Cutting-edge energy technology for the marine industry',
-      category: 'Marine',
+      title: 'Sürdürülebilir Deniz Enerjisi',
+      description: 'Tekin Power\'ın enerji verimliliği, sürdürülebilirlik ve performans odaklı LiFePO4 çözümleri ile marin sektör dönüşümü',
+      category: 'Denizcilik',
       gradient: 'from-indigo-600 via-blue-500 to-teal-400',
       bgColor: 'bg-gradient-to-br from-indigo-900/20 via-blue-800/20 to-teal-600/20'
     },
     {
       id: 4,
       image: '/landing-page-photos/car-related/por4.jpg',
-      title: 'Automotive Solutions',
-      description: 'Electric vehicle charging and energy storage systems',
-      category: 'Automotive',
+      title: 'Güneş Enerjili Otopark Sistemleri',
+      description: 'Otopark yapılarına yenilikçi güneş paneli kurulumları, araç koruması sağlarken yenilenebilir enerji üretimi',
+      category: 'Otomotiv',
       gradient: 'from-green-600 via-emerald-500 to-teal-400',
       bgColor: 'bg-gradient-to-br from-green-900/20 via-emerald-800/20 to-teal-600/20'
     },
     {
       id: 5,
       image: '/landing-page-photos/drone/UNSON_14.jpg',
-      title: 'Drone Technology',
-      description: 'Lightweight, high-performance energy systems for UAVs',
-      category: 'Aviation',
+      title: 'Gelişmiş Drone Teknolojisi',
+      description: 'Tekin Power\'ın hızla gelişen drone teknolojisinin ihtiyaçlarını özelleştirilmiş LiFePO4 sistemleri ile karşılayan yenilikçi enerji çözümleri',
+      category: 'Havacılık',
       gradient: 'from-orange-600 via-red-500 to-pink-400',
       bgColor: 'bg-gradient-to-br from-orange-900/20 via-red-800/20 to-pink-600/20'
     },
     {
       id: 6,
       image: '/landing-page-photos/drone/drone-2.jpg',
-      title: 'UAV Power Solutions',
-      description: 'Advanced battery technology for unmanned aerial vehicles',
-      category: 'Aviation',
+      title: 'İHA Enerji Çözümleri',
+      description: 'İnsansız hava araçları uygulamaları için özel olarak tasarlanmış hafif, yüksek performanslı LiFePO4 batarya teknolojisi',
+      category: 'Havacılık',
       gradient: 'from-purple-600 via-pink-500 to-red-400',
       bgColor: 'bg-gradient-to-br from-purple-900/20 via-pink-800/20 to-red-600/20'
     },
     {
       id: 7,
       image: '/landing-page-photos/golf-car/golf-2.jpg',
-      title: 'Golf Cart Systems',
-      description: 'Efficient energy solutions for recreational vehicles',
-      category: 'Recreation',
+      title: 'Elektrikli Araç Sistemleri',
+      description: 'Azaltılmış titreşim ve gürültülü LiFePO4 çözümleri, elektrikli ulaşımı daha cazip hale getiren konforlu ortamlar yaratır',
+      category: 'Rekreasyon',
       gradient: 'from-lime-600 via-green-500 to-emerald-400',
       bgColor: 'bg-gradient-to-br from-lime-900/20 via-green-800/20 to-emerald-600/20'
     },
     {
       id: 8,
       image: '/landing-page-photos/forklift/Fk1.jpg',
-      title: 'Industrial Equipment',
-      description: 'Robust energy systems for heavy-duty industrial applications',
-      category: 'Industrial',
+      title: 'Savunma ve Endüstri',
+      description: 'Tekin Power\'ın savunma sanayii enerji ihtiyaçları için özelleştirilmiş LiFePO4 çözümleri, zorlu uygulamalarda güçlü performans sunar',
+      category: 'Endüstriyel',
       gradient: 'from-yellow-600 via-orange-500 to-red-400',
       bgColor: 'bg-gradient-to-br from-yellow-900/20 via-orange-800/20 to-red-600/20'
     },
     {
       id: 9,
       image: '/landing-page-photos/home-related/home-solar-panel.jpg',
-      title: 'Home Solar Systems',
-      description: 'Residential energy storage and solar power solutions',
-      category: 'Residential',
+      title: 'Konut Güneş Depolaması',
+      description: 'Evler için güvenlik, yüksek performans ve çevresel bilinç birleştiren uzun ömürlü LiFePO4 enerji depolama sistemleri',
+      category: 'Konut',
       gradient: 'from-amber-600 via-yellow-500 to-lime-400',
       bgColor: 'bg-gradient-to-br from-amber-900/20 via-yellow-800/20 to-lime-600/20'
     },
     {
       id: 10,
       image: '/landing-page-photos/home-related/home-solar-panel-2.jpg',
-      title: 'Smart Home Energy',
-      description: 'Intelligent energy management for modern homes',
-      category: 'Residential',
+      title: 'Akıllı Enerji Yönetimi',
+      description: 'Sürdürülebilir yaşam için çevre dostu LiFePO4 teknolojisi içeren akıllı yenilenebilir enerji sistemleri',
+      category: 'Konut',
       gradient: 'from-emerald-600 via-teal-500 to-cyan-400',
       bgColor: 'bg-gradient-to-br from-emerald-900/20 via-teal-800/20 to-cyan-600/20'
     }
@@ -302,14 +302,14 @@ const PhotoSwiper = () => {
         <div className="text-center mb-12">
           <div ref={titleRef}>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
-              <span className="block">Energy Solutions</span>
+              <span className="block">Tekin Power</span>
               <span className={`block bg-gradient-to-r ${currentSlideData.gradient} bg-clip-text text-transparent transition-all duration-1000`}>
-                Portfolio
+                Yenilenebilir Enerji
               </span>
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
-              Discover our comprehensive range of advanced battery and energy solutions 
-              across multiple industries and applications.
+              Gelişmiş LiFePO4 batarya teknolojisi ile yenilenebilir enerji dönüşümünde öncülük eden, 
+              marin, otomotiv, havacılık ve endüstriyel sektörlerde sürdürülebilir çözümler sunan.
             </p>
           </div>
         </div>
@@ -378,7 +378,7 @@ const PhotoSwiper = () => {
           {/* Interaction Hint */}
           <div className="text-center">
             <p className="text-white/70 text-sm font-medium mb-2">
-              Click arrows or dots to navigate
+              Gezinmek için oklara veya noktalara tıklayın
             </p>
             <div className="flex items-center justify-center space-x-6">
               {/* Dots */}

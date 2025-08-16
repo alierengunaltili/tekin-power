@@ -3,13 +3,15 @@
 import { gsap } from 'gsap';
 import {
   ArrowRight,
-  Bus,
+  BatteryCharging,
   Car,
   ChevronLeft,
   ChevronRight,
   Drone,
   Play,
-  Ship
+  Ship,
+  SunIcon,
+  TruckIcon
 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
@@ -88,6 +90,25 @@ const HeroSection = () => {
 
   }, []);
 
+  // Start initial videos when component mounts
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const backgroundVideo = backgroundVideoRef.current;
+      const cardVideo = cardVideoRef.current;
+      
+      if (backgroundVideo) {
+        backgroundVideo.currentTime = 0;
+        backgroundVideo.play().catch(e => console.log('Initial video play failed:', e));
+      }
+      if (cardVideo) {
+        cardVideo.currentTime = 0;
+        cardVideo.play().catch(e => console.log('Initial video play failed:', e));
+      }
+    }, 100); // Small delay to ensure videos are loaded
+
+    return () => clearTimeout(timer);
+  }, []); // Only run once on mount
+
   const categories = [
     {
       icon: Ship,
@@ -95,7 +116,7 @@ const HeroSection = () => {
       description: 'Denizcilik enerji çözümleri',
       gradient: 'from-blue-500 to-cyan-500',
       bgGradient: 'from-blue-900/90 via-cyan-800/90 to-blue-900/90',
-      video: '/landing-page-videos/A_luxury_yacht_202508131341.mp4',
+      video: '/landing-page-videos/marin.mp4',
       details: 'Denizcilik sektörü için özel tasarlanmış LiFePO₄ batarya sistemleri ve solar çözümler.'
     },
     {
@@ -103,27 +124,54 @@ const HeroSection = () => {
       title: 'Car Port',
       description: 'Solar otopark sistemleri',
       gradient: 'from-green-500 to-emerald-500',
-      bgGradient: 'from-blue-900/90 via-cyan-800/90 to-blue-900/90',
-      video: '/landing-page-videos/A_fully_equipped_202508131355.mp4',
+      bgGradient: 'from-green-900/90 via-emerald-800/90 to-green-900/90',
+      video: '/landing-page-videos/carport.mp4',
       details: 'Otopark alanlarının üzerine kurulu güneş panelleri ile enerji üretimi ve araç koruması.'
-    },
-    {
-      icon: Bus,
-      title: 'E-Bus',
-      description: 'Elektrikli otobüs sistemleri',
-      gradient: 'from-purple-500 to-violet-500',
-      bgGradient: 'from-blue-900/90 via-cyan-800/90 to-blue-900/90',
-      video: '/landing-page-videos/Aug_13__1322_16s_202508131415_y7xsn.mp4',
-      details: 'Şehir içi toplu taşıma için sürdürülebilir ve sessiz elektrikli otobüs teknolojileri.'
     },
     {
       icon: Drone,
       title: 'Drone',
       description: 'İHA enerji teknolojileri',
       gradient: 'from-orange-500 to-red-500',
-      bgGradient: 'from-blue-900/90 via-cyan-800/90 to-blue-900/90',
-      video: '/landing-page-videos/A_fully_equipped_202508131355.mp4',
+      bgGradient: 'from-orange-900/90 via-red-800/90 to-orange-900/90',
+      video: '/landing-page-videos/drone.mp4',
       details: 'Havacılık sektörü için yüksek performanslı ve hafif enerji depolama çözümleri.'
+    },
+    {
+      icon: SunIcon,
+      title: 'Mobil Solar Panel',
+      description: 'Taşınabilir güneş enerjisi',
+      gradient: 'from-yellow-500 to-orange-500',
+      bgGradient: 'from-yellow-900/90 via-orange-800/90 to-yellow-900/90',
+      video: '/landing-page-videos/mobilsolarpanel.mp4',
+      details: 'Mobil ve esnek kullanım için tasarlanmış taşınabilir güneş paneli sistemleri.'
+    },
+    {
+      icon: BatteryCharging,
+      title: 'Enerji Depolama Sistemleri',
+      description: 'Gelişmiş batarya teknolojileri',
+      gradient: 'from-purple-500 to-violet-500',
+      bgGradient: 'from-purple-900/90 via-violet-800/90 to-purple-900/90',
+      video: '/landing-page-videos/enerjidepolamasistemleri.mp4',
+      details: 'Yüksek kapasiteli LiFePO₄ batarya sistemleri ile güvenilir enerji depolama çözümleri.'
+    },
+    {
+      icon: Car,
+      title: 'Golf Araçları',
+      description: 'Elektrikli golf araç sistemleri',
+      gradient: 'from-teal-500 to-green-500',
+      bgGradient: 'from-teal-900/90 via-green-800/90 to-teal-900/90',
+      video: '/landing-page-videos/golfcar.mp4',
+      details: 'Golf sahalarında kullanım için özel tasarlanmış elektrikli araç enerji sistemleri.'
+    },
+    {
+      icon: TruckIcon,
+      title: 'Forklift',
+      description: 'Endüstriyel araç sistemleri',
+      gradient: 'from-gray-500 to-slate-500',
+      bgGradient: 'from-gray-900/90 via-slate-800/90 to-gray-900/90',
+      video: '/landing-page-videos/forklift.mp4',
+      details: 'Endüstriyel forklift ve iş makineleri için güçlü ve dayanıklı enerji çözümleri.'
     }
   ];
 
@@ -164,19 +212,26 @@ const HeroSection = () => {
       duration: 0.4,
       ease: 'power2.out'
     })
-    // Restart videos when slide changes
+    // Restart videos when slide changes - with proper timing
     .call(() => {
       const backgroundVideo = backgroundVideoRef.current;
       const cardVideo = cardVideoRef.current;
       
-      if (backgroundVideo) {
-        backgroundVideo.currentTime = 0;
-        backgroundVideo.play().catch(e => console.log('Video play failed:', e));
-      }
-      if (cardVideo) {
-        cardVideo.currentTime = 0;
-        cardVideo.play().catch(e => console.log('Video play failed:', e));
-      }
+      // Small delay to ensure new video source is loaded
+      setTimeout(() => {
+        if (backgroundVideo) {
+          backgroundVideo.pause();
+          backgroundVideo.currentTime = 0;
+          backgroundVideo.load(); // Reload the video with new source
+          backgroundVideo.play().catch(e => console.log('Video play failed:', e));
+        }
+        if (cardVideo) {
+          cardVideo.pause();
+          cardVideo.currentTime = 0;
+          cardVideo.load(); // Reload the video with new source
+          cardVideo.play().catch(e => console.log('Video play failed:', e));
+        }
+      }, 50);
     });
   };
 
@@ -220,7 +275,6 @@ const HeroSection = () => {
           ref={backgroundVideoRef}
           src={currentCategory.video}
           className="absolute inset-0 w-full h-full object-cover transition-all duration-1000"
-          autoPlay
           muted
           playsInline
           preload="metadata"
@@ -318,7 +372,6 @@ const HeroSection = () => {
                   ref={cardVideoRef}
                   src={currentCategory.video}
                   className="absolute inset-0 w-full h-full object-cover"
-                  autoPlay
                   muted
                   playsInline
                   preload="metadata"

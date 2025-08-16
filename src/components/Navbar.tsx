@@ -47,6 +47,7 @@ const Navbar = () => {
 
   const navItems = [
     { label: 'Ana Sayfa', href: '/', type: 'navigate' },
+    { label: 'Hakkımızda', href: '/hakkimizda', type: 'navigate' },
     { label: 'Hizmetlerimiz', href: '/hizmetlerimiz', type: 'navigate' },
     { label: 'Kurumsal', href: 'about', type: 'scroll' },
     { label: 'Projeler', href: 'projects', type: 'scroll' },

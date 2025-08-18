@@ -244,7 +244,7 @@ const SolarSection = () => {
 
         {/* CTA Section */}
         <div className="text-center">
-          <Link href="/gunes-paneli" className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl inline-flex items-center space-x-2">
+          <Link href="/gunespaneli" className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl inline-flex items-center space-x-2">
             <span>Daha Fazla Bilgi</span>
             <ArrowRight className="w-5 h-5" />
           </Link>

@@ -49,8 +49,8 @@ const Navbar = () => {
     { label: 'Ana Sayfa', href: '/', type: 'navigate' },
     { label: 'Hakkımızda', href: '/hakkimizda', type: 'navigate' },
     { label: 'Hizmetlerimiz', href: '/hizmetlerimiz', type: 'navigate' },
-    { label: 'Kurumsal', href: 'about', type: 'scroll' },
-    { label: 'Projeler', href: 'projects', type: 'scroll' },
+    { label: 'LiFePO4', href: '/lifepo4', type: 'navigate' },
+    { label: 'Güneş Paneli', href: '/gunes-paneli', type: 'navigate' },
     { label: 'İletişim', href: 'contact', type: 'scroll' }
   ];
 
@@ -61,7 +61,7 @@ const Navbar = () => {
         : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
           <Link 
             href="/"
@@ -83,7 +83,7 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item, index) => {
-              const baseClasses = `relative text-sm font-medium transition-all duration-300 hover:scale-105 ${
+              const baseClasses = `relative text-base font-medium transition-all duration-300 hover:scale-105 ${
                 isScrolled 
                   ? 'text-gray-700 hover:text-blue-600' 
                   : 'text-white/90 hover:text-white'
@@ -115,13 +115,7 @@ const Navbar = () => {
               );
             })}
             
-            {/* CTA Button */}
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg shadow-blue-500/25"
-            >
-              Teklif Al
-            </button>
+
           </div>
 
           {/* Mobile Menu Button */}
@@ -170,14 +164,7 @@ const Navbar = () => {
                 </button>
               );
             })}
-            <div className="px-6 py-3">
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg shadow-blue-500/25"
-              >
-                Teklif Al
-              </button>
-            </div>
+
           </div>
         </div>
       </div>

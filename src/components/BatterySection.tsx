@@ -3,6 +3,7 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
+  ArrowRight,
   Battery,
   Car,
   Clock,
@@ -15,6 +16,7 @@ import {
   Truck,
   Zap
 } from 'lucide-react';
+import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 
 // GSAP ScrollTrigger plugin'ini kaydet
@@ -175,114 +177,68 @@ const BatterySection = () => {
   ];
 
   return (
-    <section id="battery" className="py-20 bg-gradient-to-br from-slate-300 via-blue-900 to-indigo-900 text-white" ref={sectionRef}>
+    <section id="battery" className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <div ref={titleRef} className="text-center mb-16">
-          <div className="flex items-center justify-center mb-6">
-            <Battery className="w-12 h-12 text-blue-400 mr-4" />
-            <h2 className="text-4xl lg:text-5xl font-bold">
-              <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                LiFePO₄ Batarya
-              </span>
-            </h2>
-          </div>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-            Lityum Demir Fosfat batarya teknolojisi ile güvenlik, uzun ömür, yüksek performans ve 
-            çevre dostu özellikler arayan kullanıcılar için ideal enerji depolama çözümü.
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+              LiFePO₄ Batarya Nedir?
+            </span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Lityum Demir Fosfat batarya teknolojisi ile güvenlik, uzun ömür ve yüksek performans 
+            sunan ideal enerji depolama çözümü.
           </p>
         </div>
 
-        {/* Stats Section */}
-        <div ref={statsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
-                <div className="text-3xl lg:text-4xl font-bold text-white mb-2">
-                  <span className="stat-number" data-value={stat.number}>0</span>
-                  <span>{stat.suffix}</span>
-                </div>
-                <div className="text-blue-300 font-semibold mb-1">{stat.label}</div>
-                <div className="text-blue-200 text-sm">{stat.description}</div>
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* Main Content - Clean and Simple */}
+        <div className="max-w-4xl mx-auto">
+          {/* Quick Intro */}
+          <div className="text-center mb-12">
+            <p className="text-xl text-gray-600 leading-relaxed">
+              <span className="text-gray-900 font-semibold">LiFePO₄ (Lityum Demir Fosfat)</span> batarya, 
+              güvenlik ve uzun ömür arayan kullanıcılar için ideal enerji depolama çözümüdür.
+            </p>
+          </div>
 
-        {/* Advantages Section */}
-        <div className="mb-20">
-          <h3 className="text-3xl font-bold text-center mb-12 text-white">
-            LiFePO₄ Batarya Avantajları
-          </h3>
-          <div ref={advantagesRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {advantages.map((advantage, index) => {
+          {/* Why LiFePO4 - Card Design */}
+          <div ref={advantagesRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {advantages.slice(0, 3).map((advantage, index) => {
               const IconComponent = advantage.icon;
               return (
                 <div
                   key={index}
-                  className="group relative bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:scale-105 transition-all duration-500"
+                  className="relative bg-white border border-gray-200 rounded-2xl p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-500"
                 >
-                  {/* Background number */}
-                  <div className="absolute top-4 right-4 text-6xl font-bold text-white/10">
-                    {advantage.number}
+                  {/* Number */}
+                  <div className="absolute top-4 right-4 w-8 h-8 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                    {index + 1}
                   </div>
                   
-                  <div className="relative z-10">
-                    {/* Icon */}
-                    <div className={`w-16 h-16 mb-6 rounded-2xl bg-gradient-to-br ${advantage.color} p-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                      <IconComponent className="w-full h-full text-white" />
-                    </div>
-                    
-                    {/* Content */}
-                    <h4 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-300 transition-colors duration-300">
-                      {advantage.title}
-                    </h4>
-                    <p className="text-blue-100 leading-relaxed">
-                      {advantage.description}
-                    </p>
+                  {/* Icon */}
+                  <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${advantage.color} p-4 shadow-lg`}>
+                    <IconComponent className="w-full h-full text-white" />
                   </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Usage Areas Section */}
-        <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 lg:p-12 border border-white/20">
-          <h3 className="text-3xl font-bold text-center mb-12 text-white">
-            Kullanım Alanları
-          </h3>
-          <div ref={usageAreasRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {usageAreas.map((area, index) => {
-              const IconComponent = area.icon;
-              return (
-                <div
-                  key={index}
-                  className="group bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:bg-white/20 hover:scale-105 transition-all duration-300"
-                >
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-400 to-cyan-400 p-3 group-hover:scale-110 transition-transform duration-300">
-                      <IconComponent className="w-full h-full text-white" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-bold text-white mb-2 group-hover:text-blue-300 transition-colors duration-300">
-                        {area.title}
-                      </h4>
-                      <p className="text-blue-200 text-sm">
-                        {area.description}
-                      </p>
-                    </div>
-                  </div>
+                  
+                  {/* Content */}
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">
+                    {advantage.title}
+                  </h4>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {advantage.description.substring(0, 120)}...
+                  </p>
                 </div>
               );
             })}
           </div>
 
           {/* CTA */}
-          <div className="text-center mt-12">
-            <button className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-blue-500/25">
-              LiFePO₄ Batarya Çözümlerimizi İnceleyin
-            </button>
+          <div className="text-center">
+            <Link href="/lifepo4" className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl inline-flex items-center space-x-2">
+              <span>LiFePO₄ Çözümlerimizi İnceleyin</span>
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </div>

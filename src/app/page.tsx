@@ -1,10 +1,11 @@
 import BatterySection from '@/components/BatterySection';
-import CatalogSection from '@/components/CatalogSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import HeroSection from '@/components/HeroSection';
 import Navbar from '@/components/Navbar';
-import ProjectsSection from '@/components/ProjectsSection';
+import AboutSection from '@/components/AboutSection';
+import ServicesSection from '@/components/ServicesSectionHomepage';
+import SolarSection from '@/components/SolarSection';
 
 export default function Home() {
   return (
@@ -16,15 +17,18 @@ export default function Home() {
       <main>
         {/* Hero Section */}
         <HeroSection />
-                
+        
+        {/* About Section */}
+        <AboutSection />
+        
+        {/* Services Section */}
+        <ServicesSection />
+        
         {/* Battery Technology Section */}
         <BatterySection />
         
-        {/* Projects Section */}
-        <ProjectsSection />
-        
-        {/* Catalog Section */}
-        <CatalogSection />
+        {/* Solar Panel Section */}
+        <SolarSection />
         
         {/* Contact Section */}
         <ContactSection />

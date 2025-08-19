@@ -11,7 +11,7 @@ export default function GunesPaneliPage() {
     <div className="relative   min-h-screen">
       <Navbar />
       
-      <main className="pt-20">
+      <main className="">
         {/* Photo Swiper Section with Integrated Info */}
         <SolarPhotoSwiper />
 

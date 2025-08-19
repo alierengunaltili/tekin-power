@@ -58,7 +58,7 @@ const Navbar = () => {
     <nav className={`navbar fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ${
       isScrolled 
         ? 'bg-white/95 backdrop-blur-lg shadow-lg border-b border-blue-100' 
-        : 'bg-black/20 backdrop-blur-sm border-b border-white/20'
+        : ' '
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 lg:h-24">

@@ -3,6 +3,8 @@
 import Navbar from '@/components/Navbar';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Image from 'next/image';
+import Link from 'next/link';
 import {
   Award,
   Battery,
@@ -134,11 +136,13 @@ const HakkimizdaPage = () => {
               }`}
             >
               {/* Background Image */}
-              <img
+              <Image
                 src={photo.src}
                 alt={photo.title}
-                className="absolute inset-0 w-full h-full object-cover"
-                loading={index === 0 ? 'eager' : 'lazy'}
+                className="object-cover"
+                fill
+                priority={index === 0}
+                sizes="100vw"
               />
               
               {/* Overlay */}
@@ -189,7 +193,7 @@ const HakkimizdaPage = () => {
 
           {/* Services Button */}
           <div className="absolute bottom-6 right-6 z-30">
-            <a
+            <Link
               href="/hizmetlerimiz"
               className="group bg-gradient-to-r from-blue-500/90 to-cyan-500/90 backdrop-blur-lg border border-white/20 text-white px-6 py-3 rounded-full font-semibold text-sm md:text-base transition-all duration-300 hover:from-blue-600/90 hover:to-cyan-600/90 hover:scale-105 hover:shadow-xl shadow-blue-500/25 flex items-center space-x-2"
             >
@@ -202,7 +206,7 @@ const HakkimizdaPage = () => {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

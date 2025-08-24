@@ -5,9 +5,11 @@ import {
   ChevronLeft,
   ChevronRight,
   Pause,
-  Play
+  Play,
+  ExternalLink
 } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
 const PhotoSwiper = () => {
@@ -25,93 +27,113 @@ const PhotoSwiper = () => {
   const slides = [
     {
       id: 1,
-      image: '/landing-page-photos/yat-related/y2.jpg',
-      title: 'Denizcilik LiFePO4 Çözümleri',
-      description: '6000-10000 şarj döngüsüne sahip yüksek enerji yoğunluklu LiFePO4 bataryalar, deniz araçları için üstün güvenlik ve çevresel performans sağlar',
-      category: 'Denizcilik',
+      image: '/hizmetlerimiz/telekomunikasyonbazistasyonu.jpg',
+      title: 'Telekomünikasyon Baz İstasyonu',
+      description: 'Güvenilir iletişim altyapısı için telekomünikasyon baz istasyonlarına yönelik enerji çözümleri',
+      category: 'Telekomünikasyon',
       gradient: 'from-blue-600 via-cyan-500 to-blue-400',
-      bgColor: 'bg-gradient-to-br from-blue-900/20 via-cyan-800/20 to-blue-600/20'
+      bgColor: 'bg-gradient-to-br from-blue-900/20 via-cyan-800/20 to-blue-600/20',
+      slug: 'telekomunikasyon-baz-istasyonu'
     },
     {
       id: 2,
-      image: '/landing-page-photos/yat-related/y3.jpg',
-      title: 'Denizcilik Güç Sistemleri',
-      description: 'Modern denizcilik uygulamaları için yüksek güç kapasitesi ve operasyonel süreklilik sunan hızlı şarj LiFePO4 teknolojisi',
-      category: 'Denizcilik',
-      gradient: 'from-teal-600 via-blue-500 to-cyan-400',
-      bgColor: 'bg-gradient-to-br from-teal-900/20 via-blue-800/20 to-cyan-600/20'
+      image: '/hizmetlerimiz/askerisistemuygulamalari.jpg',
+      title: 'Askeri Sistem Uygulamaları',
+      description: 'Savunma sanayii için özel tasarlanmış güvenilir ve dayanıklı enerji sistemleri',
+      category: 'Savunma',
+      gradient: 'from-green-600 via-emerald-500 to-teal-400',
+      bgColor: 'bg-gradient-to-br from-green-900/20 via-emerald-800/20 to-teal-600/20',
+      slug: 'askeri-sistem-uygulamalari'
     },
     {
       id: 3,
-      image: '/landing-page-photos/yat-related/yat1.jpg',
-      title: 'Sürdürülebilir Deniz Enerjisi',
-      description: 'Tekin Power\'ın enerji verimliliği, sürdürülebilirlik ve performans odaklı LiFePO4 çözümleri ile marin sektör dönüşümü',
-      category: 'Denizcilik',
-      gradient: 'from-indigo-600 via-blue-500 to-teal-400',
-      bgColor: 'bg-gradient-to-br from-indigo-900/20 via-blue-800/20 to-teal-600/20'
+      image: '/hizmetlerimiz/gescatiprojeleri.jpg',
+      title: 'GES Çatı Projeleri',
+      description: 'Güneş enerjisi santrallerinde çatı üstü kurulumlar için profesyonel çözümler',
+      category: 'Güneş Enerjisi',
+      gradient: 'from-yellow-600 via-orange-500 to-red-400',
+      bgColor: 'bg-gradient-to-br from-yellow-900/20 via-orange-800/20 to-red-600/20',
+      slug: 'ges-cati-projeleri'
     },
     {
       id: 4,
-      image: '/landing-page-photos/car-related/por4.jpg',
-      title: 'Güneş Enerjili Otopark Sistemleri',
-      description: 'Otopark yapılarına yenilikçi güneş paneli kurulumları, araç koruması sağlarken yenilenebilir enerji üretimi',
-      category: 'Otomotiv',
-      gradient: 'from-green-600 via-emerald-500 to-teal-400',
-      bgColor: 'bg-gradient-to-br from-green-900/20 via-emerald-800/20 to-teal-600/20'
+      image: '/hizmetlerimiz/homesolarsystem.jpg',
+      title: 'Home Solar System',
+      description: 'Evler için özel tasarlanmış güneş paneli sistemleri ve enerji depolama çözümleri',
+      category: 'Konut',
+      gradient: 'from-amber-600 via-yellow-500 to-lime-400',
+      bgColor: 'bg-gradient-to-br from-amber-900/20 via-yellow-800/20 to-lime-600/20',
+      slug: 'home-solar-system'
     },
     {
       id: 5,
-      image: '/landing-page-photos/drone/UNSON_14.jpg',
-      title: 'Gelişmiş Drone Teknolojisi',
-      description: 'Tekin Power\'ın hızla gelişen drone teknolojisinin ihtiyaçlarını özelleştirilmiş LiFePO4 sistemleri ile karşılayan yenilikçi enerji çözümleri',
+      image: '/hizmetlerimiz/drone.jpg',
+      title: 'Drone',
+      description: 'İnsansız hava araçları için hafif ve yüksek performanslı enerji çözümleri',
       category: 'Havacılık',
-      gradient: 'from-orange-600 via-red-500 to-pink-400',
-      bgColor: 'bg-gradient-to-br from-orange-900/20 via-red-800/20 to-pink-600/20'
+      gradient: 'from-purple-600 via-pink-500 to-red-400',
+      bgColor: 'bg-gradient-to-br from-purple-900/20 via-pink-800/20 to-red-600/20',
+      slug: 'drone'
     },
     {
       id: 6,
-      image: '/landing-page-photos/drone/drone-2.jpg',
-      title: 'İHA Enerji Çözümleri',
-      description: 'İnsansız hava araçları uygulamaları için özel olarak tasarlanmış hafif, yüksek performanslı LiFePO4 batarya teknolojisi',
-      category: 'Havacılık',
-      gradient: 'from-purple-600 via-pink-500 to-red-400',
-      bgColor: 'bg-gradient-to-br from-purple-900/20 via-pink-800/20 to-red-600/20'
+      image: '/hizmetlerimiz/solarpole.jpg',
+      title: 'Solar Pole',
+      description: 'Sokak aydınlatması için güneş enerjili direk sistemleri ve akıllı aydınlatma çözümleri',
+      category: 'Aydınlatma',
+      gradient: 'from-indigo-600 via-blue-500 to-teal-400',
+      bgColor: 'bg-gradient-to-br from-indigo-900/20 via-blue-800/20 to-teal-600/20',
+      slug: 'solar-pole'
     },
     {
       id: 7,
-      image: '/landing-page-photos/golf-car/golf-2.jpg',
-      title: 'Elektrikli Araç Sistemleri',
-      description: 'Azaltılmış titreşim ve gürültülü LiFePO4 çözümleri, elektrikli ulaşımı daha cazip hale getiren konforlu ortamlar yaratır',
-      category: 'Rekreasyon',
-      gradient: 'from-lime-600 via-green-500 to-emerald-400',
-      bgColor: 'bg-gradient-to-br from-lime-900/20 via-green-800/20 to-emerald-600/20'
+      image: '/hizmetlerimiz/ebus.jpg',
+      title: 'E Bus',
+      description: 'Elektrikli otobüsler için yüksek kapasiteli batarya sistemleri ve şarj altyapısı',
+      category: 'Ulaşım',
+      gradient: 'from-teal-600 via-blue-500 to-cyan-400',
+      bgColor: 'bg-gradient-to-br from-teal-900/20 via-blue-800/20 to-cyan-600/20',
+      slug: 'e-bus'
     },
     {
       id: 8,
-      image: '/landing-page-photos/forklift/Fk1.jpg',
-      title: 'Savunma ve Endüstri',
-      description: 'Tekin Power\'ın savunma sanayii enerji ihtiyaçları için özelleştirilmiş LiFePO4 çözümleri, zorlu uygulamalarda güçlü performans sunar',
-      category: 'Endüstriyel',
-      gradient: 'from-yellow-600 via-orange-500 to-red-400',
-      bgColor: 'bg-gradient-to-br from-yellow-900/20 via-orange-800/20 to-red-600/20'
+      image: '/hizmetlerimiz/carport.jpg',
+      title: 'Car Port',
+      description: 'Araç park alanları için güneş paneli entegreli çatı sistemleri ve EV şarj istasyonları',
+      category: 'Otomotiv',
+      gradient: 'from-green-600 via-emerald-500 to-teal-400',
+      bgColor: 'bg-gradient-to-br from-green-900/20 via-emerald-800/20 to-teal-600/20',
+      slug: 'car-port'
     },
     {
       id: 9,
-      image: '/landing-page-photos/home-related/home-solar-panel.jpg',
-      title: 'Konut Güneş Depolaması',
-      description: 'Evler için güvenlik, yüksek performans ve çevresel bilinç birleştiren uzun ömürlü LiFePO4 enerji depolama sistemleri',
-      category: 'Konut',
-      gradient: 'from-amber-600 via-yellow-500 to-lime-400',
-      bgColor: 'bg-gradient-to-br from-amber-900/20 via-yellow-800/20 to-lime-600/20'
+      image: '/hizmetlerimiz/golfcar.jpg',
+      title: 'Golf Car',
+      description: 'Golf araçları için sessiz ve çevre dostu elektrikli güç sistemleri',
+      category: 'Rekreasyon',
+      gradient: 'from-lime-600 via-green-500 to-emerald-400',
+      bgColor: 'bg-gradient-to-br from-lime-900/20 via-green-800/20 to-emerald-600/20',
+      slug: 'golf-car'
     },
     {
       id: 10,
-      image: '/landing-page-photos/home-related/home-solar-panel-2.jpg',
-      title: 'Akıllı Enerji Yönetimi',
-      description: 'Sürdürülebilir yaşam için çevre dostu LiFePO4 teknolojisi içeren akıllı yenilenebilir enerji sistemleri',
-      category: 'Konut',
-      gradient: 'from-emerald-600 via-teal-500 to-cyan-400',
-      bgColor: 'bg-gradient-to-br from-emerald-900/20 via-teal-800/20 to-cyan-600/20'
+      image: '/hizmetlerimiz/marin.jpg',
+      title: 'Marin',
+      description: 'Denizcilik uygulamaları için dayanıklı ve güvenilir LiFePO4 batarya sistemleri',
+      category: 'Denizcilik',
+      gradient: 'from-blue-600 via-cyan-500 to-blue-400',
+      bgColor: 'bg-gradient-to-br from-blue-900/20 via-cyan-800/20 to-blue-600/20',
+      slug: 'marin'
+    },
+    {
+      id: 11,
+      image: '/hizmetlerimiz/forklift.jpg',
+      title: 'Forklift',
+      description: 'Endüstriyel forkliftler için güçlü ve uzun ömürlü elektrikli güç sistemleri',
+      category: 'Endüstriyel',
+      gradient: 'from-orange-600 via-red-500 to-pink-400',
+      bgColor: 'bg-gradient-to-br from-orange-900/20 via-red-800/20 to-pink-600/20',
+      slug: 'forklift'
     }
   ];
 
@@ -242,7 +264,7 @@ const PhotoSwiper = () => {
         clearInterval(intervalRef.current);
       }
     };
-  }, [isPlaying, currentSlide]);
+  }, [isPlaying, currentSlide, nextSlide]);
 
   // Initial animation
   useEffect(() => {
@@ -362,9 +384,18 @@ const PhotoSwiper = () => {
                       <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4 drop-shadow-lg">
                         {slide.title}
                       </h3>
-                      <p className="text-lg text-white/90 leading-relaxed drop-shadow-md">
+                      <p className="text-lg text-white/90 leading-relaxed drop-shadow-md mb-6">
                         {slide.description}
                       </p>
+                      
+                      {/* Detail Button */}
+                      <Link 
+                        href={`/hizmetlerimiz/${slide.slug}`}
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full text-white font-semibold hover:bg-white/30 hover:scale-105 transition-all duration-300 shadow-lg group"
+                      >
+                        <span>Detay İçin</span>
+                        <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                      </Link>
                     </div>
                   </div>
                 </div>

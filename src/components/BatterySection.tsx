@@ -4,7 +4,6 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   ArrowRight,
-  Battery,
   Car,
   Clock,
   Home,
@@ -136,7 +135,8 @@ const BatterySection = () => {
     }
   ];
 
-  const usageAreas = [
+  // Kullanım alanları tanımı
+  const applicationAreas = [
     {
       icon: Home,
       title: 'Ev Enerji Sistemleri',
@@ -169,7 +169,8 @@ const BatterySection = () => {
     }
   ];
 
-  const stats = [
+  // İstatistik verileri
+  const batteryStats = [
     { number: 10000, suffix: '+', label: 'Şarj Döngüsü', description: 'Uzun ömürlü kullanım' },
     { number: 95, suffix: '%', label: 'Enerji Verimliliği', description: 'Düşük enerji kaybı' },
     { number: 25, suffix: '+', label: 'Yıl Ömür', description: 'Güvenilir performans' },

@@ -82,7 +82,7 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item, index) => {
+            {navItems.map((item) => {
               const baseClasses = `relative text-base font-medium transition-all duration-300 hover:scale-105 ${
                 isScrolled 
                   ? 'text-gray-700 hover:text-blue-600' 
@@ -138,7 +138,7 @@ const Navbar = () => {
           isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}>
           <div className="py-4 space-y-3 bg-white/95 backdrop-blur-lg rounded-lg mt-4 shadow-lg border border-blue-100">
-            {navItems.map((item, index) => {
+            {navItems.map((item) => {
               const baseClasses = "block w-full text-left px-6 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200 font-medium";
               
               if (item.type === 'navigate') {

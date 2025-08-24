@@ -8,7 +8,6 @@ import {
   FileText, 
   BookOpen, 
   Zap,
-  ArrowRight,
   Eye,
   Star,
   Calendar

@@ -394,8 +394,7 @@ const HeroSection = () => {
                 <button
                   key={index}
                   onClick={() => {
-                    const direction = index > currentSlide ? 'next' : 'prev';
-                    changeSlide(index, direction);
+                    changeSlide(index, index > currentSlide ? 'next' : 'prev');
                   }}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     index === currentSlide 

@@ -203,7 +203,7 @@ const Footer = () => {
             </div>
             
             <div className="flex items-center space-x-1 text-blue-200 text-sm">
-              <span>Türkiye'de</span>
+              <span>Türkiye&apos;de</span>
               <Heart className="w-4 h-4 text-red-400 mx-1" />
               <span>ile tasarlandı</span>
             </div>

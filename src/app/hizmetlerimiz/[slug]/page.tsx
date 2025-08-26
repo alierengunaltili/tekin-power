@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ContactSection from '@/components/ContactSection';
+import AnimatedServicePage from '@/components/AnimatedServicePage';
 
 // Hizmet verilerini tanımlayalım
 const services = {
@@ -385,85 +386,87 @@ interface PageProps {
   }
 
   return (
-    <div className="min-h-screen">
+    <>
       {/* Navigation */}
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative h-[70vh] overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src={service.image}
-            alt={service.title}
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/50"></div>
-          <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-20`}></div>
-        </div>
-        
-        <div className="relative z-10 h-full flex items-center justify-center">
-          <div className="text-center text-white max-w-4xl mx-auto px-4">
-            <span className={`inline-block px-4 py-2 bg-gradient-to-r ${service.gradient} text-white text-sm font-semibold rounded-full mb-6 shadow-lg`}>
-              {service.category}
-            </span>
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6 drop-shadow-lg">
-              {service.title}
-            </h1>
-            <p className="text-xl lg:text-2xl text-white/90 drop-shadow-md">
-              Tekin Power ile yenilenebilir enerji çözümlerinde öncü olmaya devam ediyoruz
-            </p>
+      <AnimatedServicePage service={service}>
+        {/* Hero Section */}
+        <section className="hero-section relative h-[70vh] overflow-hidden">
+          <div className="absolute inset-0">
+            <Image
+              src={service.image}
+              alt={service.title}
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/50"></div>
+            <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-20`}></div>
           </div>
-        </div>
-      </section>
-
-      {/* Content Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-16">
-            {service.content.map((item, index) => (
-              <div key={index} className="bg-gray-50 rounded-2xl p-8 lg:p-12">
-                <div className="mb-6">
-                  <div className={`w-16 h-1 bg-gradient-to-r ${service.gradient} rounded-full mb-4`}></div>
-                  <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                    {item.title}
-                  </h2>
-                </div>
-                                 <p 
-                   className="text-lg text-gray-600 leading-relaxed whitespace-pre-line"
-                   dangerouslySetInnerHTML={{ __html: item.description }}
-                 />
-              </div>
-            ))}
-          </div>
-
-          {/* CTA Section */}
-          <div className="mt-16 text-center">
-            <div className={`bg-gradient-to-r ${service.gradient} rounded-2xl p-8 lg:p-12`}>
-              <h3 className="text-3xl font-bold text-white mb-4">
-                Projelerinizde Bizimle Çalışın
-              </h3>
-              <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-                {service.title} çözümlerimiz hakkında detaylı bilgi almak ve proje teklifiniz için bizimle iletişime geçin.
+          
+          <div className="relative z-10 h-full flex items-center justify-center">
+            <div className="text-center text-white max-w-4xl mx-auto px-4">
+              <span className={`inline-block px-4 py-2 bg-gradient-to-r ${service.gradient} text-white text-sm font-semibold rounded-full mb-6 shadow-lg`}>
+                {service.category}
+              </span>
+              <h1 className="text-5xl lg:text-6xl font-bold mb-6 drop-shadow-lg">
+                {service.title}
+              </h1>
+              <p className="text-xl lg:text-2xl text-white/90 drop-shadow-md">
+                Tekin Power ile yenilenebilir enerji çözümlerinde öncü olmaya devam ediyoruz
               </p>
-              <a 
-                href="#contact"
-                className="inline-flex items-center px-8 py-4 bg-white text-gray-900 font-semibold rounded-full hover:bg-gray-100 transition-colors duration-300"
-              >
-                İletişime Geçin
-              </a>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Contact Section */}
-      <ContactSection />
+        {/* Content Section */}
+        <section className="content-section py-20 bg-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="space-y-16">
+              {service.content.map((item, index) => (
+                <div key={index} className="content-item bg-gray-50 rounded-2xl p-8 lg:p-12">
+                  <div className="mb-6">
+                    <div className={`w-16 h-1 bg-gradient-to-r ${service.gradient} rounded-full mb-4`}></div>
+                    <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                      {item.title}
+                    </h2>
+                  </div>
+                                   <p 
+                     className="text-lg text-gray-600 leading-relaxed whitespace-pre-line"
+                     dangerouslySetInnerHTML={{ __html: item.description }}
+                   />
+                </div>
+              ))}
+            </div>
 
-      {/* Footer */}
-      <Footer />
-    </div>
+            {/* CTA Section */}
+            <div className="mt-16 text-center">
+              <div className={`bg-gradient-to-r ${service.gradient} rounded-2xl p-8 lg:p-12`}>
+                <h3 className="text-3xl font-bold text-white mb-4">
+                  Projelerinizde Bizimle Çalışın
+                </h3>
+                <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                  {service.title} çözümlerimiz hakkında detaylı bilgi almak ve proje teklifiniz için bizimle iletişime geçin.
+                </p>
+                <a 
+                  href="#contact"
+                  className="inline-flex items-center px-8 py-4 bg-white text-gray-900 font-semibold rounded-full hover:bg-gray-100 transition-colors duration-300"
+                >
+                  İletişime Geçin
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <ContactSection />
+
+        {/* Footer */}
+        <Footer />
+      </AnimatedServicePage>
+    </>
   );
 }
 

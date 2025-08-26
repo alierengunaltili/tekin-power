@@ -19,8 +19,7 @@ export default function HizmetlerimizPage() {
         {/* Services Grid */}
         <ServicesGrid />
         
-        {/* Services Section */}
-        <ServicesSection />
+
                 
         {/* Contact Section */}
         <ContactSection />

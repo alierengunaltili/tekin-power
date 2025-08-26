@@ -262,7 +262,7 @@ const LiFePO4NewHero = () => {
           <div ref={rightRef} className="flex items-center justify-center">
             <div className="w-full">
               <h2 className="text-3xl font-bold mb-6 text-center text-white">
-                <span className="bg-gradient-to-r from-blue-100 to-blue-300 bg-clip-text text-transparent">Kullanım Alanları</span>
+                <span className="bg-gradient-to-r text-white bg-clip-text font-extrabold ">Kullanım Alanları</span>
               </h2>
 
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-white/20">

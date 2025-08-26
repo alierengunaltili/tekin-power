@@ -27,6 +27,17 @@ const HeroSection = () => {
   const cardVideoRef = useRef<HTMLVideoElement>(null);
   
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [particles, setParticles] = useState<Array<{left: number, top: number, delay: number}>>([]);
+
+  // Generate particles only on client side to avoid hydration mismatch
+  useEffect(() => {
+    const generatedParticles = Array.from({ length: 8 }, () => ({
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      delay: Math.random() * 3
+    }));
+    setParticles(generatedParticles);
+  }, []);
 
   useEffect(() => {
     const tl = gsap.timeline({ delay: 0.5 });
@@ -287,14 +298,14 @@ const HeroSection = () => {
         <div className={`absolute inset-0 bg-gradient-to-br ${currentCategory.bgGradient} opacity-40 transition-all duration-1000`}></div>
         
         {/* Animated particles */}
-        {[...Array(8)].map((_, i) => (
+        {particles.map((particle, i) => (
           <div
             key={i}
             className="particle absolute w-1 h-1 bg-white/10 rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`
+              left: `${particle.left}%`,
+              top: `${particle.top}%`,
+              animationDelay: `${particle.delay}s`
             }}
           />
         ))}

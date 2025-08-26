@@ -159,7 +159,23 @@ const SolarPhotoSwiper = () => {
   const scrollToDetails = () => {
     const detailsSection = document.getElementById(`solar-type-${currentSlide + 1}`);
     if (detailsSection) {
-      detailsSection.scrollIntoView({ behavior: 'smooth' });
+      // Calculate scroll position with offset for navbar
+      const elementTop = detailsSection.getBoundingClientRect().top;
+      const offsetPosition = elementTop + window.pageYOffset - 100; // 100px offset for navbar
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      
+      // Auto-expand the section after scrolling
+      setTimeout(() => {
+        // Dispatch a custom event to trigger expansion
+        const expandEvent = new CustomEvent('expandSection', { 
+          detail: { sectionId: currentSlide + 1 } 
+        });
+        window.dispatchEvent(expandEvent);
+      }, 800); // Reduced wait time for better UX
     }
   };
 

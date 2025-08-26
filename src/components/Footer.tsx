@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { 
   Zap, 
   Phone, 
@@ -31,19 +32,25 @@ const Footer = () => {
   const quickLinks = [
     { label: 'Ana Sayfa', href: 'hero' },
     { label: 'Hizmetlerimiz', href: 'services' },
-    { label: 'LiFePO₄ Batarya', href: 'battery' },
+    { label: 'LiFePO₄ Batarya', href: '/lifepo4' },
+    { label: 'Güneş Paneli', href: '/gunespaneli' },
     { label: 'Projelerimiz', href: 'projects' },
-    { label: 'Kataloglar', href: 'catalog' },
+    { label: 'Hakkımızda', href: '/hakkimizda' },
     { label: 'İletişim', href: 'contact' }
   ];
 
   const services = [
-    'LiFePO₄ Batarya Sistemleri',
-    'Güneş Enerjisi Çözümleri',
-    'Hibrit Enerji Sistemleri',
-    'Marin Enerji Sistemleri',
-    'Askeri Uygulamalar',
-    'Endüstriyel Çözümler'
+    { label: 'Telekomünikasyon Baz İstasyonu', href: '/hizmetlerimiz/telekomunikasyon-baz-istasyonu' },
+    { label: 'Askeri Sistem Uygulamaları', href: '/hizmetlerimiz/askeri-sistem-uygulamalari' },
+    { label: 'GES Çatı Projeleri', href: '/hizmetlerimiz/ges-cati-projeleri' },
+    { label: 'Home Solar System', href: '/hizmetlerimiz/home-solar-system' },
+    { label: 'Drone', href: '/hizmetlerimiz/drone' },
+    { label: 'Solar Pole', href: '/hizmetlerimiz/solar-pole' },
+    { label: 'E Bus', href: '/hizmetlerimiz/e-bus' },
+    { label: 'Car Port', href: '/hizmetlerimiz/car-port' },
+    { label: 'Golf Car', href: '/hizmetlerimiz/golf-car' },
+    { label: 'Marin', href: '/hizmetlerimiz/marin' },
+    { label: 'Forklift', href: '/hizmetlerimiz/forklift' }
   ];
 
   const socialLinks = [
@@ -63,9 +70,9 @@ const Footer = () => {
         <ArrowUp className="w-6 h-6" />
       </button>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-6">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-2 mb-6">
@@ -107,12 +114,21 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <button
-                    onClick={() => scrollToSection(link.href)}
-                    className="text-blue-200 hover:text-white transition-colors duration-300 hover:translate-x-1 transform inline-block"
-                  >
-                    {link.label}
-                  </button>
+                  {link.href.startsWith('/') ? (
+                    <Link
+                      href={link.href}
+                      className="text-blue-200 hover:text-white transition-colors duration-300 hover:translate-x-1 transform inline-block"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={() => scrollToSection(link.href)}
+                      className="text-blue-200 hover:text-white transition-colors duration-300 hover:translate-x-1 transform inline-block"
+                    >
+                      {link.label}
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
@@ -121,12 +137,15 @@ const Footer = () => {
           {/* Services */}
           <div>
             <h3 className="text-xl font-bold text-white mb-6">Hizmetlerimiz</h3>
-            <ul className="space-y-3">
-              {services.map((service, index) => (
+            <ul className="space-y-2">
+              {services.slice(0, 6).map((service, index) => (
                 <li key={index}>
-                  <span className="text-blue-200 hover:text-white transition-colors duration-300 cursor-pointer text-sm">
-                    {service}
-                  </span>
+                  <Link
+                    href={service.href}
+                    className="text-blue-200 hover:text-white transition-colors duration-300 text-sm block hover:translate-x-1 transform"
+                  >
+                    {service.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -174,21 +193,21 @@ const Footer = () => {
         </div>
 
         {/* Newsletter */}
-        <div className="bg-gradient-to-r from-blue-600/20 to-cyan-600/20 backdrop-blur-lg border border-white/20 rounded-2xl p-8 mb-12">
+        <div className="bg-gradient-to-r from-blue-600/20 to-cyan-600/20 backdrop-blur-lg border border-white/20 rounded-xl p-6 mb-8">
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-white mb-4">
+            <h3 className="text-xl font-bold text-white mb-3">
               Enerji Dünyasından Haberdar Olun
             </h3>
-            <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+            <p className="text-blue-100 mb-4 text-sm max-w-xl mx-auto">
               Yeni teknolojiler, sektörel gelişmeler ve özel fırsatlardan ilk siz haberdar olun.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <input
                 type="email"
                 placeholder="E-posta adresiniz"
-                className="flex-1 px-6 py-3 rounded-xl bg-white/20 backdrop-blur-lg border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="flex-1 px-4 py-2 rounded-lg bg-white/20 backdrop-blur-lg border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm"
               />
-              <button className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 hover:scale-105">
+              <button className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-4 py-2 rounded-lg font-semibold hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 hover:scale-105 text-sm">
                 Abone Ol
               </button>
             </div>
@@ -196,8 +215,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/20 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <div className="border-t border-white/20 pt-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
             <div className="text-blue-200 text-sm">
               © {currentYear} Tekin Power. Tüm hakları saklıdır.
             </div>
@@ -206,18 +225,6 @@ const Footer = () => {
               <span>Türkiye&apos;de</span>
               <Heart className="w-4 h-4 text-red-400 mx-1" />
               <span>ile tasarlandı</span>
-            </div>
-            
-            <div className="flex items-center space-x-6 text-sm">
-              <a href="#" className="text-blue-200 hover:text-white transition-colors duration-300">
-                Gizlilik Politikası
-              </a>
-              <a href="#" className="text-blue-200 hover:text-white transition-colors duration-300">
-                Kullanım Şartları
-              </a>
-              <a href="#" className="text-blue-200 hover:text-white transition-colors duration-300">
-                KVKK
-              </a>
             </div>
           </div>
         </div>

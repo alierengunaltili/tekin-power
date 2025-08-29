@@ -1,3 +1,4 @@
+import { marin_photo_mapping } from '@/app/utils/photo-mappings/hizmetlerimiz/marin';
 import AnimatedServicePage from '@/components/AnimatedServicePage';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
@@ -30,39 +31,39 @@ interface Service {
 
 // Hizmet verilerini tanımlayalım
 const services: Record<string, Service> = {
-    'marin': {
+  'marin': {
     title: 'Marin',
     category: 'Denizcilik',
-    video: '/hizmetlerimiz-eozdemir/marin/A VİDEOSU.mp4',
+    video: marin_photo_mapping['video1'],
     gradient: 'from-blue-600 via-cyan-500 to-blue-400',
     photos: [
       {
         id: 'B',
-        image: '/hizmetlerimiz-eozdemir/marin/B FOTOĞRAFI .jpg',
+        image: marin_photo_mapping['photo1'],
         title: 'Marin Batarya Sistemleri',
         description: 'Deniz araçları için özel olarak tasarlanmış LiFePO4 batarya sistemlerimiz, yüksek performans ve güvenilirlik sunar.'
       },
       {
         id: 'C',
-        image: '/hizmetlerimiz-eozdemir/marin/C FOTOĞRAFI .jpg',
+        image: marin_photo_mapping['photo2'],
         title: 'Güneş Paneli Entegrasyonu',
         description: 'Marin araçlara entegre edilmiş güneş panelleri ile sürdürülebilir enerji çözümleri sağlıyoruz.'
       },
       {
         id: 'D',
-        image: '/hizmetlerimiz-eozdemir/marin/D FOTOĞRAFI .jpg',
+        image: marin_photo_mapping['photo3'],
         title: 'Hibrit Enerji Sistemleri',
         description: 'Solar enerji ve LiFePO4 bataryaların birleştiği hibrit sistemlerle optimum verimlilik elde edilir.'
       },
       {
         id: 'E',
-        image: '/hizmetlerimiz-eozdemir/marin/E FOTOĞRAFI .jpg',
+        image: marin_photo_mapping['photo4'],
         title: 'Deniz Koşullarına Dayanıklılık',
         description: 'Zorlu deniz koşullarına dayanıklı olarak tasarlanan enerji sistemlerimiz, uzun ömürlü kullanım sağlar.'
       },
       {
         id: 'F',
-        image: '/hizmetlerimiz-eozdemir/marin/F FOTOĞRAFI .jpg',
+        image: marin_photo_mapping['photo5'],
         title: 'Çevreci Marin Çözümleri',
         description: 'Çevre dostu teknolojilerimizle denizcilik sektöründe sürdürülebilir enerji kullanımını destekliyoruz.'
       }
@@ -153,7 +154,7 @@ Geleneksel kurşun-asit bataryalara kıyasla daha çevreci olan LiFePO4, uzun s�
       },
       {
         title: 'Unisun Energy’nin Savunma Sanayisine Katkıları',
-        description:`Unisun Energy, savunma sanayisindeki enerji ihtiyaçlarını karşılamak üzere LiFePO4 teknolojisini özelleştirilmiş çözümler halinde sunmaktadır. Şirketin bu alandaki başlıca çalışmaları şunlardır:
+        description: `Unisun Energy, savunma sanayisindeki enerji ihtiyaçlarını karşılamak üzere LiFePO4 teknolojisini özelleştirilmiş çözümler halinde sunmaktadır. Şirketin bu alandaki başlıca çalışmaları şunlardır:
 <br>
 1. <b>Helikopterlerde Kullanım:</b>
 Askeri helikopterler, zorlu hava ve arazi koşullarında enerjiye bağımlıdır. Unisun Energy, helikopterler için yüksek enerji yoğunluğuna sahip, hızlı şarj olabilen ve uzun süreli güç sağlayan batarya sistemleri geliştirmektedir. Bu bataryalar, uçuş sırasında kritik elektronik sistemlerin kesintisiz çalışmasını sağlarken, bakım süreçlerini de kolaylaştırmaktadır.
@@ -235,7 +236,7 @@ Unisun Energy olarak, Lithium Polimer (Li-Po), Lithium İyon (Li-ion) ve Lityum 
 <br>Güvenlik ve Gözetim: VTOL dronlar, güvenlik ve izleme görevlerinde kritik öneme sahiptir. Yüksek çözünürlüklü kamera sistemleri ile entegre çalışan bu dronlar, sürekli gözetim sağlayarak güvenlik güçlerine yardımcı olur. Li-Po bataryalar, bu görevlerde kısa süreli yüksek enerji ihtiyaçlarını karşılarken, Li-ion bataryalar uzun süreli sabit enerji sağlar.
 <br>Tarım: Hassas tarım uygulamalarında VTOL dronlar, ekin sağlığını izleyebilir, sulama analizleri yapabilir ve tarım arazilerini detaylı bir şekilde haritalayabilir. Bu tür görevlerde dayanıklı ve çevre dostu LiFePO4 bataryalar kullanılır.
 <br>Lojistik: VTOL dronlar, özellikle zor ulaşılabilir bölgelerde kargo ve lojistik operasyonlarında önemli bir rol oynar. Hafif, uzun ömürlü ve hızlı şarj olabilen Li-Po bataryalar, lojistik operasyonlarının kesintisiz devam etmesini sağlar.`
-      },  
+      },
       {
         title: 'Unisun Energy’nin Batarya Çözümleri',
         description: `<b>1. Lithium Polimer (Li-Po) Bataryalar</b><br>
@@ -433,7 +434,7 @@ interface PageProps {
   }>;
 }
 
-  export default async function ServiceDetailPage({ params }: PageProps) {
+export default async function ServiceDetailPage({ params }: PageProps) {
   const { slug } = await params;
   const service = services[slug as keyof typeof services];
 
@@ -460,27 +461,29 @@ interface PageProps {
                 poster={service.image}
               >
                 <source src={service.video} type="video/mp4" />
-                <Image
-                  src={service.image || ''}
-                  alt={service.title}
-                  fill
-                  className="object-cover"
-                  priority
-                />
+                {service.image && (
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                )}
               </video>
-            ) : (
+            ) : service.image ? (
               <Image
-                src={service.image || ''}
+                src={service.image}
                 alt={service.title}
                 fill
                 className="object-cover"
                 priority
               />
-            )}
+            ) : null}
             <div className="absolute inset-0 bg-black/50"></div>
             <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-20`}></div>
           </div>
-          
+
           <div className="relative z-10 h-full flex items-center justify-center">
             <div className="text-center text-white max-w-4xl mx-auto px-4">
               <span className={`inline-block px-4 py-2 bg-gradient-to-r ${service.gradient} text-white text-sm font-semibold rounded-full mb-6 shadow-lg`}>
@@ -544,10 +547,10 @@ interface PageProps {
                       {item.title}
                     </h2>
                   </div>
-                                   <p 
-                     className="text-lg text-gray-600 leading-relaxed whitespace-pre-line"
-                     dangerouslySetInnerHTML={{ __html: item.description }}
-                   />
+                  <p
+                    className="text-lg text-gray-600 leading-relaxed whitespace-pre-line"
+                    dangerouslySetInnerHTML={{ __html: item.description }}
+                  />
                 </div>
               ))}
             </div>
@@ -561,7 +564,7 @@ interface PageProps {
                 <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
                   {service.title} çözümlerimiz hakkında detaylı bilgi almak ve proje teklifiniz için bizimle iletişime geçin.
                 </p>
-                <a 
+                <a
                   href="#contact"
                   className="inline-flex items-center px-8 py-4 bg-white text-gray-900 font-semibold rounded-full hover:bg-gray-100 transition-colors duration-300"
                 >

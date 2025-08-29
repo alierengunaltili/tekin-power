@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef } from 'react';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -16,8 +16,10 @@ interface ServiceContent {
 interface Service {
   title: string;
   category: string;
-  image: string;
+  image?: string;
   gradient: string;
+  video?: string;
+  photos?: any[];
   content: ServiceContent[];
 }
 
@@ -57,13 +59,13 @@ const AnimatedServicePage = ({ service, children }: AnimatedServicePageProps) =>
         duration: 1,
         ease: 'power3.out'
       })
-      // Then animate content section
-      .to('.content-section', {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: 'power3.out'
-      }, '-=0.5');
+        // Then animate content section
+        .to('.content-section', {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out'
+        }, '-=0.5');
 
       // Animate content items with scroll trigger
       gsap.utils.toArray('.content-item').forEach((item, index) => {

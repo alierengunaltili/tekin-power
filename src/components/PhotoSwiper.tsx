@@ -4,9 +4,9 @@ import { gsap } from 'gsap';
 import {
   ChevronLeft,
   ChevronRight,
+  ExternalLink,
   Pause,
-  Play,
-  ExternalLink
+  Play
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -118,6 +118,7 @@ const PhotoSwiper = () => {
     {
       id: 10,
       image: '/hizmetlerimiz/marin.jpg',
+      video: '/hizmetlerimiz-eozdemir/marin/A VİDEOSU.mov',
       title: 'Marin',
       description: 'Denizcilik uygulamaları için dayanıklı ve güvenilir LiFePO4 batarya sistemleri',
       category: 'Denizcilik',
@@ -297,16 +298,29 @@ const PhotoSwiper = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
       {/* Dynamic Background */}
       <div ref={backgroundRef} className="absolute inset-0">
-        {/* Blurred background image */}
+        {/* Blurred background image/video */}
         <div ref={blurredImageRef} className="absolute inset-0">
           <div className="relative w-full h-full overflow-hidden">
-            <Image
-              src={currentSlideData.image}
-              alt={`${currentSlideData.title} background`}
-              fill
-              className="object-cover blur-2xl scale-110 transition-all duration-1000"
-              sizes="100vw"
-            />
+            {currentSlideData.video ? (
+              <video
+                className="w-full h-full object-cover blur-2xl scale-110 transition-all duration-1000"
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster={currentSlideData.image}
+              >
+                <source src={currentSlideData.video} type="video/mp4" />
+              </video>
+            ) : (
+              <Image
+                src={currentSlideData.image}
+                alt={`${currentSlideData.title} background`}
+                fill
+                className="object-cover blur-2xl scale-110 transition-all duration-1000"
+                sizes="100vw"
+              />
+            )}
             <div className="absolute inset-0 bg-black/40"></div>
           </div>
         </div>
@@ -363,14 +377,34 @@ const PhotoSwiper = () => {
                 style={{ display: index === currentSlide ? 'block' : 'none' }}
               >
                 <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl">
-                  <Image
-                    src={slide.image}
-                    alt={slide.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 80vw"
-                    priority={index === 0}
-                  />
+                  {slide.video ? (
+                    <video
+                      className="w-full h-full object-cover"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      poster={slide.image}
+                    >
+                      <source src={slide.video} type="video/mp4" />
+                      <Image
+                        src={slide.image}
+                        alt={slide.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 80vw"
+                      />
+                    </video>
+                  ) : (
+                    <Image
+                      src={slide.image}
+                      alt={slide.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 80vw"
+                      priority={index === 0}
+                    />
+                  )}
                   
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>

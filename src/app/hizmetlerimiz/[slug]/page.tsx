@@ -1,12 +1,104 @@
-import { notFound } from 'next/navigation';
-import Image from 'next/image';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import ContactSection from '@/components/ContactSection';
 import AnimatedServicePage from '@/components/AnimatedServicePage';
+import ContactSection from '@/components/ContactSection';
+import Footer from '@/components/Footer';
+import Navbar from '@/components/Navbar';
+import Image from 'next/image';
+import { notFound } from 'next/navigation';
+
+// Type definitions
+interface Photo {
+  id: string;
+  image: string;
+  title: string;
+  description: string;
+}
+
+interface ContentItem {
+  title: string;
+  description: string;
+}
+
+interface Service {
+  title: string;
+  category: string;
+  image?: string;
+  gradient: string;
+  video?: string;
+  photos?: Photo[];
+  content: ContentItem[];
+}
 
 // Hizmet verilerini tanımlayalım
-const services = {
+const services: Record<string, Service> = {
+    'marin': {
+    title: 'Marin',
+    category: 'Denizcilik',
+    video: '/hizmetlerimiz-eozdemir/marin/A VİDEOSU.mov',
+    gradient: 'from-blue-600 via-cyan-500 to-blue-400',
+    photos: [
+      {
+        id: 'B',
+        image: '/hizmetlerimiz-eozdemir/marin/B FOTOĞRAFI .jpg',
+        title: 'Marin Batarya Sistemleri',
+        description: 'Deniz araçları için özel olarak tasarlanmış LiFePO4 batarya sistemlerimiz, yüksek performans ve güvenilirlik sunar.'
+      },
+      {
+        id: 'C',
+        image: '/hizmetlerimiz-eozdemir/marin/C FOTOĞRAFI .jpg',
+        title: 'Güneş Paneli Entegrasyonu',
+        description: 'Marin araçlara entegre edilmiş güneş panelleri ile sürdürülebilir enerji çözümleri sağlıyoruz.'
+      },
+      {
+        id: 'D',
+        image: '/hizmetlerimiz-eozdemir/marin/D FOTOĞRAFI .jpg',
+        title: 'Hibrit Enerji Sistemleri',
+        description: 'Solar enerji ve LiFePO4 bataryaların birleştiği hibrit sistemlerle optimum verimlilik elde edilir.'
+      },
+      {
+        id: 'E',
+        image: '/hizmetlerimiz-eozdemir/marin/E FOTOĞRAFI .jpg',
+        title: 'Deniz Koşullarına Dayanıklılık',
+        description: 'Zorlu deniz koşullarına dayanıklı olarak tasarlanan enerji sistemlerimiz, uzun ömürlü kullanım sağlar.'
+      },
+      {
+        id: 'F',
+        image: '/hizmetlerimiz-eozdemir/marin/F FOTOĞRAFI .jpg',
+        title: 'Çevreci Marin Çözümleri',
+        description: 'Çevre dostu teknolojilerimizle denizcilik sektöründe sürdürülebilir enerji kullanımını destekliyoruz.'
+      }
+    ],
+    content: [
+      {
+        title: 'Marin LiFEPO4 Batarya Çözümleri',
+        description: `Marin sektörü, enerji verimliliği, sürdürülebilirlik ve performans açısından büyük dönüşüm geçiriyor. Geleneksel enerji kaynaklarının sınırlı kalması ve çevresel etkiler göz önüne alındığında, yenilenebilir enerji teknolojileri denizcilikte daha önemli hale geliyor. Bu bağlamda, Unisun Enerji olarak LiFePO4 (Lityum Demir Fosfat) batarya ve solar çözümler ile marin sektörüne yönelik yenilikçi ve çevreci enerji çözümleri sunuyoruz.`
+      },
+      {
+        title: 'Marin Sektöründe LiFePO4 Bataryaların Avantajları',
+        description: `<b>Yüksek Enerji Yoğunluğu ve Verimlilik</b><br/><br/>
+LiFePO4 bataryalar, geleneksel kurşun asit bataryalara kıyasla daha yüksek enerji yoğunluğuna sahiptir. Bu, daha az yer kaplayarak daha fazla enerji depolanması anlamına gelir. Marin sektöründe sınırlı alanlarda yüksek enerji ihtiyacını karşılamak için bu özellik büyük bir avantaj sağlar.<br/><br/>
+
+<b>Uzun Ömür ve Dayanıklılık</b><br/><br/>
+LiFePO4 bataryalar, döngü sayısı bakımından oldukça dayanıklıdır. Ortalama 6000-10000 şarj döngüsüne kadar dayanabilen bu bataryalar, uzun ömürlü kullanım imkânı sunar. Deniz ortamı gibi zorlu koşullarda dayanıklılık, marin sektöründe enerji çözümlerinde hayati önem taşır.<br/><br/>
+
+<b>Hızlı Şarj ve Yüksek Güç Kapasitesi</b><br/><br/>
+Deniz araçlarının operasyonel sürekliliği için hızlı şarj olabilme ve yüksek güç sağlayabilme özellikleri büyük önem taşır. LiFePO4 bataryalar, kısa sürede şarj olabilen yapılarıyla bu ihtiyacı karşılar. Ayrıca, yüksek güç kapasiteleriyle deniz araçlarının elektrikli motorlarını ve diğer sistemlerini etkin şekilde besleyebilirler.<br/><br/>
+
+<b>Güvenlik ve Çevresel Duyarlılık</b><br/><br/>
+LiFePO4 bataryalar, diğer lityum-ion batarya türlerine göre daha güvenli kabul edilir. Yüksek ısıya dayanıklı yapıları sayesinde patlama riski daha düşüktür ve çevreye zararlı gaz salınımı yapmazlar. Bu özellik, marin sektöründe hem güvenlik hem de çevre koruma açısından önem taşır.`
+      },
+      {
+        title: 'Marin Uygulamalar için Solar Çözümler',
+        description: `<b>Deniz Araçlarında Solar Panellerin Kullanımı</b><br/><br/>
+Deniz araçlarının enerji ihtiyaçları, motor, elektronik cihazlar ve yaşam alanları için gerekli elektrik enerjisini içerebilir. Güneş panelleri, deniz araçlarına entegre edilerek bu ihtiyaçları karşılamak için sürdürülebilir bir enerji kaynağı sağlar. Özellikle seyir halinde veya demirli durumda güneş enerjisinden faydalanmak, fosil yakıtlara bağımlılığı önemli ölçüde azaltır.<br/><br/>
+
+<b>Hibrit Sistemlerle Optimum Verimlilik</b><br/><br/>
+Solar enerji ve LiFePO4 bataryaların birlikte kullanıldığı hibrit enerji sistemleri, marin araçlarda en yüksek verimliliği sağlar. Güneş enerjisi gündüzleri depolanarak, gece boyunca veya güneşin olmadığı zamanlarda LiFePO4 bataryalar aracılığıyla kullanılabilir. Bu sistemler, denizcilikte enerji kesintisi riskini minimuma indirir.<br/><br/>
+
+<b>Çevresel Sürdürülebilirlik ve Maliyet Avantajı</b><br/><br/>
+Güneş enerjisi ve LiFePO4 batarya çözümleri, uzun vadede maliyet avantajı sunar. Fosil yakıtlara kıyasla düşük bakım ve işletme maliyetleri ile dikkat çeken bu sistemler, marin sektörünün çevresel ayak izini azaltmada kritik rol oynar. Ayrıca, güneş enerjisi tamamen ücretsiz bir kaynak olduğundan, denizcilikte enerji maliyetlerini önemli ölçüde düşürmek mümkündür.`
+      }
+    ]
+  },
   'telekomunikasyon-baz-istasyonu': {
     title: 'Telekomünikasyon Baz İstasyonu',
     category: 'Telekomünikasyon',
@@ -293,43 +385,7 @@ Saha boyunca sessiz ve kesintisiz sürüş deneyimi ile konforu artırır.`
       }
     ]
   },
-  'marin': {
-    title: 'Marin',
-    category: 'Denizcilik',
-    image: '/hizmetlerimiz/marin.jpg',
-    gradient: 'from-blue-600 via-cyan-500 to-blue-400',
-    content: [
-      {
-        title: 'Marin LiFEPO4 Batarya Çözümleri',
-        description: `Marin sektörü, enerji verimliliği, sürdürülebilirlik ve performans açısından büyük dönüşüm geçiriyor. Geleneksel enerji kaynaklarının sınırlı kalması ve çevresel etkiler göz önüne alındığında, yenilenebilir enerji teknolojileri denizcilikte daha önemli hale geliyor. Bu bağlamda, Unisun Enerji olarak LiFePO4 (Lityum Demir Fosfat) batarya ve solar çözümler ile marin sektörüne yönelik yenilikçi ve çevreci enerji çözümleri sunuyoruz.`
-      },
-      {
-        title: 'Marin Sektöründe LiFePO4 Bataryaların Avantajları',
-        description: `<b>Yüksek Enerji Yoğunluğu ve Verimlilik</b><br/><br/>
-LiFePO4 bataryalar, geleneksel kurşun asit bataryalara kıyasla daha yüksek enerji yoğunluğuna sahiptir. Bu, daha az yer kaplayarak daha fazla enerji depolanması anlamına gelir. Marin sektöründe sınırlı alanlarda yüksek enerji ihtiyacını karşılamak için bu özellik büyük bir avantaj sağlar.<br/><br/>
 
-<b>Uzun Ömür ve Dayanıklılık</b><br/><br/>
-LiFePO4 bataryalar, döngü sayısı bakımından oldukça dayanıklıdır. Ortalama 6000-10000 şarj döngüsüne kadar dayanabilen bu bataryalar, uzun ömürlü kullanım imkânı sunar. Deniz ortamı gibi zorlu koşullarda dayanıklılık, marin sektöründe enerji çözümlerinde hayati önem taşır.<br/><br/>
-
-<b>Hızlı Şarj ve Yüksek Güç Kapasitesi</b><br/><br/>
-Deniz araçlarının operasyonel sürekliliği için hızlı şarj olabilme ve yüksek güç sağlayabilme özellikleri büyük önem taşır. LiFePO4 bataryalar, kısa sürede şarj olabilen yapılarıyla bu ihtiyacı karşılar. Ayrıca, yüksek güç kapasiteleriyle deniz araçlarının elektrikli motorlarını ve diğer sistemlerini etkin şekilde besleyebilirler.<br/><br/>
-
-<b>Güvenlik ve Çevresel Duyarlılık</b><br/><br/>
-LiFePO4 bataryalar, diğer lityum-ion batarya türlerine göre daha güvenli kabul edilir. Yüksek ısıya dayanıklı yapıları sayesinde patlama riski daha düşüktür ve çevreye zararlı gaz salınımı yapmazlar. Bu özellik, marin sektöründe hem güvenlik hem de çevre koruma açısından önem taşır.`
-      },
-      {
-        title: 'Marin Uygulamalar için Solar Çözümler',
-        description: `<b>Deniz Araçlarında Solar Panellerin Kullanımı</b><br/><br/>
-Deniz araçlarının enerji ihtiyaçları, motor, elektronik cihazlar ve yaşam alanları için gerekli elektrik enerjisini içerebilir. Güneş panelleri, deniz araçlarına entegre edilerek bu ihtiyaçları karşılamak için sürdürülebilir bir enerji kaynağı sağlar. Özellikle seyir halinde veya demirli durumda güneş enerjisinden faydalanmak, fosil yakıtlara bağımlılığı önemli ölçüde azaltır.<br/><br/>
-
-<b>Hibrit Sistemlerle Optimum Verimlilik</b><br/><br/>
-Solar enerji ve LiFePO4 bataryaların birlikte kullanıldığı hibrit enerji sistemleri, marin araçlarda en yüksek verimliliği sağlar. Güneş enerjisi gündüzleri depolanarak, gece boyunca veya güneşin olmadığı zamanlarda LiFePO4 bataryalar aracılığıyla kullanılabilir. Bu sistemler, denizcilikte enerji kesintisi riskini minimuma indirir.<br/><br/>
-
-<b>Çevresel Sürdürülebilirlik ve Maliyet Avantajı</b><br/><br/>
-Güneş enerjisi ve LiFePO4 batarya çözümleri, uzun vadede maliyet avantajı sunar. Fosil yakıtlara kıyasla düşük bakım ve işletme maliyetleri ile dikkat çeken bu sistemler, marin sektörünün çevresel ayak izini azaltmada kritik rol oynar. Ayrıca, güneş enerjisi tamamen ücretsiz bir kaynak olduğundan, denizcilikte enerji maliyetlerini önemli ölçüde düşürmek mümkündür.`
-      }
-    ]
-  },
   'forklift': {
     title: 'Forklift',
     category: 'Endüstriyel',
@@ -394,13 +450,33 @@ interface PageProps {
         {/* Hero Section */}
         <section className="hero-section relative h-[70vh] overflow-hidden">
           <div className="absolute inset-0">
-            <Image
-              src={service.image}
-              alt={service.title}
-              fill
-              className="object-cover"
-              priority
-            />
+            {service.video ? (
+              <video
+                className="w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster={service.image}
+              >
+                <source src={service.video} type="video/mp4" />
+                <Image
+                  src={service.image || ''}
+                  alt={service.title}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </video>
+            ) : (
+              <Image
+                src={service.image || ''}
+                alt={service.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            )}
             <div className="absolute inset-0 bg-black/50"></div>
             <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-20`}></div>
           </div>
@@ -420,8 +496,44 @@ interface PageProps {
           </div>
         </section>
 
+        {/* Photos Gallery Section - Only for marin */}
+        {slug === 'marin' && service.photos && (
+          <section className="photos-section py-16 bg-white">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                  Proje Galerisi
+                </h2>
+                <div className={`w-20 h-1 bg-gradient-to-r ${service.gradient} rounded-full mx-auto`}></div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {service.photos.map((photo, index) => (
+                  <div key={photo.id} className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <Image
+                        src={photo.image}
+                        alt={photo.title}
+                        fill
+                        className="object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-gray-900 mb-3">
+                        {photo.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        {photo.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Content Section */}
-        <section className="content-section py-20 bg-white">
+        <section className="content-section py-20 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="space-y-16">
               {service.content.map((item, index) => (

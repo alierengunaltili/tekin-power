@@ -19,7 +19,7 @@ const PhotoSwiper = () => {
   const backgroundRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const blurredImageRef = useRef<HTMLDivElement>(null);
-  
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -118,7 +118,6 @@ const PhotoSwiper = () => {
     {
       id: 10,
       image: '/hizmetlerimiz/marin.jpg',
-      video: '/hizmetlerimiz-eozdemir/marin/A VİDEOSU.mov',
       title: 'Marin',
       description: 'Denizcilik uygulamaları için dayanıklı ve güvenilir LiFePO4 batarya sistemleri',
       category: 'Denizcilik',
@@ -166,14 +165,14 @@ const PhotoSwiper = () => {
       duration: 0.8,
       ease: 'power2.inOut'
     })
-    .call(() => {
-      setCurrentSlide(newIndex);
-    })
-    .to([backgroundRef.current, blurredImageRef.current], {
-      opacity: 1,
-      duration: 0.6,
-      ease: 'power2.inOut'
-    }, '-=0.4');
+      .call(() => {
+        setCurrentSlide(newIndex);
+      })
+      .to([backgroundRef.current, blurredImageRef.current], {
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power2.inOut'
+      }, '-=0.4');
 
     // Slide out current
     gsap.to(currentSlideEl, {
@@ -186,14 +185,14 @@ const PhotoSwiper = () => {
     });
 
     // Slide in new
-    gsap.fromTo(newSlideEl, 
-      { 
+    gsap.fromTo(newSlideEl,
+      {
         x: direction === 'next' ? 100 : -100,
         opacity: 0,
         scale: 0.8,
         rotationY: direction === 'next' ? 15 : -15
       },
-      { 
+      {
         x: 0,
         opacity: 1,
         scale: 1,
@@ -218,7 +217,7 @@ const PhotoSwiper = () => {
         ease: 'power2.out'
       });
     }
-    
+
     if (newDot) {
       gsap.to(newDot, {
         scale: 1.3,
@@ -270,21 +269,21 @@ const PhotoSwiper = () => {
   // Initial animation
   useEffect(() => {
     const tl = gsap.timeline({ delay: 0.5 });
-    
+
     tl.fromTo(containerRef.current,
       { opacity: 0, y: 50 },
       { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }
     )
-    .fromTo(slidesRef.current[0],
-      { scale: 0.8, opacity: 0, rotationY: 15 },
-      { scale: 1, opacity: 1, rotationY: 0, duration: 1, ease: 'back.out(1.7)' },
-      '-=0.5'
-    )
-    .fromTo(titleRef.current,
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
-      '-=0.3'
-    );
+      .fromTo(slidesRef.current[0],
+        { scale: 0.8, opacity: 0, rotationY: 15 },
+        { scale: 1, opacity: 1, rotationY: 0, duration: 1, ease: 'back.out(1.7)' },
+        '-=0.5'
+      )
+      .fromTo(titleRef.current,
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
+        '-=0.3'
+      );
 
     // Set initial dot state
     if (dotsRef.current[0]) {
@@ -301,33 +300,20 @@ const PhotoSwiper = () => {
         {/* Blurred background image/video */}
         <div ref={blurredImageRef} className="absolute inset-0">
           <div className="relative w-full h-full overflow-hidden">
-            {currentSlideData.video ? (
-              <video
-                className="w-full h-full object-cover blur-2xl scale-110 transition-all duration-1000"
-                autoPlay
-                muted
-                loop
-                playsInline
-                poster={currentSlideData.image}
-              >
-                <source src={currentSlideData.video} type="video/mp4" />
-              </video>
-            ) : (
-              <Image
-                src={currentSlideData.image}
-                alt={`${currentSlideData.title} background`}
-                fill
-                className="object-cover blur-2xl scale-110 transition-all duration-1000"
-                sizes="100vw"
-              />
-            )}
+            <Image
+              src={currentSlideData.image}
+              alt={`${currentSlideData.title} background`}
+              fill
+              className="object-cover blur-2xl scale-110 transition-all duration-1000"
+              sizes="100vw"
+            />
             <div className="absolute inset-0 bg-black/40"></div>
           </div>
         </div>
-        
+
         <div className={`absolute inset-0 ${currentSlideData.bgColor} transition-all duration-1000`}></div>
         <div className={`absolute inset-0 bg-gradient-to-br ${currentSlideData.gradient} opacity-10 transition-all duration-1000`}></div>
-        
+
         {/* Animated background elements */}
         <div className="absolute top-20 left-20 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -344,7 +330,7 @@ const PhotoSwiper = () => {
               </span>
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
-              Gelişmiş LiFePO4 batarya teknolojisi ile yenilenebilir enerji dönüşümünde öncülük eden, 
+              Gelişmiş LiFePO4 batarya teknolojisi ile yenilenebilir enerji dönüşümünde öncülük eden,
               marin, otomotiv, havacılık ve endüstriyel sektörlerde sürdürülebilir çözümler sunan.
             </p>
           </div>
@@ -359,7 +345,7 @@ const PhotoSwiper = () => {
           >
             <ChevronLeft className="w-7 h-7 text-white group-hover:scale-110 transition-transform duration-300" />
           </button>
-          
+
           <button
             onClick={nextSlide}
             className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-16 z-20 w-14 h-14 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300 group shadow-xl"
@@ -377,38 +363,28 @@ const PhotoSwiper = () => {
                 style={{ display: index === currentSlide ? 'block' : 'none' }}
               >
                 <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl">
-                  {slide.video ? (
-                    <video
-                      className="w-full h-full object-cover"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      poster={slide.image}
-                    >
-                      <source src={slide.video} type="video/mp4" />
-                      <Image
-                        src={slide.image}
-                        alt={slide.title}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 80vw"
-                      />
-                    </video>
-                  ) : (
-                    <Image
-                      src={slide.image}
-                      alt={slide.title}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 80vw"
-                      priority={index === 0}
-                    />
-                  )}
-                  
+
+                  <Image
+                    src={slide.image}
+                    alt={slide.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 80vw"
+                  />
+
+                  <Image
+                    src={slide.image}
+                    alt={slide.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 80vw"
+                    priority={index === 0}
+                  />
+
+
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                  
+
                   {/* Content */}
                   <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12">
                     <div className="max-w-2xl">
@@ -421,9 +397,9 @@ const PhotoSwiper = () => {
                       <p className="text-lg text-white/90 leading-relaxed drop-shadow-md mb-6">
                         {slide.description}
                       </p>
-                      
+
                       {/* Detail Button */}
-                      <Link 
+                      <Link
                         href={`/hizmetlerimiz/${slide.slug}`}
                         className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full text-white font-semibold hover:bg-white/30 hover:scale-105 transition-all duration-300 shadow-lg group"
                       >
@@ -453,11 +429,10 @@ const PhotoSwiper = () => {
                     key={index}
                     ref={el => addToDotsRefs(el, index)}
                     onClick={() => goToSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === currentSlide 
-                        ? `bg-gradient-to-r ${slides[index].gradient}` 
-                        : 'bg-white/30 hover:bg-white/50'
-                    }`}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
+                      ? `bg-gradient-to-r ${slides[index].gradient}`
+                      : 'bg-white/30 hover:bg-white/50'
+                      }`}
                   />
                 ))}
               </div>

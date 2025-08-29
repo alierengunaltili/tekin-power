@@ -33,7 +33,7 @@ const services: Record<string, Service> = {
     'marin': {
     title: 'Marin',
     category: 'Denizcilik',
-    video: '/hizmetlerimiz-eozdemir/marin/A VİDEOSU.mov',
+    video: '/hizmetlerimiz-eozdemir/marin/A VİDEOSU.mp4',
     gradient: 'from-blue-600 via-cyan-500 to-blue-400',
     photos: [
       {

@@ -52,7 +52,7 @@ const ServicesGrid = () => {
       title: 'Enerji Depolama Sistemleri',
       category: 'Enerji Depolama',
       gradient: 'from-indigo-600 via-blue-500 to-teal-400',
-      slug: 'enerjidepolama'
+      slug: 'enerji-depolama'
     },
     {
       id: 7,

@@ -84,7 +84,7 @@ const PhotoSwiper = () => {
       category: 'Enerji Depolama',
       gradient: 'from-indigo-600 via-blue-500 to-teal-400',
       bgColor: 'bg-gradient-to-br from-indigo-900/20 via-blue-800/20 to-teal-600/20',
-      slug: 'enerjidepolama'
+      slug: 'enerji-depolama'
     },
     {
       id: 7,

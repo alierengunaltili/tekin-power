@@ -15,7 +15,8 @@ const eslintConfig = [
     rules: {
       "no-unused-vars": "off", // tamamen kapatır
       "@typescript-eslint/no-unused-vars": "off", // TS için gerekiyorsa ekle
-      "react-hooks/exhaustive-deps": "off", 
+      "react-hooks/exhaustive-deps": "off",
+      "@typescript-eslint/no-explicit-any": "off",
     },
   },
 ];

@@ -33,7 +33,7 @@ const PhotoSwiper = () => {
       category: 'Telekomünikasyon',
       gradient: 'from-blue-600 via-cyan-500 to-blue-400',
       bgColor: 'bg-gradient-to-br from-blue-900/20 via-cyan-800/20 to-blue-600/20',
-      slug: 'telekomunikasyon-baz-istasyonu'
+      slug: 'telekomunikasyon'
     },
     {
       id: 2,
@@ -47,13 +47,13 @@ const PhotoSwiper = () => {
     },
     {
       id: 3,
-      image: '/hizmetlerimiz/gescatiprojeleri.jpg',
-      title: 'GES Çatı Projeleri',
-      description: 'Güneş enerjisi santrallerinde çatı üstü kurulumlar için profesyonel çözümler',
-      category: 'Güneş Enerjisi',
+      image: '/hizmetlerimiz/mobil-solar.jpg',
+      title: 'Mobil Solar',
+      description: 'Bir noktadan diğerine taşınabilir olan panellere mobil solar şarj panelleri adı verilir',
+      category: 'Mobil Solar Panel',
       gradient: 'from-yellow-600 via-orange-500 to-red-400',
       bgColor: 'bg-gradient-to-br from-yellow-900/20 via-orange-800/20 to-red-600/20',
-      slug: 'ges-cati-projeleri'
+      slug: 'mobil-solar'
     },
     {
       id: 4,
@@ -63,8 +63,9 @@ const PhotoSwiper = () => {
       category: 'Konut',
       gradient: 'from-amber-600 via-yellow-500 to-lime-400',
       bgColor: 'bg-gradient-to-br from-amber-900/20 via-yellow-800/20 to-lime-600/20',
-      slug: 'home-solar-system'
+      slug: 'konut-cozumleri'
     },
+    
     {
       id: 5,
       image: '/hizmetlerimiz/drone.jpg',
@@ -77,13 +78,13 @@ const PhotoSwiper = () => {
     },
     {
       id: 6,
-      image: '/hizmetlerimiz/solarpole.jpg',
-      title: 'Solar Pole',
-      description: 'Sokak aydınlatması için güneş enerjili direk sistemleri ve akıllı aydınlatma çözümleri',
-      category: 'Aydınlatma',
+      image: '/hizmetlerimiz/enerjidepolama.jpg',
+      title: 'Enerji Depolama Sistemleri',
+      description: 'Enerji depolama sistemleri, güç sistemlerinde enerjiyi depolamaya yarayan sistemlerdir',
+      category: 'Enerji Depolama',
       gradient: 'from-indigo-600 via-blue-500 to-teal-400',
       bgColor: 'bg-gradient-to-br from-indigo-900/20 via-blue-800/20 to-teal-600/20',
-      slug: 'solar-pole'
+      slug: 'enerjidepolama'
     },
     {
       id: 7,
@@ -113,7 +114,7 @@ const PhotoSwiper = () => {
       category: 'Rekreasyon',
       gradient: 'from-lime-600 via-green-500 to-emerald-400',
       bgColor: 'bg-gradient-to-br from-lime-900/20 via-green-800/20 to-emerald-600/20',
-      slug: 'golf-car'
+      slug: 'golf-araclari'
     },
     {
       id: 10,

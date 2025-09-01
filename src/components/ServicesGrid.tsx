@@ -12,23 +12,23 @@ const ServicesGrid = () => {
       title: 'Telekomünikasyon Baz İstasyonu',
       category: 'Telekomünikasyon',
       gradient: 'from-blue-600 via-cyan-500 to-blue-400',
-      slug: 'telekomunikasyon-baz-istasyonu'
+      slug: 'telekomunikasyon'
     },
     {
       id: 2,
       image: '/hizmetlerimiz/askerisistemuygulamalari.jpg',
       title: 'Askeri Sistem Uygulamaları',
-      category: 'Savunma',
-      gradient: 'from-green-600 via-emerald-500 to-teal-400',
+      category: 'Savunma Sanayi',
+      gradient: 'from-green-900 via-green-700 to-green-600',
       slug: 'askeri-sistem-uygulamalari'
     },
     {
       id: 3,
-      image: '/hizmetlerimiz/gescatiprojeleri.jpg',
-      title: 'GES Çatı Projeleri',
-      category: 'Güneş Enerjisi',
+      image: '/hizmetlerimiz/mobil-solar.jpg',
+      title: 'Mobil Solar',
+      category: 'Mobil Solar Panel',
       gradient: 'from-yellow-600 via-orange-500 to-red-400',
-      slug: 'ges-cati-projeleri'
+      slug: 'mobil-solar'
     },
     {
       id: 4,
@@ -36,7 +36,7 @@ const ServicesGrid = () => {
       title: 'Home Solar System',
       category: 'Konut',
       gradient: 'from-amber-600 via-yellow-500 to-lime-400',
-      slug: 'home-solar-system'
+      slug: 'konut-cozumleri'
     },
     {
       id: 5,
@@ -48,11 +48,11 @@ const ServicesGrid = () => {
     },
     {
       id: 6,
-      image: '/hizmetlerimiz/solarpole.jpg',
-      title: 'Solar Pole',
-      category: 'Aydınlatma',
+      image: '/hizmetlerimiz/enerjidepolama.jpg',
+      title: 'Enerji Depolama Sistemleri',
+      category: 'Enerji Depolama',
       gradient: 'from-indigo-600 via-blue-500 to-teal-400',
-      slug: 'solar-pole'
+      slug: 'enerjidepolama'
     },
     {
       id: 7,
@@ -76,7 +76,7 @@ const ServicesGrid = () => {
       title: 'Golf Car',
       category: 'Rekreasyon',
       gradient: 'from-lime-600 via-green-500 to-emerald-400',
-      slug: 'golf-car'
+      slug: 'golf-araclari'
     },
     {
       id: 10,

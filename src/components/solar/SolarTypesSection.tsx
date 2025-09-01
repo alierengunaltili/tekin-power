@@ -526,7 +526,7 @@ const SolarTypesSection = () => {
             {/* Enhanced Close Button */}
             <button
               onClick={closeModal}
-              className="absolute top-8 right-8 z-20 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white rounded-2xl p-4 transition-all duration-300 hover:scale-110 group"
+              className="absolute top-30 right-8 z-20 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white rounded-2xl p-4 transition-all duration-300 hover:scale-110 group"
             >
               <X className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" />
             </button>

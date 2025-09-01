@@ -204,7 +204,7 @@ const SolarPhotoSwiper = () => {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50 sm:from-black/60 sm:via-black/40 sm:to-black/70"></div>
         </div>
 
         <div className="relative z-20 max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
@@ -228,7 +228,7 @@ const SolarPhotoSwiper = () => {
         <div ref={swiperRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Left - Content Card */}
           <div ref={cardRef} className="order-2 lg:order-1 px-4 sm:px-0">
-            <div className="bg-white/10  border border-white/20 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl">
+            <div className="bg-white/5 sm:bg-white/10 border border-white/20 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl">
               <div className={`inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r ${currentType.gradient} text-white text-xs sm:text-sm font-medium mb-4 sm:mb-6`}>
                 {currentSlide + 1} / {solarTypes.length}
               </div>
@@ -268,14 +268,14 @@ const SolarPhotoSwiper = () => {
             <div className="flex items-center space-x-4 sm:space-x-6">
               <button
                 onClick={prevSlide}
-                className="w-12 sm:w-14 h-12 sm:h-14 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 hover:scale-110"
+                className="w-12 sm:w-14 h-12 sm:h-14 bg-white/10 sm:bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 hover:scale-110"
               >
                 <ChevronLeft className="w-5 sm:w-6 h-5 sm:h-6" />
               </button>
               
               <button
                 onClick={nextSlide}
-                className="w-12 sm:w-14 h-12 sm:h-14 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 hover:scale-110"
+                className="w-12 sm:w-14 h-12 sm:h-14 bg-white/10 sm:bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 hover:scale-110"
               >
                 <ChevronRight className="w-5 sm:w-6 h-5 sm:h-6" />
               </button>
@@ -297,12 +297,12 @@ const SolarPhotoSwiper = () => {
             </div>
 
             {/* Type Thumbnails */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-3 lg:grid-cols-1 lg:space-y-3 lg:space-x-0">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-3 lg:grid-cols-1 lg:space-y-3 lg:space-x-0">
               {solarTypes.map((type, index) => (
                 <button
                   key={type.id}
                   onClick={() => changeSlide(index)}
-                  className={`relative w-28 sm:w-24 lg:w-20 h-28 sm:h-24 lg:h-20 rounded-lg sm:rounded-xl overflow-hidden border-2 transition-all duration-300 ${
+                  className={`relative w-32 sm:w-28 lg:w-20 h-32 sm:h-28 lg:h-20 rounded-lg sm:rounded-xl overflow-hidden border-2 transition-all duration-300 ${
                     index === currentSlide 
                       ? 'border-white scale-110' 
                       : 'border-white/30 hover:border-white/70'
@@ -314,7 +314,7 @@ const SolarPhotoSwiper = () => {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-black/30"></div>
+                  <div className="absolute inset-0 bg-black/20"></div>
                 </button>
               ))}
             </div>

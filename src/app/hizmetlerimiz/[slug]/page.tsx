@@ -211,7 +211,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       <AnimatedServicePage service={animatedServicePageProps}>
         {/* Hero Section */}
-        <section className="hero-section relative h-[70vh] overflow-hidden">
+        <section className="hero-section relative h-[60vh] sm:h-[70vh] overflow-hidden">
           <div className="absolute inset-0">
             {service.video ? (
               <video
@@ -247,14 +247,14 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           </div>
 
           <div className="relative z-10 h-full flex items-center justify-center">
-            <div className="text-center text-white max-w-4xl mx-auto px-4">
-              <span className={`inline-block px-4 py-2 bg-gradient-to-r ${service.gradient} text-white text-sm font-semibold rounded-full mb-6 shadow-lg`}>
+            <div className="text-center text-white max-w-4xl mx-auto px-3 sm:px-4">
+              <span className={`inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r ${service.gradient} text-white text-xs sm:text-sm font-semibold rounded-full mb-4 sm:mb-6 shadow-lg`}>
                 {service.category}
               </span>
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6 drop-shadow-lg">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 drop-shadow-lg">
                 {service.title}
               </h1>
-              <p className="text-xl lg:text-2xl text-white/90 drop-shadow-md">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 drop-shadow-md">
                 Tekin Power ile yenilenebilir enerji çözümlerinde öncü olmaya devam ediyoruz
               </p>
             </div>
@@ -298,29 +298,29 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         ) : (
           // Default content section for services with regular content
           service.content && service.content.length > 0 && (
-            <section className="content-section py-20 bg-gray-50">
-              <div className="w-full px-4 sm:px-6 lg:px-8">
-                <div className="space-y-20">
+            <section className="content-section py-12 sm:py-16 lg:py-20 bg-gray-50">
+              <div className="w-full px-3 sm:px-4 lg:px-8">
+                <div className="space-y-12 sm:space-y-16 lg:space-y-20">
                   {service.content.map((item, index) => (
-                    <div key={index} className="content-item bg-white rounded-3xl shadow-xl overflow-hidden">
+                    <div key={index} className="content-item bg-white rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden">
                       {/* Banner Header */}
-                      <div className={`bg-gradient-to-r ${service.gradient} py-12 px-8 lg:px-16`}>
+                      <div className={`bg-gradient-to-r ${service.gradient} py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8 xl:px-16`}>
                         <div className="max-w-7xl mx-auto">
-                          <div className="w-20 h-1 bg-white/30 rounded-full mb-6"></div>
-                          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+                          <div className="w-16 sm:w-20 h-1 bg-white/30 rounded-full mb-4 sm:mb-6"></div>
+                          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-3 sm:mb-4">
                             {item.title}
                 </h2>
                         </div>
                       </div>
                       
                       {/* Content Body */}
-                      <div className="py-16 px-8 lg:px-16">
+                      <div className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-16">
                         <div className="max-w-7xl mx-auto">
-                          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-start">
                             {/* Main Content */}
                             <div className="lg:col-span-8">
                               <p
-                                className="text-lg lg:text-xl text-gray-700 leading-relaxed whitespace-pre-line"
+                                className="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed whitespace-pre-line"
                                 dangerouslySetInnerHTML={{ __html: item.description }}
                               />
               </div>
@@ -328,7 +328,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                             {/* Side Image or Visual Element */}
                             <div className="lg:col-span-4">
                               {service.photos && service.photos[0] && (
-                                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
+                                <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
                       <Image
                                     src={service.photos[0].image}
                                     alt={service.photos[0].title}
@@ -351,19 +351,19 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         )}
 
         {/* CTA Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-3 sm:px-4 lg:px-8">
             <div className="text-center">
-              <div className={`bg-gradient-to-r ${service.gradient} rounded-2xl p-8 lg:p-12`}>
-                <h3 className="text-3xl font-bold text-white mb-4">
+              <div className={`bg-gradient-to-r ${service.gradient} rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-12`}>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">
                   Projelerinizde Bizimle Çalışın
                 </h3>
-                <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                <p className="text-base sm:text-lg lg:text-xl text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto">
                   {service.title} çözümlerimiz hakkında detaylı bilgi almak ve proje teklifiniz için bizimle iletişime geçin.
                 </p>
                 <a
                   href="#contact"
-                  className="inline-flex items-center px-8 py-4 bg-white text-gray-900 font-semibold rounded-full hover:bg-gray-100 transition-colors duration-300"
+                  className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-gray-900 font-semibold rounded-full hover:bg-gray-100 transition-colors duration-300 w-full sm:w-auto justify-center"
                 >
                   İletişime Geçin
                 </a>

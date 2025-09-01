@@ -295,7 +295,7 @@ const PhotoSwiper = () => {
   const currentSlideData = slides[currentSlide];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
+    <section className="relative min-h-[80vh] sm:min-h-screen flex items-center justify-center overflow-hidden py-12 sm:py-16 lg:py-20">
       {/* Dynamic Background */}
       <div ref={backgroundRef} className="absolute inset-0">
         {/* Blurred background image/video */}
@@ -321,16 +321,16 @@ const PhotoSwiper = () => {
         <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-white/5 rounded-full blur-2xl animate-pulse delay-500"></div>
       </div>
 
-      <div ref={containerRef} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+      <div ref={containerRef} className="relative z-10 max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
+        <div className="text-center mb-8 sm:mb-12">
           <div ref={titleRef}>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 drop-shadow-lg">
               <span className="block">Tekin Power</span>
               <span className={`block bg-gradient-to-r ${currentSlideData.gradient} bg-clip-text text-transparent transition-all duration-1000`}>
                 Yenilenebilir Enerji
               </span>
             </h2>
-            <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
+            <p className="text-base sm:text-lg lg:text-xl text-white/90 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md px-4 sm:px-0">
               Gelişmiş LiFePO4 batarya teknolojisi ile yenilenebilir enerji dönüşümünde öncülük eden,
               marin, otomotiv, havacılık ve endüstriyel sektörlerde sürdürülebilir çözümler sunan.
             </p>
@@ -342,20 +342,20 @@ const PhotoSwiper = () => {
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-16 z-20 w-14 h-14 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300 group shadow-xl"
+            className="absolute left-2 sm:left-0 top-1/2 transform -translate-y-1/2 sm:-translate-x-16 z-20 w-10 sm:w-12 lg:w-14 h-10 sm:h-12 lg:h-14 bg-white/20  border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300 group shadow-xl"
           >
-            <ChevronLeft className="w-7 h-7 text-white group-hover:scale-110 transition-transform duration-300" />
+            <ChevronLeft className="w-5 sm:w-6 lg:w-7 h-5 sm:h-6 lg:h-7 text-white group-hover:scale-110 transition-transform duration-300" />
           </button>
 
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-16 z-20 w-14 h-14 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300 group shadow-xl"
+            className="absolute right-2 sm:right-0 top-1/2 transform -translate-y-1/2 sm:translate-x-16 z-20 w-10 sm:w-12 lg:w-14 h-10 sm:h-12 lg:h-14 bg-white/20  border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300 group shadow-xl"
           >
-            <ChevronRight className="w-7 h-7 text-white group-hover:scale-110 transition-transform duration-300" />
+            <ChevronRight className="w-5 sm:w-6 lg:w-7 h-5 sm:h-6 lg:h-7 text-white group-hover:scale-110 transition-transform duration-300" />
           </button>
 
           {/* Slides Container */}
-          <div className="relative w-full h-[600px] perspective-1000">
+          <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[600px] perspective-1000">
             {slides.map((slide, index) => (
               <div
                 key={slide.id}
@@ -363,15 +363,7 @@ const PhotoSwiper = () => {
                 className={`absolute inset-0 ${index === currentSlide ? 'z-10' : 'z-0'}`}
                 style={{ display: index === currentSlide ? 'block' : 'none' }}
               >
-                <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl">
-
-                  <Image
-                    src={slide.image}
-                    alt={slide.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 80vw"
-                  />
+                <div className="relative w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
 
                   <Image
                     src={slide.image}
@@ -382,30 +374,29 @@ const PhotoSwiper = () => {
                     priority={index === 0}
                   />
 
-
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
 
                   {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8 xl:p-12">
                     <div className="max-w-2xl">
-                      <span className={`inline-block px-4 py-2 bg-gradient-to-r ${slide.gradient} text-white text-sm font-semibold rounded-full mb-4 shadow-lg`}>
+                      <span className={`inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r ${slide.gradient} text-white text-xs sm:text-sm font-semibold rounded-full mb-3 sm:mb-4 shadow-lg`}>
                         {slide.category}
                       </span>
-                      <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4 drop-shadow-lg">
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-2 sm:mb-3 lg:mb-4 drop-shadow-lg">
                         {slide.title}
                       </h3>
-                      <p className="text-lg text-white/90 leading-relaxed drop-shadow-md mb-6">
+                      <p className="text-sm sm:text-base lg:text-lg text-white/90 leading-relaxed drop-shadow-md mb-4 sm:mb-6">
                         {slide.description}
                       </p>
 
                       {/* Detail Button */}
                       <Link
                         href={`/hizmetlerimiz/${slide.slug}`}
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full text-white font-semibold hover:bg-white/30 hover:scale-105 transition-all duration-300 shadow-lg group"
+                        className="inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full text-white font-semibold hover:bg-white/30 hover:scale-105 transition-all duration-300 shadow-lg group text-sm sm:text-base"
                       >
                         <span>Detay İçin</span>
-                        <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                        <ExternalLink className="w-3 sm:w-4 h-3 sm:h-4 group-hover:translate-x-1 transition-transform duration-300" />
                       </Link>
                     </div>
                   </div>
@@ -416,22 +407,22 @@ const PhotoSwiper = () => {
         </div>
 
         {/* Controls */}
-        <div className="flex flex-col items-center justify-center mt-8 space-y-4">
+        <div className="flex flex-col items-center justify-center mt-6 sm:mt-8 space-y-3 sm:space-y-4">
           {/* Interaction Hint */}
           <div className="text-center">
-            <p className="text-white/70 text-sm font-medium mb-2">
+            <p className="text-white/70 text-xs sm:text-sm font-medium mb-2">
               Gezinmek için oklara veya noktalara tıklayın
             </p>
-            <div className="flex items-center justify-center space-x-6">
+            <div className="flex items-center justify-center space-x-4 sm:space-x-6">
               {/* Dots */}
-              <div className="flex space-x-3">
+              <div className="flex space-x-2 sm:space-x-3">
                 {slides.map((_, index) => (
                   <button
                     key={index}
                     ref={el => addToDotsRefs(el, index)}
                     onClick={() => goToSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
-                      ? `bg-gradient-to-r ${slides[index].gradient}`
+                    className={`w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full transition-all duration-300 ${index === currentSlide
+                      ? `bg-gradient-to-r ${slides[index].gradient} scale-125`
                       : 'bg-white/30 hover:bg-white/50'
                       }`}
                   />
@@ -441,12 +432,12 @@ const PhotoSwiper = () => {
               {/* Play/Pause Button */}
               <button
                 onClick={toggleAutoplay}
-                className="w-12 h-12 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 group shadow-lg"
+                className="w-10 sm:w-12 h-10 sm:h-12 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 group shadow-lg"
               >
                 {isPlaying ? (
-                  <Pause className="w-5 h-5 text-white group-hover:scale-110 transition-transform duration-300" />
+                  <Pause className="w-4 sm:w-5 h-4 sm:h-5 text-white group-hover:scale-110 transition-transform duration-300" />
                 ) : (
-                  <Play className="w-5 h-5 text-white group-hover:scale-110 transition-transform duration-300" />
+                  <Play className="w-4 sm:w-5 h-4 sm:h-5 text-white group-hover:scale-110 transition-transform duration-300" />
                 )}
               </button>
             </div>

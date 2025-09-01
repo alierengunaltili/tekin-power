@@ -197,28 +197,28 @@ const EnerjiDepolamaContent = ({ gradient }: EnerjiDepolamaContentProps) => {
   };
 
   return (
-    <section className="content-section py-20 bg-gray-50">
-      <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="space-y-20">
+    <section className="content-section py-12 sm:py-16 lg:py-20 bg-gray-50">
+      <div className="w-full px-3 sm:px-4 lg:px-8">
+        <div className="space-y-12 sm:space-y-16 lg:space-y-20">
           {contentSections.map((section, index) => (
-            <div key={index} className="content-item bg-white rounded-3xl shadow-xl overflow-hidden">
+            <div key={index} className="content-item bg-white rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden">
               {/* Banner Header */}
-              <div className={`bg-gradient-to-r ${gradient} py-12 px-8 lg:px-16`}>
+              <div className={`bg-gradient-to-r ${gradient} py-6 sm:py-8 px-4 sm:px-6 lg:px-12`}>
                 <div className="max-w-7xl mx-auto">
-                  <div className="w-20 h-1 bg-white/30 rounded-full mb-6"></div>
-                  <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+                  <div className="w-12 sm:w-16 h-1 bg-white/30 rounded-full mb-3 sm:mb-4"></div>
+                  <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-2">
                     {section.title}
                   </h2>
                 </div>
               </div>
               
               {/* Content Body */}
-              <div className="py-16 px-8 lg:px-16">
+              <div className="py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-12">
                 <div className="max-w-7xl mx-auto">
                   {/* Main Content */}
-                  <div className="mb-12">
+                  <div className="mb-8 sm:mb-10">
                     <div
-                      className="text-lg lg:text-xl text-gray-700 leading-relaxed whitespace-pre-line prose prose-lg max-w-none"
+                      className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed whitespace-pre-line prose prose-sm sm:prose-lg max-w-none"
                       dangerouslySetInnerHTML={{ __html: section.content }}
                     />
                   </div>
@@ -240,15 +240,15 @@ const EnerjiDepolamaContent = ({ gradient }: EnerjiDepolamaContentProps) => {
 
                   {/* Multiple Images */}
                   {section.hasImages && section.multipleImages && (
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                       {section.multipleImages.map((imageKey, imgIndex) => (
                         <div key={imgIndex} className="w-full">
-                          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
+                          <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
                             <Image
                               src={energidepolama_photo_mapping[imageKey as keyof typeof energidepolama_photo_mapping]}
                               alt={`Yedek Güç Sistemi ${imgIndex + 1}`}
                               fill
-                              className="object-contain"
+                              className="object-cover"
                             />
                             <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-10`}></div>
                           </div>
@@ -260,7 +260,7 @@ const EnerjiDepolamaContent = ({ gradient }: EnerjiDepolamaContentProps) => {
                   {/* Carousel for Elektrik Dolabı */}
                   {section.hasCarousel && section.carouselType === 'elektrik' && (
                     <div className="relative">
-                      <div className="overflow-hidden rounded-2xl shadow-lg">
+                      <div className="overflow-hidden rounded-xl sm:rounded-2xl shadow-lg">
                         <div className="relative aspect-[16/9]">
                           <Image
                             src={energidepolama_photo_mapping[elektrikDolabiPhotos[elektrikDolabiIndex] as keyof typeof energidepolama_photo_mapping]}
@@ -275,39 +275,39 @@ const EnerjiDepolamaContent = ({ gradient }: EnerjiDepolamaContentProps) => {
                       {/* Carousel Controls */}
                       <button
                         onClick={prevElektrik}
-                        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/30  p-3 rounded-full shadow-lg hover:bg-white transition-all duration-300"
+                        className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white/30 p-2 sm:p-3 rounded-full shadow-lg hover:bg-white transition-all duration-300"
                       >
-                        <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 sm:w-6 h-4 sm:h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
                       </button>
                       
                       <button
                         onClick={nextElektrik}
-                        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/30  p-3 rounded-full shadow-lg hover:bg-white transition-all duration-300"
+                        className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white/30 p-2 sm:p-3 rounded-full shadow-lg hover:bg-white transition-all duration-300"
                       >
-                        <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 sm:w-6 h-4 sm:h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                       </button>
                       
                       {/* Indicators */}
-                      <div className="flex justify-center mt-4 space-x-2">
+                      <div className="flex justify-center mt-3 sm:mt-4 space-x-1.5 sm:space-x-2">
                         {elektrikDolabiPhotos.map((_, idx) => (
                           <button
                             key={idx}
                             onClick={() => setElektrikDolabiIndex(idx)}
-                            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                            className={`w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full transition-all duration-300 ${
                               idx === elektrikDolabiIndex 
-                                ? 'bg-blue-600 w-8' 
+                                ? 'bg-blue-600 w-6 sm:w-8' 
                                 : 'bg-gray-300 hover:bg-gray-400'
                             }`}
                           />
                         ))}
                       </div>
                       
-                      <div className="text-center mt-4">
-                        <span className="text-sm text-gray-600">
+                      <div className="text-center mt-3 sm:mt-4">
+                        <span className="text-xs sm:text-sm text-gray-600">
                           {elektrikDolabiIndex + 1} / {elektrikDolabiPhotos.length}
                         </span>
                       </div>
@@ -319,7 +319,7 @@ const EnerjiDepolamaContent = ({ gradient }: EnerjiDepolamaContentProps) => {
                     <div className="relative">
                       {/* Responsive: Single image for both mobile and desktop */}
                       <div>
-                        <div className="overflow-hidden rounded-2xl shadow-lg max-w-3xl mx-auto">
+                        <div className="overflow-hidden rounded-xl sm:rounded-2xl shadow-lg max-w-3xl mx-auto">
                           <div className="relative aspect-[16/9]">
                             <Image
                               src={energidepolama_photo_mapping[bataryaDolabiPhotos[bataryaDolabiIndex] as keyof typeof energidepolama_photo_mapping]}
@@ -334,18 +334,18 @@ const EnerjiDepolamaContent = ({ gradient }: EnerjiDepolamaContentProps) => {
                         {/* Controls */}
                         <button
                           onClick={prevBatarya}
-                          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/30 p-3 rounded-full shadow-lg hover:bg-white transition-all duration-300"
+                          className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white/30 p-2 sm:p-3 rounded-full shadow-lg hover:bg-white transition-all duration-300"
                         >
-                          <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-4 sm:w-6 h-4 sm:h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                           </svg>
                         </button>
                         
                         <button
                           onClick={nextBatarya}
-                          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/30 p-3 rounded-full shadow-lg hover:bg-white transition-all duration-300"
+                          className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white/30 p-2 sm:p-3 rounded-full shadow-lg hover:bg-white transition-all duration-300"
                         >
-                          <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-4 sm:w-6 h-4 sm:h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
                         </button>
@@ -354,22 +354,22 @@ const EnerjiDepolamaContent = ({ gradient }: EnerjiDepolamaContentProps) => {
                      
                       
                       {/* Indicators */}
-                      <div className="flex justify-center mt-4 space-x-2">
+                      <div className="flex justify-center mt-3 sm:mt-4 space-x-1 sm:space-x-1.5 flex-wrap gap-y-1">
                         {bataryaDolabiPhotos.map((_, idx) => (
                           <button
                             key={idx}
                             onClick={() => setBataryaDolabiIndex(idx)}
-                            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                            className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
                               idx === bataryaDolabiIndex 
-                                ? 'bg-green-600 w-6' 
+                                ? 'bg-green-600 w-3 sm:w-4' 
                                 : 'bg-gray-300 hover:bg-gray-400'
                             }`}
                           />
                         ))}
                       </div>
                       
-                      <div className="text-center mt-4">
-                        <span className="text-sm text-gray-600">
+                      <div className="text-center mt-3 sm:mt-4">
+                        <span className="text-xs sm:text-sm text-gray-600">
                           {bataryaDolabiIndex + 1} / {bataryaDolabiPhotos.length}
                         </span>
                       </div>

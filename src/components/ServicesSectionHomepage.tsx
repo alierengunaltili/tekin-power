@@ -106,7 +106,7 @@ const ServicesSection = () => {
 
 
   return (
-    <section id="services" className="relative py-20 overflow-hidden" ref={sectionRef}>
+    <section id="services" className="relative py-12 sm:py-16 lg:py-20 overflow-hidden" ref={sectionRef}>
       {/* Dynamic Background */}
       <div ref={backgroundRef} className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50"></div>
@@ -122,15 +122,15 @@ const ServicesSection = () => {
           backgroundSize: '20px 20px'
         }}></div>
       </div>
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
         {/* Section Title */}
-        <div ref={titleRef} className="text-center mb-20">
-          <h2 className="text-4xl lg:text-6xl font-bold mb-6">
+        <div ref={titleRef} className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6">
             <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
               Hizmetlerimiz
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
             Modern enerji ihtiyaçlarınız için kapsamlı çözümler sunuyoruz. 
             <span className="text-gray-900 font-semibold"> Güvenilir teknoloji, uzman ekip ve 7/24 destek </span>
             ile yanınızdayız.
@@ -138,16 +138,16 @@ const ServicesSection = () => {
         </div>
 
         {/* Services Grid */}
-        <div ref={servicesRef} className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+        <div ref={servicesRef} className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mb-12 sm:mb-16 lg:mb-20 px-4 sm:px-0">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
               <div
                 key={index}
-                className="group relative bg-white border border-gray-200 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 shadow-lg"
+                className="group relative bg-white border border-gray-200 rounded-2xl sm:rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 shadow-lg"
               >
                 {/* Image Section */}
-                <div className="relative h-48 bg-gray-100 overflow-hidden">
+                <div className="relative h-40 sm:h-48 bg-gray-100 overflow-hidden">
                   <Image
                     src={service.image}
                     alt={service.title}
@@ -156,34 +156,34 @@ const ServicesSection = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900/20"></div>
                   {/* Icon Overlay */}
-                  <div className="absolute top-4 left-4">
-                    <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${service.gradient} p-3 shadow-lg group-hover:scale-110 transition-all duration-500`}>
+                  <div className="absolute top-3 sm:top-4 left-3 sm:left-4">
+                    <div className={`w-10 sm:w-12 h-10 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br ${service.gradient} p-2.5 sm:p-3 shadow-lg group-hover:scale-110 transition-all duration-500`}>
                       <IconComponent className="w-full h-full text-white" />
                     </div>
                   </div>
                 </div>
 
                 {/* Content Section */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors duration-300">
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-blue-700 transition-colors duration-300">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                  <p className="text-gray-600 mb-3 sm:mb-4 leading-relaxed text-sm">
                     {service.description}
                   </p>
                   
                   {/* Features */}
-                  <div className="space-y-2 mb-5">
+                  <div className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-5">
                     {service.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center space-x-2 text-sm">
-                        <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.gradient}`}></div>
+                      <div key={featureIndex} className="flex items-center space-x-2 text-xs sm:text-sm">
+                        <div className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-gradient-to-r ${service.gradient}`}></div>
                         <span className="text-gray-700">{feature}</span>
                       </div>
                     ))}
                   </div>
                   
                   {/* CTA */}
-                  <Link href="/hizmetlerimiz" className={`w-full bg-gradient-to-r ${service.gradient} text-white px-4 py-3 rounded-xl font-medium hover:shadow-lg transition-all duration-300 hover:scale-105 text-sm inline-flex items-center justify-center`}>
+                  <Link href="/hizmetlerimiz" className={`w-full bg-gradient-to-r ${service.gradient} text-white px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-medium hover:shadow-lg transition-all duration-300 hover:scale-105 text-xs sm:text-sm inline-flex items-center justify-center`}>
                     Detayları İncele
                   </Link>
                 </div>
@@ -193,10 +193,10 @@ const ServicesSection = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="text-center mt-16">
-          <Link href="/hizmetlerimiz" className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl inline-flex items-center space-x-2">
+        <div className="text-center mt-12 sm:mt-16 px-4 sm:px-0">
+          <Link href="/hizmetlerimiz" className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl inline-flex items-center space-x-2 w-full sm:w-auto justify-center">
             <span>Tüm Hizmetlerimizi İnceleyin</span>
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 sm:w-5 h-4 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>

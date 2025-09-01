@@ -278,7 +278,7 @@ const HeroSection = () => {
   const currentCategory = categories[currentSlide];
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20" ref={heroRef}>
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20" ref={heroRef}>
       {/* Dynamic Animated Background */}
       <div ref={backgroundRef} className="absolute inset-0">
         {/* Background Video - Full Hero */}
@@ -316,12 +316,12 @@ const HeroSection = () => {
         <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-gradient-to-br from-green-400/20 to-emerald-400/20 rounded-full blur-xl floating-element"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen">
+      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-screen py-8">
           {/* Left Content */}
-          <div className="text-center lg:text-left">
-            <div ref={titleRef} className="mb-6">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 drop-shadow-lg">
+          <div className="text-center lg:text-left order-2 lg:order-1">
+            <div ref={titleRef} className="mb-4 sm:mb-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-3 sm:mb-4 drop-shadow-lg leading-tight">
                 <span className="block">Geleceğin</span>
                 <span className="block bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-300 bg-clip-text text-transparent">
                   Enerji Çözümleri
@@ -331,7 +331,7 @@ const HeroSection = () => {
             </div>
 
             <div ref={subtitleRef}>
-              <p className="text-lg lg:text-xl text-white mb-8 leading-relaxed drop-shadow-md">
+              <p className="text-base sm:text-lg lg:text-xl text-white mb-6 sm:mb-8 leading-relaxed drop-shadow-md px-2 lg:px-0">
                 Modern LiFePO₄ batarya teknolojisi ve yenilikçi güneş enerjisi sistemleri ile 
                 <span className="text-white font-semibold"> güçlü, sürdürülebilir ve güvenilir </span>
                 enerji çözümleri sunuyoruz.
@@ -339,45 +339,45 @@ const HeroSection = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+            <div ref={ctaRef} className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start items-center px-4 lg:px-0">
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-blue-500/25 flex items-center space-x-2"
+                className="group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-blue-500/25 flex items-center space-x-2 w-full sm:w-auto justify-center"
               >
                 <span>Hemen Teklif Al</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
               
               <button 
                 onClick={() => scrollToSection('services')}
-                className="group bg-white/10 backdrop-blur-lg border border-white/20 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-white/20 hover:scale-105 flex items-center space-x-2"
+                className="group bg-white/10 backdrop-blur-lg border border-white/20 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 hover:bg-white/20 hover:scale-105 flex items-center space-x-2 w-full sm:w-auto justify-center"
               >
-                <Play className="w-5 h-5" />
+                <Play className="w-4 sm:w-5 h-4 sm:h-5" />
                 <span>Çözümlerimizi Keşfet</span>
               </button>
             </div>
           </div>
 
           {/* Right Content - Category Slider */}
-          <div className="relative">
+          <div className="relative order-1 lg:order-2">
             {/* Navigation Arrows - Outside the card */}
             <button
               onClick={prevSlide}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-6 z-20 w-12 h-12 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300 group shadow-lg"
+              className="absolute left-2 lg:left-0 top-1/2 transform -translate-y-1/2 lg:-translate-x-6 z-20 w-10 sm:w-12 h-10 sm:h-12 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300 group shadow-lg"
             >
-              <ChevronLeft className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-300" />
+              <ChevronLeft className="w-5 sm:w-6 h-5 sm:h-6 text-white group-hover:scale-110 transition-transform duration-300" />
             </button>
             
             <button
               onClick={nextSlide}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-6 z-20 w-12 h-12 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300 group shadow-lg"
+              className="absolute right-2 lg:right-0 top-1/2 transform -translate-y-1/2 lg:translate-x-6 z-20 w-10 sm:w-12 h-10 sm:h-12 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300 group shadow-lg"
             >
-              <ChevronRight className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-300" />
+              <ChevronRight className="w-5 sm:w-6 h-5 sm:h-6 text-white group-hover:scale-110 transition-transform duration-300" />
             </button>
 
             {/* Main Category Card */}
-            <div className="relative mx-8">
-              <div ref={cardRef} className="relative rounded-3xl mb-6 min-h-[400px] flex flex-col justify-center items-center text-center transition-all duration-500 hover:scale-105 overflow-hidden shadow-xl">
+            <div className="relative mx-4 sm:mx-6 lg:mx-8">
+              <div ref={cardRef} className="relative rounded-2xl sm:rounded-3xl mb-4 sm:mb-6 min-h-[300px] sm:min-h-[350px] lg:min-h-[400px] flex flex-col justify-center items-center text-center transition-all duration-500 hover:scale-105 overflow-hidden shadow-xl">
                 {/* Background Video - Full Card */}
                 <video
                   ref={cardVideoRef}
@@ -392,24 +392,24 @@ const HeroSection = () => {
                 <div className="absolute inset-0 bg-black/50"></div>
                 
                 {/* Content */}
-                <div className="relative z-10 p-8 flex flex-col justify-center items-center text-center h-full">
-                  <h3 className="text-4xl font-bold text-white mb-6 drop-shadow-lg">{currentCategory.title}</h3>
-                  <p className="text-white text-xl leading-relaxed drop-shadow-md max-w-md">{currentCategory.details}</p>
+                <div className="relative z-10 p-4 sm:p-6 lg:p-8 flex flex-col justify-center items-center text-center h-full">
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4 lg:mb-6 drop-shadow-lg">{currentCategory.title}</h3>
+                  <p className="text-white text-base sm:text-lg lg:text-xl leading-relaxed drop-shadow-md max-w-md px-2">{currentCategory.details}</p>
                 </div>
               </div>
             </div>
 
             {/* Category Indicators */}
-            <div className="flex justify-center space-x-2">
+            <div className="flex justify-center space-x-2 px-4">
               {categories.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => {
                     changeSlide(index, index > currentSlide ? 'next' : 'prev');
                   }}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  className={`w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full transition-all duration-300 ${
                     index === currentSlide 
-                      ? `bg-gradient-to-r ${categories[index].gradient}` 
+                      ? `bg-gradient-to-r ${categories[index].gradient} scale-125` 
                       : 'bg-white/30 hover:bg-white/50'
                   }`}
                 />
@@ -422,9 +422,9 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-5 sm:w-6 h-8 sm:h-10 border-2 border-white/50 rounded-full flex justify-center">
+          <div className="w-1 h-2 sm:h-3 bg-white/50 rounded-full mt-1.5 sm:mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>

@@ -12,26 +12,20 @@ const AskeriSistemContent = ({ gradient }: AskeriSistemContentProps) => {
     {
       title: 'Askeri Sistem Uygulamalarında LiFEPO4 Batarya ve Enerji Çözümlerimiz',
       content: `
-<b>LiFePO4 Batarya Teknolojisinin Askeri Uygulamalardaki Önemi ve Tekin Power Energy'nin Katkıları</b><br/><br/>
-
-Gelişen teknoloji, modern savunma sistemlerinde enerji yönetimini kritik bir öncelik haline getirmiştir. Askeri araçlar, sistemler ve platformlar, güvenilir, verimli ve uzun ömürlü enerji çözümlerine olan ihtiyaç doğrultusunda dönüşüm geçirmektedir. Bu bağlamda LiFePO4 (Lityum Demir Fosfat) batarya teknolojisi, geleneksel enerji kaynaklarına göre üstün avantajlar sunarak askeri uygulamalarda devrim yaratmaktadır. Tekin Power Energy, Türkiye merkezli bir enerji çözüm şirketi olarak, bu teknolojiyi savunma sanayisindeki kritik araçlar olan helikopterler, savaş gemileri ve tanklar gibi platformlara entegre etmeye yönelik yenilikçi çalışmalar yürütmektedir.
+Modern savunma sistemlerinde enerji yönetimi kritik bir öneme sahiptir. Askeri araçlar ve platformlar, güvenilir ve uzun ömürlü enerji çözümlerine ihtiyaç duymaktadır. LiFePO4 (Lityum Demir Fosfat) batarya teknolojisi, geleneksel enerji kaynaklarına göre üstün avantajlar sunarak askeri uygulamalarda tercih edilmektedir. Tekin Power Energy, bu teknolojiyi savunma sanayisindeki helikopterler, savaş gemileri ve tanklar gibi platformlara entegre etmektedir.
       `,
       hasImage: false
     },
     {
       title: 'LiFePO4 Bataryaların Askeri Uygulamalardaki Avantajları',
       content: `
-<b>1. Güvenlik ve Stabilite:</b><br/>
-LiFePO4 bataryalar, termal kararlılıkları ve kimyasal yapıları sayesinde, yüksek sıcaklık ve zorlu çalışma koşullarında bile güvenli bir şekilde çalışır. Bu özellik, özellikle savaş gemileri, helikopterler ve tanklar gibi yoğun operasyonel gereksinimlere sahip platformlarda kritik bir öneme sahiptir.<br/><br/>
+1. Güvenlik ve Stabilite: LiFePO4 bataryalar, yüksek sıcaklık ve zorlu çalışma koşullarında güvenli çalışma sağlar.
 
-<b>2. Uzun Ömür ve Dayanıklılık:</b><br/>
-LiFePO4 bataryalar, 6.000 ila 10.000 şarj-deşarj döngüsü sunarak uzun süreli kullanım sağlar. Askeri operasyonlarda bu, lojistik maliyetlerin düşürülmesi ve operasyonel sürekliliğin sağlanması anlamına gelir.<br/><br/>
+2. Uzun Ömür: 6.000-10.000 şarj döngüsü sunarak lojistik maliyetleri düşürür ve operasyonel sürekliliği sağlar.
 
-<b>3. Hafiflik ve Kompakt Tasarım:</b><br/>
-LiFePO4 bataryaların hafif ve kompakt yapısı, platformların ağırlık yükünü azaltırken, daha fazla ekipman veya mühimmat taşıma kapasitesi sunar.<br/><br/>
+3. Hafiflik ve Kompakt Tasarım: Platformların ağırlık yükünü azaltırken, daha fazla ekipman taşıma kapasitesi sunar.
 
-<b>4. Çevresel Uyum ve Düşük Bakım Gereksinimi:</b><br/>
-Geleneksel kurşun-asit bataryalara kıyasla daha çevreci olan LiFePO4, uzun süre bakım gerektirmemesiyle de askeri operasyonlar için büyük bir avantaj oluşturur.
+4. Düşük Bakım Gereksinimi: Geleneksel bataryalara kıyasla daha az bakım gerektirerek operasyonel avantaj sağlar.
       `,
       hasImage: true,
       imageKey: 'photo1'
@@ -39,34 +33,31 @@ Geleneksel kurşun-asit bataryalara kıyasla daha çevreci olan LiFePO4, uzun s�
     {
       title: 'Tekin Power Energy\'nin Savunma Sanayisine Katkıları',
       content: `
-Tekin Power Energy, savunma sanayisindeki enerji ihtiyaçlarını karşılamak üzere LiFePO4 teknolojisini özelleştirilmiş çözümler halinde sunmaktadır. Şirketin bu alandaki başlıca çalışmaları şunlardır:<br/><br/>
+Tekin Power Energy, savunma sanayisindeki enerji ihtiyaçları için özelleştirilmiş LiFePO4 çözümleri sunmaktadır:
 
-<b>1. Helikopterlerde Kullanım:</b><br/>
-Askeri helikopterler, zorlu hava ve arazi koşullarında enerjiye bağımlıdır. Tekin Power Energy, helikopterler için yüksek enerji yoğunluğuna sahip, hızlı şarj olabilen ve uzun süreli güç sağlayan batarya sistemleri geliştirmektedir. Bu bataryalar, uçuş sırasında kritik elektronik sistemlerin kesintisiz çalışmasını sağlarken, bakım süreçlerini de kolaylaştırmaktadır.<br/><br/>
+1. Helikopter Uygulamaları: Yüksek enerji yoğunluğuna sahip, hızlı şarj olabilen batarya sistemleri ile kritik elektronik sistemlerin kesintisiz çalışmasını sağlar.
 
-<b>2. Savaş Gemilerinde Kullanım:</b><br/>
-Savaş gemileri, denizlerde operasyonel üstünlük sağlamak için radar sistemlerinden silah sistemlerine kadar yüksek enerji gereksinimleri duyar. Tekin Power Energy, gemilerin enerji sistemlerinde kullanılmak üzere deniz koşullarına dayanıklı, yüksek kapasiteli ve uzun ömürlü LiFePO4 bataryalar tasarlamaktadır. Ayrıca, bu bataryalar enerji verimliliğini artırarak gemilerin görev sürekliliğine katkı sağlar.<br/><br/>
+2. Savaş Gemileri: Deniz koşullarına dayanıklı, yüksek kapasiteli bataryalar ile radar ve silah sistemlerinin enerji ihtiyacını karşılar.
 
-<b>3. Tanklarda Kullanım:</b><br/>
-Tanklar, kara savaşlarında zorlu çevre koşullarında üstün performans göstermelidir. LiFePO4 bataryalar, tankların motor çalıştırma sistemleri, haberleşme ekipmanları ve elektronik savunma sistemleri için güvenilir enerji kaynağı sunar. Tekin Power Energy, tanklar için geliştirdiği bataryalarda şok ve titreşim direncine özel önem vermektedir.
+3. Tank Sistemleri: Şok ve titreşime dayanıklı bataryalar ile motor çalıştırma, haberleşme ve elektronik savunma sistemleri için güvenilir enerji sağlar.
       `,
       hasImage: false
     },
     {
-      title: 'Tekin Power Energy\'nin Yenilikçi Yaklaşımı',
+      title: 'Teknoloji ve İnovasyon',
       content: `
-Tekin Power Energy, sadece batarya tedariki ile sınırlı kalmayıp, müşterilerine özel projelendirme ve entegrasyon hizmetleri sunmaktadır. Askeri standartlara uygun üretim süreçleri ve test prosedürleriyle, LiFePO4 bataryaların güvenilirliği ve dayanıklılığı en üst düzeye çıkarılmaktadır. Şirket, bu alanda global yatırımlar yaparak, uluslararası savunma sanayisi projelerine de katkı sağlamayı hedeflemektedir.<br/><br/>
+Tekin Power Energy, müşterilerine özel projelendirme ve entegrasyon hizmetleri sunmaktadır. Askeri standartlara uygun üretim süreçleri ve test prosedürleriyle, bataryaların güvenilirliği ve dayanıklılığı en üst düzeye çıkarılmaktadır.
 
-Ayrıca Tekin Power Energy, Türkiye'nin yerli ve milli savunma sanayisine katkı sağlama misyonu doğrultusunda, Ar-Ge çalışmalarına ciddi yatırımlar yapmaktadır. LiFePO4 bataryaların askeri araçlarda kullanımına yönelik test ve simülasyon merkezleriyle, ürünlerin saha şartlarına uygunluğu en ince detayına kadar analiz edilmektedir.
+Türkiye'nin yerli ve milli savunma sanayisine katkı sağlama misyonu doğrultusunda Ar-Ge çalışmalarına yatırım yapılmakta, ürünlerin saha şartlarına uygunluğu kapsamlı testlerle doğrulanmaktadır.
       `,
       hasImage: false
     },
     {
-      title: 'Sonuç ve Gelecek Perspektifi',
+      title: 'Sürdürülebilir Savunma Çözümleri',
       content: `
-LiFePO4 batarya teknolojisi, savunma sanayisinde enerji yönetimi ve sürdürülebilirlik açısından büyük bir potansiyele sahiptir. Tekin Power Energy, yenilikçi yaklaşımları ve özelleştirilmiş çözümleriyle bu alanda lider bir konuma ulaşmayı hedeflemektedir. Helikopterlerden savaş gemilerine, tanklardan diğer askeri platformlara kadar geniş bir yelpazede LiFePO4 bataryaların kullanımı, operasyonel verimliliği artırırken, savunma sanayisinin geleceğine yön verecek bir adım olarak öne çıkmaktadır.<br/><br/>
+LiFePO4 batarya teknolojisi, savunma sanayisinde enerji yönetimi ve sürdürülebilirlik açısından büyük potansiyel taşımaktadır. Tekin Power Energy, geniş bir yelpazede sunduğu çözümlerle operasyonel verimliliği artırırken, savunma sanayisinin geleceğine yön vermektedir.
 
-Tekin Power Energy, teknolojik bilgi birikimi ve alanında öncü projeleriyle, askeri uygulamalarda güvenilir, verimli ve çevreci enerji çözümleri sunmaya devam edecektir.
+Teknolojik bilgi birikimi ve alanında öncü projeleriyle, askeri uygulamalarda güvenilir, verimli ve çevreci enerji çözümleri sunulmaktadır.
       `,
       hasImage: false
     }
@@ -79,22 +70,22 @@ Tekin Power Energy, teknolojik bilgi birikimi ve alanında öncü projeleriyle, 
           {contentSections.map((section, index) => (
             <div key={index} className="content-item bg-white rounded-3xl shadow-xl overflow-hidden">
               {/* Banner Header */}
-              <div className={`bg-gradient-to-r ${gradient} py-12 px-8 lg:px-16`}>
+              <div className={`bg-gradient-to-r ${gradient} py-8 px-6 lg:px-12`}>
                 <div className="max-w-7xl mx-auto">
-                  <div className="w-20 h-1 bg-white/30 rounded-full mb-6"></div>
-                  <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+                  <div className="w-16 h-1 bg-white/30 rounded-full mb-4"></div>
+                  <h2 className="text-3xl lg:text-4xl font-bold text-white mb-2">
                     {section.title}
                   </h2>
                 </div>
               </div>
               
               {/* Content Body */}
-              <div className="py-16 px-8 lg:px-16">
+              <div className="py-12 px-6 lg:px-12">
                 <div className="max-w-7xl mx-auto">
                   {/* Main Content */}
-                  <div className="mb-12">
+                  <div className="mb-10">
                     <p
-                      className="text-lg lg:text-xl text-gray-700 leading-relaxed whitespace-pre-line"
+                      className="text-base lg:text-lg text-gray-700 leading-relaxed whitespace-pre-line"
                       dangerouslySetInnerHTML={{ __html: section.content }}
                     />
                   </div>

@@ -97,29 +97,29 @@ const ServicesGrid = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
             Hizmetlerimiz
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4 sm:px-0">
             Tekin Power olarak, geniş hizmet yelpazemizdeki her alanda uzman ekibimizle 
             müşterilerimize en iyi çözümleri sunuyoruz.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
           {services.map((service) => (
             <Link 
               key={service.id} 
               href={`/hizmetlerimiz/${service.slug}`}
-              className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]"
+              className="group relative bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]"
             >
               {/* Image */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-40 sm:h-48 overflow-hidden">
                 <Image
                   src={service.image}
                   alt={service.title}
@@ -133,18 +133,18 @@ const ServicesGrid = () => {
                 
                 {/* Hover Button */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                  <div className="bg-white/20 backdrop-blur-lg border border-white/30 rounded-full p-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    <ExternalLink className="w-6 h-6 text-white" />
+                  <div className="bg-white/20 backdrop-blur-lg border border-white/30 rounded-full p-2.5 sm:p-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    <ExternalLink className="w-5 sm:w-6 h-5 sm:h-6 text-white" />
                   </div>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <div className={`inline-block px-3 py-1 bg-gradient-to-r ${service.gradient} text-white text-xs font-semibold rounded-full mb-3`}>
+              <div className="p-4 sm:p-6">
+                <div className={`inline-block px-2.5 sm:px-3 py-1 bg-gradient-to-r ${service.gradient} text-white text-xs font-semibold rounded-full mb-2 sm:mb-3`}>
                   {service.category}
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300 leading-tight">
+                <h3 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300 leading-tight">
                   {service.title}
                 </h3>
               </div>

@@ -60,8 +60,8 @@ const Navbar = () => {
         ? 'bg-white/95 backdrop-blur-lg shadow-lg border-b border-blue-100' 
         : ' '
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 lg:h-24">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
           {/* Logo */}
           <Link 
             href="/"
@@ -73,7 +73,7 @@ const Navbar = () => {
               }`} />
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 opacity-20 rounded-full blur-lg"></div>
             </div>
-            <span className={`text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent ${
+            <span className={`text-lg sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent ${
               !isScrolled ? 'text-white bg-none' : ''
             }`}>
               Tekin Power
@@ -137,9 +137,9 @@ const Navbar = () => {
         <div className={`lg:hidden transition-all duration-300 overflow-hidden ${
           isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}>
-          <div className="py-4 space-y-3 bg-white/95 backdrop-blur-lg rounded-lg mt-4 shadow-lg border border-blue-100">
+          <div className="py-4 space-y-2 bg-white/95 backdrop-blur-lg rounded-lg mt-4 shadow-lg border border-blue-100 mx-2 sm:mx-0">
             {navItems.map((item) => {
-              const baseClasses = "block w-full text-left px-6 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200 font-medium";
+              const baseClasses = "block w-full text-left px-4 sm:px-6 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200 font-medium text-base";
               
               if (item.type === 'navigate') {
                 return (

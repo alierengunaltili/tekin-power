@@ -256,7 +256,7 @@ const SolarTypesSection = () => {
   ];
 
   return (
-    <section id="solar-details" ref={sectionRef} className="py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
+    <section id="solar-details" ref={sectionRef} className="py-12 sm:py-16 lg:py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-40">
         <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-br from-blue-400/20 to-cyan-400/20 rounded-full blur-3xl"></div>
@@ -264,28 +264,28 @@ const SolarTypesSection = () => {
         <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-gradient-to-br from-green-400/20 to-emerald-400/20 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
         {/* Main Title */}
-        <div ref={titleRef} className="text-center mb-24">
-          <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600/10 to-cyan-600/10 border border-blue-200/50 rounded-full mb-8">
-            <Zap className="w-5 h-5 text-blue-600 mr-2" />
-            <span className="text-blue-700 font-semibold">Güneş Enerjisi Teknolojileri</span>
+        <div ref={titleRef} className="text-center mb-16 sm:mb-20 lg:mb-24">
+          <div className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-600/10 to-cyan-600/10 border border-blue-200/50 rounded-full mb-6 sm:mb-8">
+            <Zap className="w-4 sm:w-5 h-4 sm:h-5 text-blue-600 mr-2" />
+            <span className="text-blue-700 font-semibold text-sm sm:text-base">Güneş Enerjisi Teknolojileri</span>
           </div>
           
-          <h2 className="text-3xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-4 sm:mb-6">
             <span className="bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-500 bg-clip-text text-transparent">
               Güneş Paneli
             </span>
-            <span className="block text-gray-800 text-2xl lg:text-3xl mt-2">
+            <span className="block text-gray-800 text-xl sm:text-2xl lg:text-3xl mt-2">
               Çözümlerimiz
             </span>
           </h2>
           
-          <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed mb-6">
+          <p className="text-base sm:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed mb-4 sm:mb-6 px-4 sm:px-0">
             Her ihtiyaca özel tasarlanmış, yenilikçi güneş paneli sistemlerimizle enerji bağımsızlığınızı kazanın.
           </p>
           
-            <div className="flex flex-wrap justify-center gap-8 text-sm text-gray-500 max-w-4xl mx-auto">
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8 text-xs sm:text-sm text-gray-500 max-w-4xl mx-auto">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                 <span>25 Yıl Garanti</span>
@@ -306,7 +306,7 @@ const SolarTypesSection = () => {
         </div>
 
         {/* Solar Types Sections */}
-        <div className="space-y-20">
+        <div className="space-y-12 sm:space-y-16 lg:space-y-20">
           {solarTypes.map((type, index) => {
             const IconComponent = type.icon;
             const isEven = index % 2 === 0;
@@ -318,31 +318,31 @@ const SolarTypesSection = () => {
                 {/* Section Header - Clickable */}
                 <button 
                   onClick={() => toggleSection(type.id)}
-                  className="w-full mb-12 group transition-all duration-300"
+                  className="w-full mb-8 sm:mb-10 lg:mb-12 group transition-all duration-300"
                 >
-                  <div className="bg-white/80 backdrop-blur-lg border border-gray-200/50 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:bg-white/90 group-hover:-translate-y-2">
+                  <div className="bg-white/80 backdrop-blur-lg border border-gray-200/50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:bg-white/90 group-hover:-translate-y-2">
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-6">
+                      <div className="flex items-center space-x-3 sm:space-x-4 lg:space-x-6">
                         {/* Icon with modern styling */}
-                        <div className={`relative w-24 h-24 rounded-2xl bg-gradient-to-br ${type.gradient} p-6 shadow-xl group-hover:scale-110 transition-all duration-500`}>
+                        <div className={`relative w-16 sm:w-20 lg:w-24 h-16 sm:h-20 lg:h-24 rounded-xl sm:rounded-2xl bg-gradient-to-br ${type.gradient} p-3 sm:p-4 lg:p-6 shadow-xl group-hover:scale-110 transition-all duration-500`}>
                           <IconComponent className="w-full h-full text-white" />
-                          <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${type.gradient} opacity-20 blur-xl group-hover:blur-2xl transition-all duration-500`}></div>
+                          <div className={`absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-br ${type.gradient} opacity-20 blur-xl group-hover:blur-2xl transition-all duration-500`}></div>
                         </div>
                         
                         {/* Content */}
-                        <div className="text-left">
-                          <div className="flex items-center space-x-4 mb-3">
+                        <div className="text-left flex-1">
+                          <div className="flex items-center space-x-4 mb-2 sm:mb-3">
                             
-                            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors duration-300">
+                            <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors duration-300">
                               {type.subtitle}
                             </h3>
                           </div>
-                          <p className="text-lg text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
+                          <p className="text-sm sm:text-base lg:text-lg text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
                             {type.title}
                           </p>
-                          <div className="mt-4 flex items-center space-x-2">
+                          <div className="mt-2 sm:mt-4 flex items-center space-x-2">
                             <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${type.gradient}`}></div>
-                            <span className="text-sm text-gray-500">
+                            <span className="text-xs sm:text-sm text-gray-500">
                               {isExpanded ? 'Detayları gizle' : 'Detayları görüntüle'}
                             </span>
                           </div>
@@ -351,7 +351,7 @@ const SolarTypesSection = () => {
                       
                       {/* Expand/Collapse icon */}
                       <div className="flex items-center space-x-4">
-                        <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${type.gradient} p-4 shadow-lg group-hover:scale-110 transition-all duration-300`}>
+                        <div className={`w-10 sm:w-12 lg:w-14 h-10 sm:h-12 lg:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br ${type.gradient} p-2.5 sm:p-3 lg:p-4 shadow-lg group-hover:scale-110 transition-all duration-300`}>
                           {isExpanded ? (
                             <ChevronUp className="w-full h-full text-white" />
                           ) : (
@@ -365,57 +365,57 @@ const SolarTypesSection = () => {
 
                 {/* Collapsible Content */}
                 {isExpanded && (
-                  <div className={`collapsible-content grid grid-cols-1 lg:grid-cols-2 gap-8 items-start`}>
+                  <div className={`collapsible-content grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-start`}>
                   {/* Content Side */}
-                  <div className={`${!isEven ? 'lg:order-2' : 'lg:order-1'}`}>
+                  <div className={`${!isEven ? 'lg:order-2' : 'lg:order-1'} px-4 sm:px-0`}>
                     {/* Main Description Card */}
-                    <div className="bg-white/90 backdrop-blur-lg border border-gray-200/50 rounded-3xl p-6 shadow-xl mb-6 hover:shadow-2xl transition-all duration-500">
-                      <div className="flex items-center mb-5">
-                        <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${type.gradient} p-2.5 mr-3`}>
+                    <div className="bg-white/90 backdrop-blur-lg border border-gray-200/50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-xl mb-4 sm:mb-6 hover:shadow-2xl transition-all duration-500">
+                      <div className="flex items-center mb-4 sm:mb-5">
+                        <div className={`w-8 sm:w-10 h-8 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br ${type.gradient} p-2 sm:p-2.5 mr-2 sm:mr-3`}>
                           <IconComponent className="w-full h-full text-white" />
                         </div>
-                        <h4 className="text-xl font-bold text-gray-900">Sistem Açıklaması</h4>
+                        <h4 className="text-lg sm:text-xl font-bold text-gray-900">Sistem Açıklaması</h4>
                       </div>
                       
-                      <p className="text-gray-700 leading-relaxed mb-6 text-base">
+                      <p className="text-gray-700 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
                         {type.description}
                       </p>
                       
                       {/* Enhanced Specs */}
-                      <div className="grid grid-cols-3 gap-4 mb-6">
-                        <div className="text-center p-3 bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-100">
-                          <div className={`w-12 h-12 mx-auto mb-2 rounded-xl bg-gradient-to-br ${type.gradient} p-3 shadow-lg`}>
+                      <div className="grid grid-cols-3 gap-2 sm:gap-3 lg:gap-4 mb-4 sm:mb-6">
+                        <div className="text-center p-2 sm:p-3 bg-gradient-to-br from-white to-gray-50 rounded-lg sm:rounded-xl border border-gray-100">
+                          <div className={`w-8 sm:w-10 lg:w-12 h-8 sm:h-10 lg:h-12 mx-auto mb-1 sm:mb-2 rounded-lg sm:rounded-xl bg-gradient-to-br ${type.gradient} p-2 sm:p-2.5 lg:p-3 shadow-lg`}>
                             <Zap className="w-full h-full text-white" />
                           </div>
                           <div className="text-xs text-gray-500 mb-1">Güç Kapasitesi</div>
-                          <div className="font-bold text-lg text-gray-900">{type.specs.power}</div>
+                          <div className="font-bold text-sm sm:text-base lg:text-lg text-gray-900">{type.specs.power}</div>
                         </div>
-                        <div className="text-center p-3 bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-100">
-                          <div className={`w-12 h-12 mx-auto mb-2 rounded-xl bg-gradient-to-br ${type.gradient} p-3 shadow-lg`}>
+                        <div className="text-center p-2 sm:p-3 bg-gradient-to-br from-white to-gray-50 rounded-lg sm:rounded-xl border border-gray-100">
+                          <div className={`w-8 sm:w-10 lg:w-12 h-8 sm:h-10 lg:h-12 mx-auto mb-1 sm:mb-2 rounded-lg sm:rounded-xl bg-gradient-to-br ${type.gradient} p-2 sm:p-2.5 lg:p-3 shadow-lg`}>
                             <Grid3X3 className="w-full h-full text-white" />
                           </div>
                           <div className="text-xs text-gray-500 mb-1">Kurulum Alanı</div>
-                          <div className="font-bold text-lg text-gray-900">{type.specs.area}</div>
+                          <div className="font-bold text-sm sm:text-base lg:text-lg text-gray-900">{type.specs.area}</div>
                         </div>
-                        <div className="text-center p-3 bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-100">
-                          <div className={`w-12 h-12 mx-auto mb-2 rounded-xl bg-gradient-to-br ${type.gradient} p-3 shadow-lg`}>
+                        <div className="text-center p-2 sm:p-3 bg-gradient-to-br from-white to-gray-50 rounded-lg sm:rounded-xl border border-gray-100">
+                          <div className={`w-8 sm:w-10 lg:w-12 h-8 sm:h-10 lg:h-12 mx-auto mb-1 sm:mb-2 rounded-lg sm:rounded-xl bg-gradient-to-br ${type.gradient} p-2 sm:p-2.5 lg:p-3 shadow-lg`}>
                             <TrendingUp className="w-full h-full text-white" />
                           </div>
                           <div className="text-xs text-gray-500 mb-1">Aylık Tasarruf</div>
-                          <div className="font-bold text-lg text-gray-900">{type.specs.savings}</div>
+                          <div className="font-bold text-sm sm:text-base lg:text-lg text-gray-900">{type.specs.savings}</div>
                         </div>
                       </div>
 
                       {/* Simplified Features */}
                       <div>
-                        <h5 className="text-lg font-bold text-gray-900 mb-3">
+                        <h5 className="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3">
                           Öne Çıkan Özellikler
                         </h5>
-                        <ul className="space-y-2">
+                        <ul className="space-y-1.5 sm:space-y-2">
                           {type.features.map((feature, featureIndex) => (
-                            <li key={featureIndex} className="flex items-start space-x-3 text-gray-700">
-                              <span className="text-blue-600 font-bold mt-1">•</span>
-                              <span className="text-sm leading-relaxed">{feature.text}</span>
+                            <li key={featureIndex} className="flex items-start space-x-2 sm:space-x-3 text-gray-700">
+                              <span className="text-blue-600 font-bold mt-0.5 sm:mt-1">•</span>
+                              <span className="text-xs sm:text-sm leading-relaxed">{feature.text}</span>
                             </li>
                           ))}
                         </ul>
@@ -424,20 +424,20 @@ const SolarTypesSection = () => {
                   </div>
 
                   {/* Gallery Side */}
-                  <div className={`${!isEven ? 'lg:order-1' : 'lg:order-2'}`}>
-                    <div className="bg-white/90 backdrop-blur-lg border border-gray-200/50 rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500">
-                      <div className="flex items-center mb-6">
-                        <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${type.gradient} p-2.5 mr-3 shadow-lg`}>
+                  <div className={`${!isEven ? 'lg:order-1' : 'lg:order-2'} px-4 sm:px-0`}>
+                    <div className="bg-white/90 backdrop-blur-lg border border-gray-200/50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-xl hover:shadow-2xl transition-all duration-500">
+                      <div className="flex items-center mb-4 sm:mb-6">
+                        <div className={`w-8 sm:w-10 h-8 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br ${type.gradient} p-2 sm:p-2.5 mr-2 sm:mr-3 shadow-lg`}>
                           <Camera className="w-full h-full text-white" />
                         </div>
                         <div>
-                          <h4 className="text-xl font-bold text-gray-900">Proje Galerisi</h4>
-                          <p className="text-sm text-gray-600">Gerçekleşen projelerimizden örnekler</p>
+                          <h4 className="text-lg sm:text-xl font-bold text-gray-900">Proje Galerisi</h4>
+                          <p className="text-xs sm:text-sm text-gray-600">Gerçekleşen projelerimizden örnekler</p>
                         </div>
                       </div>
                       
                       {/* Enhanced Gallery Grid */}
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-2 gap-3 sm:gap-4">
                         {Array.from({ length: type.imageCount }).map((_, imgIndex) => {
                           const imageSrc = `/gunespaneli/${type.galleryFolder}/${type.galleryFolder}-${imgIndex + 1}.jpg`;
                           const imageAlt = `${type.subtitle} Proje ${imgIndex + 1}`;

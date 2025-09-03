@@ -27,97 +27,6 @@ const PhotoSwiper = () => {
   const slides = [
     {
       id: 1,
-      image: '/hizmetlerimiz/telekomunikasyonbazistasyonu.jpg',
-      title: 'Telekomünikasyon Baz İstasyonu',
-      description: 'Güvenilir iletişim altyapısı için telekomünikasyon baz istasyonlarına yönelik enerji çözümleri',
-      category: 'Telekomünikasyon',
-      gradient: 'from-blue-600 via-cyan-500 to-blue-400',
-      bgColor: 'bg-gradient-to-br from-blue-900/20 via-cyan-800/20 to-blue-600/20',
-      slug: 'telekomunikasyon'
-    },
-    {
-      id: 2,
-      image: '/hizmetlerimiz/askerisistemuygulamalari.jpg',
-      title: 'Askeri Sistem Uygulamaları',
-      description: 'Savunma sanayii için özel tasarlanmış güvenilir ve dayanıklı enerji sistemleri',
-      category: 'Savunma',
-      gradient: 'from-green-600 via-emerald-500 to-teal-400',
-      bgColor: 'bg-gradient-to-br from-green-900/20 via-emerald-800/20 to-teal-600/20',
-      slug: 'askeri-sistem-uygulamalari'
-    },
-    {
-      id: 3,
-      image: '/hizmetlerimiz/mobil-solar.jpg',
-      title: 'Mobil Solar',
-      description: 'Bir noktadan diğerine taşınabilir olan panellere mobil solar şarj panelleri adı verilir',
-      category: 'Mobil Solar Panel',
-      gradient: 'from-yellow-600 via-orange-500 to-red-400',
-      bgColor: 'bg-gradient-to-br from-yellow-900/20 via-orange-800/20 to-red-600/20',
-      slug: 'mobil-solar'
-    },
-    {
-      id: 4,
-      image: '/hizmetlerimiz/homesolarsystem.jpg',
-      title: 'Home Solar System',
-      description: 'Evler için özel tasarlanmış güneş paneli sistemleri ve enerji depolama çözümleri',
-      category: 'Konut',
-      gradient: 'from-amber-600 via-yellow-500 to-lime-400',
-      bgColor: 'bg-gradient-to-br from-amber-900/20 via-yellow-800/20 to-lime-600/20',
-      slug: 'konut-cozumleri'
-    },
-    
-    {
-      id: 5,
-      image: '/hizmetlerimiz/drone.jpg',
-      title: 'Drone',
-      description: 'İnsansız hava araçları için hafif ve yüksek performanslı enerji çözümleri',
-      category: 'Havacılık',
-      gradient: 'from-purple-600 via-pink-500 to-red-400',
-      bgColor: 'bg-gradient-to-br from-purple-900/20 via-pink-800/20 to-red-600/20',
-      slug: 'drone'
-    },
-    {
-      id: 6,
-      image: '/hizmetlerimiz/enerjidepolama.jpg',
-      title: 'Enerji Depolama Sistemleri',
-      description: 'Enerji depolama sistemleri, güç sistemlerinde enerjiyi depolamaya yarayan sistemlerdir',
-      category: 'Enerji Depolama',
-      gradient: 'from-indigo-600 via-blue-500 to-teal-400',
-      bgColor: 'bg-gradient-to-br from-indigo-900/20 via-blue-800/20 to-teal-600/20',
-      slug: 'enerji-depolama'
-    },
-    {
-      id: 7,
-      image: '/hizmetlerimiz/ebus.jpg',
-      title: 'E Bus',
-      description: 'Elektrikli otobüsler için yüksek kapasiteli batarya sistemleri ve şarj altyapısı',
-      category: 'Ulaşım',
-      gradient: 'from-teal-600 via-blue-500 to-cyan-400',
-      bgColor: 'bg-gradient-to-br from-teal-900/20 via-blue-800/20 to-cyan-600/20',
-      slug: 'e-bus'
-    },
-    {
-      id: 8,
-      image: '/hizmetlerimiz/carport.jpg',
-      title: 'Car Port',
-      description: 'Araç park alanları için güneş paneli entegreli çatı sistemleri ve EV şarj istasyonları',
-      category: 'Otomotiv',
-      gradient: 'from-green-600 via-emerald-500 to-teal-400',
-      bgColor: 'bg-gradient-to-br from-green-900/20 via-emerald-800/20 to-teal-600/20',
-      slug: 'car-port'
-    },
-    {
-      id: 9,
-      image: '/hizmetlerimiz/golfcar.jpg',
-      title: 'Golf Car',
-      description: 'Golf araçları için sessiz ve çevre dostu elektrikli güç sistemleri',
-      category: 'Rekreasyon',
-      gradient: 'from-lime-600 via-green-500 to-emerald-400',
-      bgColor: 'bg-gradient-to-br from-lime-900/20 via-green-800/20 to-emerald-600/20',
-      slug: 'golf-araclari'
-    },
-    {
-      id: 10,
       image: '/hizmetlerimiz/marin.jpg',
       title: 'Marin',
       description: 'Denizcilik uygulamaları için dayanıklı ve güvenilir LiFePO4 batarya sistemleri',
@@ -127,7 +36,87 @@ const PhotoSwiper = () => {
       slug: 'marin'
     },
     {
-      id: 11,
+      id: 2,
+      image: '/hizmetlerimiz/enerjidepolama.jpg',
+      title: 'Enerji Depolama Sistemleri',
+      description: 'Enerji depolama sistemleri, güç sistemlerinde enerjiyi depolamaya yarayan sistemlerdir',
+      category: 'Enerji Depolama',
+      gradient: 'from-indigo-600 via-blue-500 to-teal-400',
+      bgColor: 'bg-gradient-to-br from-indigo-900/20 via-blue-800/20 to-teal-600/20',
+      slug: 'enerji-depolama'
+    },
+    {
+      id: 3,
+      image: '/hizmetlerimiz/telekomunikasyonbazistasyonu.jpg',
+      title: 'Telekomünikasyon Baz İstasyonu',
+      description: 'Güvenilir iletişim altyapısı için telekomünikasyon baz istasyonlarına yönelik enerji çözümleri',
+      category: 'Telekomünikasyon',
+      gradient: 'from-blue-600 via-cyan-500 to-blue-400',
+      bgColor: 'bg-gradient-to-br from-blue-900/20 via-cyan-800/20 to-blue-600/20',
+      slug: 'telekomunikasyon'
+    },
+    {
+      id: 4,
+      image: '/hizmetlerimiz/askerisistemuygulamalari.jpg',
+      title: 'Askeri Sistem Uygulamaları',
+      description: 'Savunma sanayii için özel tasarlanmış güvenilir ve dayanıklı enerji sistemleri',
+      category: 'Savunma',
+      gradient: 'from-green-600 via-emerald-500 to-teal-400',
+      bgColor: 'bg-gradient-to-br from-green-900/20 via-emerald-800/20 to-teal-600/20',
+      slug: 'askeri-sistem-uygulamalari'
+    },
+    {
+      id: 5,
+      image: '/hizmetlerimiz/carport.jpg',
+      title: 'Car Port',
+      description: 'Araç park alanları için güneş paneli entegreli çatı sistemleri ve EV şarj istasyonları',
+      category: 'Otomotiv',
+      gradient: 'from-green-600 via-emerald-500 to-teal-400',
+      bgColor: 'bg-gradient-to-br from-green-900/20 via-emerald-800/20 to-teal-600/20',
+      slug: 'car-port'
+    },
+    {
+      id: 6,
+      image: '/hizmetlerimiz/mobil-solar.jpg',
+      title: 'Mobil Solar',
+      description: 'Bir noktadan diğerine taşınabilir olan panellere mobil solar şarj panelleri adı verilir',
+      category: 'Mobil Solar Panel',
+      gradient: 'from-yellow-600 via-orange-500 to-red-400',
+      bgColor: 'bg-gradient-to-br from-yellow-900/20 via-orange-800/20 to-red-600/20',
+      slug: 'mobil-solar'
+    },
+    {
+      id: 7,
+      image: '/hizmetlerimiz/homesolarsystem.jpg',
+      title: 'Konut Çözümleri',
+      description: 'Evler için özel tasarlanmış güneş paneli sistemleri ve enerji depolama çözümleri',
+      category: 'Konut',
+      gradient: 'from-amber-600 via-yellow-500 to-lime-400',
+      bgColor: 'bg-gradient-to-br from-amber-900/20 via-yellow-800/20 to-lime-600/20',
+      slug: 'konut-cozumleri'
+    },
+    {
+      id: 8,
+      image: '/hizmetlerimiz/golfcar.jpg',
+      title: 'Golf Car',
+      description: 'Golf araçları için sessiz ve çevre dostu elektrikli güç sistemleri',
+      category: 'Rekreasyon',
+      gradient: 'from-lime-600 via-green-500 to-emerald-400',
+      bgColor: 'bg-gradient-to-br from-lime-900/20 via-green-800/20 to-emerald-600/20',
+      slug: 'golf-araclari'
+    },
+    {
+      id: 9,
+      image: '/hizmetlerimiz/drone.jpg',
+      title: 'Drone',
+      description: 'İnsansız hava araçları için hafif ve yüksek performanslı enerji çözümleri',
+      category: 'Havacılık',
+      gradient: 'from-purple-600 via-pink-500 to-red-400',
+      bgColor: 'bg-gradient-to-br from-purple-900/20 via-pink-800/20 to-red-600/20',
+      slug: 'drone'
+    },
+    {
+      id: 10,
       image: '/hizmetlerimiz/forklift.jpg',
       title: 'Forklift',
       description: 'Endüstriyel forkliftler için güçlü ve uzun ömürlü elektrikli güç sistemleri',
@@ -135,6 +124,16 @@ const PhotoSwiper = () => {
       gradient: 'from-orange-600 via-red-500 to-pink-400',
       bgColor: 'bg-gradient-to-br from-orange-900/20 via-red-800/20 to-pink-600/20',
       slug: 'forklift'
+    },
+    {
+      id: 11,
+      image: '/hizmetlerimiz/ebus.jpg',
+      title: 'E-Bus',
+      description: 'Elektrikli otobüsler için yüksek kapasiteli batarya sistemleri ve şarj altyapısı',
+      category: 'Ulaşım',
+      gradient: 'from-teal-600 via-blue-500 to-cyan-400',
+      bgColor: 'bg-gradient-to-br from-teal-900/20 via-blue-800/20 to-cyan-600/20',
+      slug: 'e-bus'
     }
   ];
 

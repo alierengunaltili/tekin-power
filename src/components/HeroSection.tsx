@@ -13,6 +13,7 @@ import {
   SunIcon,
   TruckIcon
 } from 'lucide-react';
+import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
 const HeroSection = () => {
@@ -128,34 +129,8 @@ const HeroSection = () => {
       gradient: 'from-blue-500 to-cyan-500',
       bgGradient: 'from-blue-900/90 via-cyan-800/90 to-blue-900/90',
       video: '/landing-page-videos/marin.mp4',
-      details: 'Denizcilik sektörü için özel tasarlanmış LiFePO₄ batarya sistemleri ve solar çözümler.'
-    },
-    {
-      icon: Car,
-      title: 'Car Port',
-      description: 'Solar otopark sistemleri',
-      gradient: 'from-green-500 to-emerald-500',
-      bgGradient: 'from-green-900/90 via-emerald-800/90 to-green-900/90',
-      video: '/landing-page-videos/carport.mp4',
-      details: 'Otopark alanlarının üzerine kurulu güneş panelleri ile enerji üretimi ve araç koruması.'
-    },
-    {
-      icon: Drone,
-      title: 'Drone',
-      description: 'İHA enerji teknolojileri',
-      gradient: 'from-orange-500 to-red-500',
-      bgGradient: 'from-orange-900/90 via-red-800/90 to-orange-900/90',
-      video: '/landing-page-videos/drone.mp4',
-      details: 'Havacılık sektörü için yüksek performanslı ve hafif enerji depolama çözümleri.'
-    },
-    {
-      icon: SunIcon,
-      title: 'Mobil Solar Panel',
-      description: 'Taşınabilir güneş enerjisi',
-      gradient: 'from-yellow-500 to-orange-500',
-      bgGradient: 'from-yellow-900/90 via-orange-800/90 to-yellow-900/90',
-      video: '/landing-page-videos/mobilsolarpanel.mp4',
-      details: 'Mobil ve esnek kullanım için tasarlanmış taşınabilir güneş paneli sistemleri.'
+      details: 'Denizcilik sektörü için özel tasarlanmış LiFePO₄ batarya sistemleri ve solar çözümler.',
+      slug: 'marin'
     },
     {
       icon: BatteryCharging,
@@ -164,7 +139,58 @@ const HeroSection = () => {
       gradient: 'from-purple-500 to-violet-500',
       bgGradient: 'from-purple-900/90 via-violet-800/90 to-purple-900/90',
       video: '/landing-page-videos/enerjidepolamasistemleri.mp4',
-      details: 'Yüksek kapasiteli LiFePO₄ batarya sistemleri ile güvenilir enerji depolama çözümleri.'
+      details: 'Yüksek kapasiteli LiFePO₄ batarya sistemleri ile güvenilir enerji depolama çözümleri.',
+      slug: 'enerji-depolama'
+    },
+    {
+      icon: SunIcon,
+      title: 'Telekomünikasyon Baz İstasyonu',
+      description: 'İletişim altyapısı enerji çözümleri',
+      gradient: 'from-blue-600 to-cyan-500',
+      bgGradient: 'from-blue-900/90 via-cyan-800/90 to-blue-900/90',
+      video: '/landing-page-videos/telekomunikasyon.mp4',
+      details: 'Telekomünikasyon baz istasyonları için güvenilir ve sürekli enerji sağlayan sistemler.',
+      slug: 'telekomunikasyon'
+    },
+    {
+      icon: TruckIcon,
+      title: 'Askeri Sistem Uygulamaları',
+      description: 'Savunma sanayi enerji çözümleri',
+      gradient: 'from-green-600 to-emerald-500',
+      bgGradient: 'from-green-900/90 via-emerald-800/90 to-green-900/90',
+      video: '/landing-page-videos/askerisistemuygulamalari.mp4',
+      details: 'Savunma sanayii için özel tasarlanmış güvenilir ve dayanıklı enerji sistemleri.',
+      slug: 'askeri-sistem-uygulamalari'
+    },
+    {
+      icon: Car,
+      title: 'Car Port',
+      description: 'Solar otopark sistemleri',
+      gradient: 'from-green-500 to-emerald-500',
+      bgGradient: 'from-green-900/90 via-emerald-800/90 to-green-900/90',
+      video: '/landing-page-videos/carport.mp4',
+      details: 'Otopark alanlarının üzerine kurulu güneş panelleri ile enerji üretimi ve araç koruması.',
+      slug: 'car-port'
+    },
+    {
+      icon: SunIcon,
+      title: 'Mobil Solar Panel',
+      description: 'Taşınabilir güneş enerjisi',
+      gradient: 'from-yellow-500 to-orange-500',
+      bgGradient: 'from-yellow-900/90 via-orange-800/90 to-yellow-900/90',
+      video: '/landing-page-videos/mobilsolarpanel.mp4',
+      details: 'Mobil ve esnek kullanım için tasarlanmış taşınabilir güneş paneli sistemleri.',
+      slug: 'mobil-solar'
+    },
+    {
+      icon: SunIcon,
+      title: 'Konut Çözümleri',
+      description: 'Ev için güneş enerjisi sistemleri',
+      gradient: 'from-amber-500 to-yellow-500',
+      bgGradient: 'from-amber-900/90 via-yellow-800/90 to-amber-900/90',
+      video: '/landing-page-videos/konutcozumleri.mp4',
+      details: 'Evler için özel tasarlanmış güneş paneli sistemleri ve enerji depolama çözümleri.',
+      slug: 'konut-cozumleri'
     },
     {
       icon: Car,
@@ -173,7 +199,18 @@ const HeroSection = () => {
       gradient: 'from-teal-500 to-green-500',
       bgGradient: 'from-teal-900/90 via-green-800/90 to-teal-900/90',
       video: '/landing-page-videos/golfcar.mp4',
-      details: 'Golf sahalarında kullanım için özel tasarlanmış elektrikli araç enerji sistemleri.'
+      details: 'Golf sahalarında kullanım için özel tasarlanmış elektrikli araç enerji sistemleri.',
+      slug: 'golf-araclari'
+    },
+    {
+      icon: Drone,
+      title: 'Drone',
+      description: 'İHA enerji teknolojileri',
+      gradient: 'from-orange-500 to-red-500',
+      bgGradient: 'from-orange-900/90 via-red-800/90 to-orange-900/90',
+      video: '/landing-page-videos/drone.mp4',
+      details: 'Havacılık sektörü için yüksek performanslı ve hafif enerji depolama çözümleri.',
+      slug: 'drone'
     },
     {
       icon: TruckIcon,
@@ -182,7 +219,18 @@ const HeroSection = () => {
       gradient: 'from-gray-500 to-slate-500',
       bgGradient: 'from-gray-900/90 via-slate-800/90 to-gray-900/90',
       video: '/landing-page-videos/forklift.mp4',
-      details: 'Endüstriyel forklift ve iş makineleri için güçlü ve dayanıklı enerji çözümleri.'
+      details: 'Endüstriyel forklift ve iş makineleri için güçlü ve dayanıklı enerji çözümleri.',
+      slug: 'forklift'
+    },
+    {
+      icon: Car,
+      title: 'E-Bus',
+      description: 'Elektrikli otobüs sistemleri',
+      gradient: 'from-teal-600 to-cyan-500',
+      bgGradient: 'from-teal-900/90 via-cyan-800/90 to-teal-900/90',
+      video: '/landing-page-videos/ebus.mp4',
+      details: 'Elektrikli otobüsler için yüksek kapasiteli batarya sistemleri ve şarj altyapısı.',
+      slug: 'e-bus'
     }
   ];
 
@@ -319,7 +367,7 @@ const HeroSection = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-screen py-8">
           {/* Left Content */}
-          <div className="text-center lg:text-left order-2 lg:order-1">
+          <div className="text-center lg:text-left order-1 lg:order-1">
             <div ref={titleRef} className="mb-4 sm:mb-6">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-3 sm:mb-4 drop-shadow-lg leading-tight">
                 <span className="block">Geleceğin</span>
@@ -340,13 +388,7 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div ref={ctaRef} className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start items-center px-4 lg:px-0">
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-blue-500/25 flex items-center space-x-2 w-full sm:w-auto justify-center"
-              >
-                <span>Hemen Teklif Al</span>
-                <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
+              
               
               <button 
                 onClick={() => scrollToSection('services')}
@@ -359,22 +401,7 @@ const HeroSection = () => {
           </div>
 
           {/* Right Content - Category Slider */}
-          <div className="relative order-1 lg:order-2">
-            {/* Navigation Arrows - Outside the card */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-2 lg:left-0 top-1/2 transform -translate-y-1/2 lg:-translate-x-6 z-20 w-10 sm:w-12 h-10 sm:h-12 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300 group shadow-lg"
-            >
-              <ChevronLeft className="w-5 sm:w-6 h-5 sm:h-6 text-white group-hover:scale-110 transition-transform duration-300" />
-            </button>
-            
-            <button
-              onClick={nextSlide}
-              className="absolute right-2 lg:right-0 top-1/2 transform -translate-y-1/2 lg:translate-x-6 z-20 w-10 sm:w-12 h-10 sm:h-12 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300 group shadow-lg"
-            >
-              <ChevronRight className="w-5 sm:w-6 h-5 sm:h-6 text-white group-hover:scale-110 transition-transform duration-300" />
-            </button>
-
+          <div className="relative order-2 lg:order-2">
             {/* Main Category Card */}
             <div className="relative mx-4 sm:mx-6 lg:mx-8">
               <div ref={cardRef} className="relative rounded-2xl sm:rounded-3xl mb-4 sm:mb-6 min-h-[300px] sm:min-h-[350px] lg:min-h-[400px] flex flex-col justify-center items-center text-center transition-all duration-500 hover:scale-105 overflow-hidden shadow-xl">
@@ -391,10 +418,34 @@ const HeroSection = () => {
                 {/* Overlay for better text visibility */}
                 <div className="absolute inset-0 bg-black/50"></div>
                 
+                {/* Navigation Arrows - Inside the card */}
+                <button
+                  onClick={prevSlide}
+                  className="absolute left-2 sm:left-3 top-1/2 transform -translate-y-1/2 z-20 w-8 sm:w-9 h-8 sm:h-9 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300 group shadow-lg"
+                >
+                  <ChevronLeft className="w-4 sm:w-5 h-4 sm:h-5 text-white group-hover:scale-110 transition-transform duration-300" />
+                </button>
+                
+                <button
+                  onClick={nextSlide}
+                  className="absolute right-2 sm:right-3 top-1/2 transform -translate-y-1/2 z-20 w-8 sm:w-9 h-8 sm:h-9 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300 group shadow-lg"
+                >
+                  <ChevronRight className="w-4 sm:w-5 h-4 sm:h-5 text-white group-hover:scale-110 transition-transform duration-300" />
+                </button>
+                
                 {/* Content */}
                 <div className="relative z-10 p-4 sm:p-6 lg:p-8 flex flex-col justify-center items-center text-center h-full">
-                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4 lg:mb-6 drop-shadow-lg">{currentCategory.title}</h3>
-                  <p className="text-white text-base sm:text-lg lg:text-xl leading-relaxed drop-shadow-md max-w-md px-2">{currentCategory.details}</p>
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 sm:mb-3 lg:mb-4 drop-shadow-lg">{currentCategory.title}</h3>
+                  <p className="text-white text-sm sm:text-base lg:text-lg leading-relaxed drop-shadow-md max-w-md px-2 mb-4 sm:mb-6">{currentCategory.details}</p>
+                  
+                  {/* Service Link Button */}
+                  <Link
+                    href={`/hizmetlerimiz/${currentCategory.slug || 'marin'}`}
+                    className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white/10 backdrop-blur-lg border border-white/20 rounded-full text-white text-sm sm:text-base font-medium hover:bg-white/20 hover:scale-105 transition-all duration-300 shadow-lg group"
+                  >
+                    <span>Detayları Gör</span>
+                    <ArrowRight className="w-3 sm:w-4 h-3 sm:h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -421,12 +472,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-5 sm:w-6 h-8 sm:h-10 border-2 border-white/50 rounded-full flex justify-center">
-          <div className="w-1 h-2 sm:h-3 bg-white/50 rounded-full mt-1.5 sm:mt-2 animate-pulse"></div>
-        </div>
-      </div>
+     
     </section>
   );
 };

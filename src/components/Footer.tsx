@@ -7,10 +7,6 @@ import {
   Phone, 
   Mail, 
   MapPin, 
-  Facebook, 
-  Twitter, 
-  Instagram, 
-  Linkedin,
   ArrowUp,
   Heart
 } from 'lucide-react';
@@ -30,35 +26,27 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { label: 'Ana Sayfa', href: 'hero' },
-    { label: 'Hizmetlerimiz', href: 'services' },
-    { label: 'LiFePO₄ Batarya', href: '/lifepo4' },
-    { label: 'Güneş Paneli', href: '/gunespaneli' },
-    { label: 'Projelerimiz', href: 'projects' },
+    { label: 'Ana Sayfa', href: '/' },
+    { label: 'Hizmetlerimiz', href: '/hizmetlerimiz' },
     { label: 'Hakkımızda', href: '/hakkimizda' },
     { label: 'İletişim', href: 'contact' }
   ];
 
   const services = [
-    { label: 'Telekomünikasyon Baz İstasyonu', href: '/hizmetlerimiz/telekomunikasyon-baz-istasyonu' },
-    { label: 'Askeri Sistem Uygulamaları', href: '/hizmetlerimiz/askeri-sistem-uygulamalari' },
-    { label: 'GES Çatı Projeleri', href: '/hizmetlerimiz/ges-cati-projeleri' },
-    { label: 'Home Solar System', href: '/hizmetlerimiz/home-solar-system' },
-    { label: 'Drone', href: '/hizmetlerimiz/drone' },
-    { label: 'Solar Pole', href: '/hizmetlerimiz/solar-pole' },
-    { label: 'E Bus', href: '/hizmetlerimiz/e-bus' },
-    { label: 'Car Port', href: '/hizmetlerimiz/car-port' },
-    { label: 'Golf Car', href: '/hizmetlerimiz/golf-car' },
     { label: 'Marin', href: '/hizmetlerimiz/marin' },
-    { label: 'Forklift', href: '/hizmetlerimiz/forklift' }
+    { label: 'Enerji Depolama Sistemleri', href: '/hizmetlerimiz/enerji-depolama' },
+    { label: 'Telekomünikasyon Baz İstasyonu', href: '/hizmetlerimiz/telekomunikasyon' },
+    { label: 'Askeri Sistem Uygulamaları', href: '/hizmetlerimiz/askeri-sistem-uygulamalari' },
+    { label: 'Car Port', href: '/hizmetlerimiz/car-port' },
+    { label: 'Mobil Solar Panel', href: '/hizmetlerimiz/mobil-solar' },
+    { label: 'Konut Çözümleri', href: '/hizmetlerimiz/konut-cozumleri' },
+    { label: 'Golf Araçları', href: '/hizmetlerimiz/golf-araclari' },
+    { label: 'Drone', href: '/hizmetlerimiz/drone' },
+    { label: 'Forklift', href: '/hizmetlerimiz/forklift' },
+    { label: 'E-Bus', href: '/hizmetlerimiz/e-bus' }
   ];
 
-  const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' }
-  ];
+
 
   return (
     <footer className="bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative">
@@ -89,23 +77,6 @@ const Footer = () => {
               LiFePO₄ batarya teknolojisi ve yenilikçi solar sistemlerle 
               sürdürülebilir enerji geleceğinde yanınızdayız.
             </p>
-            
-            {/* Social Links */}
-            <div className="flex space-x-4">
-              {socialLinks.map((social, index) => {
-                const IconComponent = social.icon;
-                return (
-                  <a
-                    key={index}
-                    href={social.href}
-                    aria-label={social.label}
-                    className="w-10 h-10 bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300"
-                  >
-                    <IconComponent className="w-5 h-5 text-blue-300" />
-                  </a>
-                );
-              })}
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -138,7 +109,7 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold text-white mb-6">Hizmetlerimiz</h3>
             <ul className="space-y-2">
-              {services.slice(0, 6).map((service, index) => (
+              {services.map((service, index) => (
                 <li key={index}>
                   <Link
                     href={service.href}

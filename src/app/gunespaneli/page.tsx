@@ -4,7 +4,7 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SolarPhotoSwiper from '@/components/solar/SolarPhotoSwiper';
-import SolarTypesSection from '@/components/solar/SolarTypesSection';
+import SolarTypesRedesign from '@/components/solar/SolarTypesRedesign';
 
 export default function GunesPaneliPage() {
   return (
@@ -16,7 +16,7 @@ export default function GunesPaneliPage() {
         <SolarPhotoSwiper />
 
         {/* Solar Types & Description */}
-        <SolarTypesSection />
+        <SolarTypesRedesign />
       </main>
       
       <Footer />

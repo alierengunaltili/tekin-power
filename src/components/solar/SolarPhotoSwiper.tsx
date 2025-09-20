@@ -34,47 +34,56 @@ const SolarPhotoSwiper = () => {
 
   const solarTypes: SolarType[] = [
     {
-      id: 'home-solar',
-      title: 'Home Solar System',
-      description: 'Evler için özel tasarlanmış çatı üstü güneş paneli sistemleri. Konut ihtiyaçlarına göre optimize edilmiş enerji çözümleri.',
-      image: '/gunespaneli/konutgunes.jpg',
-      features: ['5-20 kW Kapasite', 'Çatı Entegrasyonu', 'Net Metering', 'Remote Monitoring'],
+      id: 'esnek-paneller',
+      title: 'Esnek Paneller',
+      description: 'Esnek güneş panelleri, ince film tabakalarının plastik veya metal yüzeylere entegre edilmesiyle üretilir. ETFE polimer kaplama ile 240 dereceye kadar esneyebilir.',
+      image: '/gunespaneli-redesign/esnekgunespaneli.jpg',
+      features: ['%60 daha hafif', 'Kırılmaz yapı', 'Kolay kurulum', 'Bükülebilir tasarım'],
       link: '/hizmetlerimiz',
       gradient: 'from-blue-500 to-cyan-500'
     },
     {
-      id: 'solar-pole',
-      title: 'Solar Pole',
-      description: 'Sokak lambalarına entegre güneş paneli sistemleri. Kentsel aydınlatma için bağımsız enerji çözümleri.',
-      image: '/gunespaneli/sokaklambaları-ustune-gunespanellerii.jpg',
-      features: ['LED Aydınlatma', 'Otonom Sistem', 'Akıllı Kontrol', 'Uzun Ömür'],
+      id: 'half-cut',
+      title: 'Half-cut Güneş Panelleri',
+      description: 'Yarım kesim güneş panelleri, standart hücrelerin ortadan ikiye kesilmesiyle oluşturulur. Bu tasarım, panelin elektrik üretim verimini artırır.',
+      image: '/gunespaneli-redesign/half-cut solar panel.jpg',
+      features: ['Daha az enerji kaybı', 'Gölgeye dayanıklı', 'Uzun ömür', 'Yüksek verim'],
       link: '/hizmetlerimiz',
       gradient: 'from-green-500 to-emerald-500'
     },
     {
-      id: 'carport-solar',
-      title: 'Carport Solar System',
-      description: 'Araç park alanları için güneş paneli sistemleri. Hem araç koruması hem de enerji üretimi sağlayan çift fonksiyonlu çözüm.',
-      image: '/gunespaneli/arabagunespaneli.jpg',
-      features: ['Araç Koruması', 'EV Şarj İstasyonu', 'Modüler Tasarım', 'Çift Fayda'],
+      id: 'monokristal',
+      title: 'Monokristal Güneş Panelleri',
+      description: 'Tek tip ve saf kristal yapıya sahip silikon hücrelerden üretilen panellerdir. Koyu siyah renkte ve yüksek verimlidir.',
+      image: '/gunespaneli-redesign/monokristal solar panel.jpg',
+      features: ['En yüksek verimlilik', 'Uzun ömür (25+ yıl)', 'Az ışıkta çalışır', 'Estetik görünüm'],
       link: '/hizmetlerimiz',
       gradient: 'from-purple-500 to-pink-500'
     },
     {
-      id: 'roof-projects',
-      title: 'Çatı Projeleri',
-      description: 'Büyük ölçekli endüstriyel ve ticari binalar için çatı üstü güneş paneli projeleri. Yüksek kapasite ve verim.',
-      image: '/gunespaneli/large-building-with-solar-panels-roof.jpg',
-      features: ['100+ kW Kapasite', 'Endüstriyel Çözüm', 'Yüksek ROI', 'Kurumsal Destek'],
+      id: 'polikristal',
+      title: 'Polikristal Güneş Panelleri',
+      description: 'Birden fazla silikon kristalinin bir araya gelmesiyle oluşturulan, mavi tonlarda görünen ve ekonomik güneş panelleridir.',
+      image: '/gunespaneli-redesign/polikristal gunespaneli.jpg',
+      features: ['Ekonomik fiyat', 'Güvenilir performans', 'Çevre dostu üretim', 'Geniş kullanım'],
       link: '/hizmetlerimiz',
       gradient: 'from-orange-500 to-yellow-500'
     },
     {
-      id: 'floating-solar',
-      title: 'Floating Solar Panels',
-      description: 'Su yüzeyleri üzerinde kurulabilen yüzer güneş paneli sistemleri. İnovatif teknoloji ile su kaynakları üzerinde enerji üretimi.',
-      image: '/gunespaneli/floating-solar-panels.jpg',
-      features: ['Su Üstü Kurulum', 'Yenilikçi Teknoloji', 'Çevre Dostu', 'Yüksek Verim'],
+      id: 'solar-kiremit',
+      title: 'Solar Kiremit',
+      description: 'Geleneksel kiremitlerin yerine geçebilen ve aynı zamanda güneş enerjisi üretebilen özel bir çatı kaplama malzemesidir.',
+      image: '/gunespaneli-redesign/kiremitgunespaneli.png',
+      features: ['Estetik görünüm', 'İki işlev bir arada', 'Dayanıklı yapı', 'Temiz enerji'],
+      link: '/hizmetlerimiz',
+      gradient: 'from-red-500 to-pink-500'
+    },
+    {
+      id: 'bifacial',
+      title: 'Çift Yüzlü (Bifacial) Güneş Panelleri',
+      description: 'Hem ön hem de arka yüzeyinden güneş ışığını toplayarak elektrik üretebilen, yere yansıyan ışığı da kullanabilen panellerdir.',
+      image: '/gunespaneli-redesign/cifttarafligunespaneli.png',
+      features: ['Çift yüzey üretimi', '%10-30 ek verim', 'Cam kaplı dayanıklılık', 'Kolay bakım'],
       link: '/hizmetlerimiz',
       gradient: 'from-cyan-500 to-blue-500'
     }
@@ -157,7 +166,8 @@ const SolarPhotoSwiper = () => {
   };
 
   const scrollToDetails = () => {
-    const detailsSection = document.getElementById(`solar-type-${currentSlide + 1}`);
+    const currentTypeId = solarTypes[currentSlide].id;
+    const detailsSection = document.getElementById(`detail-${currentTypeId}`);
     if (detailsSection) {
       // Calculate scroll position with offset for navbar
       const elementTop = detailsSection.getBoundingClientRect().top;
@@ -171,11 +181,11 @@ const SolarPhotoSwiper = () => {
       // Auto-expand the section after scrolling
       setTimeout(() => {
         // Dispatch a custom event to trigger expansion
-        const expandEvent = new CustomEvent('expandSection', { 
-          detail: { sectionId: currentSlide + 1 } 
+        const expandEvent = new CustomEvent('expandSolarDetail', { 
+          detail: { typeId: currentTypeId } 
         });
         window.dispatchEvent(expandEvent);
-      }, 800); // Reduced wait time for better UX
+      }, 800); // Wait for scroll to complete
     }
   };
 
@@ -194,7 +204,7 @@ const SolarPhotoSwiper = () => {
     return (
     <>
       {/* Photo Swiper Section */}
-      <section ref={sectionRef} className="pt-16 sm:pt-20 lg:pt-24 pb-12 sm:pb-16 lg:pb-20 relative overflow-hidden min-h-[80vh] sm:min-h-[85vh] lg:min-h-screen">
+      <section ref={sectionRef} className="pt-12 sm:pt-16 lg:pt-20 pb-8 sm:pb-12 lg:pb-16 relative overflow-hidden min-h-[90vh] sm:min-h-[95vh] lg:min-h-[110vh]">
         {/* Dynamic Background */}
         <div ref={backgroundRef} className="absolute inset-0 -z-10">
           <Image
@@ -204,49 +214,48 @@ const SolarPhotoSwiper = () => {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50 sm:from-black/60 sm:via-black/40 sm:to-black/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60 sm:from-black/70 sm:via-black/50 sm:to-black/80"></div>
         </div>
 
         <div className="relative z-20 max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           {/* Section Title */}
-          <div className="text-center mb-12 sm:mb-16">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 text-white">
+          <div className="text-center mb-8 sm:mb-12">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 text-white">
               <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
                 Güneş Paneli
               </span>
-              <span className="block text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl mt-2">
-                Sistemleri
+              <span className="block text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl mt-2">
+                Çeşitleri
               </span>
             </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-6 sm:mb-8 px-4 sm:px-0">
-              Geleceğin enerji teknolojisi ile tanışın. Her ihtiyaca uygun güneş paneli çözümlerimizi keşfedin.
-              <span className="block mt-2 text-white font-semibold">Modern teknoloji ile tasarlanmış sistemlerimiz ile enerji bağımsızlığına adım atın.</span>
+            <p className="text-sm sm:text-base lg:text-lg text-blue-100 max-w-3xl mx-auto leading-relaxed mb-4 sm:mb-6 px-4 sm:px-0">
+              Geleceğin enerji teknolojisi ile tanışın. İhtiyacınıza uygun güneş paneli çeşitlerimizi keşfedin.
             </p>
           </div>
 
         {/* Swiper Container */}
-        <div ref={swiperRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+        <div ref={swiperRef} className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-10 items-center">
           {/* Left - Content Card */}
-          <div ref={cardRef} className="order-2 lg:order-1 px-4 sm:px-0">
-            <div className="bg-white/5 sm:bg-white/10 border border-white/20 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl">
-              <div className={`inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r ${currentType.gradient} text-white text-xs sm:text-sm font-medium mb-4 sm:mb-6`}>
+          <div ref={cardRef} className="order-2 lg:order-1 lg:col-span-2 px-4 sm:px-0">
+            <div className="bg-white/5 sm:bg-white/10 border border-white/20 rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-5 shadow-2xl">
+              <div className={`inline-flex items-center px-2 sm:px-3 py-1 sm:py-1.5 rounded-full bg-gradient-to-r ${currentType.gradient} text-white text-xs font-medium mb-3 sm:mb-4`}>
                 {currentSlide + 1} / {solarTypes.length}
               </div>
               
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 sm:mb-4">
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 sm:mb-3">
                 {currentType.title}
               </h3>
               
-              <p className="text-blue-100 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8">
+              <p className="text-blue-100 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-5 line-clamp-3">
                 {currentType.description}
               </p>
               
               {/* Features */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 lg:gap-4 mb-6 sm:mb-8">
+              <div className="grid grid-cols-2 gap-1.5 sm:gap-2 mb-4 sm:mb-5">
                 {currentType.features.map((feature, index) => (
-                  <div key={index} className="flex items-center space-x-2 text-white">
-                    <div className={`w-2 sm:w-2.5 lg:w-3 h-2 sm:h-2.5 lg:h-3 rounded-full bg-gradient-to-r ${currentType.gradient}`}></div>
-                    <span className="text-xs sm:text-sm">{feature}</span>
+                  <div key={index} className="flex items-center space-x-1.5 text-white">
+                    <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${currentType.gradient}`}></div>
+                    <span className="text-xs">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -254,40 +263,40 @@ const SolarPhotoSwiper = () => {
               {/* CTA */}
               <button 
                 onClick={scrollToDetails}
-                className={`inline-flex items-center space-x-2 bg-gradient-to-r ${currentType.gradient} text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-semibold hover:scale-105 transition-all duration-300 shadow-lg w-full sm:w-auto justify-center`}
+                className={`inline-flex items-center space-x-1.5 bg-gradient-to-r ${currentType.gradient} text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg font-medium hover:scale-105 transition-all duration-300 shadow-lg w-full justify-center text-xs sm:text-sm`}
               >
                 <span>İncele</span>
-                <ArrowDown className="w-4 sm:w-5 h-4 sm:h-5" />
+                <ArrowDown className="w-3 h-3" />
               </button>
             </div>
           </div>
 
           {/* Right - Navigation & Indicators */}
-          <div className="order-1 lg:order-2 flex flex-col items-center space-y-6 sm:space-y-8 px-4 sm:px-0">
+          <div className="order-1 lg:order-2 lg:col-span-3 flex flex-col items-center space-y-4 sm:space-y-6 px-4 sm:px-0">
             {/* Navigation Arrows */}
-            <div className="flex items-center space-x-4 sm:space-x-6">
+            <div className="flex items-center space-x-3 sm:space-x-4">
               <button
                 onClick={prevSlide}
-                className="w-12 sm:w-14 h-12 sm:h-14 bg-white/10 sm:bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 hover:scale-110"
+                className="w-10 sm:w-12 h-10 sm:h-12 bg-white/10 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 hover:scale-110"
               >
-                <ChevronLeft className="w-5 sm:w-6 h-5 sm:h-6" />
+                <ChevronLeft className="w-4 sm:w-5 h-4 sm:h-5" />
               </button>
               
               <button
                 onClick={nextSlide}
-                className="w-12 sm:w-14 h-12 sm:h-14 bg-white/10 sm:bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 hover:scale-110"
+                className="w-10 sm:w-12 h-10 sm:h-12 bg-white/10 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 hover:scale-110"
               >
-                <ChevronRight className="w-5 sm:w-6 h-5 sm:h-6" />
+                <ChevronRight className="w-4 sm:w-5 h-4 sm:h-5" />
               </button>
             </div>
 
             {/* Slide Indicators */}
-            <div className="flex space-x-2 sm:space-x-3">
+            <div className="flex space-x-1.5 sm:space-x-2">
               {solarTypes.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => changeSlide(index)}
-                  className={`w-2 sm:w-2.5 lg:w-3 h-2 sm:h-2.5 lg:h-3 rounded-full transition-all duration-300 ${
+                  className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
                     index === currentSlide 
                       ? 'bg-white scale-125' 
                       : 'bg-white/40 hover:bg-white/70'
@@ -297,14 +306,14 @@ const SolarPhotoSwiper = () => {
             </div>
 
             {/* Type Thumbnails */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-3 lg:grid-cols-1 lg:space-y-3 lg:space-x-0">
+            <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-3">
               {solarTypes.map((type, index) => (
                 <button
                   key={type.id}
                   onClick={() => changeSlide(index)}
-                  className={`relative w-32 sm:w-28 lg:w-20 h-32 sm:h-28 lg:h-20 rounded-lg sm:rounded-xl overflow-hidden border-2 transition-all duration-300 ${
+                  className={`relative w-24 sm:w-20 h-24 sm:h-20 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
                     index === currentSlide 
-                      ? 'border-white scale-110' 
+                      ? 'border-white scale-105' 
                       : 'border-white/30 hover:border-white/70'
                   }`}
                 >
@@ -315,6 +324,9 @@ const SolarPhotoSwiper = () => {
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-black/20"></div>
+                  <div className="absolute bottom-0 left-0 right-0 bg-black/70 py-1 px-1.5">
+                    <p className="text-white text-[8px] sm:text-[10px] truncate text-center">{type.title}</p>
+                  </div>
                 </button>
               ))}
             </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Analytics from "@/components/Analytics";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,8 +14,54 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tekin Power - Güçlü Enerji Çözümleri",
-  description: "Modern enerji sistemleri, LiFePO4 bataryalar ve güneş enerjisi çözümleri ile geleceğin enerjisini bugünden yaşayın.",
+  title: "Tekin Power - Yenilenebilir Enerji Çözümleri ve LiFePO4 Bataryalar",
+  description: "Tekin Power, marin, solar enerji sistemleri, ebus, drone, golf araçları, forklift, carport ve solar pole alanlarında yenilikçi enerji çözümleri sunar. LiFePO4 bataryalar ile sürdürülebilir bir gelecek inşa ediyoruz.",
+  keywords: "Tekin Power, yenilenebilir enerji, LiFePO4 batarya, solar panel, güneş enerjisi, marin enerji sistemleri, enerji depolama, sürdürülebilir enerji",
+  authors: [{ name: "Tekin Power Energy" }],
+  creator: "Tekin Power Energy",
+  publisher: "Tekin Power Energy",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL("https://tekinpower.com.tr"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Tekin Power - Yenilenebilir Enerji Çözümleri",
+    description: "Tekin Power, marin, solar enerji sistemleri ve LiFePO4 bataryalar ile sürdürülebilir enerji çözümleri sunar.",
+    url: "https://tekinpower.com.tr",
+    siteName: "Tekin Power Energy",
+    locale: "tr_TR",
+    type: "website",
+    images: [
+      {
+        url: "/tekinpowerlogos/tekinpower-02.png",
+        width: 800,
+        height: 600,
+        alt: "Tekin Power Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tekin Power - Yenilenebilir Enerji Çözümleri",
+    description: "Tekin Power, marin, solar enerji sistemleri ve LiFePO4 bataryalar ile sürdürülebilir enerji çözümleri sunar.",
+    images: ["/tekinpowerlogos/tekinpower-02.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -27,6 +74,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-gray-900`}
       >
+        <Analytics />
         {children}
       </body>
     </html>

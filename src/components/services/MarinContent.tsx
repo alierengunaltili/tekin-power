@@ -158,7 +158,7 @@ Marin sektörüne yönelik LiFePO4 batarya ve solar çözümlerimiz hakkında da
                         {/* LiFePO4 Link Overlay */}
                         <div className="absolute inset-0 flex items-center justify-center">
                           <a 
-                            href="#lifepo4-info" 
+                            href="/lifepo4" 
                             className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full text-blue-600 font-semibold hover:bg-white transition-all duration-300 shadow-lg"
                           >
                             LiFePO4 Hakkında Daha Fazla →

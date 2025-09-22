@@ -229,33 +229,19 @@ const HakkimizdaPage = () => {
               {/* Content Card */}
               <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
                 <div className="text-left space-y-4 sm:space-y-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Biz Kimiz?</h3>
                   <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                    <span className="font-semibold text-gray-900">Enerji SA</span>, gelişmiş LiFePO₄ batarya teknolojileri 
-                    ve yenilikçi güneş enerjisi sistemleri konusunda uzmanlaşmış, öncü bir enerji çözümleri şirketidir. 
-                    2010 yılından bu yana, sürdürülebilir ve güvenilir enerji çözümleri sunarak sektörde öncü rol oynamaktayız.
+                    <span className="font-semibold text-gray-900">Tekin Power Energy</span>, yenilikçi projeleriyle enerji sektöründe fark yaratan bir çözüm ortağıdır. 
+                    Gelişen teknolojiye uyum sağlayarak; marin, solar enerji sistemleri, ebus, drone, golf araçları, forklift, carport, solar pole gibi 
+                    farklı alanlarda çözümler sunan şirket, enerji verimliliği ve sürdürülebilirliği hedeflemektedir.
                   </p>
                   
                   <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                    Denizcilik, havacılık, endüstriyel otomasyon ve elektrikli ulaşım gibi kritik sektörlerde 
-                    faaliyet gösteren müşterilerimize, özel tasarlanmış enerji depolama ve yönetim sistemleri 
-                    geliştiriyoruz. Teknolojik yeniliği sürdürülebilirlik ile harmanlayarak, geleceğin enerji 
-                    ihtiyaçlarına bugünden cevap veriyoruz.
+                    Yüksek performanslı ve uzun ömürlü enerji çözümlerinde LiFePO4 bataryalar kullanarak, 
+                    güvenilir ve sürdürülebilir bir gelecek inşa etmeyi hedefler.
                   </p>
 
-                  <div className="flex flex-wrap gap-3 sm:gap-4 pt-3 sm:pt-4">
-                    <div className="flex items-center space-x-2 text-blue-600">
-                      <Award className="w-4 sm:w-5 h-4 sm:h-5" />
-                      <span className="font-medium text-sm sm:text-base">ISO 9001 Belgeli</span>
-                    </div>
-                    <div className="flex items-center space-x-2 text-green-600">
-                      <Battery className="w-4 sm:w-5 h-4 sm:h-5" />
-                      <span className="font-medium text-sm sm:text-base">LiFePO₄ Uzmanı</span>
-                    </div>
-                    <div className="flex items-center space-x-2 text-cyan-600">
-                      <Globe className="w-4 sm:w-5 h-4 sm:h-5" />
-                      <span className="font-medium text-sm sm:text-base">Uluslararası Hizmet</span>
-                    </div>
-                  </div>
+                  
                 </div>
               </div>
 
@@ -310,19 +296,18 @@ const HakkimizdaPage = () => {
               </div>
               
               <p className="text-lg leading-relaxed opacity-95 mb-6">
-                Sürdürülebilir enerji teknolojilerinde küresel bir lider olmak ve gelecek nesillere 
-                temiz, güvenilir enerji çözümleri bırakmak. Teknolojik yeniliği çevresel sorumluluk 
-                ile harmanlayarak, karbon nötr bir dünya vizyonuna katkıda bulunmak.
+                Sıfır karbon salınımı hedefi doğrultusunda gelecek nesillere daha yaşanabilir bir dünya bırakmak için 
+                yenilenebilir ve sürdürülebilir enerji teknolojilerinde lider bir firma olmaktır.
               </p>
 
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span>Karbon nötr enerji çözümleri</span>
+                  <span>Yenilenebilir enerji çözümleri</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span>Teknolojik liderlik</span>
+                  <span>Sıfır karbon hedefine uygun teknolojiler</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
@@ -341,23 +326,22 @@ const HakkimizdaPage = () => {
               </div>
               
               <p className="text-lg leading-relaxed opacity-95 mb-6">
-                En ileri LiFePO₄ batarya teknolojisi ve güneş enerjisi sistemleri ile müşterilerimize 
-                özel tasarlanmış, güvenilir ve verimli enerji çözümleri sunmak. Her projede kalite, 
-                güvenlik ve sürdürülebilirliği ön planda tutarak sektörde standartları belirlemek.
+                Güncel, çevreci, kaliteli ve verimli depolama teknolojilerini, yenilenebilir ve sürdürülebilir enerji 
+                sistemleri alanında her bir müşterimiz özelinde kullanmak ve kullandırmaktır.
               </p>
 
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span>Müşteri odaklı çözümler</span>
+                  <span>Her bir müşterimiz özelinde</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span>Kalite ve güvenilirlik</span>
+                  <span>Güncel, çevreci, kaliteli ve verimli</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span>Yenilikçi teknoloji</span>
+                  <span>Kullanmak ve kullandırmak</span>
                 </div>
               </div>
             </div>

@@ -10,7 +10,16 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
+    // Görüntü optimizasyonu için
+    formats: ['image/avif', 'image/webp'],
   },
+  // Performans optimizasyonları
+  poweredByHeader: false,
+  reactStrictMode: true,
+  swcMinify: true,
+  compress: true,
+  // Statik optimizasyon
+  output: 'standalone',
 };
 
 export default nextConfig;

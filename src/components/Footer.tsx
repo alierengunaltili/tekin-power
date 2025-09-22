@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { 
-  Zap, 
   Phone, 
   Mail, 
   MapPin, 
@@ -64,13 +64,15 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-2 mb-6">
-              <div className="relative">
-                <Zap className="h-8 w-8 text-blue-400" />
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 opacity-20 rounded-full blur-lg"></div>
+              <div className="relative w-72 sm:w-96 lg:w-[28rem] h-20 sm:h-24 lg:h-28">
+                <Image
+                  src="/tekinpowerlogos/tekinpower-02.png"
+                  alt="Tekin Power Logo"
+                  fill
+                  className="object-contain brightness-0 invert"
+                  priority
+                />
               </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                Tekin Power
-              </span>
             </div>
             <p className="text-blue-100 mb-6 leading-relaxed">
               Güçlü enerji çözümleri ile geleceği bugünden inşa ediyoruz. 
@@ -151,39 +153,11 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Working Hours */}
-            <div className="mt-6 bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-4">
-              <h4 className="text-white font-semibold mb-2">Çalışma Saatleri</h4>
-              <p className="text-blue-200 text-sm">
-                Pazartesi - Cuma: 09:00 - 18:00<br />
-                Cumartesi: 09:00 - 13:00<br />
-                Pazar: Kapalı
-              </p>
-            </div>
+        
           </div>
         </div>
 
-        {/* Newsletter */}
-        <div className="bg-gradient-to-r from-blue-600/20 to-cyan-600/20 backdrop-blur-lg border border-white/20 rounded-xl p-6 mb-8">
-          <div className="text-center">
-            <h3 className="text-xl font-bold text-white mb-3">
-              Enerji Dünyasından Haberdar Olun
-            </h3>
-            <p className="text-blue-100 mb-4 text-sm max-w-xl mx-auto">
-              Yeni teknolojiler, sektörel gelişmeler ve özel fırsatlardan ilk siz haberdar olun.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="E-posta adresiniz"
-                className="flex-1 px-4 py-2 rounded-lg bg-white/20 backdrop-blur-lg border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm"
-              />
-              <button className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-4 py-2 rounded-lg font-semibold hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 hover:scale-105 text-sm">
-                Abone Ol
-              </button>
-            </div>
-          </div>
-        </div>
+      
 
         {/* Bottom Bar */}
         <div className="border-t border-white/20 pt-6">

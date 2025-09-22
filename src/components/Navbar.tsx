@@ -1,7 +1,8 @@
 'use client';
 
 import { gsap } from 'gsap';
-import { Menu, X, Zap } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -67,17 +68,15 @@ const Navbar = () => {
             href="/"
             className="flex items-center space-x-2 cursor-pointer"
           >
-            <div className="relative">
-              <Zap className={`h-8 w-8 transition-colors duration-300 ${
-                isScrolled ? 'text-blue-600' : 'text-white'
-              }`} />
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 opacity-20 rounded-full blur-lg"></div>
+            <div className="relative w-64 sm:w-80 lg:w-96 h-16 sm:h-20 lg:h-24">
+              <Image
+                src="/tekinpowerlogos/tekinpower-02.png"
+                alt="Tekin Power Logo"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
-            <span className={`text-lg sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent ${
-              !isScrolled ? 'text-white bg-none' : ''
-            }`}>
-              Tekin Power
-            </span>
           </Link>
 
           {/* Desktop Navigation */}

@@ -25,6 +25,11 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL("https://tekinpower.com.tr"),
+  icons: {
+    icon: "/tekinpowerlogos/tekinpower-04.png",
+    shortcut: "/tekinpowerlogos/tekinpower-04.png",
+    apple: "/tekinpowerlogos/tekinpower-04.png",
+  },
   alternates: {
     canonical: "/",
   },

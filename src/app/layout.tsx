@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://tekinpower.com.tr"),
+  metadataBase: new URL("https://tekinpower.com"),
   icons: {
     icon: "/tekinpowerlogos/tekinpower-04.png",
     shortcut: "/tekinpowerlogos/tekinpower-04.png",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Tekin Power - Yenilenebilir Enerji Çözümleri",
     description: "Tekin Power, marin, solar enerji sistemleri ve LiFePO4 bataryalar ile sürdürülebilir enerji çözümleri sunar.",
-    url: "https://tekinpower.com.tr",
+    url: "https://tekinpower.com",
     siteName: "Tekin Power Energy",
     locale: "tr_TR",
     type: "website",

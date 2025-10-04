@@ -369,7 +369,7 @@ const HeroSection = () => {
           {/* Left Content */}
           <div className="text-center lg:text-left order-1 lg:order-1">
             <div ref={titleRef} className="mb-4 sm:mb-6">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-3 sm:mb-4 drop-shadow-lg leading-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-3 sm:mb-4 drop-shadow-lg leading-tight">
                 <span className="block">Geleceğin</span>
                 <span className="block bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-300 bg-clip-text text-transparent">
                   Enerji Çözümleri

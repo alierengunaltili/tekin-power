@@ -154,7 +154,7 @@ const Footer = () => {
               
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                <a href="mailto:info@tekinpower.com" className="text-blue-200 hover:text-white transition-colors duration-300">
+                <a href="mailto:info@tekinpower.com?subject=Tekin Power İletişim&body=Merhaba, bilgi almak istiyorum." className="text-blue-200 hover:text-white transition-colors duration-300">
                   info@tekinpower.com
                 </a>
               </div>

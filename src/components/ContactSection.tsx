@@ -374,14 +374,20 @@ const ContactSection = () => {
                 Acil durumlar için 7/24 teknik destek hattımızı arayabilirsiniz.
               </p>
               <div className="space-y-3">
-                <button className="w-full bg-white/20 backdrop-blur-lg border border-white/30 text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition-all duration-300 flex items-center justify-center space-x-2">
+                <a 
+                  href="tel:+905323276293"
+                  className="w-full bg-white/20 backdrop-blur-lg border border-white/30 text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition-all duration-300 flex items-center justify-center space-x-2"
+                >
                   <Phone className="w-5 h-5" />
                   <span>Hemen Ara</span>
-                </button>
-                <button className="w-full bg-white/20 backdrop-blur-lg border border-white/30 text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition-all duration-300 flex items-center justify-center space-x-2">
+                </a>
+                <a 
+                  href="mailto:info@tekinpower.com?subject=Tekin Power İletişim&body=Merhaba, bilgi almak istiyorum."
+                  className="w-full bg-white/20 backdrop-blur-lg border border-white/30 text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition-all duration-300 flex items-center justify-center space-x-2"
+                >
                   <Mail className="w-5 h-5" />
                   <span>E-posta Gönder</span>
-                </button>
+                </a>
               </div>
             </div>
           </div>

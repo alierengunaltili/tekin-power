@@ -170,7 +170,7 @@ const HeroSection = () => {
       description: "Denizcilik enerji çözümleri",
       gradient: "from-blue-500 to-cyan-500",
       bgGradient: "from-blue-900/90 via-cyan-800/90 to-blue-900/90",
-      video: "/landing-pages-videos-optimized/marin.mp4",
+      video: "/landing-page-videos-optimized/marin.mp4",
       details:
         "Denizcilik sektörü için özel tasarlanmış LiFePO₄ batarya sistemleri ve solar çözümler.",
       slug: "marin",
@@ -181,7 +181,7 @@ const HeroSection = () => {
       description: "Gelişmiş batarya teknolojileri",
       gradient: "from-purple-500 to-violet-500",
       bgGradient: "from-purple-900/90 via-violet-800/90 to-purple-900/90",
-      video: "/landing-pages-videos-optimized/enerjidepolamasistemleri.mp4",
+      video: "/landing-page-videos-optimized/enerjidepolamasistemleri.mp4",
       details:
         "Yüksek kapasiteli LiFePO₄ batarya sistemleri ile güvenilir enerji depolama çözümleri.",
       slug: "enerji-depolama",
@@ -192,7 +192,7 @@ const HeroSection = () => {
       description: "İletişim altyapısı enerji çözümleri",
       gradient: "from-blue-600 to-cyan-500",
       bgGradient: "from-blue-900/90 via-cyan-800/90 to-blue-900/90",
-      video: "/landing-pages-videos-optimized/telekomunikasyon.mp4",
+      video: "/landing-page-videos-optimized/telekomunikasyon.mp4",
       details:
         "Telekomünikasyon baz istasyonları için güvenilir ve sürekli enerji sağlayan sistemler.",
       slug: "telekomunikasyon",
@@ -203,7 +203,7 @@ const HeroSection = () => {
       description: "Savunma sanayi enerji çözümleri",
       gradient: "from-green-600 to-emerald-500",
       bgGradient: "from-green-900/90 via-emerald-800/90 to-green-900/90",
-      video: "/landing-pages-videos-optimized/askerisistemuygulamalari.mp4",
+      video: "/landing-page-videos-optimized/askerisistemuygulamalari.mp4",
       details:
         "Savunma sanayii için özel tasarlanmış güvenilir ve dayanıklı enerji sistemleri.",
       slug: "askeri-sistem-uygulamalari",
@@ -214,7 +214,7 @@ const HeroSection = () => {
       description: "Solar otopark sistemleri",
       gradient: "from-green-500 to-emerald-500",
       bgGradient: "from-green-900/90 via-emerald-800/90 to-green-900/90",
-      video: "/landing-pages-videos-optimized/carport.mp4",
+      video: "/landing-page-videos-optimized/carport.mp4",
       details:
         "Otopark alanlarının üzerine kurulu güneş panelleri ile enerji üretimi ve araç koruması.",
       slug: "car-port",
@@ -225,7 +225,7 @@ const HeroSection = () => {
       description: "Taşınabilir güneş enerjisi",
       gradient: "from-yellow-500 to-orange-500",
       bgGradient: "from-yellow-900/90 via-orange-800/90 to-yellow-900/90",
-      video: "/landing-pages-videos-optimized/mobilsolarpanel.mp4",
+      video: "/landing-page-videos-optimized/mobilsolarpanel.mp4",
       details:
         "Mobil ve esnek kullanım için tasarlanmış taşınabilir güneş paneli sistemleri.",
       slug: "mobil-solar",
@@ -236,7 +236,7 @@ const HeroSection = () => {
       description: "Ev için güneş enerjisi sistemleri",
       gradient: "from-amber-500 to-yellow-500",
       bgGradient: "from-amber-900/90 via-yellow-800/90 to-amber-900/90",
-      video: "/landing-pages-videos-optimized/konutcozumleri.mp4",
+      video: "/landing-page-videos-optimized/konutcozumleri.mp4",
       details:
         "Evler için özel tasarlanmış güneş paneli sistemleri ve enerji depolama çözümleri.",
       slug: "konut-cozumleri",
@@ -247,7 +247,7 @@ const HeroSection = () => {
       description: "Elektrikli golf araç sistemleri",
       gradient: "from-teal-500 to-green-500",
       bgGradient: "from-teal-900/90 via-green-800/90 to-teal-900/90",
-      video: "/landing-pages-videos-optimized/golfcar.mp4",
+      video: "/landing-page-videos-optimized/golfcar.mp4",
       details:
         "Golf sahalarında kullanım için özel tasarlanmış elektrikli araç enerji sistemleri.",
       slug: "golf-araclari",
@@ -258,7 +258,7 @@ const HeroSection = () => {
       description: "İHA enerji teknolojileri",
       gradient: "from-orange-500 to-red-500",
       bgGradient: "from-orange-900/90 via-red-800/90 to-orange-900/90",
-      video: "/landing-pages-videos-optimized/drone.mp4",
+      video: "/landing-page-videos-optimized/drone.mp4",
       details:
         "Havacılık sektörü için yüksek performanslı ve hafif enerji depolama çözümleri.",
       slug: "drone",
@@ -269,7 +269,7 @@ const HeroSection = () => {
       description: "Endüstriyel araç sistemleri",
       gradient: "from-gray-500 to-slate-500",
       bgGradient: "from-gray-900/90 via-slate-800/90 to-gray-900/90",
-      video: "/landing-pages-videos-optimized/forklift.mp4",
+      video: "/landing-page-videos-optimized/forklift.mp4",
       details:
         "Endüstriyel forklift ve iş makineleri için güçlü ve dayanıklı enerji çözümleri.",
       slug: "forklift",
@@ -280,7 +280,7 @@ const HeroSection = () => {
       description: "Elektrikli otobüs sistemleri",
       gradient: "from-teal-600 to-cyan-500",
       bgGradient: "from-teal-900/90 via-cyan-800/90 to-teal-900/90",
-      video: "/landing-pages-videos-optimized/ebus.mp4",
+      video: "/landing-page-videos-optimized/ebus.mp4",
       details:
         "Elektrikli otobüsler için yüksek kapasiteli batarya sistemleri ve şarj altyapısı.",
       slug: "e-bus",

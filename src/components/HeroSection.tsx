@@ -407,7 +407,7 @@ const HeroSection = () => {
         <video
           ref={backgroundVideoRef}
           src={currentCategory.video}
-          className="absolute inset-0 w-full h-full object-cover transition-all duration-1000"
+          className="absolute inset-0 w-full h-full object-cover transition-all duration-500"
           muted
           playsInline
           preload="metadata"

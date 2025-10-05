@@ -524,9 +524,7 @@ const HeroSection = () => {
           <div
             className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: `url(/landing-page-photos/${
-                currentCategory.slug || "marin"
-              }.jpg)`,
+              backgroundImage: `url(/landing-page-photos/yat-related/y2.jpg)`,
             }}
           />
         )}
@@ -643,9 +641,7 @@ const HeroSection = () => {
                   <div
                     className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
                     style={{
-                      backgroundImage: `url(/landing-page-photos/${
-                        currentCategory.slug || "marin"
-                      }.jpg)`,
+                      backgroundImage: `url(/landing-page-photos/yat-related/y2.jpg)`,
                     }}
                   />
                 )}

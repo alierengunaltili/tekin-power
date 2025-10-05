@@ -33,11 +33,50 @@ const HeroSection = () => {
     Array<{ left: number; top: number; delay: number }>
   >([]);
   const [isVideoLoading, setIsVideoLoading] = useState(true);
+  const [shouldLoadVideos, setShouldLoadVideos] = useState(false);
+  const [connectionSpeed, setConnectionSpeed] = useState<number | null>(null);
 
   // Video state management to prevent race conditions
   const videoPlayPromises = useRef<Map<HTMLVideoElement, Promise<void>>>(
     new Map()
   );
+
+  // Network speed detection function
+  const checkNetworkSpeed = async (): Promise<number> => {
+    try {
+      // Use the Network Information API if available
+      if ("connection" in navigator) {
+        const connection = (navigator as any).connection;
+        if (connection && connection.downlink) {
+          // Convert from Mbps to Mbps (already in Mbps)
+          return connection.downlink;
+        }
+      }
+
+      // Fallback: Simple speed test using a small image
+      const startTime = performance.now();
+      const testImage = new Image();
+      const testImageUrl = "/next.svg"; // Small image for testing
+
+      return new Promise((resolve) => {
+        testImage.onload = () => {
+          const endTime = performance.now();
+          const duration = (endTime - startTime) / 1000; // Convert to seconds
+          const imageSize = 1024; // Approximate size in bytes
+          const speedMbps = (imageSize * 8) / (duration * 1000000); // Convert to Mbps
+          resolve(speedMbps);
+        };
+        testImage.onerror = () => {
+          // If test fails, assume slow connection
+          resolve(5);
+        };
+        testImage.src = testImageUrl + "?t=" + Date.now(); // Cache busting
+      });
+    } catch (error) {
+      console.log("Network speed detection failed:", error);
+      return 5; // Default to slow connection
+    }
+  };
 
   // Generate particles only on client side to avoid hydration mismatch
   useEffect(() => {
@@ -144,8 +183,10 @@ const HeroSection = () => {
     });
   }, []);
 
-  // Start initial videos when component mounts
+  // Start initial videos when component mounts (only if videos should be loaded)
   useEffect(() => {
+    if (!shouldLoadVideos) return;
+
     const timer = setTimeout(async () => {
       const backgroundVideo = backgroundVideoRef.current;
       const cardVideo = cardVideoRef.current;
@@ -160,7 +201,31 @@ const HeroSection = () => {
     }, 100); // Small delay to ensure videos are loaded
 
     return () => clearTimeout(timer);
-  }, []); // Only run once on mount
+  }, [shouldLoadVideos]); // Run when shouldLoadVideos changes
+
+  // Check network speed on component mount
+  useEffect(() => {
+    const initializeNetworkCheck = async () => {
+      const speed = await checkNetworkSpeed();
+      setConnectionSpeed(speed);
+
+      // Only load videos if connection is 10mb or higher
+      if (speed >= 10) {
+        setShouldLoadVideos(true);
+        setIsVideoLoading(false);
+      } else {
+        setShouldLoadVideos(false);
+        setIsVideoLoading(false);
+        console.log(
+          `Connection speed (${speed.toFixed(
+            2
+          )} Mbps) is below 10 Mbps. Videos disabled for better performance.`
+        );
+      }
+    };
+
+    initializeNetworkCheck();
+  }, []);
 
   // Cleanup video promises on unmount
   useEffect(() => {
@@ -331,7 +396,7 @@ const HeroSection = () => {
 
   // Robust video switching function that handles race conditions
   const switchVideoSafely = async (videoElement: HTMLVideoElement) => {
-    if (!videoElement) return;
+    if (!videoElement || !shouldLoadVideos) return;
 
     try {
       // Cancel any pending play promise
@@ -441,26 +506,46 @@ const HeroSection = () => {
     >
       {/* Dynamic Animated Background */}
       <div ref={backgroundRef} className="absolute inset-0">
-        {/* Background Video - Full Hero */}
-        <video
-          ref={backgroundVideoRef}
-          src={currentCategory.video}
-          className="absolute inset-0 w-full h-full object-cover transition-all duration-500"
-          muted
-          playsInline
-          preload="metadata"
-          // poster={`/landing-page-photos/${currentCategory.slug || "marin"}.jpg`}
-          onLoadStart={() => setIsVideoLoading(true)}
-          onCanPlay={() => setIsVideoLoading(false)}
-        />
+        {/* Background Video - Full Hero (only if connection is fast enough) */}
+        {shouldLoadVideos ? (
+          <video
+            ref={backgroundVideoRef}
+            src={currentCategory.video}
+            className="absolute inset-0 w-full h-full object-cover transition-all duration-500"
+            muted
+            playsInline
+            preload="metadata"
+            // poster={`/landing-page-photos/${currentCategory.slug || "marin"}.jpg`}
+            onLoadStart={() => setIsVideoLoading(true)}
+            onCanPlay={() => setIsVideoLoading(false)}
+          />
+        ) : (
+          /* Fallback background for slow connections */
+          <div
+            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url(/landing-page-photos/${
+                currentCategory.slug || "marin"
+              }.jpg)`,
+            }}
+          />
+        )}
 
         {/* Loading overlay */}
-        {isVideoLoading && (
+        {isVideoLoading && shouldLoadVideos && (
           <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-20">
             <div className="flex flex-col items-center space-y-4">
               <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
               <p className="text-white text-sm">Video yükleniyor...</p>
             </div>
+          </div>
+        )}
+
+        {/* Connection speed indicator (for debugging) */}
+        {connectionSpeed !== null && !shouldLoadVideos && (
+          <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-2 rounded-lg text-xs z-20">
+            <div>Connection: {connectionSpeed.toFixed(2)} Mbps</div>
+            <div>Videos disabled for performance</div>
           </div>
         )}
 
@@ -540,18 +625,30 @@ const HeroSection = () => {
                 ref={cardRef}
                 className="relative rounded-2xl sm:rounded-3xl mb-4 sm:mb-6 min-h-[300px] sm:min-h-[350px] lg:min-h-[400px] flex flex-col justify-center items-center text-center transition-all duration-500 hover:scale-105 overflow-hidden shadow-xl"
               >
-                {/* Background Video - Full Card */}
-                <video
-                  ref={cardVideoRef}
-                  src={currentCategory.video}
-                  className="absolute inset-0 w-full h-full object-cover"
-                  muted
-                  playsInline
-                  preload="metadata"
-                  // poster={`/landing-page-photos/${
-                  //   currentCategory.slug || "marin"
-                  // }.jpg`}
-                />
+                {/* Background Video - Full Card (only if connection is fast enough) */}
+                {shouldLoadVideos ? (
+                  <video
+                    ref={cardVideoRef}
+                    src={currentCategory.video}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    muted
+                    playsInline
+                    preload="metadata"
+                    // poster={`/landing-page-photos/${
+                    //   currentCategory.slug || "marin"
+                    // }.jpg`}
+                  />
+                ) : (
+                  /* Fallback background for slow connections */
+                  <div
+                    className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+                    style={{
+                      backgroundImage: `url(/landing-page-photos/${
+                        currentCategory.slug || "marin"
+                      }.jpg)`,
+                    }}
+                  />
+                )}
 
                 {/* Overlay for better text visibility */}
                 <div className="absolute inset-0 bg-black/50"></div>

@@ -288,18 +288,18 @@ const HeroSection = () => {
   ];
 
   // Video optimization hook
-  const videoSources = categories.map((cat) => cat.video);
-  const {
-    isVideoLoaded,
-    isVideoLoading: isVideoLoadingOptimized,
-    hasVideoError,
-    preloadVideo,
-  } = useVideoOptimization(currentSlide, videoSources, {
-    preloadNext: true,
-    preloadPrevious: true,
-    quality: "medium",
-    maxConcurrent: 2,
-  });
+  // const videoSources = categories.map((cat) => cat.video);
+  // const {
+  //   isVideoLoaded,
+  //   isVideoLoading: isVideoLoadingOptimized,
+  //   hasVideoError,
+  //   preloadVideo,
+  // } = useVideoOptimization(currentSlide, videoSources, {
+  //   preloadNext: true,
+  //   preloadPrevious: true,
+  //   quality: "medium",
+  //   maxConcurrent: 2,
+  // });
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);

@@ -34,6 +34,11 @@ const HeroSection = () => {
   >([]);
   const [isVideoLoading, setIsVideoLoading] = useState(true);
 
+  // Video state management to prevent race conditions
+  const videoPlayPromises = useRef<Map<HTMLVideoElement, Promise<void>>>(
+    new Map()
+  );
+
   // Generate particles only on client side to avoid hydration mismatch
   useEffect(() => {
     const generatedParticles = Array.from({ length: 8 }, () => ({
@@ -141,27 +146,32 @@ const HeroSection = () => {
 
   // Start initial videos when component mounts
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const timer = setTimeout(async () => {
       const backgroundVideo = backgroundVideoRef.current;
       const cardVideo = cardVideoRef.current;
 
       if (backgroundVideo) {
-        backgroundVideo.currentTime = 0;
-        backgroundVideo
-          .play()
-          .catch((e) => console.log("Initial video play failed:", e));
+        await switchVideoSafely(backgroundVideo);
         setIsVideoLoading(false);
       }
       if (cardVideo) {
-        cardVideo.currentTime = 0;
-        cardVideo
-          .play()
-          .catch((e) => console.log("Initial video play failed:", e));
+        await switchVideoSafely(cardVideo);
       }
     }, 100); // Small delay to ensure videos are loaded
 
     return () => clearTimeout(timer);
   }, []); // Only run once on mount
+
+  // Cleanup video promises on unmount
+  useEffect(() => {
+    return () => {
+      // Cancel all pending video play promises
+      videoPlayPromises.current.forEach((promise, videoElement) => {
+        videoElement.pause();
+      });
+      videoPlayPromises.current.clear();
+    };
+  }, []);
 
   const categories = [
     {
@@ -319,6 +329,44 @@ const HeroSection = () => {
     changeSlide(newSlide, "prev");
   };
 
+  // Robust video switching function that handles race conditions
+  const switchVideoSafely = async (videoElement: HTMLVideoElement) => {
+    if (!videoElement) return;
+
+    try {
+      // Cancel any pending play promise
+      const existingPromise = videoPlayPromises.current.get(videoElement);
+      if (existingPromise) {
+        // Let the existing promise complete or fail naturally
+        videoPlayPromises.current.delete(videoElement);
+      }
+
+      // Pause the video first
+      videoElement.pause();
+
+      // Reset to beginning
+      videoElement.currentTime = 0;
+
+      // Create a new play promise and store it
+      const playPromise = videoElement.play();
+      videoPlayPromises.current.set(videoElement, playPromise);
+
+      // Wait for the play promise to resolve
+      await playPromise;
+
+      // Clean up the promise from our map
+      videoPlayPromises.current.delete(videoElement);
+    } catch (error) {
+      // Clean up the promise from our map on error
+      videoPlayPromises.current.delete(videoElement);
+
+      // Only log if it's not an AbortError (which is expected during rapid switching)
+      if (error instanceof Error && error.name !== "AbortError") {
+        console.log("Video play failed:", error);
+      }
+    }
+  };
+
   const changeSlide = (
     newSlide: number,
     direction: "next" | "prev" = "next"
@@ -341,28 +389,18 @@ const HeroSection = () => {
         duration: 0.4,
         ease: "power2.out",
       })
-      // Restart videos when slide changes - with proper timing
+      // Restart videos when slide changes - with race condition handling
       .call(() => {
         const backgroundVideo = backgroundVideoRef.current;
         const cardVideo = cardVideoRef.current;
 
-        // Small delay to ensure new video source is loaded
-        setTimeout(() => {
-          if (backgroundVideo) {
-            backgroundVideo.pause();
-            backgroundVideo.currentTime = 0;
-            backgroundVideo.load(); // Reload the video with new source
-            backgroundVideo
-              .play()
-              .catch((e) => console.log("Video play failed:", e));
-          }
-          if (cardVideo) {
-            cardVideo.pause();
-            cardVideo.currentTime = 0;
-            cardVideo.load(); // Reload the video with new source
-            cardVideo.play().catch((e) => console.log("Video play failed:", e));
-          }
-        }, 50);
+        // Switch videos safely without race conditions
+        if (backgroundVideo) {
+          switchVideoSafely(backgroundVideo);
+        }
+        if (cardVideo) {
+          switchVideoSafely(cardVideo);
+        }
       });
   };
 

@@ -411,7 +411,7 @@ const HeroSection = () => {
           muted
           playsInline
           preload="metadata"
-          poster={`/landing-page-photos/${currentCategory.slug || "marin"}.jpg`}
+          // poster={`/landing-page-photos/${currentCategory.slug || "marin"}.jpg`}
           onLoadStart={() => setIsVideoLoading(true)}
           onCanPlay={() => setIsVideoLoading(false)}
         />
@@ -510,9 +510,9 @@ const HeroSection = () => {
                   muted
                   playsInline
                   preload="metadata"
-                  poster={`/landing-page-photos/${
-                    currentCategory.slug || "marin"
-                  }.jpg`}
+                  // poster={`/landing-page-photos/${
+                  //   currentCategory.slug || "marin"
+                  // }.jpg`}
                 />
 
                 {/* Overlay for better text visibility */}

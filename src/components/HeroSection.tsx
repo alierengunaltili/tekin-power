@@ -496,6 +496,24 @@ const HeroSection = () => {
     };
   }, [currentSlide, categories.length]);
 
+  // Get fallback image for current category
+  const getFallbackImage = (categorySlug: string) => {
+    const fallbackImages: { [key: string]: string } = {
+      "marin": "marin.jpg",
+      "enerji-depolama": "enerjidepolama.jpg",
+      "telekomunikasyon": "telekomunikasyonbazistasyonu.jpg",
+      "askeri-sistem-uygulamalari": "askerisistemuygulamalari.jpg",
+      "car-port": "carport.jpg",
+      "mobil-solar": "mobil-solar.jpg",
+      "konut-cozumleri": "homesolarsystem.jpg",
+      "golf-araclari": "golfcar.jpg",
+      "drone": "drone.jpg",
+      "forklift": "forklift.jpg",
+      "e-bus": "ebus.jpg",
+    };
+    return fallbackImages[categorySlug] || "marin.jpg";
+  };
+
   const currentCategory = categories[currentSlide];
 
   return (
@@ -524,7 +542,7 @@ const HeroSection = () => {
           <div
             className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: `url(/landing-page-photos/yat-related/y2.jpg)`,
+              backgroundImage: `url(/hizmetlerimiz/${getFallbackImage(currentCategory.slug)})`,
             }}
           />
         )}
@@ -641,7 +659,7 @@ const HeroSection = () => {
                   <div
                     className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
                     style={{
-                      backgroundImage: `url(/landing-page-photos/yat-related/y2.jpg)`,
+                      backgroundImage: `url(/hizmetlerimiz/${getFallbackImage(currentCategory.slug)})`,
                     }}
                   />
                 )}
@@ -673,14 +691,7 @@ const HeroSection = () => {
                     {currentCategory.details}
                   </p>
 
-                  {/* Service Link Button */}
-                  <Link
-                    href={`/hizmetlerimiz/${currentCategory.slug || "marin"}`}
-                    className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white/10 backdrop-blur-lg border border-white/20 rounded-full text-white text-sm sm:text-base font-medium hover:bg-white/20 hover:scale-105 transition-all duration-300 shadow-lg group"
-                  >
-                    <span>Detayları Gör</span>
-                    <ArrowRight className="w-3 sm:w-4 h-3 sm:h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                  </Link>
+           
                 </div>
               </div>
             </div>

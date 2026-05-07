@@ -1,0 +1,157 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { X, ExternalLink } from 'lucide-react';
+import { gsap } from 'gsap';
+
+const DewJetAnnouncementModal = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    // Check if user has seen the announcement
+    const hasSeenAnnouncement = localStorage.getItem('dewjet-announcement-seen');
+    
+    // Show modal after a short delay (1.5 seconds) if not seen before
+    const timer = setTimeout(() => {
+      if (!hasSeenAnnouncement) {
+        setIsOpen(true);
+        // Animate modal entrance
+        gsap.fromTo('.modal-content',
+          { scale: 0.8, opacity: 0, y: 50 },
+          { scale: 1, opacity: 1, y: 0, duration: 0.6, ease: 'back.out(1.7)' }
+        );
+      }
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleClose = () => {
+    // Animate modal exit
+    gsap.to('.modal-content', {
+      scale: 0.8,
+      opacity: 0,
+      y: 50,
+      duration: 0.3,
+      ease: 'power2.in',
+      onComplete: () => {
+        setIsOpen(false);
+        // Mark as seen (optional - comment out if you want it to show every time)
+        localStorage.setItem('dewjet-announcement-seen', 'true');
+      }
+    });
+  };
+
+  const handleLearnMore = () => {
+    localStorage.setItem('dewjet-announcement-seen', 'true');
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <>
+      {/* Backdrop */}
+      <div 
+        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[10000] transition-opacity duration-300"
+        onClick={handleClose}
+      />
+
+      {/* Modal Container */}
+      <div className="fixed inset-0 z-[10001] flex items-center justify-center p-4 pointer-events-none">
+        <div 
+          className="modal-content bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden pointer-events-auto relative"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Close Button */}
+          <button
+            onClick={handleClose}
+            className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/90 hover:bg-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg group"
+            aria-label="Close"
+          >
+            <X className="w-5 h-5 text-gray-700 group-hover:text-red-500 transition-colors duration-300" />
+          </button>
+
+          {/* Content */}
+          <div className="relative">
+            {/* New Badge */}
+            <div className="absolute top-6 left-6 z-10">
+              <div className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg animate-pulse">
+                YENİ İŞBİRLİĞİ
+              </div>
+            </div>
+
+            {/* Image Section */}
+            <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px]">
+              <Image
+                src="/dewjet/collab.jpeg"
+                alt="Tekin Power & DewJet İşbirliği"
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            </div>
+
+            {/* Text Content */}
+            <div className="p-6 sm:p-8 lg:p-10">
+              <div className="text-center mb-6">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
+                  Tekin Power & DewJet İşbirliği
+                </h2>
+                <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto mb-6"></div>
+              </div>
+
+              <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-6 text-center max-w-2xl mx-auto">
+                Denizcilik sektöründe çığır açan bu işbirliği ile <span className="font-semibold text-blue-600">%100 elektrikli marin motor çözümleri</span> sunuyoruz. 
+                Sürdürülebilir denizcilik için <span className="font-semibold text-green-600">sıfır emisyon</span> hedefine bir adım daha yaklaştık!
+              </p>
+
+              {/* Features */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+                <div className="text-center p-4 bg-blue-50 rounded-xl">
+                  <div className="text-2xl font-bold text-blue-600 mb-1">0</div>
+                  <div className="text-xs sm:text-sm text-gray-600">Emisyon</div>
+                </div>
+                <div className="text-center p-4 bg-green-50 rounded-xl">
+                  <div className="text-2xl font-bold text-green-600 mb-1">100%</div>
+                  <div className="text-xs sm:text-sm text-gray-600">Elektrikli</div>
+                </div>
+                <div className="text-center p-4 bg-purple-50 rounded-xl">
+                  <div className="text-2xl font-bold text-purple-600 mb-1">Sessiz</div>
+                  <div className="text-xs sm:text-sm text-gray-600">Çalışma</div>
+                </div>
+                <div className="text-center p-4 bg-orange-50 rounded-xl">
+                  <div className="text-2xl font-bold text-orange-600 mb-1">Uzun</div>
+                  <div className="text-xs sm:text-sm text-gray-600">Ömürlü</div>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/dewjet"
+                  onClick={handleLearnMore}
+                  className="group bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-8 py-4 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 hover:from-blue-600 hover:to-cyan-600 hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
+                >
+                  <span>Detaylı Bilgi</span>
+                  <ExternalLink className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
+
+                <button
+                  onClick={handleClose}
+                  className="bg-gray-200 hover:bg-gray-300 text-gray-700 px-8 py-4 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+                >
+                  Daha Sonra
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default DewJetAnnouncementModal;

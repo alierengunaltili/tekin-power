@@ -52,6 +52,7 @@ const Navbar = () => {
     { label: 'Hizmetlerimiz', href: '/hizmetlerimiz', type: 'navigate' },
     { label: 'LiFePO4', href: '/lifepo4', type: 'navigate' },
     { label: 'Güneş Paneli', href: '/gunespaneli', type: 'navigate' },
+    { label: 'DewJet', href: '/dewjet', type: 'navigate' },
     { label: 'İletişim', href: 'contact', type: 'scroll' }
   ];
 

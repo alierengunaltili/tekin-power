@@ -62,14 +62,14 @@ const Navbar = () => {
         ? 'bg-white/50 backdrop-blur-lg shadow-lg ' 
         : ' '
     }`}>
-       <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 w-full">
-         <div className="flex items-center justify-between h-28 sm:h-28 lg:h-32 gap-1 sm:gap-2">
+       <div className="max-w-[1400px] mx-auto px-2 sm:px-4 md:px-6 lg:px-6 xl:px-8 w-full">
+         <div className="flex items-center justify-between h-28 sm:h-28 lg:h-32 gap-2 lg:gap-4">
           {/* Logo */}
            <Link 
              href="/"
              className="flex items-center justify-center lg:justify-start cursor-pointer flex-1 lg:flex-none min-w-0 overflow-hidden"
            >
-             <div className="relative w-[90vw] sm:w-96 md:w-[28rem] lg:w-[32rem] h-24 sm:h-24 md:h-28 lg:h-32 max-w-full">
+             <div className="relative w-[90vw] sm:w-96 md:w-[28rem] lg:w-[26rem] xl:w-[28rem] h-24 sm:h-24 md:h-28 lg:h-28 xl:h-32 max-w-full">
               <Image
                 src="/tekinpowerlogos/tekinpower-02.png"
                 alt="Tekin Power Logo"
@@ -81,9 +81,9 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-4 xl:space-x-6 flex-shrink-0">
             {navItems.map((item) => {
-              const baseClasses = `relative text-base font-medium transition-all duration-300 hover:scale-105 ${
+              const baseClasses = `relative text-sm xl:text-base font-medium transition-all duration-300 hover:scale-105 whitespace-nowrap ${
                 isScrolled 
                   ? 'text-gray-700 hover:text-blue-600' 
                   : 'text-white/90 hover:text-white'

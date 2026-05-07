@@ -38,14 +38,20 @@ const DewJetAnnouncementModal = () => {
       ease: 'power2.in',
       onComplete: () => {
         setIsOpen(false);
-        // Mark as seen (optional - comment out if you want it to show every time)
-        localStorage.setItem('dewjet-announcement-seen', 'true');
+        // Don't mark as seen - will show again next visit
       }
     });
   };
 
-  const handleLearnMore = () => {
+  const handleDontShowAgain = () => {
+    // Mark as seen permanently
     localStorage.setItem('dewjet-announcement-seen', 'true');
+    handleClose();
+  };
+
+  const handleLearnMore = () => {
+    // Don't mark as seen - just close temporarily
+    handleClose();
   };
 
   if (!isOpen) return null;
@@ -129,7 +135,7 @@ const DewJetAnnouncementModal = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col gap-4">
                 <Link
                   href="/dewjet"
                   onClick={handleLearnMore}
@@ -139,12 +145,21 @@ const DewJetAnnouncementModal = () => {
                   <ExternalLink className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
 
-                <button
-                  onClick={handleClose}
-                  className="bg-gray-200 hover:bg-gray-300 text-gray-700 px-8 py-4 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 hover:scale-105"
-                >
-                  Daha Sonra
-                </button>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <button
+                    onClick={handleClose}
+                    className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-3 rounded-full font-semibold text-sm sm:text-base transition-all duration-300 hover:scale-105"
+                  >
+                    Daha Sonra
+                  </button>
+                  
+                  <button
+                    onClick={handleDontShowAgain}
+                    className="flex-1 bg-white border-2 border-gray-300 hover:border-gray-400 text-gray-600 hover:text-gray-800 px-6 py-3 rounded-full font-semibold text-sm sm:text-base transition-all duration-300 hover:scale-105"
+                  >
+                    Bir daha gösterme
+                  </button>
+                </div>
               </div>
             </div>
           </div>

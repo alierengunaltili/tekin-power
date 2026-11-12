@@ -350,5 +350,27 @@
       "webmBytes": 1832875,
       "mp4Bytes": 4385439
     }
+  },
+  "landing-page/deniz-gol-tarama-v1": {
+    "poster": "/media/survey-v1/poster.jpg",
+    "duration": 10,
+    "full": {
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "webm": "/media/survey-v1/survey.webm",
+      "mp4": "/media/survey-v1/survey.mp4",
+      "webmBytes": 4687954,
+      "mp4Bytes": 4636014
+    },
+    "balanced": {
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "webm": "/media/survey-v1/survey.webm",
+      "mp4": "/media/survey-v1/survey.mp4",
+      "webmBytes": 4687954,
+      "mp4Bytes": 4636014
+    }
   }
 }

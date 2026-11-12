@@ -10,3 +10,5 @@
 - tools/verification/: son tarama, anahtar teslim ve WhatsApp tarayıcı kontrolleri. Mevcut Windows çalışma alanına ait yollar taşınırken uyarlanmalıdır.
 - docs/history/: kaynak kararları ve ayrıntılı önceki test/geliştirme kayıtları.
 - DEPLOYMENT.md: GitHub/Vercel yayın hedefi ve mevcut doğrulama durumu.
+
+- public/media/survey-v1/: ana sayfa Deniz & Göl slaytının H.264/VP9 videosu ve JPEG kapağı; src/data/videoAssets.json kaydı landing-page/deniz-gol-tarama-v1. Üretim scripts/prepare-survey-video.cjs.

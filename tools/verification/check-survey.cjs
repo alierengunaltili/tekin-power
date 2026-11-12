@@ -16,7 +16,7 @@ const route = '/hizmetlerimiz/deniz-gol-dibi-arama-tarama';
    const response=await page.goto(base+route,{waitUntil:'networkidle',timeout:60000});
    assert.equal(response.status(),200);
    await page.locator('h1').waitFor();
-   assert.match(await page.locator('h1').innerText(),/Deniz ve göl dibi/);
+   assert.match(await page.locator('h1').innerText(),/Deniz Göl Dibi/);
    assert.equal(await page.locator('#ekipmanlar article').count(),6);
    assert.equal(await page.locator('main h1').count(),1);
    assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'),'https://tekinpower.com'+route);

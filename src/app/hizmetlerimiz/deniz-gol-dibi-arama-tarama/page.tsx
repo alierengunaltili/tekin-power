@@ -8,7 +8,7 @@ import { dredgingCatalog, dredgingEquipment, dredgingProcess, dredgingReferences
 
 export const metadata = pageMetadata(
   '/hizmetlerimiz/deniz-gol-dibi-arama-tarama',
-  'Deniz ve Göl Dibi Tarama, Dip Temizleme Sistemleri | Tekin Power',
+  'Deniz Göl Dibi Tarama ve Temizleme | Tekin Power',
   'Batimetrik ölçüm, dip temizleme, tarama gemisi imalatı, split mavna ve bakım çözümleri. Yütek Denizcilik tecrübesiyle Tekin Power ürün ve referans kataloğu.',
 );
 
@@ -30,7 +30,7 @@ export default function UnderwaterSearchPage() {
             <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-14">
               <div>
                 <p className="mb-6 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-cyan-300"><span className="h-px w-8 bg-amber-400" />Su altı tarama ve dip temizleme</p>
-                <h1 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-[58px]">Deniz ve göl dibi<br /><span className="text-cyan-300">arama &amp; tarama</span></h1>
+                <h1 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-[58px]">Deniz Göl Dibi<br /><span className="text-cyan-300">Tarama ve Temizleme</span></h1>
                 <p className="mt-7 max-w-xl text-base leading-8 text-slate-200 sm:text-lg">Dip haritasından tarama makinasına, çamur tahliyesinden bakıma. Dere, göl, baraj, liman ve deniz yatakları için sahaya özel çözümler.</p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <a href="#ekipmanlar" className="inline-flex items-center gap-3 rounded-full bg-cyan-300 px-6 py-3.5 font-semibold text-[#071d32] transition-colors hover:bg-cyan-200">Ekipmanları keşfedin <ArrowDown size={17} /></a>

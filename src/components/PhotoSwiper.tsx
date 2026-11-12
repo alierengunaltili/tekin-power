@@ -224,7 +224,7 @@ const PhotoSwiper = () => {
             </h1>
             <p className="text-base sm:text-lg lg:text-xl text-white/90 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md px-4 sm:px-0">
               Gelişmiş LiFePO4 batarya teknolojisi ile yenilenebilir enerji dönüşümünde öncülük eden,
-              elektrikli marin, tekne, pompa, enerji depolama, askeri sistem çözümleri ve su altı arama tarama çözümleri sunuyoruz.
+              elektrikli marin, tekne, pompa, enerji depolama, askeri sistem çözümleri ve su altı tarama ve temizleme çözümleri sunuyoruz.
             </p>
           </div>
         </div>

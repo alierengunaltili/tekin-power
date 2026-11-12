@@ -11,3 +11,7 @@ Bu depo gerçek Next.js uygulamasıdır. Önce FIRST.md, PROJECT.md, PROJECT_TRE
 - Değişiklik kapsamına uygun kontrolleri yap; tasarımda mobil ve masaüstünü incele.
 - İletişim formunun mevcut gönderimi simülasyondur; gerçek mesaj teslimi olarak raporlama.
 - Sonuç ve kalan engelleri kısa biçimde bildir.
+
+## Sürekli canlı yayın yetkisi — 13 Kasım 2026
+
+Kullanıcı bu sohbette bundan sonraki tüm site değişikliklerinin tekinpower.com üzerinden canlıya aktarılmasını açıkça istedi. İstenen değişiklikler uygun kontrollerin ardından ayrıca onay sorulmadan bu deponun master dalına commit/push edilerek yayınlanır; Vercel sonucu ve ilgili canlı sayfa kontrol edilir. Sonraki kullanıcı kısıtlamaları önceliklidir. Eski tekin-power-site projesine CLI yayını yapılmaz.

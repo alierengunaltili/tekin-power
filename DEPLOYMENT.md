@@ -29,3 +29,7 @@ TypeScript ve 12 video mantık testi geçti. Temiz dosya kopyasında Next.js der
 ## Eski proje ayrımı
 
 Eski `tek-i-n-power / tekin-power-site` projesi farklıdır ve `https://tekin-power-site.vercel.app` adresini sunar. Onun Git bağlantısı `EmreOzdemir22/TekinPowerSite` / main olarak korunmuştur. Yeni deponun otomatik yayını bu eski projeye bağlı değildir. Eski projeye ait yerel Vercel bağlantı dosyası yanlışlıkla CLI yayını yapılmaması için `.vercel/project-legacy-20261113.json` olarak yedeklendi; Git'e eklenmez. Bu depodan yayın için yukarıdaki Git akışını kullan.
+
+## Sürekli yayın talimatı — 13 Kasım 2026
+
+Kullanıcı bundan sonraki tüm istediği site değişikliklerinin kontrollerden sonra ek onay sorulmadan tekinpower.com üzerinde canlıya alınmasını istedi. Güncel yetki: master commit/push → Vercel production → ilgili canlı adres doğrulaması. Sonraki açık kısıtlamalar önceliklidir.

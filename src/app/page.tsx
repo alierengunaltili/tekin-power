@@ -61,7 +61,7 @@ export default function Home() {
             addressRegion: "Ankara",
             addressCountry: "TR"
           },
-          description: "Tekin Power, elektrikli marin, elektrikli tekne, elektrikli pompa, enerji depolama sistemleri, askeri sistem çözümleri ve deniz/göl dibi arama tarama sistemleri alanlarında yenilikçi enerji çözümleri sunar. LiFePO4 bataryalar ile sürdürülebilir bir gelecek inşa ediyoruz."
+          description: "Tekin Power, elektrikli marin, elektrikli tekne, elektrikli pompa, enerji depolama sistemleri, askeri sistem çözümleri ve deniz göl dibi tarama ve temizleme alanlarında yenilikçi enerji çözümleri sunar. LiFePO4 bataryalar ile sürdürülebilir bir gelecek inşa ediyoruz."
         }}
       />
     </div>

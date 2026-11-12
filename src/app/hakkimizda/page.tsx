@@ -208,7 +208,7 @@ const HakkimizdaPage = () => {
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Biz Kimiz?</h3>
                   <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
                     <span className="font-semibold text-gray-900">Tekin Power Energy</span>, yenilikçi projeleriyle enerji sektöründe fark yaratan bir çözüm ortağıdır. 
-                    Gelişen teknolojiye uyum sağlayarak; elektrikli marin, elektrikli tekne, elektrikli pompa, enerji depolama, askeri sistem çözümleri ve deniz göl dibi tarama ve temizleme gibi 
+                    Gelişen teknolojiye uyum sağlayarak; elektrikli marin, elektrikli tekne, elektrikli pompa, enerji depolama, askeri sistem çözümleri ve Deniz &amp; Göl dibi tarama ve temizleme gibi
                     farklı alanlarda çözümler sunan şirket, enerji verimliliği ve sürdürülebilirliği hedeflemektedir.
                   </p>
                   

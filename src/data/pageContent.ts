@@ -64,7 +64,7 @@ export const motorContent: PageContent = {
 };
 
 export const pumpContent: PageContent = {
-  path: '/dewjet-pompa', title: 'DewJet Elektrikli Su Pompası',
+  path: '/dewjet-pompa', title: 'DewJet Dünyanın En Hafif Elektrikli Su Pompası',
   seoTitle: 'DewJet Elektrikli Su Pompası | 20 ve 45 kW | Tekin Power',
   description: 'DewJet RIM Drive elektrikli su pompaları: 20 kW / 25 kg ve 45 kW / 55 kg. 420 ve 1.200 m³/h maksimum debi, IP69 ve 2 yıl garanti. Modelleri inceleyin.',
   intro: 'Hafif ve yüksek debili elektrikli su pompası arayanlar için DewJet, RIM Drive teknolojisini kompakt bir yapıda sunar. 20 kW ve 45 kW modelleri; su transferi, tahliye ve sahada taşınabilir pompa ihtiyacınıza göre karşılaştırın.',

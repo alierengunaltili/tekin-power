@@ -18,7 +18,7 @@ const dir='C:/Users/merto/Desktop/tekin-power-master/artifacts/turnkey-home';
   assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
   assert.equal(await section.locator('a[href^="tel:"]').getAttribute('href'),'tel:+905323276293');
   await section.locator('a[href="#contact"]').click(); await p.waitForTimeout(1300); assert.ok(await p.locator('#contact').evaluate(el=>el.getBoundingClientRect().top<innerHeight));
-  const links=[['/dewjet-pompa','DewJet Elektrikli Su Pompası'],['/dewjet-elektrikli-motor#motor-modelleri','Motorunuzu seçin']];
+  const links=[['/dewjet-pompa','DewJet Dünyanın En Hafif Elektrikli Su Pompası'],['/dewjet-elektrikli-motor#motor-modelleri','Motorunuzu seçin']];
   for(const [href,label] of links){await section.locator(`a[href="${href}"]`).click();await p.waitForURL(base+href);await p.getByRole('heading',{name:label,exact:true}).waitFor();await p.goto(base+'/',{waitUntil:'domcontentloaded'});}
   await section.scrollIntoViewIfNeeded(); for(const img of await section.locator('img').all()){await img.scrollIntoViewIfNeeded();await img.evaluate(el=>el.decode());}
   await p.addStyleTag({content:'nav[aria-label="Ana menü"],nextjs-portal{display:none!important}'});

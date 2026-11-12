@@ -34,7 +34,7 @@ export const solutions: Solution[] = [
   },
   {
     id: 'pompa', title: 'Elektrikli Pompa', productTitle: 'DewJet Elektrikli Pompa',
-    description: '20 ve 45 kW RIM Drive elektrikli su pompaları: kompakt tasarım, yüksek debi.',
+    description: 'Eşdeğer güç ve performans sınıfında dünyanın en hafif elektrikli su pompaları. 20 kW’da sadece 25 kg, 45 kW’da sadece 55 kg; yüksek debi, kompakt tasarım.',
     href: '/dewjet-pompa', image: '/dewjet-pompa/pompa-doga-deniz-v1.png', video: 'dewjet-pompa-v3',
     homepageImage: '/dewjet-pompa/pompa-doga-deniz-v1.png',
     slideImage: '/dewjet-pompa/pompa-doga-deniz-slide-v2.png',
@@ -54,7 +54,7 @@ export const solutions: Solution[] = [
     gradient: 'from-green-600 to-emerald-500', bgGradient: 'from-green-900/90 via-emerald-800/90 to-green-900/90',
   },
   {
-    id: 'deniz-gol', title: 'Deniz Göl Dibi Tarama ve Temizleme', productTitle: 'Deniz Göl Dibi Tarama ve Temizleme',
+    id: 'deniz-gol', title: 'Deniz & Göl Dibi Tarama ve Temizleme', productTitle: 'Deniz & Göl Dibi Tarama ve Temizleme',
     description: 'Deniz ve göl dibi tarama, dip temizleme ve batimetrik ölçüm çözümleri.',
     href: '/hizmetlerimiz/deniz-gol-dibi-arama-tarama', image: null, video: null,
     gradient: 'from-teal-500 to-cyan-500', bgGradient: 'from-teal-900/90 via-cyan-800/90 to-teal-900/90',

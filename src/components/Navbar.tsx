@@ -63,6 +63,7 @@ const Navbar = () => {
     { label: 'AnaSayfa', href: '/' },
     { label: 'Hakkımızda', href: '/hakkimizda' },
     { label: 'Hizmetlerimiz', href: '/hizmetlerimiz' },
+    { label: 'Deniz & Göl Dibi Tarama ve Temizleme', href: '/hizmetlerimiz/deniz-gol-dibi-arama-tarama', lineTitle: 'Deniz & Göl Dibi', subtitle: 'Tarama ve Temizleme' },
     { label: 'Enerji Depolama Sistemleri', href: '/hizmetlerimiz/enerji-depolama' },
     { label: 'DewJet Elektrikli Tekne Motorları', href: '/dewjet-elektrikli-motor', subtitle: 'Elektrikli Tekne Motorları' },
     { label: 'DewJet Elektrikli Pompa', href: '/dewjet-pompa', subtitle: 'Elektrikli Pompa' },
@@ -75,7 +76,7 @@ const Navbar = () => {
         ? 'bg-white/50 backdrop-blur-lg shadow-lg ' 
         : ' '
     }`}>
-       <div className="max-w-[1400px] mx-auto px-2 sm:px-4 md:px-6 lg:px-6 xl:px-8 w-full">
+       <div className="max-w-[1600px] mx-auto px-2 sm:px-4 md:px-6 lg:px-6 xl:px-8 w-full">
          <div className="flex items-center justify-between h-28 sm:h-28 lg:h-32 gap-2 lg:gap-4">
           {/* Logo */}
            <Link 
@@ -116,7 +117,7 @@ const Navbar = () => {
                     aria-label={item.label}
                     onClick={(event) => handleNavClick(event, item.href)}
                   >
-                    {item.subtitle ? <span className="block text-center leading-snug"><span className="block">DewJet</span><span className="block text-xs 2xl:text-sm">{item.subtitle}</span></span> : item.label}
+                    {item.subtitle ? <span className="block text-center leading-snug"><span className="block">{item.lineTitle ?? 'DewJet'}</span><span className="block text-xs 2xl:text-sm">{item.subtitle}</span></span> : item.label}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-blue-600 transition-all duration-300 group-hover:w-full"></span>
                   </Link>
                 );
@@ -163,7 +164,7 @@ const Navbar = () => {
                     aria-label={item.label}
                     onClick={(event) => handleNavClick(event, item.href)}
                   >
-                    {item.subtitle ? <span className="block leading-snug"><span className="block">DewJet</span><span className="block text-sm">{item.subtitle}</span></span> : item.label}
+                    {item.subtitle ? <span className="block leading-snug"><span className="block">{item.lineTitle ?? 'DewJet'}</span><span className="block text-sm">{item.subtitle}</span></span> : item.label}
                   </Link>
                 );
             })}

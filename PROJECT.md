@@ -37,3 +37,7 @@ Kullanıcının gemini_generated_video_df704804.mp4 videosu ana sayfanın altın
 ## Siyah motor sunumu ve enerji menüsü — 13 Kasım 2026
 
 Kullanıcı tek açıyla hafif hareketi onayladı; gerçek 360 derece dönüş istenmiyor. Ana sayfa motor slaydındaki beyaz motor videosu yerine MotorHeroPresentation, mevcut deniz/doğa arka planı ve kullanıcının siyah/altın pervaneli motorunun şeffaf görselini kullanır. CSS hareketi küçük düşey salınım ve +/-0,4 dereceyle sınırlıdır; görünmezken durur ve hareket azaltma tercihinde tamamen kapanır. Metinler ve CTA korunur. Slayt 12 saniyede ilerler. Kullanıcının yeni talimatıyla üst menü adı Yenilenebilir Enerji ve Unisun Enerji Depolama Sistemleri olarak iki satırda gösterilir; mevcut enerji sayfasına bağlanır. Bu menü adı için önceki Unisun kullanmama tercihi yeni talimatla değiştirilmiştir.
+
+## Deniz & Göl yeni video ve kart — 13 Kasım 2026
+
+Kullanıcı yeni WhatsApp Video 2026-11-13 at 02.16.41.mp4 dosyasını verdi. 2–10 saniye arası %80 hızla 10 saniye olarak hazırlanır; döndürme metadatası uygulanır ve gömülü siyah kenarlar 1024x576 içerik alanına kırpılır. Kullanıcının isteğiyle 2560x1440 full ve 1920x1080 balanced, 24 fps H264/VP9 sürümleri üretilir; bunlar düşük çözünürlüklü kaynağın büyütülmüş sürümleridir, gerçek UHD ayrıntısı değildir. AdaptiveVideo bağlantıya göre sürüm veya kapak kullanır. Ana sayfa hizmet kartında mevcut katalogdaki kesici-emici.jpg kullanılır. Önceki kaldırılan survey-v1 dosyaları bağlı değildir.

@@ -14,3 +14,5 @@
 - public/media/survey-v1/: ana sayfa Deniz & Göl slaytının H.264/VP9 videosu ve JPEG kapağı; src/data/videoAssets.json kaydı landing-page/deniz-gol-tarama-v1. Üretim scripts/prepare-survey-video.cjs.
 
 - src/components/MotorHeroPresentation.tsx ve globals.css: ana sayfa siyah motorun hafif hareketli sunumu. Görsel: public/dewjet-motor/18kw/outboard-18kw-cutout-v1.webp.
+
+- public/media/survey-v2/: yeni Deniz & Göl videosunun 10 saniyelik full/balanced MP4/WebM sürümleri ve açılış kapağı. Üretim scripts/prepare-survey-video-v2.cjs; homepageImage mevcut deniz-gol-tarama/kesici-emici.jpg.

@@ -9,6 +9,7 @@ export interface Solution {
   homepageImage?: string;
   slideImage?: string;
   video: string | null;
+  presentation?: 'black-outboard';
   videoFit?: 'cover' | 'contain';
   videoPoster?: string;
   gradient: string;
@@ -26,10 +27,9 @@ export const solutions: Solution[] = [
   {
     id: 'tekne', title: 'Elektrikli Tekne', productTitle: 'DewJet Elektrikli Tekne Motorları',
     description: 'İçten ve dıştan takma elektrikli tekne motorları: pervaneli ve kapalı çarklı tahrik seçenekleri.',
-    href: '/dewjet-elektrikli-motor', image: null, video: 'dewjet-motor-deniz-v1',
+    href: '/dewjet-elektrikli-motor', image: null, video: null, presentation: 'black-outboard',
     cardImage: '/dewjet-motor/motor-coast-card-v2.png',
     videoFit: 'contain',
-    videoPoster: '/landing-page-posters/dewjet-motor-start-v2.jpg',
     gradient: 'from-cyan-500 to-blue-500', bgGradient: 'from-cyan-900/90 via-blue-800/90 to-cyan-900/90',
   },
   {

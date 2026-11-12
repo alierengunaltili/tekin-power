@@ -5,6 +5,7 @@ import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { solutions } from "@/data/solutions";
 import { useEffect, useRef, useState } from "react";
 import AdaptiveVideo from "@/components/AdaptiveVideo";
+import MotorHeroPresentation from "@/components/MotorHeroPresentation";
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -143,18 +144,19 @@ const HeroSection = () => {
     if (currentCategory.video) return;
     const timer = window.setTimeout(() => {
       setCurrentSlide((slide) => (slide + 1) % solutions.length);
-    }, 6000);
+    }, currentCategory.presentation ? 12000 : 6000);
     return () => window.clearTimeout(timer);
-  }, [currentSlide, currentCategory.video]);
+  }, [currentSlide, currentCategory.video, currentCategory.presentation]);
 
   return (
     <section
       id="hero"
-      className={`relative flex items-center justify-center overflow-hidden bg-slate-950 pt-28 sm:pt-32 ${currentCategory.video ? 'mobile-video-hero' : ''} ${currentCategory.videoFit === 'contain' ? 'lg:aspect-video' : ''}`}
+      className={`relative flex items-center justify-center overflow-hidden bg-slate-950 pt-28 sm:pt-32 ${currentCategory.video || currentCategory.presentation ? 'mobile-video-hero' : ''} ${currentCategory.videoFit === 'contain' ? 'lg:aspect-video' : ''}`}
       ref={heroRef}
     >
       {/* Dynamic Animated Background */}
       <div ref={backgroundRef} className="pointer-events-none absolute inset-0">
+        {currentCategory.presentation === 'black-outboard' && <MotorHeroPresentation />}
         {currentCategory.video && (
           <div className="mobile-video-stage absolute inset-0">
             <AdaptiveVideo

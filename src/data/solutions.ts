@@ -58,6 +58,7 @@ export const solutions: Solution[] = [
     description: 'Deniz ve göl dibi tarama, dip temizleme ve batimetrik ölçüm çözümleri.',
     href: '/hizmetlerimiz/deniz-gol-dibi-arama-tarama', image: null, video: 'deniz-gol-tarama-v2',
     homepageImage: '/deniz-gol-tarama/kesici-emici.jpg',
+    cardImage: '/deniz-gol-tarama/kesici-emici.jpg',
     gradient: 'from-teal-500 to-cyan-500', bgGradient: 'from-teal-900/90 via-cyan-800/90 to-teal-900/90',
   },
 ];

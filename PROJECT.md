@@ -30,4 +30,6 @@ Deniz & Göl Dibi Tarama ve Temizleme adı ortak hizmet verisine ve sayfa başl�
 
 ## Deniz & Göl ana sayfa videosu — 13 Kasım 2026
 
+Son karar: kullanıcı videoyu kaldırdı. Deniz & Göl slaydında video bağlantısı kaldırıldı; önceki düz geçişli arka plan, başlık, açıklama ve buton korunur. Aşağıdaki medya kaydı geçmiş uygulamayı anlatır; dosyalar saklanır ancak slaytta yüklenmez.
+
 Kullanıcının gemini_generated_video_df704804.mp4 videosu ana sayfanın altıncı slaydına eklendi. public/media/survey-v1 içinde özgün 1280×720 / 24 fps boyutunda, sessiz ve faststart H.264 ile VP9 sürümü ve aynı açılış karesinden JPEG kapak bulunur. AdaptiveVideo bağlantı/hareket tercihlerini, görünürlükte oynatmayı ve slayt sonunda geçişi yönetir. Başlık, açıklama, fontlar ve butonlar korunur; telefonda mevcut tam kadraj video ve alttaki okunaklı metin düzeni kullanılır. Yeniden üretim: node scripts/prepare-survey-video.cjs [kaynakDosya].

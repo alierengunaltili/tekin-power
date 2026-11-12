@@ -2,22 +2,30 @@
 
 - GitHub: https://github.com/alierengunaltili/tekin-power
 - Production dalı: master
-- Vercel proje: tekin-power-site (prj_ERg2mCcEyD3ekpoDni4juOOzo4s6)
-- Takım: tek-i-n-power
+- Aktif Vercel proje: tekin-power
+- Aktif Vercel takım: alierengunaltilis-projects
 - Root Directory: boş (depo kökü)
 - Framework: Next.js
-- Canlı URL: https://tekin-power-site.vercel.app
+- Kalıcı canlı adres: https://tekinpower.com
+- Ek Vercel adresi: https://tekin-power.vercel.app
 
-## Depo aktarımı — 13 Kasım 2026
+## Doğrulanan otomatik yayın — 13 Kasım 2026
 
-Bu commit, mevcut master geçmişinin üzerine güncel siteyi taşır. Kaynak kodu, yayın medyası, PDF'ler, üretim/test betikleri ve proje belgeleri dahil edilmiştir. `.env`, `.vercel`, günlükler, bağımlılıklar ve siteyle ilgisiz özel yerel takip kayıtları dahil değildir.
+`d42df99df55b2f9c817cd6d699f7f3cff7fcd714` commit'i mevcut master geçmişi üzerine gönderildi. Vercel GitHub durum kontrolü `success / Deployment has completed` döndü. Dağıtım: `2UDZyLzeSNYCxftNUX6U2TivHv8b`; GitHub Production kaydı: `7750357311`. Her iki canlı adres HTTP 200 ile yeni anahtar teslim alanını ve WhatsApp bağlantısını sundu.
 
-TypeScript ve 12 video mantık testi geçti. Temiz dosya kopyasında Next.js derlemesi, lint, tip kontrolü ve 28 statik sayfanın üretimi tamamlandı. Windows'ta paylaşılan node_modules bağlantısı nedeniyle standalone klasörüne symlink kopyalama uyarısı oluştu; gerçek Linux/Vercel derlemesi Git bağlantısı sağlandıktan sonra doğrulanmalıdır.
+Site kaynakları, yayın medyası/PDF'ler, üretim ve test betikleri ile proje belgeleri depodadır. `.env`, `.vercel`, günlükler, bağımlılıklar ve siteyle ilgisiz özel yerel takip kayıtları dahil değildir.
 
-## Otomatik yayın için kalan bağlantı
+TypeScript ve 12 video mantık testi geçti. Temiz dosya kopyasında Next.js derlemesi, lint, tip kontrolü ve 28 statik sayfa üretimi tamamlandı. Windows junction'ına özgü standalone symlink uyarısından sonra gerçek Vercel/Linux production dağıtımı da başarıyla tamamlandı.
 
-Vercel API, yeni GitHub deposunu bağlama isteğini `To link a GitHub repository, you need to install the GitHub integration first` hatasıyla reddetti. GitHub yazma izni ile Vercel GitHub uygulamasının erişimi farklıdır.
+## Sonraki yayınlar
 
-Depo sahibi, https://github.com/apps/vercel üzerinden Vercel uygulamasına `alierengunaltili/tekin-power` için erişim vermelidir. Ardından mevcut `tekin-power-site` projesinde Git bağlantısı bu depoya ve Production Branch `master` olarak ayarlanmalıdır. Bu tamamlanmadan her push'un otomatik canlıya çıkacağı varsayılmamalıdır.
+1. `git remote -v` hedefi alierengunaltili/tekin-power olmalı.
+2. Değişikliği ve uygun kontrolleri tamamla.
+3. Kullanıcının geçerli gönderim/yayın yetkisi kapsamında commit oluştur ve `git push origin master` çalıştır.
+4. GitHub commit'inin Vercel durumunu ve canlı adresi doğrula.
 
-Bağlantı denemesi eski depo bağlantısını kaldırdı; mevcut canlı dağıtım ve alan adı korunur. Yeni bağlantı kurulana kadar mevcut canlı sürüm hizmet vermeye devam eder.
+`SITE_URL` değeri https://tekinpower.com olarak tanımlıdır; canonical, sitemap ve robots bu adresi kullanır.
+
+## Eski proje ayrımı
+
+Eski `tek-i-n-power / tekin-power-site` projesi farklıdır ve `https://tekin-power-site.vercel.app` adresini sunar. Onun Git bağlantısı `EmreOzdemir22/TekinPowerSite` / main olarak korunmuştur. Yeni deponun otomatik yayını bu eski projeye bağlı değildir. Eski projeye ait yerel Vercel bağlantı dosyası yanlışlıkla CLI yayını yapılmaması için `.vercel/project-legacy-20261113.json` olarak yedeklendi; Git'e eklenmez. Bu depodan yayın için yukarıdaki Git akışını kullan.

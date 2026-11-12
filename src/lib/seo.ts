@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-export const SITE_URL = 'https://tekin-power-site.vercel.app';
+export const SITE_URL = 'https://tekinpower.com';
 export const SITE_LOGO = '/tekinpowerlogos/tekinpower-dark.png';
 
 export function pageMetadata(path: string, title: string, description: string): Metadata {
@@ -16,3 +16,4 @@ export function pageMetadata(path: string, title: string, description: string): 
     twitter: { card: 'summary', title, description, images: [`${SITE_URL}${SITE_LOGO}`] },
   };
 }
+

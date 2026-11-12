@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict';
 
 const base = process.argv[2] || 'http://127.0.0.1:3000';
-const canonicalBase = 'https://tekin-power-site.vercel.app';
+const canonicalBase = 'https://tekinpower.com';
 const paths = ['/', '/hakkimizda', '/hizmetlerimiz', '/hizmetlerimiz/marin', '/hizmetlerimiz/enerji-depolama', '/dewjet-elektrikli-motor', '/dewjet-pompa', '/tekne-hmi', '/lifepo4', '/dewjet', '/hizmetlerimiz/askeri-sistem-uygulamalari', '/hizmetlerimiz/deniz-gol-dibi-arama-tarama'];
 
 async function main() {
@@ -44,3 +44,4 @@ async function main() {
 }
 
 main().catch(error => { console.error(error.message); process.exitCode = 1; });
+

@@ -19,7 +19,7 @@ const route = '/hizmetlerimiz/deniz-gol-dibi-arama-tarama';
    assert.match(await page.locator('h1').innerText(),/Deniz ve göl dibi/);
    assert.equal(await page.locator('#ekipmanlar article').count(),6);
    assert.equal(await page.locator('main h1').count(),1);
-   assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'),'https://tekin-power-site.vercel.app'+route);
+   assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'),'https://tekinpower.com'+route);
    const anchors=page.locator('nav[aria-label="Tarama sayfası bölümleri"] a');
    for(let i=0;i<await anchors.count();i++) {
     const a=anchors.nth(i); const href=await a.getAttribute('href'); await a.click();
@@ -60,3 +60,4 @@ const route = '/hizmetlerimiz/deniz-gol-dibi-arama-tarama';
   fs.writeFileSync(`${dir}/${tag}-checks.json`,JSON.stringify(results,null,2));
  } finally {await browser.close();}
 })().catch(e=>{console.error(e);process.exit(1)});
+

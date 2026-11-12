@@ -1,7 +1,8 @@
 "use client";
 
 import { gsap } from "gsap";
-import { ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
 import { solutions } from "@/data/solutions";
 import { useEffect, useRef, useState } from "react";
 import AdaptiveVideo from "@/components/AdaptiveVideo";
@@ -115,13 +116,6 @@ const HeroSection = () => {
 
   const categories = solutions;
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   // Slider navigation functions
   const nextSlide = () => {
     const newSlide = (currentSlide + 1) % categories.length;
@@ -222,13 +216,14 @@ const HeroSection = () => {
               ref={ctaRef}
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start"
             >
-              <button
-                onClick={() => scrollToSection("services")}
+              <Link
+                href={currentCategory.href}
+                aria-label={`${currentCategory.productTitle} detaylarını incele`}
                 className="group bg-white/10 backdrop-blur-lg border border-white/20 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold transition-all duration-300 hover:bg-white/20 hover:scale-105 flex items-center space-x-2 w-full sm:w-auto justify-center"
               >
-                <Play className="w-4 sm:w-5 h-4 sm:h-5" />
-                <span>Çözümlerimizi Keşfet</span>
-              </button>
+                <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5" aria-hidden="true" />
+                <span>Detayları İncele</span>
+              </Link>
             </div>
           </div>
 

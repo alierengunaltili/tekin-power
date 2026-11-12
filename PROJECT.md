@@ -40,6 +40,8 @@ Kullanıcı tek açıyla hafif hareketi onayladı; gerçek 360 derece dönüş i
 
 ## Deniz & Göl yeni video ve kart — 13 Kasım 2026
 
+Ana sayfa slayt CTA davranışı: altı slaydın “Detayları İncele” bağlantısı `currentCategory.href` üzerinden doğrudan o ürün/hizmet sayfasına gider. Eski çözümler alanına kaydırma kaldırılmıştır; mevcut düğme biçimi korunur.
+
 Ek istek: kesici-emici ekipman fotoğrafı `cardImage` alanıyla Hizmetlerimiz sayfasındaki Deniz & Göl kartına da eklendi. Başlık ve hedef bağlantı korundu.
 
 Kullanıcı yeni WhatsApp Video 2026-11-13 at 02.16.41.mp4 dosyasını verdi. 2–10 saniye arası %80 hızla 10 saniye olarak hazırlanır; döndürme metadatası uygulanır ve gömülü siyah kenarlar 1024x576 içerik alanına kırpılır. Kullanıcının isteğiyle 2560x1440 full ve 1920x1080 balanced, 24 fps H264/VP9 sürümleri üretilir; bunlar düşük çözünürlüklü kaynağın büyütülmüş sürümleridir, gerçek UHD ayrıntısı değildir. AdaptiveVideo bağlantıya göre sürüm veya kapak kullanır. Ana sayfa hizmet kartında mevcut katalogdaki kesici-emici.jpg kullanılır. Önceki kaldırılan survey-v1 dosyaları bağlı değildir.

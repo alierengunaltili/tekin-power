@@ -25,6 +25,7 @@
 *.pem
 
 # debug
+/.local-launcher/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -39,3 +40,25 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel
+.env*
+
+# Local tools and private project records (not part of the public website)
+/src/app/proje-takip/
+/src/app/api/local-assistant/
+/src/components/AcceptanceTracker.tsx
+/src/components/AcceptanceTracker.module.css
+/src/components/LocalAssistant.tsx
+/src/lib/acceptance.ts
+/src/lib/local-assistant.ts
+/src/data/acceptance.json
+/scripts/import-acceptance.py
+/scripts/install-local-ai.ps1
+/scripts/create-tracker-shortcut.ps1
+/scripts/open-tracker.vbs
+
+# Local logs and discarded media experiment
+*.log
+/public/media/sharp-v1/
+/src/components/LocalAssistant.module.css

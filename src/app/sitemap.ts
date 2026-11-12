@@ -1,7 +1,9 @@
 import { MetadataRoute } from 'next';
+import { solutions } from '@/data/solutions';
+import { SITE_URL } from '@/lib/seo';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://tekinpower.com.tr';
+  const baseUrl = SITE_URL;
   
   // Ana sayfalar
   const routes = [
@@ -9,7 +11,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/hakkimizda',
     '/hizmetlerimiz',
     '/lifepo4',
-    '/gunespaneli',
+    '/tekne-hmi',
+    '/dewjet',
+    '/dalyan',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
@@ -18,19 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // Hizmet sayfaları
-  const serviceRoutes = [
-    '/hizmetlerimiz/marin',
-    '/hizmetlerimiz/enerji-depolama',
-    '/hizmetlerimiz/telekomunikasyon',
-    '/hizmetlerimiz/askeri-sistem-uygulamalari',
-    '/hizmetlerimiz/car-port',
-    '/hizmetlerimiz/mobil-solar',
-    '/hizmetlerimiz/konut-cozumleri',
-    '/hizmetlerimiz/golf-araclari',
-    '/hizmetlerimiz/drone',
-    '/hizmetlerimiz/forklift',
-    '/hizmetlerimiz/e-bus',
-  ].map((route) => ({
+  const serviceRoutes = solutions.map(({ href: route }) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,

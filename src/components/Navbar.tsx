@@ -4,15 +4,22 @@ import { gsap } from 'gsap';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { type MouseEvent, useEffect, useRef, useState } from 'react';
+import ServiceNavigation from '@/components/ServiceNavigation';
+import { isWaterPagePath } from '@/lib/waterPages';
 
 const Navbar = () => {
+  const pathname = usePathname();
+  const isWaterPage = isWaterPagePath(pathname);
+  const navRef = useRef<HTMLElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const useDarkText = isScrolled;
 
   useEffect(() => {
     // Navbar animasyonu
-    gsap.fromTo('.navbar', 
+    const animation = gsap.fromTo(navRef.current,
       { y: -100, opacity: 0 },
       { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }
     );
@@ -22,43 +29,49 @@ const Navbar = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      animation.kill();
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
-    }
-  };
-
-  const handleNavClick = (item: { label: string; href: string; type: string }) => {
-    if (item.type === 'scroll') {
-      scrollToSection(item.href);
-    }
-    // For navigation type, Link component will handle the routing
+  const handleNavClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     setIsMenuOpen(false);
+    const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth';
+    if (href === '/' && pathname === '/') {
+      event.preventDefault();
+      window.history.replaceState(null, '', '/');
+      window.scrollTo({ top: 0, behavior });
+    } else if (href === '/#contact') {
+      const contact = document.getElementById('contact');
+      if (contact) {
+        event.preventDefault();
+        window.history.replaceState(null, '', `${pathname}#contact`);
+        contact.scrollIntoView({ behavior, block: 'start' });
+      }
+    }
   };
 
   const navItems = [
-    { label: 'Ana Sayfa', href: '/', type: 'navigate' },
-    { label: 'Hakkımızda', href: '/hakkimizda', type: 'navigate' },
-    { label: 'Hizmetlerimiz', href: '/hizmetlerimiz', type: 'navigate' },
-    { label: 'LiFePO4', href: '/lifepo4', type: 'navigate' },
-    { label: 'Güneş Paneli', href: '/gunespaneli', type: 'navigate' },
-    { label: 'DewJet', href: '/dewjet', type: 'navigate' },
-    { label: 'İletişim', href: 'contact', type: 'scroll' }
+    { label: 'AnaSayfa', href: '/' },
+    { label: 'Hakkımızda', href: '/hakkimizda' },
+    { label: 'Hizmetlerimiz', href: '/hizmetlerimiz' },
+    { label: 'Enerji Depolama Sistemleri', href: '/hizmetlerimiz/enerji-depolama' },
+    { label: 'DewJet Elektrikli Tekne Motorları', href: '/dewjet-elektrikli-motor', subtitle: 'Elektrikli Tekne Motorları' },
+    { label: 'DewJet Elektrikli Pompa', href: '/dewjet-pompa', subtitle: 'Elektrikli Pompa' },
+    { label: 'İletişim', href: '/#contact' }
   ];
 
   return (
-    <nav className={`navbar fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 overflow-x-hidden ${
-      isScrolled 
+    <nav ref={navRef} aria-label="Ana menü" className={`navbar fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ${
+      isScrolled
         ? 'bg-white/50 backdrop-blur-lg shadow-lg ' 
         : ' '
     }`}>
@@ -67,13 +80,15 @@ const Navbar = () => {
           {/* Logo */}
            <Link 
              href="/"
-             className="flex items-center justify-center lg:justify-start cursor-pointer flex-1 lg:flex-none min-w-0 overflow-hidden"
+             onClick={(event) => handleNavClick(event, '/')}
+             className="flex items-center justify-start cursor-pointer flex-1 xl:flex-none min-w-0 overflow-hidden"
            >
-             <div className="relative w-[90vw] sm:w-96 md:w-[28rem] lg:w-[26rem] xl:w-[28rem] h-24 sm:h-24 md:h-28 lg:h-28 xl:h-32 max-w-full">
+             <div className={isWaterPage ? 'relative h-24 w-48 sm:w-52 xl:w-48 2xl:w-52 max-w-full' : 'relative w-64 sm:w-80 xl:w-40 2xl:w-52 h-24 max-w-full'}>
               <Image
-                src="/tekinpowerlogos/tekinpower-02.png"
-                alt="Tekin Power Logo"
+                src={isWaterPage ? (useDarkText ? '/tekinpowerlogos/tekinpower-marin-dark-v2.png' : '/tekinpowerlogos/tekinpower-marin-light-v2.png') : useDarkText ? '/tekinpowerlogos/tekinpower-dark.png' : '/tekinpowerlogos/tekinpower-02.webp'}
+                alt={isWaterPage ? 'Tekin Power Marin Logo' : 'Tekin Power Logo'}
                 fill
+                sizes={isWaterPage ? '208px' : '(min-width: 1536px) 208px, (min-width: 1280px) 160px, (min-width: 640px) 320px, 256px'}
                 className="object-contain"
                 priority
               />
@@ -81,49 +96,44 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-4 xl:space-x-6 flex-shrink-0">
+          <div className="hidden xl:flex items-center gap-3 2xl:gap-4 flex-shrink-0">
             {navItems.map((item) => {
-              const baseClasses = `relative text-sm xl:text-base font-medium transition-all duration-300 hover:scale-105 whitespace-nowrap ${
-                isScrolled 
+              const baseClasses = `relative text-sm 2xl:text-base font-medium transition-all duration-300 hover:scale-105 whitespace-nowrap ${
+                useDarkText
                   ? 'text-gray-700 hover:text-blue-600' 
                   : 'text-white/90 hover:text-white'
               } group`;
 
-              if (item.type === 'navigate') {
+              if (item.href === '/hizmetlerimiz') {
+                return <ServiceNavigation key={item.href} linkClass={baseClasses} onNavigate={handleNavClick} />;
+              }
+
                 return (
                   <Link
                     key={item.href}
                     href={item.href}
                     className={baseClasses}
-                    onClick={() => setIsMenuOpen(false)}
+                    aria-label={item.label}
+                    onClick={(event) => handleNavClick(event, item.href)}
                   >
-                    {item.label}
+                    {item.subtitle ? <span className="block text-center leading-snug"><span className="block">DewJet</span><span className="block text-xs 2xl:text-sm">{item.subtitle}</span></span> : item.label}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-blue-600 transition-all duration-300 group-hover:w-full"></span>
                   </Link>
                 );
-              }
-
-              return (
-                <button
-                  key={item.href}
-                  onClick={() => handleNavClick(item)}
-                  className={baseClasses}
-                >
-                  {item.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                </button>
-              );
             })}
             
 
           </div>
 
            {/* Mobile Menu Button */}
-           <div className="lg:hidden flex-shrink-0">
+           <div className="xl:hidden flex-shrink-0">
              <button
                onClick={toggleMenu}
+               aria-label={isMenuOpen ? 'Menüyü kapat' : 'Menüyü aç'}
+               aria-expanded={isMenuOpen}
+               aria-controls="mobile-navigation"
                className={`p-1 sm:p-1.5 rounded-lg transition-colors duration-300 ${
-                 isScrolled 
+                 useDarkText
                    ? 'text-gray-700 hover:bg-gray-100' 
                    : 'text-white hover:bg-white/10'
                }`}
@@ -134,35 +144,28 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu */}
-        <div className={`lg:hidden transition-all duration-300 overflow-hidden ${
-          isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        <div id="mobile-navigation" inert={!isMenuOpen} className={`xl:hidden transition-all duration-300 ${
+          isMenuOpen ? 'max-h-[calc(100dvh-8rem)] overflow-y-auto opacity-100' : 'max-h-0 overflow-hidden opacity-0'
         }`}>
           <div className=" m-5 py-2 space-y-2 bg-white/95 backdrop-blur-lg rounded-lg mt-4 shadow-lg border border-blue-100 mx-4 sm:mx-8 md:mx-12">
             {navItems.map((item) => {
               const baseClasses = "block w-full text-left px-4 sm:px-6 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200 font-medium text-base";
+
+              if (item.href === '/hizmetlerimiz') {
+                return <ServiceNavigation key={item.href} mobile linkClass={baseClasses} onNavigate={handleNavClick} />;
+              }
               
-              if (item.type === 'navigate') {
                 return (
                   <Link
                     key={item.href}
                     href={item.href}
                     className={baseClasses}
-                    onClick={() => setIsMenuOpen(false)}
+                    aria-label={item.label}
+                    onClick={(event) => handleNavClick(event, item.href)}
                   >
-                    {item.label}
+                    {item.subtitle ? <span className="block leading-snug"><span className="block">DewJet</span><span className="block text-sm">{item.subtitle}</span></span> : item.label}
                   </Link>
                 );
-              }
-
-              return (
-                <button
-                  key={item.href}
-                  onClick={() => handleNavClick(item)}
-                  className={baseClasses}
-                >
-                  {item.label}
-                </button>
-              );
             })}
 
           </div>

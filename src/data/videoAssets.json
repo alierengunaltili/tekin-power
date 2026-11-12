@@ -1,0 +1,354 @@
+{
+  "landing-page/marin": {
+    "poster": "/media/sharp-v2/home-marin-poster.webp",
+    "duration": 11.61,
+    "full": {
+      "width": 1280,
+      "height": 720,
+      "fps": 30,
+      "webm": "/media/sharp-v2/home-marin-full.webm",
+      "mp4": "/media/sharp-v2/home-marin-full.mp4",
+      "webmBytes": 2929493,
+      "mp4Bytes": 3471048
+    },
+    "balanced": {
+      "width": 1280,
+      "height": 720,
+      "fps": 30,
+      "webm": "/media/sharp-v2/home-marin-full.webm",
+      "mp4": "/media/sharp-v2/home-marin-full.mp4",
+      "webmBytes": 2929493,
+      "mp4Bytes": 3471048
+    }
+  },
+  "landing-page/enerjidepolamasistemleri": {
+    "poster": "/media/sharp-v2/home-energy-poster.webp",
+    "duration": 15.167,
+    "full": {
+      "width": 3840,
+      "height": 2160,
+      "fps": 30,
+      "webm": "/media/sharp-v2/home-energy-full.webm",
+      "mp4": "/media/sharp-v2/home-energy-full.mp4",
+      "webmBytes": 11564461,
+      "mp4Bytes": 14956062
+    },
+    "balanced": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "webm": "/media/sharp-v2/home-energy-balanced.webm",
+      "mp4": "/media/sharp-v2/home-energy-balanced.mp4",
+      "webmBytes": 5272792,
+      "mp4Bytes": 7116523
+    }
+  },
+  "landing-page/askerisistemuygulamalari": {
+    "poster": "/media/sharp-v2/military-poster.webp",
+    "duration": 10.034,
+    "full": {
+      "width": 3840,
+      "height": 2160,
+      "fps": 30,
+      "webm": "/media/sharp-v2/military-full.webm",
+      "mp4": "/media/sharp-v2/military-full.mp4",
+      "webmBytes": 6316923,
+      "mp4Bytes": 10091245
+    },
+    "balanced": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "webm": "/media/sharp-v2/military-balanced.webm",
+      "mp4": "/media/sharp-v2/military-balanced.mp4",
+      "webmBytes": 2945280,
+      "mp4Bytes": 4863848
+    }
+  },
+  "service/askeri-sistem": {
+    "poster": "/media/sharp-v2/military-poster.webp",
+    "duration": 10.034,
+    "full": {
+      "width": 3840,
+      "height": 2160,
+      "fps": 30,
+      "webm": "/media/sharp-v2/military-full.webm",
+      "mp4": "/media/sharp-v2/military-full.mp4",
+      "webmBytes": 6316923,
+      "mp4Bytes": 10091245
+    },
+    "balanced": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "webm": "/media/sharp-v2/military-balanced.webm",
+      "mp4": "/media/sharp-v2/military-balanced.mp4",
+      "webmBytes": 2945280,
+      "mp4Bytes": 4863848
+    }
+  },
+  "landing-page/dewjet-motor-deniz-v1": {
+    "poster": "/media/sharp-v2/home-motor-poster.webp",
+    "duration": 10,
+    "full": {
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "webm": "/media/sharp-v2/home-motor-full.webm",
+      "mp4": "/media/sharp-v2/home-motor-full.mp4",
+      "webmBytes": 1051069,
+      "mp4Bytes": 1844176
+    },
+    "balanced": {
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "webm": "/media/sharp-v2/home-motor-full.webm",
+      "mp4": "/media/sharp-v2/home-motor-full.mp4",
+      "webmBytes": 1051069,
+      "mp4Bytes": 1844176
+    }
+  },
+  "landing-page/dewjet-pompa-v3": {
+    "poster": "/media/sharp-v2/home-pump-poster.webp",
+    "duration": 15.959,
+    "full": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 24,
+      "webm": "/media/sharp-v2/home-pump-full.webm",
+      "mp4": "/media/sharp-v2/home-pump-full.mp4",
+      "webmBytes": 4590229,
+      "mp4Bytes": 7526224
+    },
+    "balanced": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 24,
+      "webm": "/media/sharp-v2/home-pump-full.webm",
+      "mp4": "/media/sharp-v2/home-pump-full.mp4",
+      "webmBytes": 4590229,
+      "mp4Bytes": 7526224
+    }
+  },
+  "service/marin": {
+    "poster": "/media/sharp-v2/service-marin-poster.webp",
+    "duration": 11.22,
+    "full": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 50,
+      "webm": "/media/sharp-v2/service-marin-full.webm",
+      "mp4": "/media/sharp-v2/service-marin-full.mp4",
+      "webmBytes": 4964753,
+      "mp4Bytes": 7245910
+    },
+    "balanced": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 50,
+      "webm": "/media/sharp-v2/service-marin-full.webm",
+      "mp4": "/media/sharp-v2/service-marin-full.mp4",
+      "webmBytes": 4964753,
+      "mp4Bytes": 7245910
+    }
+  },
+  "service/drone": {
+    "poster": "/media/sharp-v2/service-drone-poster.webp",
+    "duration": 8,
+    "full": {
+      "width": 1920,
+      "height": 1088,
+      "fps": 24,
+      "webm": "/media/sharp-v2/service-drone-full.webm",
+      "mp4": "/media/sharp-v2/service-drone-full.mp4",
+      "webmBytes": 1360416,
+      "mp4Bytes": 3934113
+    },
+    "balanced": {
+      "width": 1920,
+      "height": 1088,
+      "fps": 24,
+      "webm": "/media/sharp-v2/service-drone-full.webm",
+      "mp4": "/media/sharp-v2/service-drone-full.mp4",
+      "webmBytes": 1360416,
+      "mp4Bytes": 3934113
+    }
+  },
+  "service/ebus": {
+    "poster": "/media/sharp-v2/service-ebus-poster.webp",
+    "duration": 7.508,
+    "full": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 29.97002997002997,
+      "webm": "/media/sharp-v2/service-ebus-full.webm",
+      "mp4": "/media/sharp-v2/service-ebus-full.mp4",
+      "webmBytes": 3030074,
+      "mp4Bytes": 2629434
+    },
+    "balanced": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 29.97002997002997,
+      "webm": "/media/sharp-v2/service-ebus-full.webm",
+      "mp4": "/media/sharp-v2/service-ebus-full.mp4",
+      "webmBytes": 3030074,
+      "mp4Bytes": 2629434
+    }
+  },
+  "service/forklift": {
+    "poster": "/media/sharp-v2/service-forklift-poster.webp",
+    "duration": 11.92,
+    "full": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 25,
+      "webm": "/media/sharp-v2/service-forklift-full.webm",
+      "mp4": "/media/sharp-v2/service-forklift-full.mp4",
+      "webmBytes": 3200813,
+      "mp4Bytes": 3033942
+    },
+    "balanced": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 25,
+      "webm": "/media/sharp-v2/service-forklift-full.webm",
+      "mp4": "/media/sharp-v2/service-forklift-full.mp4",
+      "webmBytes": 3200813,
+      "mp4Bytes": 3033942
+    }
+  },
+  "service/golfaraclari": {
+    "poster": "/media/sharp-v2/service-golfaraclari-poster.webp",
+    "duration": 14.875,
+    "full": {
+      "width": 4096,
+      "height": 2160,
+      "fps": 24,
+      "webm": "/media/sharp-v2/service-golfaraclari-full-native.webm",
+      "mp4": "/media/sharp-v2/service-golfaraclari-full-native.mp4",
+      "webmBytes": 7251633,
+      "mp4Bytes": 4745586
+    },
+    "balanced": {
+      "width": 1920,
+      "height": 1012,
+      "fps": 24,
+      "webm": "/media/sharp-v2/service-golfaraclari-balanced.webm",
+      "mp4": "/media/sharp-v2/service-golfaraclari-balanced.mp4",
+      "webmBytes": 2781835,
+      "mp4Bytes": 5425223
+    }
+  },
+  "service/konut-cozumleri": {
+    "poster": "/media/sharp-v2/service-konut-cozumleri-poster.webp",
+    "duration": 14.014,
+    "full": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 29.97002997002997,
+      "webm": "/media/sharp-v2/service-konut-cozumleri-full.webm",
+      "mp4": "/media/sharp-v2/service-konut-cozumleri-full.mp4",
+      "webmBytes": 4908248,
+      "mp4Bytes": 5412005
+    },
+    "balanced": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 29.97002997002997,
+      "webm": "/media/sharp-v2/service-konut-cozumleri-full.webm",
+      "mp4": "/media/sharp-v2/service-konut-cozumleri-full.mp4",
+      "webmBytes": 4908248,
+      "mp4Bytes": 5412005
+    }
+  },
+  "service/mobil-solar": {
+    "poster": "/media/sharp-v2/service-mobil-solar-poster.webp",
+    "duration": 16.567,
+    "full": {
+      "width": 2048,
+      "height": 1080,
+      "fps": 59.94005994005994,
+      "webm": "/media/sharp-v2/service-mobil-solar-full.webm",
+      "mp4": "/media/sharp-v2/service-mobil-solar-full.mp4",
+      "webmBytes": 7769642,
+      "mp4Bytes": 8916949
+    },
+    "balanced": {
+      "width": 2048,
+      "height": 1080,
+      "fps": 59.94005994005994,
+      "webm": "/media/sharp-v2/service-mobil-solar-full.webm",
+      "mp4": "/media/sharp-v2/service-mobil-solar-full.mp4",
+      "webmBytes": 7769642,
+      "mp4Bytes": 8916949
+    }
+  },
+  "service/enerjidepolama": {
+    "poster": "/media/sharp-v2/service-enerjidepolama-poster.webp",
+    "duration": 8,
+    "full": {
+      "width": 1920,
+      "height": 1088,
+      "fps": 24,
+      "webm": "/media/sharp-v2/service-enerjidepolama-full.webm",
+      "mp4": "/media/sharp-v2/service-enerjidepolama-full.mp4",
+      "webmBytes": 2600805,
+      "mp4Bytes": 3898905
+    },
+    "balanced": {
+      "width": 1920,
+      "height": 1088,
+      "fps": 24,
+      "webm": "/media/sharp-v2/service-enerjidepolama-full.webm",
+      "mp4": "/media/sharp-v2/service-enerjidepolama-full.mp4",
+      "webmBytes": 2600805,
+      "mp4Bytes": 3898905
+    }
+  },
+  "service/dewjet-pompa-showcase-v1": {
+    "poster": "/media/sharp-v2/pump-detail-poster.webp",
+    "duration": 15.136,
+    "full": {
+      "width": 1344,
+      "height": 768,
+      "fps": 24,
+      "webm": "/media/sharp-v2/pump-detail-full.webm",
+      "mp4": "/media/sharp-v2/pump-detail-full.mp4",
+      "webmBytes": 2518138,
+      "mp4Bytes": 4415405
+    },
+    "balanced": {
+      "width": 1344,
+      "height": 768,
+      "fps": 24,
+      "webm": "/media/sharp-v2/pump-detail-full.webm",
+      "mp4": "/media/sharp-v2/pump-detail-full.mp4",
+      "webmBytes": 2518138,
+      "mp4Bytes": 4415405
+    }
+  },
+  "service/dewjet-twin-marine-v2": {
+    "poster": "/media/sharp-v2/twin-motor-poster.webp",
+    "duration": 9.969635,
+    "full": {
+      "width": 1600,
+      "height": 900,
+      "fps": 24,
+      "webm": "/media/sharp-v2/twin-motor-full.webm",
+      "mp4": "/media/sharp-v2/twin-motor-full.mp4",
+      "webmBytes": 1832875,
+      "mp4Bytes": 4385439
+    },
+    "balanced": {
+      "width": 1600,
+      "height": 900,
+      "fps": 24,
+      "webm": "/media/sharp-v2/twin-motor-full.webm",
+      "mp4": "/media/sharp-v2/twin-motor-full.mp4",
+      "webmBytes": 1832875,
+      "mp4Bytes": 4385439
+    }
+  }
+}

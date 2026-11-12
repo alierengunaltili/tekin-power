@@ -1,8 +1,12 @@
 'use client';
 
+import { solutions } from '@/data/solutions';
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { isWaterPagePath } from '@/lib/waterPages';
 import { 
   Phone, 
   Mail, 
@@ -12,6 +16,7 @@ import {
 } from 'lucide-react';
 
 const Footer = () => {
+  const isWaterPage = isWaterPagePath(usePathname());
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -29,22 +34,11 @@ const Footer = () => {
     { label: 'Ana Sayfa', href: '/' },
     { label: 'Hizmetlerimiz', href: '/hizmetlerimiz' },
     { label: 'Hakkımızda', href: '/hakkimizda' },
+    { label: 'Tekne HMI', href: '/tekne-hmi' },
     { label: 'İletişim', href: 'contact' }
   ];
 
-  const services = [
-    { label: 'Marin', href: '/hizmetlerimiz/marin' },
-    { label: 'Enerji Depolama Sistemleri', href: '/hizmetlerimiz/enerji-depolama' },
-    { label: 'Telekomünikasyon Baz İstasyonu', href: '/hizmetlerimiz/telekomunikasyon' },
-    { label: 'Askeri Sistem Uygulamaları', href: '/hizmetlerimiz/askeri-sistem-uygulamalari' },
-    { label: 'Car Port', href: '/hizmetlerimiz/car-port' },
-    { label: 'Mobil Solar Panel', href: '/hizmetlerimiz/mobil-solar' },
-    { label: 'Konut Çözümleri', href: '/hizmetlerimiz/konut-cozumleri' },
-    { label: 'Golf Araçları', href: '/hizmetlerimiz/golf-araclari' },
-    { label: 'Drone', href: '/hizmetlerimiz/drone' },
-    { label: 'Forklift', href: '/hizmetlerimiz/forklift' },
-    { label: 'E-Bus', href: '/hizmetlerimiz/e-bus' }
-  ];
+  const services = solutions;
 
 
 
@@ -64,12 +58,13 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-2 mb-6">
-              <div className="relative w-72 sm:w-96 lg:w-[28rem] h-20 sm:h-24 lg:h-28">
+              <div className={isWaterPage ? 'relative w-56 max-w-full h-28' : 'relative w-72 sm:w-96 lg:w-[28rem] h-20 sm:h-24 lg:h-28'}>
                 <Image
-                  src="/tekinpowerlogos/tekinpower-02.png"
-                  alt="Tekin Power Logo"
+                  src={isWaterPage ? '/tekinpowerlogos/tekinpower-marin-light-v2.png' : '/tekinpowerlogos/tekinpower-02.webp'}
+                  alt={isWaterPage ? 'Tekin Power Marin Logo' : 'Tekin Power Logo'}
                   fill
-                  className="object-contain brightness-0 invert"
+                  sizes={isWaterPage ? '224px' : undefined}
+                  className={isWaterPage ? 'object-contain object-left' : 'object-contain brightness-0 invert'}
                   priority
                 />
               </div>
@@ -117,7 +112,7 @@ const Footer = () => {
                     href={service.href}
                     className="text-blue-200 hover:text-white transition-colors duration-300 text-sm block hover:translate-x-1 transform"
                   >
-                    {service.label}
+                    {service.productTitle}
                   </Link>
                 </li>
               ))}

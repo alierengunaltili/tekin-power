@@ -99,14 +99,8 @@ const LiFePO4WhereModal = ({ isOpen, onClose }: LiFePO4WhereModalProps) => {
           </div>
           
           <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6 border border-blue-100 shadow-sm">
-            <h4 className="font-bold text-blue-800 text-lg mb-3">Telekomünikasyon ve UPS</h4>
+            <h4 className="font-bold text-blue-800 text-lg mb-3">Kesintisiz Güç Sistemleri</h4>
             <ul className="space-y-3">
-              <li className="flex items-start">
-                <div className="bg-blue-100 p-1 rounded-full mr-2 mt-1">
-                  <Check className="text-blue-600" size={14} />
-                </div>
-                <span className="text-gray-700">Baz istasyonları için yedek güç</span>
-              </li>
               <li className="flex items-start">
                 <div className="bg-blue-100 p-1 rounded-full mr-2 mt-1">
                   <Check className="text-blue-600" size={14} />

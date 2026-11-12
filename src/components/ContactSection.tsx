@@ -1,5 +1,7 @@
 'use client';
 
+import { solutions } from '@/data/solutions';
+
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -156,19 +158,10 @@ const ContactSection = () => {
     }
   ];
 
-  const services = [
-    'LiFePO₄ Batarya Sistemleri',
-    'Güneş Enerjisi Sistemleri',
-    'Hibrit Enerji Çözümleri',
-    'Marin Enerji Sistemleri',
-    'Askeri Uygulamalar',
-    'Endüstriyel Çözümler',
-    'Telekomünikasyon',
-    'Diğer'
-  ];
+  const services = solutions.map((solution) => solution.productTitle);
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50" ref={sectionRef}>
+    <section id="contact" className="scroll-mt-36 py-20 bg-gradient-to-br from-gray-50 to-blue-50" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <div ref={titleRef} className="text-center mb-16">

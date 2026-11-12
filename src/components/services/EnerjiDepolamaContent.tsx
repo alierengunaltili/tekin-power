@@ -1,6 +1,8 @@
 'use client';
 
 import Image from 'next/image';
+import { GuideIntro, GuideBody } from '@/components/SolutionGuide';
+import { storageContent } from '@/data/pageContent';
 import { useState } from 'react';
 import { energidepolama_photo_mapping } from '@/app/utils/photo-mappings/hizmetlerimiz/enerjidepolama';
 
@@ -23,7 +25,6 @@ const EnerjiDepolamaContent = ({ gradient }: EnerjiDepolamaContentProps) => {
 
   const contentSections: Array<{
     title: string;
-    content: string;
     hasImage?: boolean;
     imageKey?: string;
     hasImages?: boolean;
@@ -33,148 +34,26 @@ const EnerjiDepolamaContent = ({ gradient }: EnerjiDepolamaContentProps) => {
   }> = [
     {
       title: 'Enerji Depolama Sistemleri',
-      content: `
-<div class="bg-gray-50 p-8 rounded-xl border-l-4 border-blue-600 mb-8">
-  <h3 class="text-2xl font-bold text-gray-900 mb-4">Entegre Güneş Enerjisi Depolama</h3>
-  <p class="text-gray-700 text-lg leading-relaxed">
-    Fotovoltaik enerji üretim sistemi ile enerji depolama sisteminin organik birleşimi, pasif enerji tasarrufundan aktif enerji üretimine dönüşümü gerçekleştirebilir. PMS kontrol stratejisi sayesinde güç şebekesi, yenilenebilir enerji kaynakları ve enerji depolama bataryası birbirleriyle entegre olabilir ve enerji birbirlerini tamamlayabilir, müşteri elektrik maliyetini önemli ölçüde azaltabilir.
-  </p>
-</div>
-
-<div class="bg-white p-8 rounded-xl border border-gray-200">
-  <p class="text-gray-700 text-lg leading-relaxed mb-6">
-    <strong>ONNO POWER</strong>, fotovoltaik (PV) kontrol modüller ile yapılandırılabilir ve doğrudan PV sistemlerine bağlanmayı destekler. Park veya işletme sahipleri, fabrika çatılarını kullanarak güneş enerji kaynaklarını tamamen kullanabilir, kendi kendine enerji üretimini gerçekleştirebilir ve müşterilerin yeni enerji için çeşitli uygulama ihtiyaçlarını karşılayabilir.
-  </p>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <div class="bg-blue-50 p-6 rounded-lg border border-blue-100">
-      <h4 class="font-semibold text-blue-900 mb-2">Şebekeye Bağlı Güç Sağlama</h4>
-      <p class="text-blue-700 text-sm">Grid-tie sistem ile şebeke entegrasyonu</p>
-    </div>
-    <div class="bg-green-50 p-6 rounded-lg border border-green-100">
-      <h4 class="font-semibold text-green-900 mb-2">Şebekeye Bağlı Olmayan Güç</h4>
-      <p class="text-green-700 text-sm">Off-grid sistemler ile bağımsız enerji</p>
-    </div>
-    <div class="bg-gray-50 p-6 rounded-lg border border-gray-100">
-      <h4 class="font-semibold text-gray-900 mb-2">Çevrimdışı Güç Sağlama</h4>
-      <p class="text-gray-700 text-sm">Backup sistemler ile kesintisiz enerji</p>
-    </div>
-  </div>
-</div>
-      `,
       hasImage: true,
       imageKey: 'photo1'
     },
     {
-      title: 'Mobil Enerji Depolama Sistemi',
-      content: `
-<div class="bg-gray-50 p-8 rounded-xl border-l-4 border-orange-600">
-  <h3 class="text-2xl font-bold text-gray-900 mb-4">Akıllı Taşınabilir Enerji Depolama Sistem</h3>
-  <p class="text-gray-700 text-lg leading-relaxed mb-6">
-    "Akıllı Taşınabilir Enerji Depolama Sistem (Araç)", <strong>tepe doldurma ve vadileri doldurma, güç koruma, acil durum, yedek, kapasite genişletme, akıllı şarj ve satış, mobil kurtarma</strong> gibi çoklu uygulama entegrasyonunun sistem entegrasyonunu başarıyla gerçekleştirir.
-  </p>
-  
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <div class="bg-white p-6 rounded-xl border border-gray-200">
-      <h4 class="text-xl font-bold text-gray-900 mb-3">Acil Durum Enerji Sağlama</h4>
-      <ul class="text-gray-700 space-y-2">
-        <li>• Deprem, buz felaket, maden felaket</li>
-        <li>• Büyük politik güç koruma etkinlikleri</li>
-        <li>• Acil durum onarımlarının enerji ihtiyacı</li>
-      </ul>
-    </div>
-    
-    <div class="bg-white p-6 rounded-xl border border-gray-200">
-      <h4 class="text-xl font-bold text-gray-900 mb-3">Kritik Altyapı Desteği</h4>
-      <ul class="text-gray-700 space-y-2">
-        <li>• Büyük veri merkezler</li>
-        <li>• Hastaneler ve sağlık tesisleri</li>
-        <li>• Havaalanları ve iletişim sistemleri</li>
-      </ul>
-    </div>
-  </div>
-  
-  <div class="mt-6 bg-blue-50 p-6 rounded-xl border border-blue-100">
-    <h4 class="text-xl font-bold text-blue-900 mb-3">Çok Fonksiyonlu Kullanım</h4>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
-      <div class="text-gray-700">Hat bakımı sırasında geçici enerji</div>
-      <div class="text-gray-700">Buzla kaplı hatlardaki buzları eritme</div>
-      <div class="text-gray-700">Ada ve dağlık bölgelerde güç düzenleme</div>
-      <div class="text-gray-700">Şehirlerde elektrikli araç şarjı</div>
-    </div>
-  </div>
-</div>
-      `,
+      title: 'Mobil Enerji Depolama Görseli',
       hasImage: true,
       imageKey: 'photo2'
     },
     {
-      title: 'Yedek Güç Sistemi',
-      content: `
-<div class="bg-gray-50 p-8 rounded-xl border-l-4 border-purple-600">
-  <h3 class="text-2xl font-bold text-gray-900 mb-6">ONNO POWER Yedek Güç Sistemleri</h3>
-  
-  <div class="space-y-6">
-    <div class="bg-white p-6 rounded-xl border border-gray-200">
-      <h4 class="text-xl font-bold text-gray-900 mb-4">Sistem Bileşenleri</h4>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="text-center p-4 bg-blue-50 rounded-lg border border-blue-100">
-          <div class="text-sm font-medium text-blue-900">Enerji Depolama Bataryası</div>
-        </div>
-        <div class="text-center p-4 bg-green-50 rounded-lg border border-green-100">
-          <div class="text-sm font-medium text-green-900">Enerji Depolama Dönüştürücüsü</div>
-        </div>
-        <div class="text-center p-4 bg-gray-50 rounded-lg border border-gray-100">
-          <div class="text-sm font-medium text-gray-900">İzleme Sistemi</div>
-        </div>
-        <div class="text-center p-4 bg-purple-50 rounded-lg border border-purple-100">
-          <div class="text-sm font-medium text-purple-900">Akıllı Anahtarlama</div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="bg-white p-6 rounded-xl border border-gray-200">
-      <h4 class="text-xl font-bold text-gray-900 mb-4">Siyah Başlatma Fonksiyonu</h4>
-      <p class="text-gray-700 mb-4">
-        Şebeke kesintisi olduğunda kesintisiz güç kaynağı sağlamak için akıllı anahtarlama yapabilir. 
-        Dizel jeneratör gibi geleneksel güç kaynağı yöntemleriyle karşılaştırıldığında:
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-green-50 p-4 rounded-lg border border-green-100">
-          <h5 class="font-semibold text-green-900 mb-2">Avantajları</h5>
-          <ul class="text-green-800 text-sm space-y-1">
-            <li>• Modüler tasarım - kolay kurulum</li>
-            <li>• Taşınabilir açık hava tasarımı</li>
-            <li>• Düşük ses seviyesi</li>
-            <li>• Çevre dostu özellikler</li>
-          </ul>
-        </div>
-        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
-          <h5 class="font-semibold text-blue-900 mb-2">STS Entegrasyonu</h5>
-          <p class="text-blue-800 text-sm">
-            STS (Statik Transfer Switch) modülünün entegrasyonu, kullanıcıların kritik yüklerinin kesintisiz güç sağlanmasını sağlar.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-      `,
+      title: 'Yedek Güç Sistemi Görselleri',
       hasImages: true,
       multipleImages: ['photo3', 'photo4', 'photo5']
     },
     {
             title: 'Elektrik Dolabı',
-      content: `
-
-      `,
       hasCarousel: true,
       carouselType: 'elektrik'
     },
     {
             title: 'Batarya Dolabı',
-      content: `
-
-      `,
       hasCarousel: true,
       carouselType: 'batarya'
     }
@@ -197,6 +76,9 @@ const EnerjiDepolamaContent = ({ gradient }: EnerjiDepolamaContentProps) => {
   };
 
   return (
+    <>
+    <GuideIntro content={storageContent} />
+    <GuideBody content={storageContent} />
     <section className="content-section py-12 sm:py-16 lg:py-20 bg-gray-50">
       <div className="w-full px-3 sm:px-4 lg:px-8">
         <div className="space-y-12 sm:space-y-16 lg:space-y-20">
@@ -215,14 +97,6 @@ const EnerjiDepolamaContent = ({ gradient }: EnerjiDepolamaContentProps) => {
               {/* Content Body */}
               <div className="py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-12">
                 <div className="max-w-7xl mx-auto">
-                  {/* Main Content */}
-                  <div className="mb-8 sm:mb-10">
-                    <div
-                      className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed whitespace-pre-line prose prose-sm sm:prose-lg max-w-none"
-                      dangerouslySetInnerHTML={{ __html: section.content }}
-                    />
-                  </div>
-                  
                   {/* Single Image */}
                   {section.hasImage && 'imageKey' in section && section.imageKey && (
                     <div className="w-full">
@@ -382,6 +256,7 @@ const EnerjiDepolamaContent = ({ gradient }: EnerjiDepolamaContentProps) => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

@@ -10,7 +10,6 @@ import {
   Recycle,
   Shield,
   ShieldCheck,
-  Smartphone,
   ThermometerSun,
   Truck,
   Zap
@@ -146,11 +145,6 @@ const BatterySection = () => {
       icon: Car,
       title: 'Elektrikli Araçlar',
       description: 'EV, e-bisiklet ve elektrikli araç uygulamaları'
-    },
-    {
-      icon: Smartphone,
-      title: 'Telekomünikasyon',
-      description: 'Baz istasyonları ve yedek güç kaynakları'
     },
     {
       icon: Truck,

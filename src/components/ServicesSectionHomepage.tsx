@@ -1,16 +1,16 @@
 'use client';
 
+import { solutions } from '@/data/solutions';
+import { pumps } from '@/data/pumps';
+
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { 
-  Home,
-  Anchor,
-  Car,
-  Plane
-} from 'lucide-react';
+import { Ship, Sailboat, Droplets, BatteryCharging, Shield, Waves } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+
+const icons = [Ship, Sailboat, Droplets, BatteryCharging, Shield, Waves];
 
 // GSAP ScrollTrigger plugin'ini kaydet
 if (typeof window !== 'undefined') {
@@ -68,45 +68,12 @@ const ServicesSection = () => {
     return () => ctx.revert();
   }, []);
 
-  const services = [
-    {
-      icon: Home,
-      title: 'Konut Çözümleri',
-      description: 'Akıllı enerji yönetimi ile evinizde maksimum verimlilik sağlayın.',
-      features: ['Akıllı Enerji Yönetimi', 'Otomatik Kontrol', 'Mobil Uygulama'],
-      gradient: 'from-blue-500 to-cyan-500',
-      image: '/landing-page-photos/home-related/home-solar-panel-2.jpg'
-    },
-    {
-      icon: Anchor,
-      title: 'Denizcilik',
-      description: 'Denizcilik güç sistemleri ile gemilerde güvenilir enerji çözümleri.',
-      features: ['Marine Bataryalar', 'Su Geçirmez Sistemler', 'Uzun Menzil'],
-      gradient: 'from-cyan-500 to-blue-500',
-      image: '/landing-page-photos/yat-related/y3.jpg'
-    },
-    {
-      icon: Car,
-      title: 'Otomotiv',
-      description: 'Güneş enerjili otopark sistemleri ile araçlarınızı güneşle şarj edin.',
-      features: ['Solar Carport', 'EV Şarj İstasyonu', 'Akıllı Park Sistemi'],
-      gradient: 'from-green-500 to-emerald-500',
-      image: '/landing-page-photos/car-related/por4.jpg'
-    },
-    {
-      icon: Plane,
-      title: 'Havacılık',
-      description: 'Gelişmiş drone teknolojisi ile hava araçları için enerji çözümleri.',
-      features: ['Drone Bataryaları', 'Hafif Sistemler', 'Uzun Uçuş Süresi'],
-      gradient: 'from-purple-500 to-pink-500',
-      image: '/landing-page-photos/drone/drone-2.jpg'
-    }
-  ];
+  const services = solutions;
 
 
 
   return (
-    <section id="services" className="relative py-12 sm:py-16 lg:py-20 overflow-hidden" ref={sectionRef}>
+    <section id="services" className="relative scroll-mt-36 py-12 sm:py-16 lg:py-20 overflow-hidden" ref={sectionRef}>
       {/* Dynamic Background */}
       <div ref={backgroundRef} className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50"></div>
@@ -127,7 +94,7 @@ const ServicesSection = () => {
         <div ref={titleRef} className="text-center mb-12 sm:mb-16 lg:mb-20">
           <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6">
             <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-              Hizmetlerimiz
+              Çözümlerimiz
             </span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
@@ -140,7 +107,8 @@ const ServicesSection = () => {
         {/* Services Grid */}
         <div ref={servicesRef} className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mb-12 sm:mb-16 lg:mb-20 px-4 sm:px-0">
           {services.map((service, index) => {
-            const IconComponent = service.icon;
+            const IconComponent = icons[index];
+            const cardImage = service.homepageImage ?? service.cardImage ?? service.image;
             return (
               <div
                 key={index}
@@ -148,12 +116,13 @@ const ServicesSection = () => {
               >
                 {/* Image Section */}
                 <div className="relative h-40 sm:h-48 bg-gray-100 overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
+                  {cardImage && <Image
+                    src={cardImage}
+                    alt={service.productTitle}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                  />}
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900/20"></div>
                   {/* Icon Overlay */}
                   <div className="absolute top-3 sm:top-4 left-3 sm:left-4">
@@ -166,24 +135,30 @@ const ServicesSection = () => {
                 {/* Content Section */}
                 <div className="p-4 sm:p-6">
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-blue-700 transition-colors duration-300">
-                    {service.title}
+                    {service.productTitle}
                   </h3>
-                  <p className="text-gray-600 mb-3 sm:mb-4 leading-relaxed text-sm">
-                    {service.description}
-                  </p>
-                  
-                  {/* Features */}
-                  <div className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-5">
-                    {service.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center space-x-2 text-xs sm:text-sm">
-                        <div className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-gradient-to-r ${service.gradient}`}></div>
-                        <span className="text-gray-700">{feature}</span>
+                  {service.id === 'pompa' ? (
+                    <div className="mb-4">
+                      <p className="text-xs leading-5 text-gray-600">Eşdeğer güç ve performans sınıfında</p>
+                      <p className="mt-1 text-lg font-extrabold leading-6 text-blue-950">DÜNYANIN EN HAFİF POMPALARI</p>
+                      <div className="mt-3 grid grid-cols-2 gap-3">
+                        {pumps.map((pump) => (
+                          <div key={pump.model} className="min-w-0 rounded-xl border border-sky-100 bg-sky-50 p-3">
+                            <p className="text-xs font-semibold text-sky-800">{pump.power} · {pump.weight}</p>
+                            <p className="mt-1 text-lg font-extrabold leading-7 text-blue-950 sm:text-xl">{pump.flow}</p>
+                            <p className="text-xs text-slate-600">Maksimum debi</p>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ) : (
+                    <p className="text-gray-600 mb-3 sm:mb-4 leading-relaxed text-sm">
+                      {service.description}
+                    </p>
+                  )}
                   
                   {/* CTA */}
-                  <Link href="/hizmetlerimiz" className={`w-full bg-gradient-to-r ${service.gradient} text-white px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-medium hover:shadow-lg transition-all duration-300 hover:scale-105 text-xs sm:text-sm inline-flex items-center justify-center`}>
+                  <Link href={service.href} className={`w-full bg-gradient-to-r ${service.gradient} text-white px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-medium hover:shadow-lg transition-all duration-300 hover:scale-105 text-xs sm:text-sm inline-flex items-center justify-center`}>
                     Detayları İncele
                   </Link>
                 </div>

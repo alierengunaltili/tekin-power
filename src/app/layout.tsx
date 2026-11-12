@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL, SITE_LOGO } from "@/lib/seo";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -14,59 +15,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tekin Power - Yenilenebilir Enerji Çözümleri ve LiFePO4 Bataryalar",
-  description: "Tekin Power, marin, solar enerji sistemleri, ebus, drone, golf araçları, forklift, carport ve solar pole alanlarında yenilikçi enerji çözümleri sunar. LiFePO4 bataryalar ile sürdürülebilir bir gelecek inşa ediyoruz.",
-  keywords: "Tekin Power, yenilenebilir enerji, LiFePO4 batarya, solar panel, güneş enerjisi, marin enerji sistemleri, enerji depolama, sürdürülebilir enerji",
-  authors: [{ name: "Tekin Power Energy" }],
-  creator: "Tekin Power Energy",
-  publisher: "Tekin Power Energy",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL("https://tekinpower.com"),
-  icons: {
-    icon: "/tekinpowerlogos/tekinpower-04.png",
-    shortcut: "/tekinpowerlogos/tekinpower-04.png",
-    apple: "/tekinpowerlogos/tekinpower-04.png",
-  },
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    title: "Tekin Power - Yenilenebilir Enerji Çözümleri",
-    description: "Tekin Power, marin, solar enerji sistemleri ve LiFePO4 bataryalar ile sürdürülebilir enerji çözümleri sunar.",
-    url: "https://tekinpower.com",
-    siteName: "Tekin Power Energy",
-    locale: "tr_TR",
-    type: "website",
-    images: [
-      {
-        url: "/tekinpowerlogos/tekinpower-02.png",
-        width: 800,
-        height: 600,
-        alt: "Tekin Power Logo",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Tekin Power - Yenilenebilir Enerji Çözümleri",
-    description: "Tekin Power, marin, solar enerji sistemleri ve LiFePO4 bataryalar ile sürdürülebilir enerji çözümleri sunar.",
-    images: ["/tekinpowerlogos/tekinpower-02.png"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  metadataBase: new URL(SITE_URL),
+  title: 'Tekin Power | Elektrikli Marin ve Enerji Depolama',
+  description: 'Elektrikli tekne motoru, su pompası, LiFePO4 batarya ve tekne HMI çözümleri. Projeniz hakkında Tekin Power ile görüşün.',
+  authors: [{ name: 'Tekin Power' }],
+  creator: 'Tekin Power',
+  publisher: 'Tekin Power',
+  formatDetection: { email: false, address: false, telephone: false },
+  icons: { icon: SITE_LOGO, shortcut: SITE_LOGO, apple: SITE_LOGO },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-video-preview': -1, 'max-image-preview': 'large', 'max-snippet': -1 } },
 };
 
 export default function RootLayout({

@@ -1,13 +1,5 @@
-import { marin_photo_mapping } from '@/app/utils/photo-mappings/hizmetlerimiz/marin';
-import { askeri_sistem_photo_mapping } from '@/app/utils/photo-mappings/hizmetlerimiz/askeri-sistem';
-import { drone_photo_mapping } from '@/app/utils/photo-mappings/hizmetlerimiz/drone';
-import { ebus_photo_mapping } from '@/app/utils/photo-mappings/hizmetlerimiz/ebus';
-import { forklift_photo_mapping } from '@/app/utils/photo-mappings/hizmetlerimiz/forklift';
-import { telekomunikasyon_photo_mapping } from '@/app/utils/photo-mappings/hizmetlerimiz/telekominukasyon';
-import { golfaraclari_photo_mapping } from '@/app/utils/photo-mappings/hizmetlerimiz/golfaraclari';
-import { konutcozumleri_photo_mapping } from '@/app/utils/photo-mappings/hizmetlerimiz/konut-cozumleri';
-import { mobil_solar_photo_mapping } from '@/app/utils/photo-mappings/hizmetlerimiz/mobil-solar';
-import { energidepolama_photo_mapping } from '@/app/utils/photo-mappings/hizmetlerimiz/enerjidepolama';
+import { contentByPath } from '@/data/pageContent';
+import { pageMetadata } from '@/lib/seo';
 import AnimatedServicePage from '@/components/AnimatedServicePage';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
@@ -16,7 +8,7 @@ import AskeriSistemContent from '@/components/services/AskeriSistemContent';
 import DroneContent from '@/components/services/DroneContent';
 import EBusContent from '@/components/services/EBusContent';
 import ForkliftContent from '@/components/services/ForkliftContent';
-import TelekomunikasyonContent from '@/components/services/TelekomunikasyonContent';
+import AdaptiveVideo from '@/components/AdaptiveVideo';
 import GolfCarContent from '@/components/services/GolfCarContent';
 import HomeSolarSystemContent from '@/components/services/HomeSolarSystemContent';
 import MarinContent from '@/components/services/MarinContent';
@@ -39,6 +31,7 @@ interface ContentItem {
 }
 
 interface ServiceConfig {
+  showHeroCategory?: boolean;
   title: string;
   category: string;
   image?: string;
@@ -52,9 +45,9 @@ interface ServiceConfig {
 // Hizmet verilerini tanımlayalım
 const services: Record<string, ServiceConfig> = {
   'marin': {
-    title: 'Marin',
+    title: 'Elektrikli Marin Çözümleri',
     category: 'Denizcilik',
-    video: marin_photo_mapping['video1'],
+    video: 'marin',
     gradient: 'from-blue-600 via-cyan-500 to-blue-400',
     hasCustomComponent: true
   },
@@ -109,71 +102,66 @@ Gelecekte elektrikli araçların sayısının artmasıyla birlikte, şarj altyap
 Solar car port sistemleri, sadece enerji tasarrufu ve çevresel fayda sağlamaz, aynı zamanda otopark alanlarına modern ve estetik bir görünüm kazandırır. Geleneksel otopark yapılarına kıyasla daha şık ve yenilikçi tasarımlarla donatılan solar car port’lar, evinizin veya iş yerinizin genel görünümüne katkı sağlar. Gelişmiş mühendislik çözümleri ve modern tasarım çizgileriyle bu sistemler, işlevselliği estetikle buluşturur.
 
 <br/><br/><b>Enerji Tasarrufu ve Ekonomik Avantajlar</b><br/><br/>
-Unisun Enerji’nin sunduğu solar car port çözümleri, uzun vadede enerji maliyetlerinden büyük tasarruf sağlar. Otopark üzerindeki güneş panelleri, evin ya da iş yerinin elektrik ihtiyacının bir kısmını karşılayabilir ve böylece enerji faturalarını önemli ölçüde düşürebilir. Elektrikli araç sahipleri, araçlarını şarj etmek için harcayacakları elektrik maliyetini de bu sistem sayesinde minimuma indirebilir. Güneş enerjisinden elde edilen elektrik, şebeke elektriğine bağımlılığı azaltarak, enerji maliyetlerinden büyük bir tasarruf sağlar.`,
+Solar car port çözümleri, uzun vadede enerji maliyetlerinden büyük tasarruf sağlar. Otopark üzerindeki güneş panelleri, evin ya da iş yerinin elektrik ihtiyacının bir kısmını karşılayabilir ve böylece enerji faturalarını önemli ölçüde düşürebilir. Elektrikli araç sahipleri, araçlarını şarj etmek için harcayacakları elektrik maliyetini de bu sistem sayesinde minimuma indirebilir. Güneş enerjisinden elde edilen elektrik, şebeke elektriğine bağımlılığı azaltarak, enerji maliyetlerinden büyük bir tasarruf sağlar.`,
       }
     ]
   },
 
   'askeri-sistem-uygulamalari': {
-    title: 'Askeri Sistem Uygulamaları',
+    title: 'Askeri Sistem Çözümleri',
     category: 'Savunma Sanayi',
-    video: askeri_sistem_photo_mapping['video1'],
+    showHeroCategory: false,
+    video: 'askeri-sistem',
     gradient: 'from-green-900 via-green-700 to-green-600',
     hasCustomComponent: true
   },
   'drone': {
     title: 'Drone',
     category: 'Havacılık',
-    video: drone_photo_mapping['video1'],
+    video: 'drone',
     gradient: 'from-purple-600 via-pink-500 to-red-400',
     hasCustomComponent: true
   },
   'e-bus': {
     title: 'E Bus',
     category: 'Ulaşım',
-    video: ebus_photo_mapping['video1'],
+    video: 'ebus',
     gradient: 'from-teal-600 via-blue-500 to-cyan-400',
     hasCustomComponent: true
   },
   'forklift': {
     title: 'Forklift',
     category: 'Endüstriyel',
-    video: forklift_photo_mapping['video1'],
+    video: 'forklift',
     gradient: 'from-orange-600 via-red-500 to-pink-400',
-    hasCustomComponent: true
-  },
-  'telekomunikasyon': {
-    title: 'Telekomünikasyon Baz İstasyonu',
-    category: 'Telekomünikasyon',
-    video: telekomunikasyon_photo_mapping['video1'],
-    gradient: 'from-blue-600 via-cyan-500 to-blue-400',
     hasCustomComponent: true
   },
   'golf-araclari': {
     title: 'Golf Car',
     category: 'Rekreasyon',
-    video: golfaraclari_photo_mapping['video1'],
+    video: 'golfaraclari',
     gradient: 'from-lime-600 via-green-500 to-emerald-400',
     hasCustomComponent: true
   },
   'konut-cozumleri': {
     title: 'Home Solar System',
     category: 'Konut',
-    video: konutcozumleri_photo_mapping['video1'],
+    video: 'konut-cozumleri',
     gradient: 'from-amber-600 via-yellow-500 to-lime-400',
     hasCustomComponent: true
   },
   'mobil-solar': {
     title: 'Mobil Solar Panel Çözümleri',
     category: 'Mobil Enerji',
-    video: mobil_solar_photo_mapping['video1'],
+    video: 'mobil-solar',
     gradient: 'from-orange-600 via-yellow-500 to-amber-400',
     hasCustomComponent: true
   },
   'enerji-depolama': {
     title: 'Enerji Depolama Sistemleri',
     category: 'Enerji Depolama',
-    video: energidepolama_photo_mapping['video1'],
+    showHeroCategory: false,
+    video: 'enerjidepolama',
     gradient: 'from-indigo-600 via-purple-500 to-pink-400',
     hasCustomComponent: true
   }
@@ -183,6 +171,14 @@ interface PageProps {
   params: Promise<{
     slug: string;
   }>;
+}
+
+export async function generateMetadata({ params }: PageProps) {
+  const { slug } = await params;
+  const service = services[slug];
+  if (!service) return {};
+  const content = contentByPath[`/hizmetlerimiz/${slug}`];
+  return pageMetadata(`/hizmetlerimiz/${slug}`, content?.seoTitle ?? `${service.title} | Tekin Power`, content?.description ?? `${service.title} hakkında bilgi ve iletişim. Tekin Power çözümlerini inceleyin.`);
 }
 
 export default async function ServiceDetailPage({ params }: PageProps) {
@@ -211,28 +207,12 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       <AnimatedServicePage service={animatedServicePageProps}>
         {/* Hero Section */}
-        <section className="hero-section relative h-[60vh] sm:h-[70vh] overflow-hidden">
+        <section className={`hero-section relative h-[560px] sm:h-[620px] overflow-hidden bg-slate-950 ${service.video ? 'mobile-video-hero' : ''}`}>
           <div className="absolute inset-0">
             {service.video ? (
-              <video
-                className="w-full h-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                poster={service.image}
-              >
-                <source src={service.video} type="video/mp4" />
-                {service.image && (
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                )}
-              </video>
+              <div className="mobile-video-stage absolute inset-0">
+                <AdaptiveVideo name={service.video} prefix="service" label={`${service.title} tanıtım videosu`} loop />
+              </div>
             ) : service.image ? (
               <Image
                 src={service.image}
@@ -242,20 +222,22 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 priority
               />
             ) : null}
-            <div className="absolute inset-0 bg-black/50"></div>
-            <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-20`}></div>
+            <div className="mobile-video-shade absolute inset-0 bg-black/50"></div>
+            <div className={`mobile-video-tint absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-20`}></div>
           </div>
 
-          <div className="relative z-10 h-full flex items-center justify-center">
+          <div className="mobile-video-content relative z-10 h-full flex items-center justify-center">
             <div className="text-center text-white max-w-4xl mx-auto px-3 sm:px-4">
-              <span className={`inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r ${service.gradient} text-white text-xs sm:text-sm font-semibold rounded-full mb-4 sm:mb-6 shadow-lg`}>
-                {service.category}
-              </span>
+              {service.showHeroCategory !== false && (
+                <span className={`inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r ${service.gradient} text-white text-xs sm:text-sm font-semibold rounded-full mb-4 sm:mb-6 shadow-lg`}>
+                  {service.category}
+                </span>
+              )}
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 drop-shadow-lg">
                 {service.title}
               </h1>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 drop-shadow-md">
-                Tekin Power ile yenilenebilir enerji çözümlerinde öncü olmaya devam ediyoruz
+                {contentByPath[`/hizmetlerimiz/${slug}`]?.description ?? "Tekin Power ile yenilenebilir enerji çözümlerinde öncü olmaya devam ediyoruz"}
               </p>
             </div>
           </div>
@@ -276,8 +258,6 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             <EBusContent gradient={service.gradient} />
           ) : slug === 'forklift' ? (
             <ForkliftContent gradient={service.gradient} />
-          ) : slug === 'telekomunikasyon' ? (
-            <TelekomunikasyonContent gradient={service.gradient} />
           ) : slug === 'golf-araclari' ? (
             <GolfCarContent gradient={service.gradient} />
           ) : slug === 'konut-cozumleri' ? (
@@ -359,7 +339,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                   Projelerinizde Bizimle Çalışın
                 </h3>
                 <p className="text-base sm:text-lg lg:text-xl text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto">
-                  {service.title} çözümlerimiz hakkında detaylı bilgi almak ve proje teklifiniz için bizimle iletişime geçin.
+                  {service.title} hakkında detaylı bilgi almak ve proje teklifiniz için bizimle iletişime geçin.
                 </p>
                 <a
                   href="#contact"

@@ -1,5 +1,7 @@
 'use client';
 
+import { solutions } from '@/data/solutions';
+
 import Navbar from '@/components/Navbar';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -27,33 +29,7 @@ const HakkimizdaPage = () => {
   const sectionsRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  const photos = [
-    {
-      src: '/hakkimizda-photos/solar-panel-plant-on-roof-top-2023-11-27-04-54-39-utc.jpg',
-      title: 'Güneş Enerjisi Sistemleri',
-      description: 'Sürdürülebilir geleceğin temeli'
-    },
-    {
-      src: '/hakkimizda-photos/marin.jpg',
-      title: 'Denizcilik Çözümleri',
-      description: 'Mavi sularda güvenilir enerji'
-    },
-    {
-      src: '/hakkimizda-photos/e-bus.jpg',
-      title: 'Elektrikli Ulaşım',
-      description: 'Temiz şehir yaşamı için'
-    },
-    {
-      src: '/hakkimizda-photos/drone.jpg',
-      title: 'Havacılık Teknolojileri',
-      description: 'Gökyüzünde yenilikçi çözümler'
-    },
-    {
-      src: '/hakkimizda-photos/carport.jpg',
-      title: 'Akıllı Otopark Sistemleri',
-      description: 'Enerji üreten altyapılar'
-    }
-  ];
+  const photos = solutions.map((solution) => ({ ...solution, src: solution.image }));
 
   // Auto swiper effect
   useEffect(() => {
@@ -125,7 +101,7 @@ const HakkimizdaPage = () => {
       <Navbar />
       
       {/* Photo Swiper Section */}
-      <section className="relative h-[70vh] sm:h-[80vh] lg:h-screen overflow-hidden">
+      <section className="relative h-[70vh] sm:h-[80vh] lg:h-screen overflow-hidden bg-slate-950">
         {/* Swiper Container */}
         <div className="relative w-full h-full">
           {photos.map((photo, index) => (
@@ -136,14 +112,14 @@ const HakkimizdaPage = () => {
               }`}
             >
               {/* Background Image */}
-              <Image
+              {photo.src && <Image
                 src={photo.src}
                 alt={photo.title}
                 className="object-cover"
                 fill
                 priority={index === 0}
                 sizes="100vw"
-              />
+              />}
               
               {/* Overlay */}
               <div className="absolute inset-0 bg-black/40"></div>
@@ -219,9 +195,9 @@ const HakkimizdaPage = () => {
           {/* About Us Section */}
           <section className="text-center">
             <div className="mb-8 sm:mb-10 lg:mb-12">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-                Hakkımızda
-              </h2>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+                Tekin Power Hakkında
+              </h1>
               <div className="w-16 sm:w-20 lg:w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto mb-6 sm:mb-8"></div>
             </div>
             
@@ -232,13 +208,12 @@ const HakkimizdaPage = () => {
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Biz Kimiz?</h3>
                   <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
                     <span className="font-semibold text-gray-900">Tekin Power Energy</span>, yenilikçi projeleriyle enerji sektöründe fark yaratan bir çözüm ortağıdır. 
-                    Gelişen teknolojiye uyum sağlayarak; marin, solar enerji sistemleri, ebus, drone, golf araçları, forklift, carport, solar pole gibi 
+                    Gelişen teknolojiye uyum sağlayarak; elektrikli marin, elektrikli tekne, elektrikli pompa, enerji depolama, askeri sistem çözümleri ve deniz/göl dibi arama tarama gibi 
                     farklı alanlarda çözümler sunan şirket, enerji verimliliği ve sürdürülebilirliği hedeflemektedir.
                   </p>
                   
                   <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                    Yüksek performanslı ve uzun ömürlü enerji çözümlerinde LiFePO4 bataryalar kullanarak, 
-                    güvenilir ve sürdürülebilir bir gelecek inşa etmeyi hedefler.
+                    Elektrikli tekne motoru, elektrikli su pompası, LiFePO4 batarya ve tekne HMI ihtiyaçlarını uygulama koşullarıyla birlikte değerlendiriyoruz. Motor, batarya, kontrol ekranı veya enerji depolama projeniz hakkında bizimle görüşebilirsiniz.
                   </p>
 
                   

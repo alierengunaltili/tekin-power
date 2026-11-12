@@ -1,4 +1,5 @@
-import BatterySection from '@/components/BatterySection';
+import { pageMetadata, SITE_URL, SITE_LOGO } from '@/lib/seo';
+import TurnkeySolutionsSection from '@/components/TurnkeySolutionsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import HeroSection from '@/components/HeroSection';
@@ -6,17 +7,15 @@ import JsonLdSchema from '@/components/JsonLdSchema';
 import Navbar from '@/components/Navbar';
 import AboutSection from '@/components/AboutSection';
 import ServicesSection from '@/components/ServicesSectionHomepage';
-import SolarSection from '@/components/SolarSection';
-import DewJetAnnouncementModal from '@/components/DewJetAnnouncementModal';
+import WhatsAppContact from '@/components/WhatsAppContact';
+
+export const metadata = pageMetadata('/', 'Tekin Power | Elektrikli Marin, Tekne Motoru ve LiFePO4', 'Elektrikli tekne motoru, elektrikli su pompası, LiFePO4 enerji depolama ve tekne HMI çözümleri. Projenize uygun seçim için Tekin Power ile görüşün.');
 
 export default function Home() {
   return (
     <div className="relative">
       {/* Navigation */}
       <Navbar />
-      
-      {/* DewJet Announcement Modal */}
-      <DewJetAnnouncementModal />
       
       {/* Main Content */}
       <main>
@@ -29,11 +28,9 @@ export default function Home() {
         {/* Services Section */}
         <ServicesSection />
         
-        {/* Battery Technology Section */}
-        <BatterySection />
+        {/* Turnkey Pump and Motor Solutions */}
+        <TurnkeySolutionsSection />
         
-        {/* Solar Panel Section */}
-        <SolarSection />
         
         {/* Contact Section */}
         <ContactSection />
@@ -41,35 +38,30 @@ export default function Home() {
       
       {/* Footer */}
       <Footer />
+      <WhatsAppContact />
 
       {/* SEO - JSON-LD Schema */}
       <JsonLdSchema 
         type="Organization"
         data={{
           name: "Tekin Power Energy",
-          url: "https://tekinpower.com.tr",
-          logo: "https://tekinpower.com.tr/tekinpowerlogos/tekinpower-02.png",
-          sameAs: [
-            "https://www.facebook.com/tekinpower",
-            "https://www.instagram.com/tekinpower",
-            "https://www.linkedin.com/company/tekinpower"
-          ],
+          url: SITE_URL,
+          logo: `${SITE_URL}${SITE_LOGO}`,
           contactPoint: {
             "@type": "ContactPoint",
-            telephone: "+902125550123",
+            telephone: "+905323276293",
             contactType: "customer service",
             areaServed: "TR",
             availableLanguage: ["Turkish", "English"]
           },
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Teknokent İstanbul",
-            addressLocality: "Kurtköy",
-            addressRegion: "İstanbul",
-            postalCode: "34000",
+            streetAddress: "Koza Cad. No:66/64",
+            addressLocality: "Çankaya",
+            addressRegion: "Ankara",
             addressCountry: "TR"
           },
-          description: "Tekin Power, marin, solar enerji sistemleri, ebus, drone, golf araçları, forklift, carport ve solar pole alanlarında yenilikçi enerji çözümleri sunar. LiFePO4 bataryalar ile sürdürülebilir bir gelecek inşa ediyoruz."
+          description: "Tekin Power, elektrikli marin, elektrikli tekne, elektrikli pompa, enerji depolama sistemleri, askeri sistem çözümleri ve deniz/göl dibi arama tarama sistemleri alanlarında yenilikçi enerji çözümleri sunar. LiFePO4 bataryalar ile sürdürülebilir bir gelecek inşa ediyoruz."
         }}
       />
     </div>

@@ -1,20 +1,10 @@
-'use client';
+import SolutionInfoPage from '@/components/SolutionInfoPage';
+import LiFePO4BatterySection from '@/components/lifepo4/LiFePO4BatterySection';
+import { batteryContent } from '@/data/pageContent';
+import { pageMetadata } from '@/lib/seo';
 
-import React from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import LiFePO4NewPage from '@/components/lifepo4/LiFePO4NewPage';
+export const metadata = pageMetadata(batteryContent.path, batteryContent.seoTitle, batteryContent.description);
 
 export default function LiFePO4Page() {
-  return (
-    <div className="relative min-h-screen">
-      <Navbar />
-      
-      <main>
-        <LiFePO4NewPage />
-      </main>
-      
-      <Footer />
-    </div>
-  );
+  return <SolutionInfoPage content={batteryContent}><LiFePO4BatterySection /></SolutionInfoPage>;
 }

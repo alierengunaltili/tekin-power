@@ -23,7 +23,6 @@ const nextConfig: NextConfig = {
   // Performans optimizasyonları
   poweredByHeader: false,
   reactStrictMode: true,
-  swcMinify: true,
   compress: true,
   // Statik optimizasyon
   output: "standalone",
@@ -34,6 +33,10 @@ const nextConfig: NextConfig = {
   // Headers for video optimization
   async headers() {
     return [
+      {
+        source: "/media/sharp-v2/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+      },
       {
         source: "/landing-page-videos/:path*",
         headers: [

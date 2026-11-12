@@ -5,7 +5,6 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { 
   ArrowRight,
-  Radio,
   Shield,
   Home,
   Drone,
@@ -88,16 +87,6 @@ const ProjectsSection = () => {
   }, []);
 
   const projects = [
-    {
-      icon: Radio,
-      title: 'Telekomünikasyon Baz İstasyonu',
-      description: 'LiFePO₄ teknolojisi ile baz istasyonlarına uyarlanmış öncü enerji depolama çözümleri.',
-      image: 'bg-gradient-to-br from-blue-600 to-cyan-600',
-      location: 'İstanbul, Türkiye',
-      date: '2024',
-      capacity: '500kWh',
-      tags: ['Telekomünikasyon', 'LiFePO₄', '24/7 Uptime']
-    },
     {
       icon: Shield,
       title: 'Askeri Sistem Uygulamaları',

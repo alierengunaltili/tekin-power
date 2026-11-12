@@ -131,10 +131,10 @@ const AboutSection = () => {
               </p>
 
               <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
-                LiFePO₄ batarya teknolojileri, güneş enerjisi sistemleri ve
-                hibrit enerji çözümleri alanında uzmanlaşmış ekibimizle, her
-                projeyi benzersiz ihtiyaçlar doğrultusunda özel olarak
-                tasarlıyoruz.
+                Elektrikli tekne motoru, su pompası, LiFePO4 batarya ve tekne HMI
+                ihtiyaçlarını kullanım alanına göre ele alıyoruz. Marin projeniz veya
+                enerji depolama ihtiyacınız için mevcut sisteminizi ve hedeflerinizi
+                paylaşarak bizimle görüşebilirsiniz.
               </p>
 
               {/* Values List */}

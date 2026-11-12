@@ -1,38 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tekin Power web sitesi
 
-## Getting Started
+Next.js 15 / React 19 / TypeScript ile geliştirilen Tekin Power sitesi.
 
-First, run the development server:
+- Depo: https://github.com/alierengunaltili/tekin-power
+- Yayın dalı: `master`
+- Canlı adres: https://tekin-power-site.vercel.app
+- Uygulama bu deponun kökündedir; Vercel Root Directory boş kalmalıdır.
 
-```bash
+## Geliştirme
+
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Doğrulama ve derleme
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+npx tsc --noEmit
+node --test scripts/test-adaptive-video.cjs
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+ESLint gerektiğinde `npx eslint <değişen-dosyalar>` ile çalıştırılır. Eski `npm run lint` betiği Next 15 ile uyumlu değildir.
 
-## Learn More
+## İçerik ve medya
 
-To learn more about Next.js, take a look at the following resources:
+Sayfalar `src/app`, bileşenler `src/components`, ürün ve hizmet verileri `src/data`, görsel/video/PDF dosyaları `public` altındadır. Güncel video kataloğu `src/data/videoAssets.json`, medya `public/media/sharp-v2` içindedir. Bazı eski görseller mevcut S3 adreslerinden gelir; kodda erişim anahtarı bulunmaz.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`FIRST.md`, `PROJECT.md` ve `PROJECT_TREE.md` güncel başlangıç belgeleridir. Ayrıntılı geliştirme geçmişi `docs/history/` içindedir. Tarihsel belgelerde iç içe çalışma klasörü yolları bulunabilir; bu depoda uygulama kök seviyededir.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Yayın
 
-## Deploy on Vercel
+Vercel projesi `tekin-power-site`, takım `tek-i-n-power`. GitHub bağlantısı bu depoya ve production dalı `master` olarak ayarlandığında bu dala yapılan gönderimler canlı dağıtımı tetikler. `.vercel/` ve özel ortam değişkenleri depoya eklenmez. Bağlantının son doğrulama durumu `DEPLOYMENT.md` dosyasındadır.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-Trial
+Yerel proje takip uygulaması ve özel kabul testi kayıtları bu web sitesi aktarımının dışındadır; mevcut bilgisayarda korunur.

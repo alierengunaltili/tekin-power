@@ -29,3 +29,64 @@ body {
 html {
   overflow-x: hidden;
 }
+
+/* Keep the full landscape frame on phones; reserve its product area above
+   the foreground copy instead of cropping it into a tall portrait hero. */
+@media (max-width: 639px), (max-height: 500px) and (max-width: 959px) {
+  .mobile-video-hero {
+    --mobile-video-top: 108px;
+    --mobile-video-height: 56.25vw;
+    --mobile-video-bottom: calc(var(--mobile-video-top) + var(--mobile-video-height));
+    height: auto;
+    min-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .mobile-video-hero .mobile-video-stage {
+    top: var(--mobile-video-top);
+    bottom: auto;
+    height: var(--mobile-video-height);
+  }
+
+  .mobile-video-stage video {
+    object-fit: contain;
+  }
+
+  .mobile-video-stage [style*="background-image"] {
+    background-size: contain;
+  }
+
+  .mobile-video-hero .mobile-video-shade {
+    background: linear-gradient(to bottom,
+      rgb(2 6 23 / 4%) 0,
+      rgb(2 6 23 / 4%) calc(var(--mobile-video-bottom) - 40px),
+      rgb(2 6 23 / 94%) var(--mobile-video-bottom),
+      #020617 calc(var(--mobile-video-bottom) + 24px));
+  }
+
+  .mobile-video-hero .mobile-video-content {
+    height: auto;
+    padding-top: calc(var(--mobile-video-bottom) - 4px);
+    padding-bottom: 32px;
+  }
+
+  .mobile-video-hero .mobile-video-copy {
+    min-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    gap: 24px;
+  }
+
+  .mobile-video-hero .mobile-video-tint,
+  .mobile-video-hero .floating-element,
+  .mobile-video-hero .particle {
+    display: none;
+  }
+}
+
+@media (max-height: 500px) and (max-width: 959px) and (orientation: landscape) {
+  .mobile-video-hero {
+    --mobile-video-height: min(56.25vw, calc(100svh - var(--mobile-video-top)));
+  }
+}

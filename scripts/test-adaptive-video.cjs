@@ -55,6 +55,23 @@ test('initial load timeout requests a lower quality and preserves playback posit
   assert.deepEqual(times, [3]);
   stop();
 });
+
+test('manual-capable playback allows initial buffering without the short rebuffer timeout', t => {
+  t.mock.timers.enable({ apis: ['setTimeout'] });
+  const video = new Video();
+  let fallback = 0;
+  const stop = startVideoPlayback(video, 0, () => fallback++, () => {}, undefined, { startupTimeoutMs: 20000, bufferTimeoutMs: 6000 });
+  video.dispatchEvent(new Event('waiting'));
+  t.mock.timers.tick(10000);
+  assert.equal(fallback, 0);
+  video.dispatchEvent(new Event('playing'));
+  video.dispatchEvent(new Event('waiting'));
+  t.mock.timers.tick(5999);
+  assert.equal(fallback, 0);
+  t.mock.timers.tick(1);
+  assert.equal(fallback, 1);
+  stop();
+});
 test('brief buffering recovers; sustained buffering falls back', t => {
   t.mock.timers.enable({ apis: ['setTimeout'] });
   const video = new Video();

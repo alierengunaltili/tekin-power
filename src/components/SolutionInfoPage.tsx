@@ -18,7 +18,7 @@ export default function SolutionInfoPage({ content, children, featuredContent, h
       <main>
         <header className={`relative isolate overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-cyan-950 px-5 pb-16 pt-44 text-white sm:px-8 sm:pb-20 ${headerMedia ? 'mobile-video-hero lg:aspect-[7/4] lg:flex lg:items-center' : ''}`}>
           {headerMedia && (
-            <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+            <div className="pointer-events-none absolute inset-0">
               <div className="mobile-video-stage absolute inset-0">{headerMedia}</div>
               <div className="mobile-video-shade absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/60 to-slate-950/20" />
             </div>

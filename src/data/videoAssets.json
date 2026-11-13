@@ -308,7 +308,7 @@
     }
   },
   "service/dewjet-pompa-showcase-v1": {
-    "poster": "/media/sharp-v2/pump-detail-poster.webp",
+    "poster": "/dewjet-pompa/hero-two-pumps-v2.webp",
     "duration": 15.136,
     "full": {
       "width": 1344,

@@ -8,7 +8,7 @@ import { videoAssets } from '@/lib/videoAssets';
 type NetworkConnection = ConnectionHints & EventTarget;
 
 /** One decoder, bounded downloads and a poster when motion/data preferences disallow autoplay. */
-export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnded, fit = 'cover', fillBackground = false, poster: posterOverride, smoothStart = true }: {
+export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnded, fit = 'cover', fillBackground = false, poster: posterOverride, smoothStart = true, playbackControl = false }: {
   name: string;
   prefix: 'landing-page' | 'service';
   label: string;
@@ -18,6 +18,7 @@ export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnd
   fillBackground?: boolean;
   poster?: string;
   smoothStart?: boolean;
+  playbackControl?: boolean;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -28,6 +29,7 @@ export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnd
   const [visible, setVisible] = useState(false);
   const [failed, setFailed] = useState(false);
   const [presentedSource, setPresentedSource] = useState('');
+  const [playbackChoice, setPlaybackChoice] = useState<'auto' | 'play' | 'pause'>('auto');
   const asset = videoAssets[`${prefix}/${name}`];
   const rendition = asset?.[quality];
   const usingVp9 = codec === 'vp9' && !!rendition && rendition.webmBytes <= rendition.mp4Bytes;
@@ -43,7 +45,7 @@ export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnd
     let timer: number | undefined;
     const applyPreferences = () => {
       window.clearTimeout(timer);
-      if (!shouldPlayVideo(connection) || motion.matches) {
+      if (playbackChoice === 'pause' || (playbackChoice !== 'play' && (!shouldPlayVideo(connection) || motion.matches))) {
         setEnabled(false);
         return;
       }
@@ -53,7 +55,7 @@ export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnd
       const selected = !asset ? preferred : candidates.find(tier => {
         const option = asset[tier];
         const bytes = supportsVp9 ? Math.min(option.webmBytes, option.mp4Bytes) : option.mp4Bytes;
-        return canSustainVideo(bytes, asset.duration, connection);
+        return playbackChoice === 'play' || canSustainVideo(bytes, asset.duration, connection);
       });
       if (!selected) { setEnabled(false); return; }
       resumeAt.current = videoRef.current?.currentTime ?? resumeAt.current;
@@ -70,7 +72,7 @@ export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnd
       connection?.removeEventListener('change', applyPreferences);
       motion.removeEventListener('change', applyPreferences);
     };
-  }, [asset]);
+  }, [asset, playbackChoice]);
 
   useEffect(() => {
     let inViewport = false;
@@ -106,12 +108,12 @@ export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnd
       resumeAt.current = time;
       if (usingVp9) setCodec('h264');
       else fallBack(time);
-    });
+    }, playbackControl ? { startupTimeoutMs: 20000, bufferTimeoutMs: 6000 } : undefined);
     return () => {
       resumeAt.current = video.currentTime;
       stop();
     };
-  }, [enabled, visible, failed, quality, name, source, usingVp9, asset]);
+  }, [enabled, visible, failed, quality, name, source, usingVp9, asset, playbackControl]);
 
   // Reveal only after a decoded frame is submitted, not just after metadata loads.
   // Buffering must not bring the opening still back over an already playing video.
@@ -170,6 +172,17 @@ export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnd
           />
         )}
       </div>
+      {playbackControl && (
+        <div className="pointer-events-auto absolute bottom-4 right-4 z-20 flex max-w-[calc(100%-2rem)] flex-col items-end gap-2">
+          {enabled && !failed && !hasPresentedFrame && <span role="status" className="rounded-lg bg-slate-950/85 px-3 py-2 text-xs text-white">Video yükleniyor…</span>}
+          <button type="button" onClick={() => {
+            if (enabled && !failed) setPlaybackChoice('pause');
+            else { setFailed(false); setPlaybackChoice('play'); }
+          }} className="min-h-11 rounded-full border border-white/40 bg-slate-950/85 px-5 py-2.5 text-sm font-semibold text-white shadow-lg hover:bg-slate-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
+            {enabled && !failed ? 'Videoyu duraklat' : failed ? 'Videoyu yeniden oynat' : 'Videoyu oynat'}
+          </button>
+        </div>
+      )}
     </div>
   );
 }

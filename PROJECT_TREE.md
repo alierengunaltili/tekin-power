@@ -24,3 +24,5 @@
 - public/unisun/energy-gallery/: mevcut enerji galerisine ait 23 özgün görsel; enerjidepolama fotoğraf eşlemesi yerel adresleri kullanır.
 
 - public/anahtar-teslim/: Unisun kataloğundan çıkarılmış akü, inverter, DC sigorta ve konnektör WebP görselleri. Anahtar teslim paket kartlarını TurnkeySolutionsSection.tsx yönetir.
+
+- public/dewjet-pompa/hero-two-pumps-v2.webp: pompa detay videosunun 13. saniyesinden yeni kapak. public/anahtar-teslim/bms-v1.webp: Unisun PDF BMS görseli.

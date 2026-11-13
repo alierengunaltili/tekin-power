@@ -18,6 +18,7 @@ export default function DewJetPompaPage() {
           label="DewJet elektrikli su pompaları tanıtım videosu"
           fit="contain"
           fillBackground
+          playbackControl
           loop
         />
       }

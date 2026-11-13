@@ -7,7 +7,7 @@ const sharedProducts = [
   { name: 'Güneş Paneli', image: '/gunespaneli-redesign/monokristal solar panel.jpg', href: '/gunespaneli', alt: 'Monokristal güneş panelleri' },
   { name: 'Akü', image: '/anahtar-teslim/unisun-aku.webp', href: unisunHref, alt: 'Unisun LiFePO4 akü' },
   { name: 'İnverter', image: '/anahtar-teslim/inverter.webp', href: unisunHref, alt: 'Unisun inverter' },
-  { name: 'Yardımcı Ekipmanlar', image: '/anahtar-teslim/yardimci-ekipman.webp', href: unisunHref, alt: 'Yardımcı ekipman grubundan DC koruma sigortası' },
+  { name: 'Yardımcı Ekipmanlar', image: '/anahtar-teslim/bms-v1.webp', href: unisunHref, alt: 'Batarya yönetim sistemi (BMS)' },
   { name: 'Bağlantı Elemanları', image: '/anahtar-teslim/baglanti-elemanlari.webp', href: unisunHref, alt: 'Solar bağlantı konnektörleri' },
 ];
 

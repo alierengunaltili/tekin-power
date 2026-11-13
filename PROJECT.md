@@ -49,3 +49,9 @@ Kullanıcı yeni WhatsApp Video 2026-11-13 at 02.16.41.mp4 dosyasını verdi. 2�
 ## Yenilenebilir enerji alt menüsü — 13 Kasım 2026
 
 ServiceNavigation iki menü grubunu destekler. Enerji başlığında sırayla Unisun Enerji Depolama Sistemleri (/hizmetlerimiz/enerji-depolama), Güneş Panelleri (/gunespaneli) ve Arşimet Burgusu (/arsimet-burgusu) bulunur. Hizmetlerimiz ile aynı saydam masaüstü hover paneli, mobil aç/kapat, Escape ve odak kapanışı kullanılır. Arşimet sayfası yalnız başlık ve iletişim bağlantısı içerir; teknik ürün içeriği kullanıcıdan beklenir. Güneş paneli mevcut sayfadır. Sitemap iki adresi içerir.
+
+## Unisun ve LiFePO4 birleşik sayfa — 13 Kasım 2026
+
+Kullanıcı enerji depolama ile sitedeki LiFePO4 içeriğinin birlikte olmasını istedi. /hizmetlerimiz/enerji-depolama başlığı Unisun Enerji Depolama Sistemleri oldu. unisunStorageContent mevcut storageContent ve batteryContent bölümleri/SSS verilerini birleştirir; tek SSS ve iletişim alanı üretir. Enerji depolama galerileri korunur; mevcut LiFePO4BatterySection marin/standart ürünleri ve kullanım alanlarıyla eklenir. Üstte iki bölüm bağlantısı ve kullanıcının özgün Unisun 2024 PDF indirmesi vardır. /lifepo4 korunur; teknik değerler kataloğa dayanılarak topluca değiştirilmedi.
+
+Birleştirme kontrolünde eski LiFePO4 kullanım görsellerinin eksik yolları mevcut yerel marin/konut/forklift/solar görsellerine düzeltildi. Marin akü ürün görselleri kaynaklarda bulunamadığı için ürün bilgileri korunup açık Görsel eklenecek alanı kullanılır; başka model fotoğrafı atanmaz. Ürün bilgi penceresi küçük ekranda kaydırılabilir ve iletişim bölümüne bağlanır. Enerji galerisinin 23 özgün görseli public/unisun/energy-gallery altında yerelleştirildi; dış görsel sunucusuna bağımlılık kaldırıldı. TypeScript, ilgili dosyalarda ESLint, 1440/390 px tarayıcı, sekiz batarya sekmesi, PDF SHA-256 ve ayrı /lifepo4 erişimi doğrulandı.

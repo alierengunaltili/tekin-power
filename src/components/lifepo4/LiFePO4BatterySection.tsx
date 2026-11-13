@@ -2,12 +2,12 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { Battery, ChevronRight, Zap, Shield, Clock, ChevronLeft } from 'lucide-react';
+import { Battery, ChevronRight, Zap, ChevronLeft } from 'lucide-react';
 
 interface BatteryProduct {
   id: string;
   title: string;
-  image: string;
+  image?: string;
   voltage: string;
   capacity: string;
 }
@@ -23,33 +23,33 @@ const MARIN_BATTERIES: BatteryCategory[] = [
     id: '12.8v-marin',
     title: '12.8V Marin',
     products: [
-      { id: '12.8v-100ah', title: '12.8V 100Ah', image: '/akuler/marin/12.8v/100 Ah.png', voltage: '12.8V', capacity: '100Ah' },
-      { id: '12.8v-300ah', title: '12.8V 300Ah', image: '/akuler/marin/12.8v/300 Ah.png', voltage: '12.8V', capacity: '300Ah' },
-      { id: '12.8v-400ah', title: '12.8V 400Ah', image: '/akuler/marin/12.8v/400 Ah.png', voltage: '12.8V', capacity: '400Ah' },
-      { id: '12.8v-600ah', title: '12.8V 600Ah', image: '/akuler/marin/12.8v/600 Ah.png', voltage: '12.8V', capacity: '600Ah' },
+      { id: '12.8v-100ah', title: '12.8V 100Ah', voltage: '12.8V', capacity: '100Ah' },
+      { id: '12.8v-300ah', title: '12.8V 300Ah', voltage: '12.8V', capacity: '300Ah' },
+      { id: '12.8v-400ah', title: '12.8V 400Ah', voltage: '12.8V', capacity: '400Ah' },
+      { id: '12.8v-600ah', title: '12.8V 600Ah', voltage: '12.8V', capacity: '600Ah' },
     ]
   },
   {
     id: '25.6v-marin',
     title: '25.6V Marin',
     products: [
-      { id: '25.6v-100ah', title: '25.6V 100Ah', image: '/akuler/marin/25.6v/100Ah .png', voltage: '25.6V', capacity: '100Ah' },
-      { id: '25.6v-200ah', title: '25.6V 200Ah', image: '/akuler/marin/25.6v/200 Ah.png', voltage: '25.6V', capacity: '200Ah' },
-      { id: '25.6v-300ah', title: '25.6V 300Ah', image: '/akuler/marin/25.6v/300 Ah.png', voltage: '25.6V', capacity: '300Ah' },
+      { id: '25.6v-100ah', title: '25.6V 100Ah', voltage: '25.6V', capacity: '100Ah' },
+      { id: '25.6v-200ah', title: '25.6V 200Ah', voltage: '25.6V', capacity: '200Ah' },
+      { id: '25.6v-300ah', title: '25.6V 300Ah', voltage: '25.6V', capacity: '300Ah' },
     ]
   },
   {
     id: '36v-marin',
     title: '36V Marin',
     products: [
-      { id: '36v-100ah', title: '36V 100Ah', image: '/akuler/marin/36v/100 Ah.png', voltage: '36V', capacity: '100Ah' },
+      { id: '36v-100ah', title: '36V 100Ah', voltage: '36V', capacity: '100Ah' },
     ]
   },
   {
     id: '51.2v-marin',
     title: '51.2V Marin',
     products: [
-      { id: '51.2v-100ah', title: '51.2V 100Ah', image: '/akuler/marin/51.2v/100 Ah.png', voltage: '51.2V', capacity: '100Ah' },
+      { id: '51.2v-100ah', title: '51.2V 100Ah', voltage: '51.2V', capacity: '100Ah' },
     ]
   }
 ];
@@ -102,17 +102,17 @@ const BatteryCard: React.FC<BatteryCardProps> = ({ product, onClick }) => {
       className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-400/40 cursor-pointer"
     >
       <div className="relative aspect-square p-6">
-        <Image
+        {product.image ? <Image
           src={product.image}
           alt={product.title}
           fill
           className="object-contain transition-transform duration-500 group-hover:scale-110"
-        />
+        /> : <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-slate-50 px-2 text-center text-slate-500"><Battery aria-hidden="true" className="h-10 w-10 text-cyan-700" /><span className="text-xs">Görsel eklenecek</span></div>}
       </div>
       
-      <div className="p-6 border-t border-gray-100">
+      <div className="p-3 border-t border-gray-100">
         <h4 className="text-lg font-bold text-gray-900 mb-2">{product.title}</h4>
-        <div className="flex items-center justify-between text-sm text-gray-600">
+        <div className="flex flex-wrap items-center justify-between gap-2 text-sm text-gray-600">
           <span className="flex items-center space-x-1">
             <Zap className="w-4 h-4" />
             <span>{product.voltage}</span>
@@ -137,7 +137,7 @@ interface BatterySectionProps {
   bgColor: string;
 }
 
-const BatterySection: React.FC<BatterySectionProps> = ({ title, categories, type, bgColor }) => {
+const BatterySection: React.FC<BatterySectionProps> = ({ title, categories, type }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>(categories[0].id);
   const [selectedProduct, setSelectedProduct] = useState<BatteryProduct | null>(null);
 
@@ -196,7 +196,7 @@ const BatterySection: React.FC<BatterySectionProps> = ({ title, categories, type
 
       {/* Products grid */}
       {currentCategory && (
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-4">
           {currentCategory.products.map((product) => (
             <BatteryCard
               key={product.id}
@@ -214,13 +214,17 @@ const BatterySection: React.FC<BatterySectionProps> = ({ title, categories, type
           onClick={handleModalBackdropClick}
         >
           <div 
-            className="bg-white border border-gray-200 rounded-3xl p-8 max-w-lg w-full shadow-2xl"
+            role="dialog"
+            aria-modal="true"
+            aria-label={selectedProduct.title}
+            className="bg-white border border-gray-200 rounded-3xl p-6 max-w-lg max-h-[85dvh] overflow-y-auto w-full shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-between items-start mb-6">
               <h3 className="text-2xl font-bold text-gray-900">{selectedProduct.title}</h3>
               <button
                 onClick={handleModalClose}
+                aria-label="Ürün detayını kapat"
                 className="text-gray-400 hover:text-gray-600 transition-colors text-2xl font-bold"
               >
                 ✕
@@ -228,12 +232,12 @@ const BatterySection: React.FC<BatterySectionProps> = ({ title, categories, type
             </div>
             
             <div className="relative aspect-square mb-6 rounded-2xl overflow-hidden bg-gray-50">
-              <Image
+              {selectedProduct.image ? <Image
                 src={selectedProduct.image}
                 alt={selectedProduct.title}
                 fill
                 className="object-contain"
-              />
+              /> : <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-slate-500"><Battery aria-hidden="true" className="h-16 w-16 text-cyan-700" /><span>Görsel eklenecek</span></div>}
             </div>
             
             <div className="space-y-4 text-gray-700 mb-8">
@@ -253,14 +257,14 @@ const BatterySection: React.FC<BatterySectionProps> = ({ title, categories, type
               </div>
             </div>
             
-            <button className={`w-full bg-gradient-to-r ${
+            <a href="#bilgi-talebi" onClick={handleModalClose} className={`w-full bg-gradient-to-r ${
               type === 'marin' 
                 ? 'from-blue-600 to-cyan-600 hover:shadow-blue-500/25' 
                 : 'from-emerald-600 to-green-600 hover:shadow-emerald-500/25'
             } text-white py-4 rounded-xl font-semibold hover:shadow-2xl transition-all duration-300 flex items-center justify-center space-x-2`}>
-              <span>Teknik Özellikler</span>
+              <span>Ürün hakkında bilgi alın</span>
               <ChevronRight className="w-5 h-5" />
-            </button>
+            </a>
           </div>
         </div>
       )}
@@ -274,21 +278,21 @@ const MARIN_USAGE_AREAS = [
     id: 'marin-boats',
     title: 'Tekneler ve Yatlar',
     description: 'Denizcilik uygulamaları için özel olarak tasarlanmış güvenli enerji çözümleri',
-    image: '/lifepo4/marin.jpg',
+    image: '/hizmetlerimiz/marin.jpg',
     features: ['Su geçirmez', 'Tuzlu suya dayanıklı', 'Yüksek güvenlik', 'Uzun ömür']
   },
   {
     id: 'marin-safety',
     title: 'Deniz Güvenliği',
     description: 'Deniz koşullarında maksimum güvenlik ve kararlılık sağlayan teknoloji',
-    image: '/lifepo4/marin.jpg',
+    image: '/hizmetlerimiz/marin.jpg',
     features: ['Termal kararlılık', 'Aşırı şarj koruması', 'Kısa devre koruması', 'Düşük sıcaklık performansı']
   },
   {
     id: 'marin-durability',
     title: 'Dayanıklılık',
     description: 'Zorlu deniz koşullarında uzun süreli güvenilir performans',
-    image: '/lifepo4/marin.jpg',
+    image: '/hizmetlerimiz/marin.jpg',
     features: ['Korozyon direnci', 'Titreşim dayanımı', 'Nem direnci', 'UV dayanımı']
   }
 ];
@@ -298,21 +302,21 @@ const NORMAL_USAGE_AREAS = [
     id: 'home-systems',
     title: 'Konut Sistemleri',
     description: 'Evler için güvenli ve uzun ömürlü enerji depolama çözümleri',
-    image: '/lifepo4/home.jpg',
+    image: '/hizmetlerimiz/homesolarsystem.jpg',
     features: ['Güvenli', 'Sessiz çalışma', 'Çevre dostu', 'Düşük bakım']
   },
   {
     id: 'industrial-apps',
     title: 'Endüstriyel Uygulamalar',
     description: 'Forklift, golf arabası ve endüstriyel araçlar için yüksek performans',
-    image: '/lifepo4/forklift.jpg',
+    image: '/hizmetlerimiz/forklift.jpg',
     features: ['Yüksek performans', 'Hızlı şarj', 'Dayanıklı', 'Verimli']
   },
   {
     id: 'solar-systems',
     title: 'Solar Enerji Sistemleri',
     description: 'Güneş enerjisi sistemleri için optimize edilmiş enerji depolama',
-    image: '/lifepo4/solarpoles.jpg',
+    image: '/landing-page-photos/home-related/home-solar-panel.jpg',
     features: ['Solar uyumlu', 'Yüksek verim', 'Uzun ömür', 'Çevre dostu']
   }
 ];
@@ -323,7 +327,7 @@ interface UsageSliderProps {
   type: 'marin' | 'normal';
 }
 
-const UsageSlider: React.FC<UsageSliderProps> = ({ areas, type }) => {
+const UsageSlider: React.FC<UsageSliderProps> = ({ areas }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 

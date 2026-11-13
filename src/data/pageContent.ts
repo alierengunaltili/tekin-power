@@ -192,6 +192,24 @@ export const batteryContent: PageContent = {
   related: [{ label: 'Enerji depolama sistemleri', href: '/hizmetlerimiz/enerji-depolama' }, { label: 'Elektrikli marin çözümleri', href: '/hizmetlerimiz/marin' }, { label: 'Tekne HMI ekranı', href: '/tekne-hmi' }],
 };
 
+// Share the existing guides rather than maintaining a second battery copy.
+export const unisunStorageContent: PageContent = {
+  ...storageContent,
+  title: 'Unisun Enerji Depolama Sistemleri',
+  seoTitle: 'Unisun Enerji Depolama ve LiFePO4 Bataryalar | Tekin Power',
+  description: 'Unisun enerji depolama sistemleri ve LiFePO4 bataryalar. Kapasite, BMS ve inverter uyumu, marin ve diğer batarya seçenekleri için Tekin Power ile iletişime geçin.',
+  intro: 'Enerji depolama sistemleri ve LiFePO4 batarya çözümlerini birlikte değerlendirin. Güç ihtiyacı, çalışma süresi, batarya kapasitesi, BMS, inverter ve şarj altyapısı için projenize uygun sistemi ekibimizle planlayın.',
+  sections: [...storageContent.sections, ...batteryContent.sections],
+  questions: [...storageContent.questions, ...batteryContent.questions],
+  requestTitle: 'Enerji depolama ve LiFePO4 batarya ihtiyacınızı paylaşın',
+  requestItems: [...storageContent.requestItems, 'Sistemin çalışma gerilimi ve mevcut batarya bilgileri'],
+  related: [
+    { label: 'Marin batarya çözümleri', href: '/hizmetlerimiz/marin' },
+    { label: 'Tekne HMI ekranı', href: '/tekne-hmi' },
+  ],
+  sources: [...storageContent.sources, ...batteryContent.sources, 'Kullanıcı isteği 2026-11-13: enerji depolama ve mevcut LiFePO4 içeriği birlikte; Unisun-2024_compressed.pdf katalog bağlantısı'],
+};
+
 export const hmiContent: PageContent = {
   path: '/tekne-hmi', title: 'Tekne HMI Ekranı ve Kontrol Sistemleri',
   seoTitle: 'Tekne HMI Ekranı | Motor ve Batarya İzleme | Tekin Power',
@@ -223,5 +241,5 @@ export const hmiContent: PageContent = {
 };
 
 export const contentByPath = Object.fromEntries(
-  [motorContent, pumpContent, marineContent, storageContent, batteryContent, hmiContent].map((content) => [content.path, content]),
+  [motorContent, pumpContent, marineContent, unisunStorageContent, batteryContent, hmiContent].map((content) => [content.path, content]),
 ) as Record<string, PageContent>;

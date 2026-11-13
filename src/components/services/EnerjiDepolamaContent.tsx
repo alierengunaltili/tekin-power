@@ -2,7 +2,8 @@
 
 import Image from 'next/image';
 import { GuideIntro, GuideBody } from '@/components/SolutionGuide';
-import { storageContent } from '@/data/pageContent';
+import { unisunStorageContent } from '@/data/pageContent';
+import LiFePO4BatterySection from '@/components/lifepo4/LiFePO4BatterySection';
 import { useState } from 'react';
 import { energidepolama_photo_mapping } from '@/app/utils/photo-mappings/hizmetlerimiz/enerjidepolama';
 
@@ -77,9 +78,16 @@ const EnerjiDepolamaContent = ({ gradient }: EnerjiDepolamaContentProps) => {
 
   return (
     <>
-    <GuideIntro content={storageContent} />
-    <GuideBody content={storageContent} />
-    <section className="content-section py-12 sm:py-16 lg:py-20 bg-gray-50">
+    <nav aria-label="Enerji ve batarya bölümleri" className="bg-white px-5 pt-10 sm:px-8">
+      <div className="mx-auto flex max-w-6xl flex-wrap gap-3">
+        <a href="#enerji-depolama-gorselleri" className="rounded-xl bg-blue-950 px-5 py-3 font-semibold text-white hover:bg-blue-900">Enerji Depolama Sistemleri</a>
+        <a href="#lifepo4-bataryalar" className="rounded-xl bg-cyan-700 px-5 py-3 font-semibold text-white hover:bg-cyan-800">LiFePO₄ Bataryalar</a>
+        <a href="/unisun/unisun-2024-katalog.pdf" download className="rounded-xl border border-blue-200 px-5 py-3 font-semibold text-blue-950 hover:bg-blue-50">Unisun 2024 Kataloğunu İndir (PDF)</a>
+      </div>
+    </nav>
+    <GuideIntro content={unisunStorageContent} />
+    <GuideBody content={unisunStorageContent} />
+    <section id="enerji-depolama-gorselleri" className="content-section scroll-mt-40 py-12 sm:py-16 lg:py-20 bg-gray-50">
       <div className="w-full px-3 sm:px-4 lg:px-8">
         <div className="space-y-12 sm:space-y-16 lg:space-y-20">
           {contentSections.map((section, index) => (
@@ -256,6 +264,9 @@ const EnerjiDepolamaContent = ({ gradient }: EnerjiDepolamaContentProps) => {
         </div>
       </div>
     </section>
+    <div id="lifepo4-bataryalar" className="scroll-mt-40">
+      <LiFePO4BatterySection />
+    </div>
     </>
   );
 };

@@ -158,7 +158,7 @@ Solar car port çözümleri, uzun vadede enerji maliyetlerinden büyük tasarruf
     hasCustomComponent: true
   },
   'enerji-depolama': {
-    title: 'Enerji Depolama Sistemleri',
+    title: 'Unisun Enerji Depolama Sistemleri',
     category: 'Enerji Depolama',
     showHeroCategory: false,
     video: 'enerjidepolama',

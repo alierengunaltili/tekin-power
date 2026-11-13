@@ -18,3 +18,7 @@
 - public/media/survey-v2/: yeni Deniz & Göl videosunun 10 saniyelik full/balanced MP4/WebM sürümleri ve açılış kapağı. Üretim scripts/prepare-survey-video-v2.cjs; homepageImage mevcut deniz-gol-tarama/kesici-emici.jpg.
 
 - src/app/arsimet-burgusu/page.tsx: Arşimet Burgusu başlık ve iletişim sayfası. ServiceNavigation.tsx enerji grubuyla üç alt bağlantıyı yönetir.
+
+- public/unisun/unisun-2024-katalog.pdf: kullanıcının özgün Unisun 2024 kataloğu. EnerjiDepolamaContent.tsx ortak unisunStorageContent ve LiFePO4BatterySection kullanır.
+
+- public/unisun/energy-gallery/: mevcut enerji galerisine ait 23 özgün görsel; enerjidepolama fotoğraf eşlemesi yerel adresleri kullanır.

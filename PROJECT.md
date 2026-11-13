@@ -58,3 +58,6 @@ Birleştirme kontrolünde eski LiFePO4 kullanım görsellerinin eksik yolları m
 
 ## Tüm sayfalarda WhatsApp — 13 Kasım 2026
 WhatsAppContact artık src/app/layout.tsx içinde bütün sayfalarda bir kez oluşturulur. Ana sayfaya özel çağrı kaldırılmıştır. Mevcut +90 532 327 62 93 numarası, hazır mesaj, sabit sağ alt konum ve mobil güvenli kenar boşlukları korunur. Bağlantı WhatsApp sohbetini açar; otomatik mesaj göndermez.
+
+## İki anahtar teslim paket — 13 Kasım 2026
+Ana sayfa sırası AboutSection → TurnkeySolutionsSection → ServicesSection oldu. Elektrikli Pompa Paketi ve Elektrikli Motor Paketi ayrı kartlarda ana ürün + güneş paneli + akü + inverter + yardımcı ekipmanlar + bağlantı elemanlarını gösterir. Ana ürün görselleri ilgili DewJet sayfasına, panel güneş paneli sayfasına; diğer dört grup kullanıcının kararıyla Unisun enerji depolama sayfasına bağlanır. Her paketin bilgi butonu paket adı içeren hazır mesajla WhatsApp +90 532 327 62 93 bağlantısını açar; mesaj otomatik gönderilmez. Modeller/kapasiteler projeye göre belirlenir. Yeni Unisun görselleri kullanıcı kataloğundan çıkarıldı; farklı model uyumluluğu veya sabit paket gücü iddiası eklenmedi.

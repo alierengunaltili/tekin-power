@@ -24,11 +24,11 @@ export default function Home() {
         {/* About Section */}
         <AboutSection />
         
-        {/* Services Section */}
-        <ServicesSection />
-        
         {/* Turnkey Pump and Motor Solutions */}
         <TurnkeySolutionsSection />
+
+        {/* Services Section */}
+        <ServicesSection />
         
         
         {/* Contact Section */}

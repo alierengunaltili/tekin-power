@@ -22,3 +22,5 @@
 - public/unisun/unisun-2024-katalog.pdf: kullanıcının özgün Unisun 2024 kataloğu. EnerjiDepolamaContent.tsx ortak unisunStorageContent ve LiFePO4BatterySection kullanır.
 
 - public/unisun/energy-gallery/: mevcut enerji galerisine ait 23 özgün görsel; enerjidepolama fotoğraf eşlemesi yerel adresleri kullanır.
+
+- public/anahtar-teslim/: Unisun kataloğundan çıkarılmış akü, inverter, DC sigorta ve konnektör WebP görselleri. Anahtar teslim paket kartlarını TurnkeySolutionsSection.tsx yönetir.

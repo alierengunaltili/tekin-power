@@ -108,6 +108,9 @@ const Navbar = () => {
               if (item.href === '/hizmetlerimiz') {
                 return <ServiceNavigation key={item.href} linkClass={baseClasses} onNavigate={handleNavClick} />;
               }
+              if (item.href === '/hizmetlerimiz/enerji-depolama') {
+                return <ServiceNavigation key={item.href} group="energy" linkClass={baseClasses} onNavigate={handleNavClick} />;
+              }
 
                 return (
                   <Link
@@ -154,6 +157,9 @@ const Navbar = () => {
 
               if (item.href === '/hizmetlerimiz') {
                 return <ServiceNavigation key={item.href} mobile linkClass={baseClasses} onNavigate={handleNavClick} />;
+              }
+              if (item.href === '/hizmetlerimiz/enerji-depolama') {
+                return <ServiceNavigation key={item.href} group="energy" mobile linkClass={baseClasses} onNavigate={handleNavClick} />;
               }
               
                 return (

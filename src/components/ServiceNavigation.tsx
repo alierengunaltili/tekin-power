@@ -6,15 +6,24 @@ import { ChevronDown } from 'lucide-react';
 import { type MouseEvent, useRef, useState } from 'react';
 
 const services = solutions;
+const energyLinks = [
+  { productTitle: 'Unisun Enerji Depolama Sistemleri', href: '/hizmetlerimiz/enerji-depolama' },
+  { productTitle: 'Güneş Panelleri', href: '/gunespaneli' },
+  { productTitle: 'Arşimet Burgusu', href: '/arsimet-burgusu' },
+];
 
-export default function ServiceNavigation({ mobile = false, linkClass, onNavigate }: {
+export default function ServiceNavigation({ mobile = false, group = 'services', linkClass, onNavigate }: {
   mobile?: boolean;
+  group?: 'services' | 'energy';
   linkClass: string;
   onNavigate: (event: MouseEvent<HTMLAnchorElement>, href: string) => void;
 }) {
   const [open, setOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
-  const panelId = mobile ? 'mobile-service-links' : 'desktop-service-links';
+  const isEnergy = group === 'energy';
+  const panelId = `${mobile ? 'mobile' : 'desktop'}-${isEnergy ? 'energy' : 'service'}-links`;
+  const parentHref = isEnergy ? '/hizmetlerimiz/enerji-depolama' : '/hizmetlerimiz';
+  const label = isEnergy ? 'Yenilenebilir Enerji ve Unisun Enerji Depolama Sistemleri' : 'Hizmetlerimiz';
 
   return (
     <div
@@ -35,14 +44,14 @@ export default function ServiceNavigation({ mobile = false, linkClass, onNavigat
       }}
     >
       <div className={`flex items-center ${mobile ? 'pr-3' : 'gap-1'}`}>
-        <Link href="/hizmetlerimiz" className={linkClass} onClick={(event) => {
+        <Link href={parentHref} aria-label={label} className={linkClass} onClick={(event) => {
           setOpen(false);
-          onNavigate(event, '/hizmetlerimiz');
-        }}>Hizmetlerimiz</Link>
+          onNavigate(event, parentHref);
+        }}>{isEnergy ? <span className={`block leading-snug ${mobile ? '' : 'text-center'}`}><span className="block">Yenilenebilir Enerji ve</span><span className={`block ${mobile ? 'text-sm' : 'text-xs 2xl:text-sm'}`}>Unisun Enerji Depolama Sistemleri</span></span> : label}</Link>
         <button
           ref={toggleRef}
           type="button"
-          aria-label={open ? 'Hizmet alt menüsünü kapat' : 'Hizmet alt menüsünü aç'}
+          aria-label={`${isEnergy ? 'Enerji' : 'Hizmet'} alt menüsünü ${open ? 'kapat' : 'aç'}`}
           aria-expanded={open}
           aria-controls={panelId}
           onClick={() => setOpen(!open)}
@@ -53,7 +62,7 @@ export default function ServiceNavigation({ mobile = false, linkClass, onNavigat
         <ul className={`overflow-hidden border ${mobile
           ? 'rounded-lg border-blue-100 bg-blue-50/80 text-slate-800'
           : 'rounded-xl border-white/25 bg-slate-950/60 text-white shadow-lg'}`}>
-          {services.map((service) => (
+          {(isEnergy ? energyLinks : services).map((service) => (
             <li key={service.href}>
               <Link
                 href={service.href}
@@ -64,7 +73,7 @@ export default function ServiceNavigation({ mobile = false, linkClass, onNavigat
                   setOpen(false);
                   onNavigate(event, service.href);
                 }}
-              >{service.productTitle.toLocaleUpperCase('tr-TR')}</Link>
+              >{isEnergy ? service.productTitle : service.productTitle.toLocaleUpperCase('tr-TR')}</Link>
             </li>
           ))}
         </ul>

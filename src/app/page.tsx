@@ -7,7 +7,6 @@ import JsonLdSchema from '@/components/JsonLdSchema';
 import Navbar from '@/components/Navbar';
 import AboutSection from '@/components/AboutSection';
 import ServicesSection from '@/components/ServicesSectionHomepage';
-import WhatsAppContact from '@/components/WhatsAppContact';
 
 export const metadata = pageMetadata('/', 'Tekin Power | Elektrikli Marin, Tekne Motoru ve LiFePO4', 'Elektrikli tekne motoru, elektrikli su pompası, LiFePO4 enerji depolama ve tekne HMI çözümleri. Projenize uygun seçim için Tekin Power ile görüşün.');
 
@@ -38,7 +37,6 @@ export default function Home() {
       
       {/* Footer */}
       <Footer />
-      <WhatsAppContact />
 
       {/* SEO - JSON-LD Schema */}
       <JsonLdSchema 

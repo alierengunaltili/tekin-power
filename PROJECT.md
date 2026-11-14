@@ -90,3 +90,6 @@ Ana sayfanın Deniz & Göl slaydı da onaylanan DredgingHeroPresentation görsel
 
 ## Hizmetlerimiz 3B tarama sahnesi — 14 Kasım 2026
 Hizmetlerimiz üst slaydında aynı DredgingHeroPresentation kullanılır; slayt 10 saniye kalır, duraklat düğmesi sahne hareketini de durdurur. Deniz & Göl hizmet kartı da aynı onaylı görsele bağlandı. Başlık, açıklama ve detay hedefi korunur; mobilde tam görsel ile metnin ayrılması için yeterli yükseklik ayrılır.
+
+## Tarama detay girişi: ilk video — 14 Kasım 2026
+Kullanıcının ilk kaldırılan video isteğiyle /hizmetlerimiz/deniz-gol-dibi-arama-tarama girişindeki fotoğraf yerine survey-v1 tanıtımı eklendi. Kaynak gemini_generated_video_df704804.mp4; mevcut 1280×720, 24 fps, 10 saniyelik sessiz sürümler yeniden kodlanmadan kullanılır. AdaptiveVideo tam kadraj, döngü, oynat/duraklat ve bağlantı/hareket tercihlerine göre kapak sunar. Giriş metinleri ve diğer sayfalardaki 3B görseller korunur.

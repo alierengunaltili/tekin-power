@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowDown, ArrowRight, Download, Waves, ScanLine, Ship, Wrench, Compass, BatteryCharging, Phone, Mail, FileText, Plus } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import AdaptiveVideo from '@/components/AdaptiveVideo';
 import { pageMetadata } from '@/lib/seo';
 import { dredgingCatalog, dredgingEquipment, dredgingProcess, dredgingReferences, dredgingServices } from '@/data/dredging';
 
@@ -39,8 +40,10 @@ export default function UnderwaterSearchPage() {
                 <p className="mt-8 text-sm text-slate-300">Tekin Power <span className="mx-2 text-cyan-500">/</span> Yütek Denizcilik tecrübesiyle</p>
               </div>
               <figure className="relative overflow-hidden rounded-3xl border border-white/15 bg-slate-800 shadow-2xl">
-                <Image src="/deniz-gol-tarama/kesici-emici.jpg" alt="Limandaki kırmızı kesici başlıklı kesici emici tarama gemisi" width={1354} height={899} priority sizes="(min-width: 1024px) 600px, 100vw" className="h-auto w-full" />
-                <figcaption className="flex items-center justify-between gap-4 bg-[#0c2b45] px-5 py-5"><div><p className="text-xs uppercase tracking-widest text-cyan-300">İmalat tecrübesi</p><p className="mt-1 font-semibold">Kesici emici tarama gemisi</p></div><Ship className="shrink-0 text-cyan-300" size={26} /></figcaption>
+                <div className="relative aspect-video">
+                  <AdaptiveVideo name="deniz-gol-tarama-v1" prefix="landing-page" label="Deniz ve göl tarama tanıtım videosu" fit="contain" loop playbackControl />
+                </div>
+                <figcaption className="flex items-center justify-between gap-4 bg-[#0c2b45] px-5 py-5"><div><p className="text-xs uppercase tracking-widest text-cyan-300">Tanıtım videosu</p><p className="mt-1 font-semibold">Deniz &amp; Göl Dibi Tarama ve Temizleme</p></div><Ship className="shrink-0 text-cyan-300" size={26} /></figcaption>
               </figure>
             </div>
           </div>

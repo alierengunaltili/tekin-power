@@ -22,13 +22,14 @@ export default function UnderwaterSearchPage() {
     <div className="min-h-screen bg-white text-slate-900">
       <Navbar />
       <main>
-        <section className="relative overflow-hidden bg-[#071d32] pb-12 pt-36 text-white sm:pt-44 lg:pb-20">
-          <div aria-hidden="true" className="pointer-events-none absolute -right-48 top-12 h-[650px] w-[650px] rounded-full border border-cyan-300/10 shadow-[0_0_0_80px_#67e8f906,0_0_0_160px_#67e8f904]" />
-          <div className={`${container} relative`}>
-            <nav aria-label="Sayfa yolu" className="mb-10 flex gap-3 text-xs text-slate-300">
+        <section id="tarama-giris" className="relative isolate flex min-h-[85svh] items-center overflow-hidden bg-[#071d32] pb-28 pt-36 text-white sm:pt-44 lg:min-h-[760px]">
+          <AdaptiveVideo name="deniz-gol-detail-v3" prefix="service" label="Deniz ve göl tarama arka plan videosu" fit="cover" loop playbackControl />
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/70 to-slate-950/45 lg:via-slate-950/55 lg:to-slate-950/20" />
+          <div className={`${container} pointer-events-none relative z-10 w-full [&_a]:pointer-events-auto`}>
+            <nav aria-label="Sayfa yolu" className="mb-10 flex flex-wrap gap-3 text-xs text-slate-300">
               <Link href="/" className="hover:text-cyan-300">Ana Sayfa</Link><span>/</span><Link href="/hizmetlerimiz" className="hover:text-cyan-300">Hizmetlerimiz</Link><span>/</span><span>Su Altı Tarama</span>
             </nav>
-            <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-14">
+            <div className="max-w-3xl drop-shadow-lg">
               <div>
                 <p className="mb-6 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-cyan-300"><span className="h-px w-8 bg-amber-400" />Su altı tarama ve dip temizleme</p>
                 <h1 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-[58px]">Deniz &amp; Göl Dibi<br /><span className="text-cyan-300">Tarama ve Temizleme</span></h1>
@@ -39,12 +40,6 @@ export default function UnderwaterSearchPage() {
                 </div>
                 <p className="mt-8 text-sm text-slate-300">Tekin Power <span className="mx-2 text-cyan-500">/</span> Yütek Denizcilik tecrübesiyle</p>
               </div>
-              <figure className="relative overflow-hidden rounded-3xl border border-white/15 bg-slate-800 shadow-2xl">
-                <div className="relative aspect-video">
-                  <AdaptiveVideo name="deniz-gol-tarama-v1" prefix="landing-page" label="Deniz ve göl tarama tanıtım videosu" fit="contain" loop playbackControl />
-                </div>
-                <figcaption className="flex items-center justify-between gap-4 bg-[#0c2b45] px-5 py-5"><div><p className="text-xs uppercase tracking-widest text-cyan-300">Tanıtım videosu</p><p className="mt-1 font-semibold">Deniz &amp; Göl Dibi Tarama ve Temizleme</p></div><Ship className="shrink-0 text-cyan-300" size={26} /></figcaption>
-              </figure>
             </div>
           </div>
         </section>

@@ -36,3 +36,5 @@ HeroSection.tsx aynı DredgingHeroPresentation bileşenini ana sayfanın Deniz &
 PhotoSwiper.tsx: Deniz & Göl slaydında ortak DredgingHeroPresentation; solutions.ts image/cardImage aynı 3d-sahne-v1.png dosyasına bağlıdır.
 
 Tarama detay sayfasının girişindeki AdaptiveVideo, landing-page/deniz-gol-tarama-v1 kaydını ve public/media/survey-v1 kaynaklarını kullanır.
+
+public/media/survey-detail-v3/: kullanıcının 1.mp4 videosundan tam/hafif MP4 ve WebM ile 2. saniye kapağı. scripts/prepare-survey-detail-v3.cjs kaynak yolunu parametre olarak alır; service/deniz-gol-detail-v3 manifest kaydı detay girişine bağlıdır.

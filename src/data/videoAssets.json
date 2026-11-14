@@ -394,5 +394,27 @@
       "webmBytes": 9047162,
       "mp4Bytes": 3509414
     }
+  },
+  "service/deniz-gol-detail-v3": {
+    "poster": "/media/survey-detail-v3/poster.jpg",
+    "duration": 8.967,
+    "full": {
+      "width": 1024,
+      "height": 576,
+      "fps": 30,
+      "webm": "/media/survey-detail-v3/full.webm",
+      "mp4": "/media/survey-detail-v3/full.mp4",
+      "webmBytes": 5099214,
+      "mp4Bytes": 4158280
+    },
+    "balanced": {
+      "width": 768,
+      "height": 432,
+      "fps": 30,
+      "webm": "/media/survey-detail-v3/balanced.webm",
+      "mp4": "/media/survey-detail-v3/balanced.mp4",
+      "webmBytes": 3399018,
+      "mp4Bytes": 2128015
+    }
   }
 }

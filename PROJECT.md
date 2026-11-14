@@ -93,3 +93,6 @@ Hizmetlerimiz üst slaydında aynı DredgingHeroPresentation kullanılır; slayt
 
 ## Tarama detay girişi: ilk video — 14 Kasım 2026
 Kullanıcının ilk kaldırılan video isteğiyle /hizmetlerimiz/deniz-gol-dibi-arama-tarama girişindeki fotoğraf yerine survey-v1 tanıtımı eklendi. Kaynak gemini_generated_video_df704804.mp4; mevcut 1280×720, 24 fps, 10 saniyelik sessiz sürümler yeniden kodlanmadan kullanılır. AdaptiveVideo tam kadraj, döngü, oynat/duraklat ve bağlantı/hareket tercihlerine göre kapak sunar. Giriş metinleri ve diğer sayfalardaki 3B görseller korunur.
+
+## Tam genişlikte tarama arka planı — 14 Kasım 2026
+Kullanıcı yanlış videoyu düzelterek 1.mp4 dosyasını verdi. Tarama detay girişinde küçük kutu kaldırıldı; yeni video bütün girişin arka planını kaplar, mevcut metinler koyu geçiş üzerinde kalır. Kaynağın dönüş bilgisi uygulandı ve yalnız gömülü siyah yan bantlar çıkarıldı; doğal 30 fps / 8,93 sn korunur. Tam 1024×576 ve hafif 768×432 sürümleri, sessiz döngü, oynat/duraklat, görünürlük ve tercih denetimleriyle kullanılır. Diğer sayfalardaki onaylı 3B sahneler korunur.

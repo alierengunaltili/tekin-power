@@ -8,6 +8,7 @@ import { type MouseEvent, useRef, useState } from 'react';
 const services = solutions;
 const energyLinks = [
   { productTitle: 'Unisun Enerji Depolama Sistemleri', href: '/hizmetlerimiz/enerji-depolama' },
+  { productTitle: 'LiFePO4', href: '/lifepo4' },
   { productTitle: 'Güneş Panelleri', href: '/gunespaneli' },
   { productTitle: 'Arşimet Burgusu', href: '/arsimet-burgusu' },
 ];

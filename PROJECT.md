@@ -102,3 +102,6 @@ Kullanıcı yanlış videoyu düzelterek 1.mp4 dosyasını verdi. Tarama detay g
 
 ## Kamp sahnesi eklemesi — 14 Kasım 2026
 Kullanıcının ek isteğiyle aynı akü sahnesine, yeşil akünün yanındaki kıyıda kurulu beyaz karavan ve kamp sandalyelerinde sırtları izleyiciye dönük denizi izleyen bir kadın ile bir erkek eklendi. green-marine-camping-v2.png kullanılır. Ürün etiketleri/değerleri ve tekneler korundu; masaüstü başlık alt sola alınarak kamp alanının görünürlüğü sağlandı. Önceki görsel dosyası saklanır.
+
+## Yenilenebilir enerji menüsünde LiFePO4 — 14 Kasım 2026
+Ortak energyLinks listesinde Unisun seçeneğinin ardından LiFePO4 bağlantısı eklendi. Masaüstü ve mobil açılır menü aynı /lifepo4 hedefini kullanır.

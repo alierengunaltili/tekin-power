@@ -23,33 +23,33 @@ const MARIN_BATTERIES: BatteryCategory[] = [
     id: '12.8v-marin',
     title: '12.8V Marin',
     products: [
-      { id: '12.8v-100ah', title: '12.8V 100Ah', voltage: '12.8V', capacity: '100Ah' },
-      { id: '12.8v-300ah', title: '12.8V 300Ah', voltage: '12.8V', capacity: '300Ah' },
-      { id: '12.8v-400ah', title: '12.8V 400Ah', voltage: '12.8V', capacity: '400Ah' },
-      { id: '12.8v-600ah', title: '12.8V 600Ah', voltage: '12.8V', capacity: '600Ah' },
+      { id: '12.8v-100ah', image: '/akuler/marin-v1/12.8v-100ah.webp', title: '12.8V 100Ah', voltage: '12.8V', capacity: '100Ah' },
+      { id: '12.8v-300ah', image: '/akuler/marin-v1/12.8v-300ah.webp', title: '12.8V 300Ah', voltage: '12.8V', capacity: '300Ah' },
+      { id: '12.8v-400ah', image: '/akuler/marin-v1/12.8v-400ah.webp', title: '12.8V 400Ah', voltage: '12.8V', capacity: '400Ah' },
+      { id: '12.8v-600ah', image: '/akuler/marin-v1/12.8v-600ah.webp', title: '12.8V 600Ah', voltage: '12.8V', capacity: '600Ah' },
     ]
   },
   {
     id: '25.6v-marin',
     title: '25.6V Marin',
     products: [
-      { id: '25.6v-100ah', title: '25.6V 100Ah', voltage: '25.6V', capacity: '100Ah' },
-      { id: '25.6v-200ah', title: '25.6V 200Ah', voltage: '25.6V', capacity: '200Ah' },
-      { id: '25.6v-300ah', title: '25.6V 300Ah', voltage: '25.6V', capacity: '300Ah' },
+      { id: '25.6v-100ah', image: '/akuler/marin-v1/25.6v-100ah.webp', title: '25.6V 100Ah', voltage: '25.6V', capacity: '100Ah' },
+      { id: '25.6v-200ah', image: '/akuler/marin-v1/25.6v-200ah.webp', title: '25.6V 200Ah', voltage: '25.6V', capacity: '200Ah' },
+      { id: '25.6v-300ah', image: '/akuler/marin-v1/25.6v-300ah.webp', title: '25.6V 300Ah', voltage: '25.6V', capacity: '300Ah' },
     ]
   },
   {
     id: '36v-marin',
     title: '36V Marin',
     products: [
-      { id: '36v-100ah', title: '36V 100Ah', voltage: '36V', capacity: '100Ah' },
+      { id: '36v-100ah', image: '/akuler/marin-v1/36v-100ah.webp', title: '36V 100Ah', voltage: '36V', capacity: '100Ah' },
     ]
   },
   {
     id: '51.2v-marin',
     title: '51.2V Marin',
     products: [
-      { id: '51.2v-100ah', title: '51.2V 100Ah', voltage: '51.2V', capacity: '100Ah' },
+      { id: '51.2v-100ah', image: '/akuler/marin-v1/51.2v-100ah.webp', title: '51.2V 100Ah', voltage: '51.2V', capacity: '100Ah' },
     ]
   }
 ];
@@ -106,6 +106,8 @@ const BatteryCard: React.FC<BatteryCardProps> = ({ product, onClick }) => {
           src={product.image}
           alt={product.title}
           fill
+          sizes="(min-width: 1280px) 200px, (min-width: 1024px) 260px, (min-width: 640px) 30vw, 45vw"
+          quality={90}
           className="object-contain transition-transform duration-500 group-hover:scale-110"
         /> : <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-slate-50 px-2 text-center text-slate-500"><Battery aria-hidden="true" className="h-10 w-10 text-cyan-700" /><span className="text-xs">Görsel eklenecek</span></div>}
       </div>
@@ -210,7 +212,7 @@ const BatterySection: React.FC<BatterySectionProps> = ({ title, categories, type
       {/* Product detail modal */}
       {selectedProduct && (
         <div 
-          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[10000] flex items-center justify-center p-4"
           onClick={handleModalBackdropClick}
         >
           <div 
@@ -236,6 +238,8 @@ const BatterySection: React.FC<BatterySectionProps> = ({ title, categories, type
                 src={selectedProduct.image}
                 alt={selectedProduct.title}
                 fill
+                sizes="(min-width: 640px) 464px, 90vw"
+                quality={95}
                 className="object-contain"
               /> : <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-slate-500"><Battery aria-hidden="true" className="h-16 w-16 text-cyan-700" /><span>Görsel eklenecek</span></div>}
             </div>

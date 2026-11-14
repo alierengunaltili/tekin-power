@@ -70,3 +70,7 @@ Pompa videosu canlıda mevcuttu; tarayıcının yaklaşık 1,65 Mbps bilgisi kal
 Ana sayfadaki motor sunumu kullanıcının üç motorlu deniz/doğa fotoğrafını hafif ölçek hareketiyle gösterir; başlık, açıklama ve buton metinleri korunur. Aynı fotoğraf Hizmetlerimiz motor slaydına bağlandı; mobilde ürün alanı metinden ayrılır. Hareket azaltma ve görünürlük denetimleri korunur. `solutions.heroDescription` yalnız ana sayfa pompa slaydında 20 kW / 420 m³/h / 25 kg ve kullanıcı düzeltmesiyle 45 kW / 1.200 t/h / 55 kg metnini kullanır.
 
 İki pompa ve altı motor modelinin bilgi/teklif bağlantıları seçilen ürün adıyla +90 532 327 62 93 WhatsApp adresini açar. Ortak rehberdeki “E-posta ile bilgi isteyin” ve tüm motor SSS yanıtlarının altındaki “Tekin Power ile iletişime geçin” butonları kaldırıldı; yanıt metinleri korunur.
+
+## Mavi marin akü görselleri — 14 Kasım 2026
+
+LiFePO4BatterySection içindeki dokuz marin ürününe mavi deniz temalı katalog görselleri eklendi. Modeller: 12.8 V 100/300/400/600 Ah; 25.6 V 100/200/300 Ah; 36 V 100 Ah; 51.2 V 100 Ah. Görsel etiketleri ilgili voltaj/kapasiteyle eşleşir. Kullanıcı referansındaki gövde, sunum ölçeği ve etiket yerleşimi korunarak yeşil marka öğeleri maviye, yaprak simgesi yelkenliye çevrildi; deniz arka planı ve marin Tekin Power logosu kullanıldı. Görseller tasarım amaçlı türetildi; yeni teknik özellik eklenmedi. WebP kaynakları kayıpsızdır; kart ve modal farklı duyarlı boyutlarda yüklenir. Normal akülerin yeşil görselleri korunur. Ürün modali üst menünün üzerinde açılır.

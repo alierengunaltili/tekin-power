@@ -27,3 +27,4 @@
 
 - public/dewjet-pompa/hero-two-pumps-v2.webp: pompa detay videosunun 13. saniyesinden yeni kapak. public/anahtar-teslim/bms-v1.webp: Unisun PDF BMS görseli.
 `public/dewjet-motor/motor-lineup-20261114.jpg`: kullanıcının özgün üç motorlu fotoğrafı; MotorHeroPresentation ve PhotoSwiper motor slaydında kullanılır. Eski tek motor sunumunun yerini alır.
+`public/akuler/marin-v1/`: dokuz modelin voltaj/kapasite etiketiyle eşleşen mavi deniz temalı WebP görselleri. Ortak LiFePO4BatterySection ile /lifepo4 ve /hizmetlerimiz/enerji-depolama sayfalarında kullanılır.

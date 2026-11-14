@@ -64,7 +64,7 @@ const Footer = () => {
                   alt={isWaterPage ? 'Tekin Power Marin Logo' : 'Tekin Power Logo'}
                   fill
                   sizes={isWaterPage ? '224px' : undefined}
-                  className={isWaterPage ? 'object-contain object-left' : 'object-contain brightness-0 invert'}
+                  className={isWaterPage ? 'object-contain object-left' : 'object-contain'}
                   priority
                 />
               </div>

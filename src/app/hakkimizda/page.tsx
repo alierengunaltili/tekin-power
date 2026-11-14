@@ -29,7 +29,10 @@ const HakkimizdaPage = () => {
   const sectionsRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  const photos = solutions.map((solution) => ({ ...solution, src: solution.image }));
+  const photos = solutions.map((solution) => ({
+    ...solution,
+    src: solution.id === 'deniz-gol' ? '/deniz-gol-tarama/kesici-emici.jpg' : solution.image,
+  }));
 
   // Auto swiper effect
   useEffect(() => {
@@ -114,7 +117,7 @@ const HakkimizdaPage = () => {
               {/* Background Image */}
               {photo.src && <Image
                 src={photo.src}
-                alt={photo.title}
+                alt={photo.id === 'deniz-gol' ? 'Kesici emici tarama gemisi' : photo.title}
                 className="object-cover"
                 fill
                 priority={index === 0}
@@ -122,8 +125,17 @@ const HakkimizdaPage = () => {
               />}
               
               {/* Overlay */}
-              <div className="absolute inset-0 bg-black/40"></div>
+              <div className={`absolute inset-0 ${photo.id === 'deniz-gol' ? 'bg-black/50' : 'bg-black/40'}`}></div>
               <div className="absolute inset-0 bg-gradient-to-r from-blue-900/60 via-transparent to-cyan-900/60"></div>
+
+              {photo.id === 'deniz-gol' && (
+                <figure className="absolute bottom-16 left-4 z-20 w-40 overflow-hidden rounded-xl border border-white/30 bg-slate-950/80 shadow-xl sm:bottom-20 sm:left-8 sm:w-64 lg:left-12 lg:w-80">
+                  <div className="relative aspect-[2/1]">
+                    <Image src="/deniz-gol-tarama/kazar.jpg" alt="Su üzerinde çalışan KAZAR yüzer ekskavatör" fill sizes="(min-width: 1024px) 320px, (min-width: 640px) 256px, 160px" className="object-cover" />
+                  </div>
+                  <figcaption className="px-3 py-2 text-xs font-semibold text-white sm:text-sm">Yüzer ekskavatör</figcaption>
+                </figure>
+              )}
               
               {/* Content */}
               <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-3 sm:px-4 z-20">
@@ -139,6 +151,7 @@ const HakkimizdaPage = () => {
 
           {/* Navigation Arrows */}
           <button
+            aria-label="Önceki tanıtım"
             onClick={prevSlide}
             className="absolute left-2 sm:left-4 lg:left-6 top-1/2 transform -translate-y-1/2 z-20 w-10 sm:w-12 lg:w-14 h-10 sm:h-12 lg:h-14 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300 group"
           >
@@ -146,6 +159,7 @@ const HakkimizdaPage = () => {
           </button>
           
           <button
+            aria-label="Sonraki tanıtım"
             onClick={nextSlide}
             className="absolute right-2 sm:right-4 lg:right-6 top-1/2 transform -translate-y-1/2 z-20 w-10 sm:w-12 lg:w-14 h-10 sm:h-12 lg:h-14 bg-white/20 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300 group"
           >
@@ -154,9 +168,10 @@ const HakkimizdaPage = () => {
 
           {/* Slide Indicators */}
           <div className="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3 z-20">
-            {photos.map((_, index) => (
+            {photos.map((photo, index) => (
               <button
                 key={index}
+                aria-label={`${photo.productTitle} tanıtımını göster`}
                 onClick={() => handleManualNavigation(index)}
                 className={`w-2 sm:w-2.5 lg:w-3 h-2 sm:h-2.5 lg:h-3 rounded-full transition-all duration-300 ${
                   index === currentSlide 

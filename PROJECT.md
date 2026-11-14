@@ -74,3 +74,9 @@ Ana sayfadaki motor sunumu kullanıcının üç motorlu deniz/doğa fotoğrafın
 ## Mavi marin akü görselleri — 14 Kasım 2026
 
 LiFePO4BatterySection içindeki dokuz marin ürününe mavi deniz temalı katalog görselleri eklendi. Modeller: 12.8 V 100/300/400/600 Ah; 25.6 V 100/200/300 Ah; 36 V 100 Ah; 51.2 V 100 Ah. Görsel etiketleri ilgili voltaj/kapasiteyle eşleşir. Kullanıcı referansındaki gövde, sunum ölçeği ve etiket yerleşimi korunarak yeşil marka öğeleri maviye, yaprak simgesi yelkenliye çevrildi; deniz arka planı ve marin Tekin Power logosu kullanıldı. Görseller tasarım amaçlı türetildi; yeni teknik özellik eklenmedi. WebP kaynakları kayıpsızdır; kart ve modal farklı duyarlı boyutlarda yüklenir. Normal akülerin yeşil görselleri korunur. Ürün modali üst menünün üzerinde açılır.
+
+## Alt bölüm logo renkleri — 14 Kasım 2026
+Footer bileşeninde normal logoyu tamamen beyaza çeviren filtre kaldırıldı. Navbar ile ortak isWaterPagePath eşlemesi korunur: su sayfaları mavi marin logosu, diğer sayfalar yeşil marka logosu kullanır. Koyu alt zemin için açık yazılı mevcut logo sürümleri kullanılır.
+
+## Hakkımızda tarama araçları — 14 Kasım 2026
+Hakkımızda slaydında Deniz & Göl Dibi Tarama ve Temizleme için katalogdaki kesici emici gemi ana arka planı ve KAZAR yüzer ekskavatör ek görseli kullanılır. Yalnız bu sayfanın medya eşlemesi değişir; diğer slaytlar ve ana sayfa videosu korunur. Slayt kontrollerine erişilebilir adlar eklendi.

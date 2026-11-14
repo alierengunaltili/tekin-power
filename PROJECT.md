@@ -80,3 +80,6 @@ Footer bileşeninde normal logoyu tamamen beyaza çeviren filtre kaldırıldı. 
 
 ## Hakkımızda tarama araçları — 14 Kasım 2026
 Hakkımızda slaydında Deniz & Göl Dibi Tarama ve Temizleme için katalogdaki kesici emici gemi ana arka planı ve KAZAR yüzer ekskavatör ek görseli kullanılır. Yalnız bu sayfanın medya eşlemesi değişir; diğer slaytlar ve ana sayfa videosu korunur. Slayt kontrollerine erişilebilir adlar eklendi.
+
+## Onaylanan 3B tarama sunumu — 14 Kasım 2026
+Kullanıcının sohbet önizlemesinde onayladığı 3d-sahne-v1.png, Hakkımızda Deniz & Göl slaydındaki gerçek fotoğraf/ek kart düzeninin yerini aldı. DredgingHeroPresentation 10 saniyelik hafif kamera yaklaşma döngüsü kullanır; araç mekanizmalarının çalıştığı bir video değildir. Seçili değilken, ekran dışında ve sekme gizliyken durur; hareket azaltma tercihinde sabittir. Mobilde tam kadraj görsel yazıların üstündedir; masaüstünde mevcut başlık/ açıklama konumu korunur. Otomatik gösterimde bu slayt 10 saniye kalır.

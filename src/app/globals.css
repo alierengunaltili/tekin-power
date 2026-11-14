@@ -30,6 +30,26 @@ html {
   overflow-x: hidden;
 }
 
+.dredging-scene-motion {
+  animation: dredging-scene-drift 10s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.dredging-presentation[data-active="true"] .dredging-scene-motion {
+  animation-play-state: running;
+}
+@keyframes dredging-scene-drift {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.018) translateY(-0.2%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dredging-scene-motion { animation: none; }
+}
+@media (max-width: 639px) {
+  .about-dredging-hero { height: calc(112px + 56.25vw + 300px); }
+  .dredging-scene-frame { top: 112px; bottom: auto; height: 56.25vw; }
+  .about-dredging-copy { justify-content: flex-start; padding-top: calc(132px + 56.25vw); }
+}
+
 .motor-presentation-scene {
   animation: motor-scene-drift 12s ease-in-out infinite;
   animation-play-state: paused;

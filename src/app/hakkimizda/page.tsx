@@ -3,6 +3,7 @@
 import { solutions } from '@/data/solutions';
 
 import Navbar from '@/components/Navbar';
+import DredgingHeroPresentation from '@/components/DredgingHeroPresentation';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
@@ -31,15 +32,16 @@ const HakkimizdaPage = () => {
 
   const photos = solutions.map((solution) => ({
     ...solution,
-    src: solution.id === 'deniz-gol' ? '/deniz-gol-tarama/kesici-emici.jpg' : solution.image,
+    src: solution.image,
   }));
+  const slideDuration = photos[currentSlide].id === 'deniz-gol' ? 10000 : 4000;
 
   // Auto swiper effect
   useEffect(() => {
     if (isAutoPlaying) {
       intervalRef.current = setInterval(() => {
         setCurrentSlide((prev) => (prev + 1) % photos.length);
-      }, 4000);
+      }, slideDuration);
     }
 
     return () => {
@@ -47,7 +49,7 @@ const HakkimizdaPage = () => {
         clearInterval(intervalRef.current);
       }
     };
-  }, [photos.length, isAutoPlaying]);
+  }, [photos.length, currentSlide, slideDuration, isAutoPlaying]);
 
   // Clear auto-play temporarily when manual navigation
   const handleManualNavigation = (newSlide: number) => {
@@ -104,7 +106,7 @@ const HakkimizdaPage = () => {
       <Navbar />
       
       {/* Photo Swiper Section */}
-      <section className="relative h-[70vh] sm:h-[80vh] lg:h-screen overflow-hidden bg-slate-950">
+      <section className={`relative h-[70vh] sm:h-[80vh] lg:h-screen overflow-hidden bg-slate-950 ${photos[currentSlide].id === 'deniz-gol' ? 'about-dredging-hero' : ''}`}>
         {/* Swiper Container */}
         <div className="relative w-full h-full">
           {photos.map((photo, index) => (
@@ -115,9 +117,10 @@ const HakkimizdaPage = () => {
               }`}
             >
               {/* Background Image */}
-              {photo.src && <Image
+              {photo.id === 'deniz-gol' && <DredgingHeroPresentation selected={index === currentSlide} />}
+              {photo.id !== 'deniz-gol' && photo.src && <Image
                 src={photo.src}
-                alt={photo.id === 'deniz-gol' ? 'Kesici emici tarama gemisi' : photo.title}
+                alt={photo.title}
                 className="object-cover"
                 fill
                 priority={index === 0}
@@ -125,20 +128,11 @@ const HakkimizdaPage = () => {
               />}
               
               {/* Overlay */}
-              <div className={`absolute inset-0 ${photo.id === 'deniz-gol' ? 'bg-black/50' : 'bg-black/40'}`}></div>
+              <div className={`absolute inset-0 ${photo.id === 'deniz-gol' ? 'bg-black/35' : 'bg-black/40'}`}></div>
               <div className="absolute inset-0 bg-gradient-to-r from-blue-900/60 via-transparent to-cyan-900/60"></div>
 
-              {photo.id === 'deniz-gol' && (
-                <figure className="absolute bottom-16 left-4 z-20 w-40 overflow-hidden rounded-xl border border-white/30 bg-slate-950/80 shadow-xl sm:bottom-20 sm:left-8 sm:w-64 lg:left-12 lg:w-80">
-                  <div className="relative aspect-[2/1]">
-                    <Image src="/deniz-gol-tarama/kazar.jpg" alt="Su üzerinde çalışan KAZAR yüzer ekskavatör" fill sizes="(min-width: 1024px) 320px, (min-width: 640px) 256px, 160px" className="object-cover" />
-                  </div>
-                  <figcaption className="px-3 py-2 text-xs font-semibold text-white sm:text-sm">Yüzer ekskavatör</figcaption>
-                </figure>
-              )}
-              
               {/* Content */}
-              <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-3 sm:px-4 z-20">
+              <div className={`absolute inset-0 flex flex-col justify-center items-center text-center text-white px-3 sm:px-4 z-20 ${photo.id === 'deniz-gol' ? 'about-dredging-copy' : ''}`}>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4 drop-shadow-lg">
                   {photo.title}
                 </h2>

@@ -1,6 +1,7 @@
 'use client';
 
 import { solutions } from '@/data/solutions';
+import DredgingHeroPresentation from '@/components/DredgingHeroPresentation';
 
 import { gsap } from 'gsap';
 import {
@@ -143,7 +144,7 @@ const PhotoSwiper = () => {
     if (isPlaying) {
       intervalRef.current = setInterval(() => {
         nextSlide();
-      }, 4000);
+      }, slides[currentSlide].id === 'deniz-gol' ? 10000 : 4000);
     } else {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
@@ -249,7 +250,7 @@ const PhotoSwiper = () => {
           </button>
 
           {/* Slides Container */}
-          <div className="relative w-full h-[100svh] min-h-[640px] perspective-1000">
+          <div className={`relative w-full h-[100svh] min-h-[640px] perspective-1000 ${currentSlideData.id === 'deniz-gol' ? 'dredging-service-slides' : ''}`}>
             {slides.map((slide, index) => (
               <div
                 key={slide.id}
@@ -259,7 +260,8 @@ const PhotoSwiper = () => {
               >
                 <div className="relative w-full h-full overflow-hidden">
 
-                  {slide.image && <div className={slide.presentation === 'motor-lineup' ? 'motor-service-stage absolute inset-0' : 'absolute inset-0'}><Image
+                  {slide.id === 'deniz-gol' && <DredgingHeroPresentation selected={index === currentSlide && isPlaying} />}
+                  {slide.id !== 'deniz-gol' && slide.image && <div className={slide.presentation === 'motor-lineup' ? 'motor-service-stage absolute inset-0' : 'absolute inset-0'}><Image
                     src={slide.image}
                     alt={slide.title}
                     fill

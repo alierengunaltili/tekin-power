@@ -87,3 +87,6 @@ Kullanıcının sohbet önizlemesinde onayladığı 3d-sahne-v1.png, Hakkımızd
 ## Ana sayfa 3B tarama sahnesi — 14 Kasım 2026
 Ana sayfanın Deniz & Göl slaydı da onaylanan DredgingHeroPresentation görselini kullanır. HeroSection yerel medya eşlemesi eski videonun yerine hafif hareketli sahneyi getirir; ortak hizmet verisi ve diğer sayfaların medyası korunur. Metin ve detay bağlantısı aynı kalır. Mobilde tam kadraj görselin altında metin; otomatik geçiş 12 saniyedir.
 
+
+## Hizmetlerimiz 3B tarama sahnesi — 14 Kasım 2026
+Hizmetlerimiz üst slaydında aynı DredgingHeroPresentation kullanılır; slayt 10 saniye kalır, duraklat düğmesi sahne hareketini de durdurur. Deniz & Göl hizmet kartı da aynı onaylı görsele bağlandı. Başlık, açıklama ve detay hedefi korunur; mobilde tam görsel ile metnin ayrılması için yeterli yükseklik ayrılır.

@@ -48,6 +48,7 @@ html {
   .about-dredging-hero { height: calc(112px + 56.25vw + 300px); }
   .dredging-scene-frame { top: 112px; bottom: auto; height: 56.25vw; }
   .about-dredging-copy { justify-content: flex-start; padding-top: calc(132px + 56.25vw); }
+  .dredging-service-slides { min-height: calc(112px + 56.25vw + 390px); }
 }
 
 .motor-presentation-scene {

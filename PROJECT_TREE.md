@@ -32,3 +32,5 @@
 
 HeroSection.tsx aynı DredgingHeroPresentation bileşenini ana sayfanın Deniz & Göl slaydında kullanır; home-dredging-hero mobil kadraj kuralları globals.css içindedir.
 
+
+PhotoSwiper.tsx: Deniz & Göl slaydında ortak DredgingHeroPresentation; solutions.ts image/cardImage aynı 3d-sahne-v1.png dosyasına bağlıdır.

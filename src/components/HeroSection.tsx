@@ -7,6 +7,11 @@ import { solutions } from "@/data/solutions";
 import { useEffect, useRef, useState } from "react";
 import AdaptiveVideo from "@/components/AdaptiveVideo";
 import MotorHeroPresentation from "@/components/MotorHeroPresentation";
+import DredgingHeroPresentation from "@/components/DredgingHeroPresentation";
+
+const heroCategories = solutions.map((solution) => solution.id === 'deniz-gol'
+  ? { ...solution, video: null, presentation: 'dredging-scene' as const, videoFit: 'contain' as const }
+  : solution);
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -114,7 +119,7 @@ const HeroSection = () => {
     return () => ctx.revert();
   }, []);
 
-  const categories = solutions;
+  const categories = heroCategories;
 
   // Slider navigation functions
   const nextSlide = () => {
@@ -145,12 +150,13 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className={`relative flex items-center justify-center overflow-hidden bg-slate-950 pt-28 sm:pt-32 ${currentCategory.video || currentCategory.presentation ? 'mobile-video-hero' : ''} ${currentCategory.videoFit === 'contain' ? 'lg:aspect-video' : ''}`}
+      className={`relative flex items-center justify-center overflow-hidden bg-slate-950 pt-28 sm:pt-32 ${currentCategory.video || currentCategory.presentation ? 'mobile-video-hero' : ''} ${currentCategory.presentation === 'dredging-scene' ? 'home-dredging-hero' : ''} ${currentCategory.videoFit === 'contain' ? 'lg:aspect-video' : ''}`}
       ref={heroRef}
     >
       {/* Dynamic Animated Background */}
       <div ref={backgroundRef} className="pointer-events-none absolute inset-0">
         {currentCategory.presentation === 'motor-lineup' && <MotorHeroPresentation />}
+        {currentCategory.presentation === 'dredging-scene' && <DredgingHeroPresentation selected />}
         {currentCategory.video && (
           <div className="mobile-video-stage absolute inset-0">
             <AdaptiveVideo
@@ -168,7 +174,7 @@ const HeroSection = () => {
         )}
 
         {/* Light overlay for better text visibility */}
-        <div className={`mobile-video-shade absolute inset-0 ${currentCategory.id === 'tekne' ? 'bg-gradient-to-r from-slate-950/75 via-slate-950/35 to-slate-950/10' : currentCategory.videoFit === 'contain' ? 'bg-gradient-to-r from-slate-950/90 via-slate-950/65 to-slate-950/15' : 'bg-black/30'}`}></div>
+        <div className={`mobile-video-shade absolute inset-0 ${currentCategory.presentation ? 'bg-gradient-to-r from-slate-950/75 via-slate-950/35 to-slate-950/10' : currentCategory.videoFit === 'contain' ? 'bg-gradient-to-r from-slate-950/90 via-slate-950/65 to-slate-950/15' : 'bg-black/30'}`}></div>
 
         {/* Dynamic gradient overlay - more subtle */}
         <div

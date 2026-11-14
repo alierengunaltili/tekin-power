@@ -83,3 +83,7 @@ Hakkımızda slaydında Deniz & Göl Dibi Tarama ve Temizleme için katalogdaki 
 
 ## Onaylanan 3B tarama sunumu — 14 Kasım 2026
 Kullanıcının sohbet önizlemesinde onayladığı 3d-sahne-v1.png, Hakkımızda Deniz & Göl slaydındaki gerçek fotoğraf/ek kart düzeninin yerini aldı. DredgingHeroPresentation 10 saniyelik hafif kamera yaklaşma döngüsü kullanır; araç mekanizmalarının çalıştığı bir video değildir. Seçili değilken, ekran dışında ve sekme gizliyken durur; hareket azaltma tercihinde sabittir. Mobilde tam kadraj görsel yazıların üstündedir; masaüstünde mevcut başlık/ açıklama konumu korunur. Otomatik gösterimde bu slayt 10 saniye kalır.
+
+## Ana sayfa 3B tarama sahnesi — 14 Kasım 2026
+Ana sayfanın Deniz & Göl slaydı da onaylanan DredgingHeroPresentation görselini kullanır. HeroSection yerel medya eşlemesi eski videonun yerine hafif hareketli sahneyi getirir; ortak hizmet verisi ve diğer sayfaların medyası korunur. Metin ve detay bağlantısı aynı kalır. Mobilde tam kadraj görselin altında metin; otomatik geçiş 12 saniyedir.
+

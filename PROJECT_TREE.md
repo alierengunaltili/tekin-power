@@ -29,3 +29,6 @@
 `public/dewjet-motor/motor-lineup-20261114.jpg`: kullanıcının özgün üç motorlu fotoğrafı; MotorHeroPresentation ve PhotoSwiper motor slaydında kullanılır. Eski tek motor sunumunun yerini alır.
 `public/akuler/marin-v1/`: dokuz modelin voltaj/kapasite etiketiyle eşleşen mavi deniz temalı WebP görselleri. Ortak LiFePO4BatterySection ile /lifepo4 ve /hizmetlerimiz/enerji-depolama sayfalarında kullanılır.
 `src/components/DredgingHeroPresentation.tsx` ve `public/deniz-gol-tarama/3d-sahne-v1.png`: Hakkımızda onaylı 3B tarama sahnesi; CSS hareket ve mobil kadraj globals.css içinde.
+
+HeroSection.tsx aynı DredgingHeroPresentation bileşenini ana sayfanın Deniz & Göl slaydında kullanır; home-dredging-hero mobil kadraj kuralları globals.css içindedir.
+

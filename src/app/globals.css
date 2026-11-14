@@ -84,6 +84,12 @@ html {
     height: var(--mobile-video-height);
   }
 
+  .home-dredging-hero .dredging-scene-frame {
+    top: var(--mobile-video-top);
+    bottom: auto;
+    height: var(--mobile-video-height);
+  }
+
   .mobile-video-stage video {
     object-fit: contain;
   }
@@ -110,6 +116,10 @@ html {
     height: auto;
     padding-top: calc(var(--mobile-video-bottom) - 4px);
     padding-bottom: 32px;
+  }
+
+  .home-dredging-hero .mobile-video-content {
+    padding-top: calc(var(--mobile-video-bottom) + 16px);
   }
 
   .mobile-video-hero .mobile-video-copy {

@@ -105,3 +105,6 @@ Kullanıcının ek isteğiyle aynı akü sahnesine, yeşil akünün yanındaki k
 
 ## Yenilenebilir enerji menüsünde LiFePO4 — 14 Kasım 2026
 Ortak energyLinks listesinde Unisun seçeneğinin ardından LiFePO4 bağlantısı eklendi. Masaüstü ve mobil açılır menü aynı /lifepo4 hedefini kullanır.
+
+## LiFePO4 ürünleri girişin altında — 14 Kasım 2026
+Kullanıcının konum seçimiyle /lifepo4 sayfasındaki LiFePO4BatterySection (mavi marin ve yeşil ürünler) giriş görselinin hemen altına taşındı. Açıklamalar ve SSS ürünlerden sonra gelir. SolutionInfoPage isteğe bağlı afterHeader alanıyla bu sıralamayı yalnız ilgili sayfada uygular; diğer sayfaların sırası değişmez.

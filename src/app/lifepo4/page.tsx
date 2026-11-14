@@ -15,9 +15,7 @@ export default function LiFePO4Page() {
           alt="Karavanlarının yanında kamp sandalyelerinde denizi izleyen kadın ve erkek; tekneli kıyıda yeşil ve mavi etiketli 12.8V 100Ah LiFePO4 aküler"
           fill priority sizes="100vw" quality={90} className="object-cover"
         />
-      }>
-        <LiFePO4BatterySection />
-      </SolutionInfoPage>
+      } afterHeader={<LiFePO4BatterySection />} />
     </div>
   );
 }

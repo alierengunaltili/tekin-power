@@ -5,11 +5,12 @@ import { GuideBody, GuideIntro } from '@/components/SolutionGuide';
 import type { PageContent } from '@/data/pageContent';
 import type { ReactNode } from 'react';
 
-export default function SolutionInfoPage({ content, children, featuredContent, headerMedia, showGuideNavigation = true }: {
+export default function SolutionInfoPage({ content, children, featuredContent, headerMedia, afterHeader, showGuideNavigation = true }: {
   content: PageContent;
   children?: ReactNode;
   featuredContent?: ReactNode;
   headerMedia?: ReactNode;
+  afterHeader?: ReactNode;
   showGuideNavigation?: boolean;
 }) {
   return (
@@ -32,6 +33,7 @@ export default function SolutionInfoPage({ content, children, featuredContent, h
             <a href="#bilgi-talebi" className="mt-8 inline-flex rounded-xl border border-white/30 px-6 py-3 font-semibold transition-colors hover:bg-white/10">Projeniz için bilgi alın</a>
           </div>
         </header>
+        {afterHeader}
         <GuideIntro content={content} showNavigation={showGuideNavigation} />
         {featuredContent}
         <GuideBody content={content} />

@@ -30,6 +30,29 @@ html {
   overflow-x: hidden;
 }
 
+@media (min-width: 1024px) {
+  .battery-selection-page .mobile-video-shade {
+    background: linear-gradient(to bottom, rgb(2 6 23 / 45%), transparent 150px), linear-gradient(90deg, rgb(2 6 23 / 78%) 0%, rgb(2 6 23 / 45%) 32%, rgb(2 6 23 / 8%) 58%, transparent 100%);
+  }
+  .battery-selection-page header h1 {
+    max-width: 36%;
+    text-shadow: 0 2px 5px rgb(0 0 0 / 60%);
+  }
+}
+@media (max-width: 1023px) {
+  .battery-selection-page header {
+    --battery-scene-bottom: calc(108px + 56.25vw);
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .battery-selection-page header .mobile-video-stage { top: 108px; bottom: auto; height: 56.25vw; }
+  .battery-selection-page header .mobile-video-content { padding-top: calc(var(--battery-scene-bottom) + 16px); padding-bottom: 32px; }
+  .battery-selection-page header .mobile-video-shade {
+    background: linear-gradient(to bottom, transparent 0, transparent calc(var(--battery-scene-bottom) - 24px), #020617 var(--battery-scene-bottom), #020617 100%);
+  }
+  .battery-selection-page .mobile-video-stage img { object-fit: contain; }
+}
+
 .dredging-scene-motion {
   animation: dredging-scene-drift 10s ease-in-out infinite;
   animation-play-state: paused;

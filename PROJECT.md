@@ -96,3 +96,6 @@ Kullanıcının ilk kaldırılan video isteğiyle /hizmetlerimiz/deniz-gol-dibi-
 
 ## Tam genişlikte tarama arka planı — 14 Kasım 2026
 Kullanıcı yanlış videoyu düzelterek 1.mp4 dosyasını verdi. Tarama detay girişinde küçük kutu kaldırıldı; yeni video bütün girişin arka planını kaplar, mevcut metinler koyu geçiş üzerinde kalır. Kaynağın dönüş bilgisi uygulandı ve yalnız gömülü siyah yan bantlar çıkarıldı; doğal 30 fps / 8,93 sn korunur. Tam 1024×576 ve hafif 768×432 sürümleri, sessiz döngü, oynat/duraklat, görünürlük ve tercih denetimleriyle kullanılır. Diğer sayfalardaki onaylı 3B sahneler korunur.
+
+## LiFePO4 yeşil ve marin akü girişi — 14 Kasım 2026
+/lifepo4 girişine mevcut yeşil ve mavi 12.8V 100Ah akü tasarımlarını birlikte gösteren sahne eklendi. Yerleşik görsel aracı, iki katalog görselini ürün referansı olarak kullanarak yeşil kıyı, mavi deniz ve iki tekne arka planını oluşturdu. Başlık solda okunaklı, iki ürün sağda kalır; mobilde tam sahne başlığın üstünde gösterilir. Mevcut ürün kayıtları ve sayfa metinleri korunur.

@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 
-/** A single product view with subtle motion, never an invented 360-degree view. */
+/** User-supplied motor lineup with subtle scene motion behind the foreground copy. */
 export default function MotorHeroPresentation() {
   const ref = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
@@ -24,13 +24,13 @@ export default function MotorHeroPresentation() {
 
   return (
     <div ref={ref} className="mobile-video-stage motor-presentation absolute inset-0" data-active={active}>
-      <Image src="/dewjet-motor/motor-deniz-doga-v1.png" alt="" fill sizes="100vw" className="object-cover" />
-      <div className="motor-presentation-product">
+      <div className="motor-presentation-scene absolute inset-0">
         <Image
-          src="/dewjet-motor/18kw/outboard-18kw-cutout-v1.webp"
-          alt="Siyah gövdeli, altın renkli pervaneli DewJet elektrikli tekne motoru"
-          fill sizes="(max-width: 639px) 45vw, 36vw"
-          className="object-contain"
+          src="/dewjet-motor/motor-lineup-20261114.jpg"
+          alt="Deniz manzarası önünde DewJet pervaneli dıştan takma, RIM dıştan takma ve şaftlı içten takma elektrikli motorları"
+          fill sizes="170vw"
+          quality={90}
+          className="object-cover"
         />
       </div>
     </div>

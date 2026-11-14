@@ -23,32 +23,26 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 html {
   overflow-x: hidden;
 }
 
-.motor-presentation-product {
-  position: absolute;
-  top: 120px;
-  bottom: 24px;
-  right: 3%;
-  width: 34%;
-  filter: drop-shadow(0 12px 24px rgb(0 0 0 / 25%));
-  animation: motor-gentle-float 8s ease-in-out infinite;
+.motor-presentation-scene {
+  animation: motor-scene-drift 12s ease-in-out infinite;
   animation-play-state: paused;
 }
-.motor-presentation[data-active="true"] .motor-presentation-product {
+.motor-presentation[data-active="true"] .motor-presentation-scene {
   animation-play-state: running;
 }
-@keyframes motor-gentle-float {
-  0%, 100% { transform: translateY(3px) rotate(-0.4deg); }
-  50% { transform: translateY(-5px) rotate(0.4deg); }
+@keyframes motor-scene-drift {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.015); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .motor-presentation-product { animation: none; }
+  .motor-presentation-scene { animation: none; }
 }
 
 /* Keep the full landscape frame on phones; reserve its product area above
@@ -74,11 +68,10 @@ html {
     object-fit: contain;
   }
 
-  .motor-presentation-product {
-    top: 8px;
-    bottom: 8px;
-    right: 27.5%;
-    width: 45%;
+  .motor-service-stage {
+    top: 112px;
+    bottom: auto;
+    height: 56.25vw;
   }
 
   .mobile-video-stage [style*="background-image"] {

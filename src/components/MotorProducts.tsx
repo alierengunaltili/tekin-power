@@ -59,7 +59,7 @@ export default function MotorProducts() {
                   {model.specs.map(spec => <div key={spec.label}><dt className="text-xs leading-5 text-blue-100">{spec.label}</dt><dd className="mt-1 text-lg font-bold">{spec.value}</dd></div>)}
                 </dl>
                 <div className="mt-auto flex flex-wrap gap-3">
-                  <a href={`mailto:info@tekinpower.com?subject=${encodeURIComponent(model.name + ' — Motor bilgisi ve teklif talebi')}`} className="inline-flex items-center gap-2 rounded-xl bg-cyan-300 px-5 py-3 text-sm font-bold text-slate-950 hover:bg-cyan-200">Bu motor için bilgi alın <ArrowUpRight size={17} aria-hidden="true" /></a>
+                  <a href={`https://wa.me/905323276293?text=${encodeURIComponent(`Merhaba, ${model.name} (${model.power}) elektrikli tekne motoru için bilgi ve teklif almak istiyorum.`)}`} target="_blank" rel="noopener noreferrer" aria-label={`${model.name} için WhatsApp üzerinden bilgi alın (yeni sekmede açılır)`} className="inline-flex items-center gap-2 rounded-xl bg-cyan-300 px-5 py-3 text-sm font-bold text-slate-950 hover:bg-cyan-200">Bu motor için bilgi alın <ArrowUpRight size={17} aria-hidden="true" /></a>
                   {model.brochure && <a href={model.brochure} download className="inline-flex items-center gap-2 rounded-xl border border-white/30 px-5 py-3 text-sm font-semibold hover:bg-white/10"><Download size={17} aria-hidden="true" />Broşürü indir (PDF)</a>}
                 </div>
               </div>

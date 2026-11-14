@@ -150,7 +150,7 @@ const HeroSection = () => {
     >
       {/* Dynamic Animated Background */}
       <div ref={backgroundRef} className="pointer-events-none absolute inset-0">
-        {currentCategory.presentation === 'black-outboard' && <MotorHeroPresentation />}
+        {currentCategory.presentation === 'motor-lineup' && <MotorHeroPresentation />}
         {currentCategory.video && (
           <div className="mobile-video-stage absolute inset-0">
             <AdaptiveVideo
@@ -207,7 +207,7 @@ const HeroSection = () => {
 
             <div ref={subtitleRef}>
               <p className="text-base sm:text-lg lg:text-xl text-white mb-6 sm:mb-8 leading-relaxed drop-shadow-md px-2 lg:px-0">
-                {currentCategory.description}
+                {currentCategory.heroDescription ?? currentCategory.description}
               </p>
             </div>
 

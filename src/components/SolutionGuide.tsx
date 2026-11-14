@@ -24,7 +24,6 @@ export function GuideBody({ content }: { content: PageContent }) {
   const contactClass = 'mt-8 flex flex-wrap gap-3';
   const contactLinks = (
     <>
-      <a href={`mailto:info@tekinpower.com?subject=${encodeURIComponent(content.title + ' — Bilgi talebi')}`} className="rounded-xl bg-white px-6 py-3 font-semibold text-blue-950 hover:bg-blue-50">E-posta ile bilgi isteyin</a>
       <a href="tel:+905323276293" className="rounded-xl border border-white/30 px-6 py-3 font-semibold hover:bg-white/10">Bizi arayın</a>
     </>
   );
@@ -51,9 +50,6 @@ export function GuideBody({ content }: { content: PageContent }) {
               <details key={item.question} className="rounded-2xl border border-slate-200 bg-white px-5 py-5 sm:px-7">
                 <summary className="cursor-pointer text-base font-semibold leading-7 text-slate-900 sm:text-lg">{item.question}</summary>
                 <p className="mt-4 max-w-4xl leading-8 text-slate-700">{item.answer}</p>
-                {content.path === '/dewjet-elektrikli-motor' && (
-                  <a href="#bilgi-talebi" className="mt-4 inline-flex rounded-lg bg-blue-950 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-700">Tekin Power ile iletişime geçin</a>
-                )}
               </details>
             ))}
           </div>

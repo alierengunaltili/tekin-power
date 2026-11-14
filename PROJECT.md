@@ -64,3 +64,9 @@ Ana sayfa sırası AboutSection → TurnkeySolutionsSection → ServicesSection 
 
 ## Pompa video kontrolü, yeni kapak ve BMS — 13 Kasım 2026
 Pompa videosu canlıda mevcuttu; tarayıcının yaklaşık 1,65 Mbps bilgisi kalite bütçesini karşılamadığında veya hareket azaltma tercihinde yalnız poster kalıyordu. Pompa AdaptiveVideo çağrısına playbackControl eklendi: kullanıcı oynat/duraklat/yeniden oynatabilir, açık oynat isteği otomatik bağlantı/hareket filtresini aşar. Kalite kaynakları aynıdır. Bu sayfada ilk yükleme için 20 sn, yeniden tamponlama için 6 sn beklenir; diğer sayfaların varsayılanları korunur. SolutionInfoPage medya kapsayıcısının aria-hidden kaldırıldı; kontrol erişilebilir. Pompa kapak görseli özgün videonun 13. saniyesinden, iki pompanın tam göründüğü hero-two-pumps-v2.webp oldu. İki anahtar teslim pakette Yardımcı Ekipmanlar görseli, kullanıcının Unisun kataloğundan çıkarılan BMS ile değişti; Unisun hedefi korundu.
+
+## Motor vitrini ve WhatsApp teklif bağlantıları — 14 Kasım 2026
+
+Ana sayfadaki motor sunumu kullanıcının üç motorlu deniz/doğa fotoğrafını hafif ölçek hareketiyle gösterir; başlık, açıklama ve buton metinleri korunur. Aynı fotoğraf Hizmetlerimiz motor slaydına bağlandı; mobilde ürün alanı metinden ayrılır. Hareket azaltma ve görünürlük denetimleri korunur. `solutions.heroDescription` yalnız ana sayfa pompa slaydında 20 kW / 420 m³/h / 25 kg ve kullanıcı düzeltmesiyle 45 kW / 1.200 t/h / 55 kg metnini kullanır.
+
+İki pompa ve altı motor modelinin bilgi/teklif bağlantıları seçilen ürün adıyla +90 532 327 62 93 WhatsApp adresini açar. Ortak rehberdeki “E-posta ile bilgi isteyin” ve tüm motor SSS yanıtlarının altındaki “Tekin Power ile iletişime geçin” butonları kaldırıldı; yanıt metinleri korunur.

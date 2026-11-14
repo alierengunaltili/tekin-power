@@ -259,16 +259,16 @@ const PhotoSwiper = () => {
               >
                 <div className="relative w-full h-full overflow-hidden">
 
-                  {slide.image && <Image
+                  {slide.image && <div className={slide.presentation === 'motor-lineup' ? 'motor-service-stage absolute inset-0' : 'absolute inset-0'}><Image
                     src={slide.image}
                     alt={slide.title}
                     fill
                     className={slide.slideImage ? 'object-cover hidden sm:block' : 'object-cover'}
-                    sizes="100vw"
+                    sizes={slide.presentation === 'motor-lineup' ? '170vw' : '100vw'}
                     priority={index === 0}
                     loading={index === 0 ? "eager" : "lazy"}
                     quality={85}
-                  />}
+                  /></div>}
                   {slide.slideImage && <Image
                     src={slide.slideImage}
                     alt=""

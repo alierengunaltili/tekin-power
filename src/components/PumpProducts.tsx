@@ -67,7 +67,7 @@ export default function PumpProducts() {
                       </div>
                     ))}
                   </dl>
-                  <a href={`mailto:info@tekinpower.com?subject=${encodeURIComponent(pump.model + ' — Ürün bilgisi ve teklif talebi')}`} className="mt-6 inline-flex rounded-xl bg-blue-900 px-5 py-3 font-semibold text-white hover:bg-blue-800">Bu model için teklif isteyin</a>
+                  <a href={`https://wa.me/905323276293?text=${encodeURIComponent(`Merhaba, ${pump.model} (${pump.power}) elektrikli su pompası için bilgi ve teklif almak istiyorum.`)}`} target="_blank" rel="noopener noreferrer" aria-label={`${pump.model} için WhatsApp üzerinden teklif isteyin (yeni sekmede açılır)`} className="mt-6 inline-flex rounded-xl bg-blue-900 px-5 py-3 font-semibold text-white hover:bg-blue-800">Bu model için teklif isteyin</a>
                 </div>
               </article>
             ))}

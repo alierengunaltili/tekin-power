@@ -40,3 +40,5 @@ Tarama detay sayfasının girişindeki AdaptiveVideo, landing-page/deniz-gol-tar
 public/media/survey-detail-v3/: kullanıcının 1.mp4 videosundan tam/hafif MP4 ve WebM ile 2. saniye kapağı. scripts/prepare-survey-detail-v3.cjs kaynak yolunu parametre olarak alır; service/deniz-gol-detail-v3 manifest kaydı detay girişine bağlıdır.
 
 public/akuler/hero/green-marine-coast-v1.png: /lifepo4 girişindeki iki akülü doğa/deniz sahnesi. Sayfa SolutionInfoPage headerMedia alanını kullanır; globals.css battery-selection-page kapsamındaki kadraj ve karartmayı yönetir.
+
+public/akuler/hero/green-marine-camping-v2.png: karavan ve denizi izleyen çift eklenmiş son LiFePO4 giriş sahnesi.

@@ -99,3 +99,6 @@ Kullanıcı yanlış videoyu düzelterek 1.mp4 dosyasını verdi. Tarama detay g
 
 ## LiFePO4 yeşil ve marin akü girişi — 14 Kasım 2026
 /lifepo4 girişine mevcut yeşil ve mavi 12.8V 100Ah akü tasarımlarını birlikte gösteren sahne eklendi. Yerleşik görsel aracı, iki katalog görselini ürün referansı olarak kullanarak yeşil kıyı, mavi deniz ve iki tekne arka planını oluşturdu. Başlık solda okunaklı, iki ürün sağda kalır; mobilde tam sahne başlığın üstünde gösterilir. Mevcut ürün kayıtları ve sayfa metinleri korunur.
+
+## Kamp sahnesi eklemesi — 14 Kasım 2026
+Kullanıcının ek isteğiyle aynı akü sahnesine, yeşil akünün yanındaki kıyıda kurulu beyaz karavan ve kamp sandalyelerinde sırtları izleyiciye dönük denizi izleyen bir kadın ile bir erkek eklendi. green-marine-camping-v2.png kullanılır. Ürün etiketleri/değerleri ve tekneler korundu; masaüstü başlık alt sola alınarak kamp alanının görünürlüğü sağlandı. Önceki görsel dosyası saklanır.

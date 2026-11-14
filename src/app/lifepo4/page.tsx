@@ -11,8 +11,8 @@ export default function LiFePO4Page() {
     <div className="battery-selection-page">
       <SolutionInfoPage content={batteryContent} headerMedia={
         <Image
-          src="/akuler/hero/green-marine-coast-v1.png"
-          alt="Yeşil doğa ve teknelerin bulunduğu mavi deniz önünde yeşil ve mavi etiketli 12.8V 100Ah LiFePO4 aküler"
+          src="/akuler/hero/green-marine-camping-v2.png"
+          alt="Karavanlarının yanında kamp sandalyelerinde denizi izleyen kadın ve erkek; tekneli kıyıda yeşil ve mavi etiketli 12.8V 100Ah LiFePO4 aküler"
           fill priority sizes="100vw" quality={90} className="object-cover"
         />
       }>

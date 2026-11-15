@@ -145,3 +145,6 @@ TypeScript, ilgili ESLint ve diff kontrolü geçti. Yeni videolar 1440/390 px ta
 MarinContent altındaki beş eski genel fotoğrafın yerine kullanıcının gönderdiği dört özgün JPEG geldi. Sıra ve açıklamalar kullanıcının eşlemesidir: Demre ekip (17.18.14), Manavgat güneş panelleri (19.09.01), Demre tekneler (15.25.42), Manavgat batarya kurulumu (17.18.13). Her kart “Antalya [yer] Elektrikli Tekne Dönüşümü” açıklamasını gösterir. Masaüstünde iki sütun, telefonda tek sütun; fotoğraflar kırpılmaz ve tam boy açılır. Bölüm bağlantısı /hizmetlerimiz/marin#marin-uygulama-gorselleri. Eski medya kaynakları silinmedi. 1440/390 px yüklenme, dört açıklama, sıralama, bağlantılar ve taşma kontrolleri geçti; yayın beklemede.
 
 15 Kasım 2026 yayın onayı: Kullanıcının “canlıya al” talimatıyla yukarıdaki 10 video ve 5 fotoğrafı içeren yerel çalışma için bekletme kaldırıldı. Master üzerinden yayımlanacak; canlı doğrulama sonucu çalışma alanındaki TEST_REPORT.md dosyasına kaydedilir.
+
+## Batarya anlatımı kırpılmış video — 15 Kasım 2026
+Kullanıcının gönderdiği 15.46.08 - Trim.mp4, MarinContent içindeki “Batarya Tasarımı Detaylı Anlatım” videosunun yerine batarya-tasarimi-v2 adresiyle bağlandı. Özgün 576×1024 görüntü ve ses korunur; süre 132,42 saniye. Başlık ve mevcut Manavgat videosu değişmez. Önceki v1 dosyaları korunur. Kullanıcı aynı mesajda canlı yayın istedi.

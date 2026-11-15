@@ -69,3 +69,5 @@ Sahadan Görseller rotaları artık yalnız kalıcı yönlendirme içerir; galer
 - public/saha-gorselleri/dewjet-rim-fuar-v1.jpeg: kullanıcı tarafından seçilen özgün 996×1600 fuar fotoğrafı; motor sayfasının motor-secimi bölümünde.
 
 - public/saha-gorselleri/marin-{demre-ekip,manavgat-gunes,demre-tekneler,manavgat-batarya}-v1.jpeg: MarinContent uygulama galerisindeki dört özgün fotoğraf. Başlık kimliği marin-uygulama-gorselleri; açıklama ve sıra aynı bileşenin photos listesinde.
+
+- public/saha-videolari/batarya-tasarimi-v2/: kullanıcının 132,42 saniyelik Trim videosu ve kapağı; MarinContent batarya anlatımının güncel kaynağı.

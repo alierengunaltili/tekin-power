@@ -128,13 +128,13 @@ export default function MarinContent({ gradient }: { gradient: string }) {
             controlsList="nodownload"
             playsInline
             preload="none"
-            poster="/saha-videolari/batarya-tasarimi-v1/poster.jpg"
+            poster="/saha-videolari/batarya-tasarimi-v2/poster.jpg"
             aria-label="Batarya Tasarımı Detaylı Anlatım"
             width={576}
             height={1024}
             className="max-h-[440px] w-full bg-slate-950 object-contain"
           >
-            <source src="/saha-videolari/batarya-tasarimi-v1/video.mp4" type="video/mp4" />
+            <source src="/saha-videolari/batarya-tasarimi-v2/video.mp4" type="video/mp4" />
             Tarayıcınız video oynatmayı desteklemiyor.
           </video>
           <figcaption className="px-5 py-4 text-sm font-medium text-slate-600">Batarya Tasarımı Detaylı Anlatım</figcaption>

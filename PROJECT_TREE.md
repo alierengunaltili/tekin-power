@@ -56,3 +56,5 @@ public/akuler/hero/green-marine-camping-v2.png: karavan ve denizi izleyen çift 
 - src/app/arsimet-burgusu/page.tsx: sunum temelli görsel ürün/proje sayfası; sunucu bileşeni, yerel details SSS ve bölüm bağlantıları.
 - src/data/archimedes.ts: alternatif teknoloji tablosu, proje aşamaları ve SSS.
 - public/arsimet-burgusu/: PDF'den çıkarılmış altı özgün görsel ve tekin-power-arsimet-sunumu-2026.pdf. Kaynak PDF SHA256 F771F7812CC84A143E54CAD5F63F902DCBF3B9C54CEF1184A14660DAC8BBD7C8.
+
+Sahadan Görseller rotaları artık yalnız kalıcı yönlendirme içerir; galeri arayüzü ve menü/sitemap bağlantıları kaldırıldı. public/sahadan-gorseller ve src/data/fieldGalleries.ts korunur, başka sayfalara medya taşınmadı.

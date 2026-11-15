@@ -79,3 +79,5 @@ Sahadan Görseller rotaları artık yalnız kalıcı yönlendirme içerir; galer
 - public/saha-videolari/konya-gulistan-tahliye-v1/: 39,81 saniyelik tahliye videosu ve kapağı; dewjet-pompa/page.tsx kullanim-alanlari bölümü.
 
 - public/saha-videolari/pompa-kirli-su-v1/: 24,66 saniyelik taş/çamur/kirli su uygulaması ve kapağı; aynı kullanim-alanlari bölümünde Konya videosunun ardından.
+
+- public/saha-videolari/pompa-debi-{1,2}-v1/: su aktarma ve hortumla tahliye videoları/kapakları; dewjet-pompa/page.tsx debi-basinc bölümü.

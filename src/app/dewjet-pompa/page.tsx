@@ -12,6 +12,32 @@ export default function DewJetPompaPage() {
       content={pumpContent}
       featuredContent={<PumpProducts />}
       sectionMedia={{
+        'debi-basinc': (
+          <div className="min-w-0 space-y-5">
+            {[
+              { name: 'pompa-debi-1-v1', caption: 'Sapanca Gölü — Kocaeli Belediyesi, Sakarya Belediyesi Elektrikli Su Pompası Tatbikatı', width: 848, height: 478 },
+              { name: 'pompa-debi-2-v1', caption: 'Sapanca Gölü — Kocaeli Belediyesi, Sakarya Belediyesi Elektrikli Su Pompası Tatbikatı', width: 478, height: 850 },
+            ].map(({ name, caption, width, height }) => (
+              <figure key={name} className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+                <video
+                  controls
+                  controlsList="nodownload"
+                  playsInline
+                  preload="none"
+                  poster={`/saha-videolari/${name}/poster.jpg`}
+                  aria-label={caption}
+                  width={width}
+                  height={height}
+                  className={`${height > width ? 'max-h-[440px]' : 'h-auto'} w-full bg-slate-950 object-contain`}
+                >
+                  <source src={`/saha-videolari/${name}/video.mp4`} type="video/mp4" />
+                  Tarayıcınız video oynatmayı desteklemiyor.
+                </video>
+                <figcaption className="px-5 py-4 text-sm font-medium text-slate-600">{caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        ),
         'kullanim-alanlari': (
           <div className="min-w-0 space-y-5">
           <figure className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white">

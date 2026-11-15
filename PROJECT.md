@@ -157,3 +157,5 @@ Aynı sayfanın tasinabilirlik (“Hafiflik ve yüksek debi bir arada”) bölü
 POMPA UYGULAMA 17.02.26 videosu kullanim-alanlari (“Su transferinden sel tahliyesine”) bölümüne “Konya Gülistan Altgeçiti Su Tahliyesi Uygulaması” açıklamasıyla eklendi; 464×832 dikey, 39,81 saniye, ses korunur.
 
 Aynı bölümde Konya videosunun ardından kullanıcının 19.15.40 videosu “DewJet Elektrikli Su Pompası Taş, Çamur, Kirli Su Uygulaması” açıklamasıyla yer alır; 464×832, 24,66 saniye. Bu saha videosu eklemesi teknik model değerlerini değiştirmez.
+
+debi-basinc bölümüne kullanıcının 15.36.40 - Trim ve 2026-10-07 21.13.13 - Trim videoları eklendi. Açıklamalar “Sapanca Gölü — Kocaeli Belediyesi, Sakarya Belediyesi Elektrikli Su Pompası Tatbikatı” ve “Sapanca Gölü — Kocaeli Belediyesi, Sakarya Belediyesi Elektrikli Su Pompası Tatbikatı”. Sırasıyla 848×478 / 29,34 saniye ve 478×850 / 15,08 saniye; kaynak ses/görüntü korunur, kadraj kırpılmaz. Pompa rehberinde toplam yedi saha videosu bulunur.

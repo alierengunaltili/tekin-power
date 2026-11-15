@@ -153,3 +153,7 @@ Kullanıcının gönderdiği 15.46.08 - Trim.mp4, MarinContent içindeki “Bata
 Kullanıcının POMPA UYGULAMA klasöründen gönderdiği 17.01.05.mp4, /dewjet-pompa sayfasının rim-drive açıklamasının yanına “DewJet 20 kW Elektrikli Pompa Detaylı Anlatım” başlığıyla eklendi. Kaynak 848×480, 110,20 saniye; görüntü ve ses yeniden kodlanmadan faststart ile korunur. Otomatik başlamaz, indirme menüsü gizlidir; mobilde metnin altında gösterilir.
 
 Aynı sayfanın tasinabilirlik (“Hafiflik ve yüksek debi bir arada”) bölümüne POMPA AFAD klasöründeki 17.18.20 ve 17.18.21 videoları “AFAD Ortak Tatbikat” açıklamasıyla eklendi. Süreler 34,97 ve 60,16 saniye, her ikisi 848×480; özgün ses/görüntü korunur.
+
+POMPA UYGULAMA 17.02.26 videosu kullanim-alanlari (“Su transferinden sel tahliyesine”) bölümüne “Konya Gülistan Altgeçiti Su Tahliyesi Uygulaması” açıklamasıyla eklendi; 464×832 dikey, 39,81 saniye, ses korunur.
+
+Aynı bölümde Konya videosunun ardından kullanıcının 19.15.40 videosu “DewJet Elektrikli Su Pompası Taş, Çamur, Kirli Su Uygulaması” açıklamasıyla yer alır; 464×832, 24,66 saniye. Bu saha videosu eklemesi teknik model değerlerini değiştirmez.

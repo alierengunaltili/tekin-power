@@ -75,3 +75,7 @@ Sahadan Görseller rotaları artık yalnız kalıcı yönlendirme içerir; galer
 - public/saha-videolari/pompa-detayli-anlatim-v1/: 110,20 saniyelik pompa anlatımı ve kapağı; dewjet-pompa/page.tsx rim-drive bölümü.
 
 - public/saha-videolari/afad-tatbikat-{1,2}-v1/: iki özgün tatbikat videosu ve kapakları; dewjet-pompa/page.tsx tasinabilirlik bölümü.
+
+- public/saha-videolari/konya-gulistan-tahliye-v1/: 39,81 saniyelik tahliye videosu ve kapağı; dewjet-pompa/page.tsx kullanim-alanlari bölümü.
+
+- public/saha-videolari/pompa-kirli-su-v1/: 24,66 saniyelik taş/çamur/kirli su uygulaması ve kapağı; aynı kullanim-alanlari bölümünde Konya videosunun ardından.

@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { ArrowUpRight, Camera, Droplets, Film, Sailboat } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowUpRight } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { fieldGalleries } from '@/data/fieldGalleries';
@@ -21,14 +22,11 @@ export default function FieldGalleriesPage() {
         </header>
         <section aria-label="Saha galerileri" className="mx-auto grid max-w-6xl gap-6 px-5 py-14 sm:px-8 sm:py-20 md:grid-cols-2">
           {fieldGalleries.map((gallery) => {
-            const Icon = gallery.kind === 'marine' ? Sailboat : Droplets;
             return (
               <Link key={gallery.slug} href={`/sahadan-gorseller/${gallery.slug}`} className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-xl focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-blue-500">
-                <div className={`relative flex h-52 items-center justify-center overflow-hidden ${gallery.kind === 'marine' ? 'bg-gradient-to-br from-blue-950 to-blue-600' : 'bg-gradient-to-br from-teal-950 to-cyan-600'}`}>
-                  <div aria-hidden="true" className="absolute h-72 w-72 rounded-full border border-white/10" />
-                  <div aria-hidden="true" className="absolute h-48 w-48 rounded-full border border-white/20" />
-                  <Icon size={72} strokeWidth={1.2} className="relative text-white" aria-hidden="true" />
-                  <span className="absolute bottom-5 left-6 flex items-center gap-2 text-xs font-medium text-white/90"><Camera size={15} aria-hidden="true" /> Fotoğraf <span aria-hidden="true">/</span> <Film size={15} aria-hidden="true" /> Video</span>
+                <div className="relative aspect-video overflow-hidden bg-slate-100">
+                  <Image src={gallery.cover.src} alt={gallery.cover.alt} fill unoptimized className="object-cover" />
+                  <span className="absolute bottom-4 left-5 rounded-full bg-slate-950/75 px-3 py-1.5 text-xs font-medium text-white">Fotoğraf / Video</span>
                 </div>
                 <div className="p-7 sm:p-8">
                   <h2 className="text-2xl font-bold leading-snug text-slate-900">{gallery.title}</h2>

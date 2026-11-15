@@ -119,3 +119,6 @@ Kullanıcının web/marin ve web/pompa klasörleri içeri alındı. Marin: 5 vid
 Medya public/sahadan-gorseller/v1/{marin,pompa} altında. MP4 H.264/AAC akışları yeniden kodlanmadan faststart ile paketlendi; ses, özgün çözünürlük/süre ve döndürme bilgisi korunur. Kapaklar videonun 1. saniyesinden alınır. JPEG kaynakları aynen kopyalandı. Videolar preload=none ve kullanıcı kontrollü oynatma kullanır; dikey/yatay içerik object-contain ile kırpılmaz. Henüz canlıya alınmadı; kullanıcının yayın bekletme talimatı geçerlidir.
 
 Saha galerileri yayın onayı: Kullanıcı 15 Kasım 2026 tarihinde “tamam şimdi canlıya al” dedi. Önceki yerel bekletme kaldırıldı. TypeScript, ilgili ESLint ve 1440/390 px üzerinde 10 videonun oynatılması, dört fotoğrafın yüklenmesi/tam boy açılması doğrulandı. Yayın sonucu ayrıca kontrol edilecek.
+
+## Galeri kapakları ve video kontrolleri — 15 Kasım 2026
+Sahadan Görseller girişindeki simgeler, ilgili özgün videolardan alınmış gerçek kapaklarla değişti: marin video-02.jpg, pompa video-03.jpg. Kapaklar fieldGalleries.cover üzerinden yönetilir. İki galerideki toplam 10 video controlsList=nodownload kullanır; oynatıcı indirme menü öğesini destekleyen tarayıcılarda gizler. Bu kontrol medya dosyasına erişimi engelleyen bir yetkilendirme/DRM sistemi değildir.

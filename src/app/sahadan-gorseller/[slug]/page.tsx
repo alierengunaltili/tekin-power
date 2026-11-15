@@ -68,7 +68,7 @@ export default async function FieldGalleryPage({ params }: Props) {
                               <Image src={media.src} alt={media.alt} width={media.width} height={media.height} unoptimized className="aspect-[4/3] w-full object-contain" />
                             </a>
                           ) : (
-                            <video controls playsInline preload="none" poster={media.poster} aria-label={media.title} className="aspect-[4/3] w-full bg-slate-950 object-contain">
+                            <video controls controlsList="nodownload" playsInline preload="none" poster={media.poster} aria-label={media.title} className="aspect-[4/3] w-full bg-slate-950 object-contain">
                               <source src={media.src} type="video/mp4" />
                               {media.captions && <track kind="captions" src={media.captions} srcLang="tr" label="Türkçe" default />}
                               Tarayıcınız videoyu desteklemiyor. <a href={media.src}>Videoyu açın</a>.

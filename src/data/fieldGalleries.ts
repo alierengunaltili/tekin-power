@@ -13,6 +13,7 @@ export const fieldGalleries: {
   title: string;
   description: string;
   kind: 'marine' | 'pump';
+  cover: { src: string; alt: string };
   media: FieldMedia[];
 }[] = [
   {
@@ -20,6 +21,7 @@ export const fieldGalleries: {
     title: 'Marin Çözümler Görselleri',
     description: 'Marin uygulamalarımıza ait saha fotoğrafları ve videoları.',
     kind: 'marine',
+    cover: { src: '/sahadan-gorseller/v1/marin/video-02.jpg', alt: 'Seyir halindeki tekne ve elektrikli dıştan takma motor' },
     media: [
   {
     "id": "marin-image-01",
@@ -99,6 +101,7 @@ export const fieldGalleries: {
     title: 'Elektrikli Pompa Çözümleri Görselleri',
     description: 'Elektrikli pompa uygulamalarımıza ait saha fotoğrafları ve videoları.',
     kind: 'pump',
+    cover: { src: '/sahadan-gorseller/v1/pompa/video-03.jpg', alt: 'Göl kıyısında elektrikli pompayla su tahliye çalışması' },
     media: [
   {
     "id": "pompa-video-01",

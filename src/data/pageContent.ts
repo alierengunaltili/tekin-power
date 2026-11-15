@@ -75,8 +75,8 @@ export const pumpContent: PageContent = {
       'DewJet pompa tasarımı kolay kurulum, düşük bakım ihtiyacı ve sessiz çalışma sunar. Değiştirilebilir difüzör yapısı, akış ve performans gereksinimlerine göre yapılandırma imkânı sağlar; uygun donanım uygulamaya göre seçilir.',
     ], points: ['RIM Drive elektrikli tahrik', 'Dişli kutusuz tasarım', 'Kompakt gövde'] },
     { id: 'tasinabilirlik', title: 'Hafiflik ve yüksek debi bir arada', paragraphs: [
-      'DWE-APUMP-20, 25 kg ağırlık ve 33 × 33 × 25 cm ölçülerle 20 kW güç sunar. Maksimum debisi 420 m³/h, basma yüksekliği 15 metredir.',
-      'DWE-APUMP-45, 55 kg ağırlık ve 62 × 62 × 41 cm ölçülerle 45 kW güç sunar. Maksimum debisi 1.200 m³/h, basma yüksekliği 18 metredir. Taşıma planında pompayla birlikte güç kaynağı, sürücü, hortum ve bağlantı ekipmanlarını da değerlendirin.',
+      'DWE-APUMP-20, 25 kg ağırlığıyla saatte 420 tona kadar suyu yalnızca 20 kW güçle tahliye eder. 33 × 33 × 25 cm ölçülerindeki kompakt gövdesiyle yüksek debiyi hafif bir yapıda sunar. Basma yüksekliği 15 metredir.',
+      'DWE-APUMP-45, 55 kg ağırlığıyla saatte 1.200 tona kadar suyu yalnızca 45 kW güçle tahliye eder. 62 × 62 × 41 cm ölçülerindeki gövdesiyle yüksek kapasiteli su tahliyesi sağlar. Basma yüksekliği 18 metredir. Taşıma planında pompayla birlikte güç kaynağı, sürücü, hortum ve bağlantı ekipmanlarını da değerlendirin.',
     ] },
     { id: 'debi-basinc', title: 'Projenize uygun debi, basınç ve besleme', paragraphs: [
       'Yüksek debili su pompası seçiminde hedef su miktarı kadar basma yüksekliği, boru veya hortum uzunluğu ve çalışma süresi de önemlidir. Maksimum debi, her kurulumda elde edilecek sabit bir akış miktarı değildir; çalışma noktası pompa performans eğrisiyle değerlendirilmelidir.',

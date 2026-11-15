@@ -122,3 +122,7 @@ Saha galerileri yayın onayı: Kullanıcı 15 Kasım 2026 tarihinde “tamam şi
 
 ## Galeri kapakları ve video kontrolleri — 15 Kasım 2026
 Sahadan Görseller girişindeki simgeler, ilgili özgün videolardan alınmış gerçek kapaklarla değişti: marin video-02.jpg, pompa video-03.jpg. Kapaklar fieldGalleries.cover üzerinden yönetilir. İki galerideki toplam 10 video controlsList=nodownload kullanır; oynatıcı indirme menü öğesini destekleyen tarayıcılarda gizler. Bu kontrol medya dosyasına erişimi engelleyen bir yetkilendirme/DRM sistemi değildir.
+
+## Arşimet Burgusu içerik ve tasarım — 15 Kasım 2026
+/arsimet-burgusu yer tutucusu, kullanıcının Kasım 2026 tarihli 14 sayfalık sunumu esas alınarak detay sayfasına dönüştürüldü. Altı özgün teknik/konsept görsel PDF'den çıkarıldı; yeniden üretilmedi. Yeşil temalı giriş, çalışma prensibi, pompa-türbin ayrımı, saha uygunluğu, altı teknolojinin kot/verim karşılaştırması, cross-flow ve kurulum şemaları, örnek üretim, beş aşamalı yol haritası ve beş SSS bulunur. Saha bilgisi CTA'ları mevcut WhatsApp numarasına gider; özgün PDF indirilebilir.
+Sayısal kaynaklar: s.3 burgu 1–6 m / %70–80 / 20–40 dev/dk / 22–30 derece; s.2 alternatifler; s.5 cross-flow; s.8 koşullu teknoloji seçimi; s.10 1,5 m³/s, 2,5 m, %75 ile 27,6 kW ve 3000/4000/5000 saat için yaklaşık 83/110/138 MWh. Ön tahmin ve örnek senaryo nitelikleri görünürdür. Sunumdaki maliyet/tarife tahminleri, soru işaretli eşikler ve belirsiz süreler sabit proje vaadine dönüştürülmedi. Temsili tesis görseli gerçek referans proje olarak sunulmaz.

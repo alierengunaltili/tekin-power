@@ -43,6 +43,7 @@ export default function PumpComparison() {
         <header className="mb-8 max-w-4xl">
           <p className="text-sm font-bold uppercase tracking-widest text-sky-700">DewJet avantajları</p>
           <h2 id="pompa-karsilastirma-baslik" className="mt-3 text-2xl font-bold text-slate-950 sm:text-4xl">Dünyadaki Rakiplerimizden Neden Farklıyız?</h2>
+          <p className="mt-5 border-l-4 border-cyan-500 pl-4 text-lg font-bold leading-8 text-blue-900 sm:text-2xl sm:leading-9">İddialıyız! Dünyadaki rakiplerimizden yaklaşık 30 kat daha hafifiz, 5 kat daha az enerji harcıyoruz.</p>
           <p className="mt-4 leading-7 text-slate-600">Endüstriyel pompa seçeneklerini güç, demaraj akımı ve ağırlık açısından karşılaştırın. DewJet modelleri mavi satırlarda öne çıkarılmıştır.</p>
         </header>
 

@@ -71,3 +71,7 @@ Sahadan Görseller rotaları artık yalnız kalıcı yönlendirme içerir; galer
 - public/saha-gorselleri/marin-{demre-ekip,manavgat-gunes,demre-tekneler,manavgat-batarya}-v1.jpeg: MarinContent uygulama galerisindeki dört özgün fotoğraf. Başlık kimliği marin-uygulama-gorselleri; açıklama ve sıra aynı bileşenin photos listesinde.
 
 - public/saha-videolari/batarya-tasarimi-v2/: kullanıcının 132,42 saniyelik Trim videosu ve kapağı; MarinContent batarya anlatımının güncel kaynağı.
+
+- public/saha-videolari/pompa-detayli-anlatim-v1/: 110,20 saniyelik pompa anlatımı ve kapağı; dewjet-pompa/page.tsx rim-drive bölümü.
+
+- public/saha-videolari/afad-tatbikat-{1,2}-v1/: iki özgün tatbikat videosu ve kapakları; dewjet-pompa/page.tsx tasinabilirlik bölümü.

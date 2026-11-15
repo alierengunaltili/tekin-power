@@ -148,3 +148,8 @@ MarinContent altındaki beş eski genel fotoğrafın yerine kullanıcının gön
 
 ## Batarya anlatımı kırpılmış video — 15 Kasım 2026
 Kullanıcının gönderdiği 15.46.08 - Trim.mp4, MarinContent içindeki “Batarya Tasarımı Detaylı Anlatım” videosunun yerine batarya-tasarimi-v2 adresiyle bağlandı. Özgün 576×1024 görüntü ve ses korunur; süre 132,42 saniye. Başlık ve mevcut Manavgat videosu değişmez. Önceki v1 dosyaları korunur. Kullanıcı aynı mesajda canlı yayın istedi.
+
+## Pompa detaylı anlatım — 15 Kasım 2026
+Kullanıcının POMPA UYGULAMA klasöründen gönderdiği 17.01.05.mp4, /dewjet-pompa sayfasının rim-drive açıklamasının yanına “DewJet 20 kW Elektrikli Pompa Detaylı Anlatım” başlığıyla eklendi. Kaynak 848×480, 110,20 saniye; görüntü ve ses yeniden kodlanmadan faststart ile korunur. Otomatik başlamaz, indirme menüsü gizlidir; mobilde metnin altında gösterilir.
+
+Aynı sayfanın tasinabilirlik (“Hafiflik ve yüksek debi bir arada”) bölümüne POMPA AFAD klasöründeki 17.18.20 ve 17.18.21 videoları “AFAD Ortak Tatbikat” açıklamasıyla eklendi. Süreler 34,97 ve 60,16 saniye, her ikisi 848×480; özgün ses/görüntü korunur.

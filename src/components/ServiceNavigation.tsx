@@ -59,7 +59,7 @@ export default function ServiceNavigation({ mobile = false, group = 'services', 
           className={`shrink-0 rounded-md p-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 ${mobile ? 'text-gray-700 hover:bg-blue-50' : `${linkClass} hover:bg-white/10`}`}
         ><ChevronDown size={16} aria-hidden="true" className={`transition-transform ${open ? 'rotate-180' : ''}`} /></button>
       </div>
-      <div id={panelId} hidden={!open} className={mobile ? 'mx-3 mb-2' : 'absolute left-0 top-full w-[360px] pt-3'}>
+      <div id={panelId} hidden={!open} className={mobile ? 'mx-3 mb-2' : `absolute ${isEnergy ? 'right-0' : 'left-0'} top-full w-[360px] pt-3`}>
         <ul className={`overflow-hidden border ${mobile
           ? 'rounded-lg border-blue-100 bg-blue-50/80 text-slate-800'
           : 'rounded-xl border-white/25 bg-slate-950/60 text-white shadow-lg'}`}>

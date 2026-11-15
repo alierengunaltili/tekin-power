@@ -183,3 +183,7 @@ Ağırlık/debi/güç vurguları `pumps.ts` highlight alanlarından ana sayfa po
 ## Pompa karşılaştırması — 16 Kasım 2026
 
 Kullanıcının karşılaştırma görselinden iki kapasite sınıfı ve beşer anonim alternatif oluşturuldu. `PumpComparison.tsx`, ürün kartlarının hemen ardından yer alır. Rakip marka/model bilgileri kaynak koduna ve DOM’a alınmaz; sis görünümü kimlik içermeyen yer tutucudadır. DewJet modelleri güncel `pumps.ts` verilerinden 20 kW / 25 kg ve 45 kW / 55 kg olarak gelir; eski görseldeki APUMP-40/80 ve ağırlıklar kullanılmaz. Karşılaştırmanın yaklaşık ve eşit çalışma noktasında test verisi olmadığı belirtilir. Sekiz avantaj alanı ve mobil yatay kaydırılabilir semantik tablolar bulunur.
+
+## Üst menü sırası — 16 Kasım 2026
+Yenilenebilir Enerji menüsü DewJet Elektrikli Pompa ile İletişim arasına taşındı; mobil sıra da aynı. Enerji alt menüsü sağa hizalandı, dört bağlantı korundu.
+

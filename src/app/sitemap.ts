@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { solutions } from '@/data/solutions';
 import { SITE_URL } from '@/lib/seo';
+import { fieldGalleries } from '@/data/fieldGalleries';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_URL;
@@ -16,6 +17,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/dalyan',
     '/gunespaneli',
     '/arsimet-burgusu',
+    '/sahadan-gorseller',
+    ...fieldGalleries.map(({ slug }) => `/sahadan-gorseller/${slug}`),
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),

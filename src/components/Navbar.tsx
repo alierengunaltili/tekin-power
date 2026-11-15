@@ -67,6 +67,7 @@ const Navbar = () => {
     { label: 'Yenilenebilir Enerji ve Unisun Enerji Depolama Sistemleri', href: '/hizmetlerimiz/enerji-depolama', lineTitle: 'Yenilenebilir Enerji ve', subtitle: 'Unisun Enerji Depolama Sistemleri' },
     { label: 'DewJet Elektrikli Tekne Motorları', href: '/dewjet-elektrikli-motor', subtitle: 'Elektrikli Tekne Motorları' },
     { label: 'DewJet Elektrikli Pompa', href: '/dewjet-pompa', subtitle: 'Elektrikli Pompa' },
+    { label: 'Sahadan Görseller', href: '/sahadan-gorseller', lineTitle: 'Sahadan', subtitle: 'Görseller' },
     { label: 'İletişim', href: '/#contact' }
   ];
 

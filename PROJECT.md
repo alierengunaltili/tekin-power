@@ -108,3 +108,14 @@ Ortak energyLinks listesinde Unisun seçeneğinin ardından LiFePO4 bağlantıs�
 
 ## LiFePO4 ürünleri girişin altında — 14 Kasım 2026
 Kullanıcının konum seçimiyle /lifepo4 sayfasındaki LiFePO4BatterySection (mavi marin ve yeşil ürünler) giriş görselinin hemen altına taşındı. Açıklamalar ve SSS ürünlerden sonra gelir. SolutionInfoPage isteğe bağlı afterHeader alanıyla bu sıralamayı yalnız ilgili sayfada uygular; diğer sayfaların sırası değişmez.
+
+## Sahadan Görseller — 15 Kasım 2026 (yerel, yayın bekliyor)
+Üst menüde İletişim öncesine /sahadan-gorseller eklendi. İki kategori: Marin Çözümler Görselleri (/sahadan-gorseller/marin-cozumler) ve Elektrikli Pompa Çözümleri Görselleri (/sahadan-gorseller/elektrikli-pompa-cozumleri). Kategori sayfaları doğrudan açılabilir, birbirine ve galeri girişine bağlıdır. Yalnız kullanıcının bu bölüm için göndereceği saha çekimleri kullanılacak; mevcut tanıtım veya yapay görseller eklenmedi. Henüz medya yok, boş durum mesajı gösterilir.
+Medya kaynağı src/data/fieldGalleries.ts; fotoğrafın alt metni/boyutları, videonun kapağı ve isteğe bağlı Türkçe altyazısı burada tanımlanır. Fotoğraflar tam boy açılır; videolar otomatik başlamaz, yerel oynatma/tam ekran kontrollerini kullanır. Bu çalışma yönetim paneli veya tarayıcıdan dosya yükleme sistemi içermez; gönderilecek içerik katalog verisine eklenir.
+Kullanıcı son talimatıyla şimdilik canlı yayını durdurdu; bu değişiklikler yereldedir.
+
+## Saha çekimleri eklendi — 15 Kasım 2026 (yerel)
+Kullanıcının web/marin ve web/pompa klasörleri içeri alındı. Marin: 5 video + 4 özgün JPEG. Pompa: 5 video; ayrıca tek başına gönderilen 15.46.08 - Trim dosyası aynı klasörde olduğundan çoğaltılmadı. Tüm galerilerde Videolar bölümü önce, Fotoğraflar sonra gösterilir; içeriği olmayan bölüm gizlenir.
+Medya public/sahadan-gorseller/v1/{marin,pompa} altında. MP4 H.264/AAC akışları yeniden kodlanmadan faststart ile paketlendi; ses, özgün çözünürlük/süre ve döndürme bilgisi korunur. Kapaklar videonun 1. saniyesinden alınır. JPEG kaynakları aynen kopyalandı. Videolar preload=none ve kullanıcı kontrollü oynatma kullanır; dikey/yatay içerik object-contain ile kırpılmaz. Henüz canlıya alınmadı; kullanıcının yayın bekletme talimatı geçerlidir.
+
+Saha galerileri yayın onayı: Kullanıcı 15 Kasım 2026 tarihinde “tamam şimdi canlıya al” dedi. Önceki yerel bekletme kaldırıldı. TypeScript, ilgili ESLint ve 1440/390 px üzerinde 10 videonun oynatılması, dört fotoğrafın yüklenmesi/tam boy açılması doğrulandı. Yayın sonucu ayrıca kontrol edilecek.

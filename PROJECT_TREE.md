@@ -42,3 +42,12 @@ public/media/survey-detail-v3/: kullanıcının 1.mp4 videosundan tam/hafif MP4 
 public/akuler/hero/green-marine-coast-v1.png: /lifepo4 girişindeki iki akülü doğa/deniz sahnesi. Sayfa SolutionInfoPage headerMedia alanını kullanır; globals.css battery-selection-page kapsamındaki kadraj ve karartmayı yönetir.
 
 public/akuler/hero/green-marine-camping-v2.png: karavan ve denizi izleyen çift eklenmiş son LiFePO4 giriş sahnesi.
+
+## Saha galerileri — 15 Kasım 2026
+- src/app/sahadan-gorseller/page.tsx: iki kategorili galeri girişi.
+- src/app/sahadan-gorseller/[slug]/page.tsx: kategoriye ait fotoğraf/video sunumu ve boş durum; bilinmeyen kategori 404.
+- src/data/fieldGalleries.ts: yalnız bu alan için kullanıcı tarafından gönderilecek saha medyası. Başlangıçta iki kategori de boştur.
+
+- public/sahadan-gorseller/v1/marin/: 5 MP4, 5 JPEG kapak, 4 saha fotoğrafı.
+- public/sahadan-gorseller/v1/pompa/: 5 MP4 ve 5 JPEG kapak.
+- Kaynaklar kullanıcının TEKİN POWER SAHA GÖRÜNTÜLERİ/web/{marin,pompa} klasörleri; eşlemeler src/data/fieldGalleries.ts. Kategori sayfası medya türüne göre videoları önce, fotoğrafları sonra sıralar.

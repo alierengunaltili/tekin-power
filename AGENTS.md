@@ -15,3 +15,9 @@ Bu depo gerçek Next.js uygulamasıdır. Önce FIRST.md, PROJECT.md, PROJECT_TRE
 ## Sürekli canlı yayın yetkisi — 13 Kasım 2026
 
 Kullanıcı bu sohbette bundan sonraki tüm site değişikliklerinin tekinpower.com üzerinden canlıya aktarılmasını açıkça istedi. İstenen değişiklikler uygun kontrollerin ardından ayrıca onay sorulmadan bu deponun master dalına commit/push edilerek yayınlanır; Vercel sonucu ve ilgili canlı sayfa kontrol edilir. Sonraki kullanıcı kısıtlamaları önceliklidir. Eski tekin-power-site projesine CLI yayını yapılmaz.
+
+## Yayın bekletiliyor — 15 Kasım 2026
+Kullanıcı Sahadan Görseller çalışması sırasında “şimdilik canlıya alma” dedi. Yeni açık yayın talimatına kadar bu çalışma yerelde tutulur; commit/push veya production yayını yapılmaz. Bu güncel kısıtlama önceki sürekli yayın tercihinden önceliklidir.
+
+## Saha galerileri için yayın onayı — 15 Kasım 2026
+Kullanıcı “tamam şimdi canlıya al” diyerek Sahadan Görseller çalışmasının yayın bekletmesini kaldırdı. Hazırlanan marin/pompa galerileri, menü bağlantısı ve gönderilen medya mevcut master → tekinpower.com akışıyla yayımlanabilir.

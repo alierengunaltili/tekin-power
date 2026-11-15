@@ -4,6 +4,7 @@
 export const pumps = [
   {
     model: 'DWE-APUMP-20', power: '20 kW', weight: '25 kg', flow: '420 m³/h',
+    highlight: '25 KG AĞIRLIĞI İLE SAATTE 420 TON SUYU YALNIZCA 20 kW GÜÇ İLE TAHLİYE ETMEKTEDİR.',
     supply: '96 V / 380 V',
     head: '15 m', speed: '4.000 rpm', dimensions: '33 × 33 × 25 cm',
     image: '/dewjet-pompa/turkuaz-four-views.png', width: 1017, height: 316,
@@ -12,6 +13,7 @@ export const pumps = [
   },
   {
     model: 'DWE-APUMP-45', power: '45 kW', weight: '55 kg', flow: '1.200 m³/h',
+    highlight: '55 KG AĞIRLIĞI İLE SAATTE 1200 TON SUYU YALNIZCA 45 kW GÜÇ KULLANARAK TAHLİYE ETMEKTEDİR.',
     supply: '96 V / 380 V',
     head: '18 m', speed: '3.500 rpm', dimensions: '62 × 62 × 41 cm',
     image: '/dewjet-pompa/mobil-four-views.png', width: 1021, height: 353,

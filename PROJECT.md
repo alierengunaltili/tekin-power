@@ -175,3 +175,7 @@ Kullanıcının verdiği “20 kW güçle saatte 400 ton su aktarımı” ifades
 ## Pompa güç ve demaraj vurgusu — 15 Kasım 2026
 
 Kullanıcının ürün bilgisi ve metin talimatıyla pompa sayfasında iki modelin ağırlık/debi/güç açıklamaları büyük harflerle vurgulandı. Demaraj gerektirmeme ve mevcut güce göre su pompalama özellikleri girişe, ürün özetine, iki modelin teknik tablosuna, RIM özelliklerine, besleme açıklamasına ve yeni SSS yanıtına eklendi. Mevcut teknik maksimum debi tabloları ve çalışma koşulu açıklamaları korunur.
+
+## Ana sayfa pompa vurguları — 15 Kasım 2026
+
+Ağırlık/debi/güç vurguları `pumps.ts` highlight alanlarından ana sayfa pompa slaytına ve Çözümlerimiz kartına taşındı. Mobil kartlar tek sütunda okunur. Kullanıcının son düzeltmesiyle ana sayfa ve pompa detayındaki iki cümle “TAHLİYE ETMEKTEDİR” ile biter.

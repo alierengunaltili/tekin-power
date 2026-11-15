@@ -141,12 +141,12 @@ const ServicesSection = () => {
                     <div className="mb-4">
                       <p className="text-xs leading-5 text-gray-600">Eşdeğer güç ve performans sınıfında</p>
                       <p className="mt-1 text-lg font-extrabold leading-6 text-blue-950">DÜNYANIN EN HAFİF POMPALARI</p>
-                      <div className="mt-3 grid grid-cols-2 gap-3">
+                      <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
                         {pumps.map((pump) => (
                           <div key={pump.model} className="min-w-0 rounded-xl border border-sky-100 bg-sky-50 p-3">
-                            <p className="text-xs font-semibold text-sky-800">{pump.power} · {pump.weight}</p>
-                            <p className="mt-1 text-lg font-extrabold leading-7 text-blue-950 sm:text-xl">{pump.flow}</p>
-                            <p className="text-xs text-slate-600">Maksimum debi</p>
+                            <p className="text-xs font-semibold text-sky-800">{pump.model}</p>
+                            <p className="mt-2 text-sm font-bold leading-6 text-blue-950">{pump.highlight}</p>
+                            <p className="mt-2 text-xs text-slate-600">Maksimum debi: {pump.flow}</p>
                           </div>
                         ))}
                       </div>

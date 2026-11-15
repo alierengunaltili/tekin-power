@@ -81,3 +81,7 @@ Sahadan Görseller rotaları artık yalnız kalıcı yönlendirme içerir; galer
 - public/saha-videolari/pompa-kirli-su-v1/: 24,66 saniyelik taş/çamur/kirli su uygulaması ve kapağı; aynı kullanim-alanlari bölümünde Konya videosunun ardından.
 
 - public/saha-videolari/pompa-debi-{1,2}-v1/: su aktarma ve hortumla tahliye videoları/kapakları; dewjet-pompa/page.tsx debi-basinc bölümü.
+
+- public/saha-videolari/pompa-20kw-hafiflik-v1/: 15,42 saniyelik hafiflik videosu ve kapağı; tasinabilirlik bölümünde iki AFAD videosundan önce.
+
+- public/saha-gorselleri/pompa-{afad,belediye}-ekip-{1,2}-v1.jpeg: pompa sayfası sonundaki dört saha fotoğrafı. Eşlemeler dewjet-pompa/page.tsx fieldPhotos listesinde; SolutionInfoPage children alanında gösterilir.

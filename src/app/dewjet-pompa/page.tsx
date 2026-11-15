@@ -1,10 +1,18 @@
 import SolutionInfoPage from '@/components/SolutionInfoPage';
+import Image from 'next/image';
 import PumpProducts from '@/components/PumpProducts';
 import AdaptiveVideo from '@/components/AdaptiveVideo';
 import { pumpContent } from '@/data/pageContent';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata(pumpContent.path, pumpContent.seoTitle, pumpContent.description);
+
+const fieldPhotos = [
+  { src: '/saha-gorselleri/pompa-afad-ekip-1-v1.jpeg', caption: 'AFAD Ekibi ve Tekin Power Ekibi Saha Tatbikatı', alt: 'AFAD ve Tekin Power ekipleri su kenarında pompa tatbikatı için görüşüyor' },
+  { src: '/saha-gorselleri/pompa-afad-ekip-2-v1.jpeg', caption: 'AFAD Ekibi ve Tekin Power Ekibi Saha Tatbikatı', alt: 'AFAD aracı önünde AFAD ve Tekin Power ekiplerinin toplu fotoğrafı' },
+  { src: '/saha-gorselleri/pompa-belediye-ekip-1-v1.jpeg', caption: 'Kocaeli-Sakarya Belediyesi Ekipleri ve Tekin Power Ekibi Saha Tatbikatı', alt: 'Kocaeli-Sakarya Belediyesi ve Tekin Power ekipleri göl kıyısında uygulamayı inceliyor' },
+  { src: '/saha-gorselleri/pompa-belediye-ekip-2-v1.jpeg', caption: 'Kocaeli-Sakarya Belediyesi Ekipleri ve Tekin Power Ekibi Saha Tatbikatı', alt: 'Belediye ve Tekin Power ekiplerinin saha tatbikatından yakın görünüm' },
+];
 
 export default function DewJetPompaPage() {
   return (
@@ -78,6 +86,23 @@ export default function DewJetPompaPage() {
         ),
         tasinabilirlik: (
           <div className="min-w-0 space-y-5">
+            <figure className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+              <video
+                controls
+                controlsList="nodownload"
+                playsInline
+                preload="none"
+                poster="/saha-videolari/pompa-20kw-hafiflik-v1/poster.jpg"
+                aria-label="20 kW Elektrikli Su Pompası Hafifliği"
+                width={464}
+                height={832}
+                className="max-h-[440px] w-full bg-slate-950 object-contain"
+              >
+                <source src="/saha-videolari/pompa-20kw-hafiflik-v1/video.mp4" type="video/mp4" />
+                Tarayıcınız video oynatmayı desteklemiyor.
+              </video>
+              <figcaption className="px-5 py-4 text-sm font-medium text-slate-600">20 kW Elektrikli Su Pompası Hafifliği</figcaption>
+            </figure>
             {['afad-tatbikat-1-v1', 'afad-tatbikat-2-v1'].map((name, index) => (
               <figure key={name} className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white">
                 <video
@@ -130,6 +155,22 @@ export default function DewJetPompaPage() {
           loop
         />
       }
-    />
+    >
+      <section aria-labelledby="pompa-uygulama-gorselleri" className="bg-white px-5 py-12 sm:px-8 sm:py-16">
+        <div className="mx-auto max-w-6xl">
+          <h2 id="pompa-uygulama-gorselleri" className="mb-8 scroll-mt-40 bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-2xl font-bold text-transparent sm:text-3xl">Pompa uygulama görselleri</h2>
+          <div className="grid gap-5 sm:grid-cols-2">
+            {fieldPhotos.map((photo) => (
+              <figure key={photo.src} className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+                <a href={photo.src} target="_blank" rel="noopener noreferrer" aria-label={`${photo.alt} — fotoğrafı büyütün`} className="relative block aspect-[4/3] bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600">
+                  <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 639px) calc(100vw - 40px), (max-width: 1215px) calc((100vw - 84px) / 2), 566px" className="object-contain" />
+                </a>
+                <figcaption className="px-5 py-4 text-sm font-medium leading-6 text-slate-600">{photo.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+    </SolutionInfoPage>
   );
 }

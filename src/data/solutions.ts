@@ -1,5 +1,3 @@
-import { pumps } from '@/data/pumps';
-
 export interface Solution {
   id: string;
   title: string;
@@ -38,7 +36,7 @@ export const solutions: Solution[] = [
   {
     id: 'pompa', title: 'Elektrikli Pompa', productTitle: 'DewJet Elektrikli Pompa',
     description: 'Eşdeğer güç ve performans sınıfında dünyanın en hafif elektrikli su pompaları. 20 kW’da sadece 25 kg, 45 kW’da sadece 55 kg; yüksek debi, kompakt tasarım.',
-    heroDescription: pumps.map((pump) => pump.highlight).join(' '),
+    heroDescription: '20 kW güçle 420 m³/h, sadece 25 kg. 45 kW güçle 1.200 t/h, sadece 55 kg.',
     href: '/dewjet-pompa', image: '/dewjet-pompa/pompa-doga-deniz-v1.png', video: 'dewjet-pompa-v3',
     homepageImage: '/dewjet-pompa/pompa-doga-deniz-v1.png',
     slideImage: '/dewjet-pompa/pompa-doga-deniz-slide-v2.png',

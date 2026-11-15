@@ -21,3 +21,9 @@ Kullanıcı Sahadan Görseller çalışması sırasında “şimdilik canlıya a
 
 ## Saha galerileri için yayın onayı — 15 Kasım 2026
 Kullanıcı “tamam şimdi canlıya al” diyerek Sahadan Görseller çalışmasının yayın bekletmesini kaldırdı. Hazırlanan marin/pompa galerileri, menü bağlantısı ve gönderilen medya mevcut master → tekinpower.com akışıyla yayımlanabilir.
+
+## Güncel yayın bekletme — 15 Kasım 2026
+Kullanıcı marin açıklamalarına yeni videolar eklenirken tekrar “canlıya alma şimdilik” dedi. Yeni açık yayın talimatına kadar değişiklikler yalnız yerelde hazırlanır ve kontrol edilir; commit/push veya production yayını yapılmaz. Bu kısıtlama önceki yayın onaylarından önceliklidir.
+
+## Marin medya yayını onayı — 15 Kasım 2026
+Kullanıcı dört marin uygulama fotoğrafını da inceledikten sonra “canlıya al” dedi. Hazırlanan 10 video, motor fuar fotoğrafı ve dört marin uygulama fotoğrafı ile ilgili yerel değişikliklerin mevcut master → tekinpower.com akışıyla gönderilmesi ve yayımlanması yetkilidir; önceki bekletme bu çalışma için kaldırıldı.

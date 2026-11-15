@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import TrackedContactActions from '@/components/TrackedContactActions';
 import type { PageContent } from '@/data/pageContent';
+import type { ReactNode } from 'react';
 
 export function GuideIntro({ content, showNavigation = true }: { content: PageContent; showNavigation?: boolean }) {
   return (
@@ -20,7 +21,7 @@ export function GuideIntro({ content, showNavigation = true }: { content: PageCo
   );
 }
 
-export function GuideBody({ content }: { content: PageContent }) {
+export function GuideBody({ content, sectionMedia = {} }: { content: PageContent; sectionMedia?: Record<string, ReactNode> }) {
   const contactClass = 'mt-8 flex flex-wrap gap-3';
   const contactLinks = (
     <>
@@ -32,7 +33,8 @@ export function GuideBody({ content }: { content: PageContent }) {
       <div className="mx-auto max-w-6xl">
         <div className="space-y-12">
           {content.sections.map((section) => (
-            <section key={section.id} id={section.id} className="scroll-mt-40 border-b border-slate-200 pb-12 last:border-0">
+            <section key={section.id} id={section.id} className={`scroll-mt-40 border-b border-slate-200 pb-12 last:border-0 ${sectionMedia[section.id] ? 'grid items-start gap-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]' : ''}`}>
+              <div className="min-w-0">
               <h2 className="max-w-4xl text-2xl font-bold leading-tight text-slate-900 sm:text-3xl">{section.title}</h2>
               <div className="mt-5 max-w-4xl space-y-4 text-base leading-8 text-slate-700 sm:text-lg">
                 {section.paragraphs.map((text) => <p key={text}>{text}</p>)}
@@ -40,6 +42,8 @@ export function GuideBody({ content }: { content: PageContent }) {
               {section.points && <ul className="mt-6 flex flex-wrap gap-3">
                 {section.points.map((point) => <li key={point} className="rounded-xl bg-blue-900 px-6 py-4 text-xl font-semibold text-white">{point}</li>)}
               </ul>}
+              </div>
+              {sectionMedia[section.id]}
             </section>
           ))}
         </div>

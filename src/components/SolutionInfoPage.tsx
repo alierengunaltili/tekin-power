@@ -5,12 +5,13 @@ import { GuideBody, GuideIntro } from '@/components/SolutionGuide';
 import type { PageContent } from '@/data/pageContent';
 import type { ReactNode } from 'react';
 
-export default function SolutionInfoPage({ content, children, featuredContent, headerMedia, afterHeader, showGuideNavigation = true }: {
+export default function SolutionInfoPage({ content, children, featuredContent, headerMedia, afterHeader, sectionMedia, showGuideNavigation = true }: {
   content: PageContent;
   children?: ReactNode;
   featuredContent?: ReactNode;
   headerMedia?: ReactNode;
   afterHeader?: ReactNode;
+  sectionMedia?: Record<string, ReactNode>;
   showGuideNavigation?: boolean;
 }) {
   return (
@@ -36,7 +37,7 @@ export default function SolutionInfoPage({ content, children, featuredContent, h
         {afterHeader}
         <GuideIntro content={content} showNavigation={showGuideNavigation} />
         {featuredContent}
-        <GuideBody content={content} />
+        <GuideBody content={content} sectionMedia={sectionMedia} />
         {children}
       </main>
       <Footer />

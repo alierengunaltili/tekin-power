@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { marin_photo_mapping } from '@/app/utils/photo-mappings/hizmetlerimiz/marin';
 import { GuideIntro, GuideBody } from '@/components/SolutionGuide';
 import { marineContent } from '@/data/pageContent';
 
@@ -10,8 +9,14 @@ const systemLinks = [
   { label: 'Tekne HMI ekranı', href: '/tekne-hmi', detail: 'Dümen başında güç, motor devri ve batarya bilgilerinin nasıl izlendiğini keşfedin.' },
 ];
 
+const photos = [
+  { src: '/saha-gorselleri/marin-demre-ekip-v1.jpeg', caption: 'Antalya Demre Elektrikli Tekne Dönüşümü', alt: 'Demre elektrikli tekne dönüşümü projesinde tekne önünde ekip fotoğrafı' },
+  { src: '/saha-gorselleri/marin-manavgat-gunes-v1.jpeg', caption: 'Antalya Manavgat Elektrikli Tekne Dönüşümü', alt: 'Manavgat elektrikli tekne dönüşümünde tekne üzerindeki güneş panelleri' },
+  { src: '/saha-gorselleri/marin-demre-tekneler-v1.jpeg', caption: 'Antalya Demre Elektrikli Tekne Dönüşümü', alt: 'Demre elektrikli tekne dönüşümü uygulamasına ait iki gezi teknesi' },
+  { src: '/saha-gorselleri/marin-manavgat-batarya-v1.jpeg', caption: 'Antalya Manavgat Elektrikli Tekne Dönüşümü', alt: 'Manavgat elektrikli tekne dönüşümünde batarya grupları ve bağlantı çalışmaları' },
+];
+
 export default function MarinContent({ gradient }: { gradient: string }) {
-  const photos = [marin_photo_mapping.photo1, marin_photo_mapping.photo2, marin_photo_mapping.photo3, marin_photo_mapping.photo4, marin_photo_mapping.photo5];
   return <>
     <GuideIntro content={marineContent} />
     <section aria-labelledby="marin-sistem-basligi" className="bg-white px-5 pb-12 sm:px-8 sm:pb-16">
@@ -42,14 +47,130 @@ export default function MarinContent({ gradient }: { gradient: string }) {
         </figure>
       </div>
     </section>
-    <GuideBody content={marineContent} />
-    <section className="bg-white px-5 py-12 sm:px-8">
+    <GuideBody content={marineContent} sectionMedia={{
+      'elektrikli-tahrik': (
+        <div className="min-w-0 space-y-5">
+        <figure className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+          <video
+            controls
+            controlsList="nodownload"
+            playsInline
+            preload="none"
+            poster="/saha-videolari/manavgat-donusum-v1/poster.jpg"
+            aria-label="Antalya Manavgat Elektrikli Tekne Dönüşümü"
+            width={832}
+            height={464}
+            className="h-auto w-full bg-slate-950 object-contain"
+          >
+            <source src="/saha-videolari/manavgat-donusum-v1/video.mp4" type="video/mp4" />
+            Tarayıcınız video oynatmayı desteklemiyor.
+          </video>
+          <figcaption className="px-5 py-4 text-sm font-medium text-slate-600">Antalya Manavgat Elektrikli Tekne Dönüşümü</figcaption>
+        </figure>
+        <figure className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+          <video
+            controls
+            controlsList="nodownload"
+            playsInline
+            preload="none"
+            poster="/saha-videolari/demre-donusum-v1/poster.jpg"
+            aria-label="Antalya Demre Elektrikli Tekne Dönüşümü"
+            width={1024}
+            height={576}
+            className="h-auto w-full bg-slate-950 object-contain"
+          >
+            <source src="/saha-videolari/demre-donusum-v1/video.mp4" type="video/mp4" />
+            Tarayıcınız video oynatmayı desteklemiyor.
+          </video>
+          <figcaption className="px-5 py-4 text-sm font-medium text-slate-600">Antalya Demre Elektrikli Tekne Dönüşümü</figcaption>
+        </figure>
+        <figure className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+          <video
+            controls
+            controlsList="nodownload"
+            playsInline
+            preload="none"
+            poster="/saha-videolari/manavgat-seyir-v1/poster.jpg"
+            aria-label="Antalya Manavgat Elektrikli Tekne Dönüşümü — seyir videosu"
+            width={848}
+            height={478}
+            className="h-auto w-full bg-slate-950 object-contain"
+          >
+            <source src="/saha-videolari/manavgat-seyir-v1/video.mp4" type="video/mp4" />
+            Tarayıcınız video oynatmayı desteklemiyor.
+          </video>
+          <figcaption className="px-5 py-4 text-sm font-medium text-slate-600">Antalya Manavgat Elektrikli Tekne Dönüşümü</figcaption>
+        </figure>
+        </div>
+      ),
+      'marin-batarya': (
+        <div className="min-w-0 space-y-5">
+        <figure className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+          <video
+            controls
+            controlsList="nodownload"
+            playsInline
+            preload="none"
+            poster="/saha-videolari/manavgat-batarya-v1/poster.jpg"
+            aria-label="Antalya Manavgat Elektrikli Tekne Dönüşümü — batarya sistemi"
+            width={464}
+            height={832}
+            className="max-h-[440px] w-full bg-slate-950 object-contain"
+          >
+            <source src="/saha-videolari/manavgat-batarya-v1/video.mp4" type="video/mp4" />
+            Tarayıcınız video oynatmayı desteklemiyor.
+          </video>
+          <figcaption className="px-5 py-4 text-sm font-medium text-slate-600">Antalya Manavgat Elektrikli Tekne Dönüşümü</figcaption>
+        </figure>
+        <figure className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+          <video
+            controls
+            controlsList="nodownload"
+            playsInline
+            preload="none"
+            poster="/saha-videolari/batarya-tasarimi-v1/poster.jpg"
+            aria-label="Batarya Tasarımı Detaylı Anlatım"
+            width={576}
+            height={1024}
+            className="max-h-[440px] w-full bg-slate-950 object-contain"
+          >
+            <source src="/saha-videolari/batarya-tasarimi-v1/video.mp4" type="video/mp4" />
+            Tarayıcınız video oynatmayı desteklemiyor.
+          </video>
+          <figcaption className="px-5 py-4 text-sm font-medium text-slate-600">Batarya Tasarımı Detaylı Anlatım</figcaption>
+        </figure>
+        </div>
+      ),
+      'marin-hmi': (
+        <figure className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+          <video
+            controls
+            controlsList="nodownload"
+            playsInline
+            preload="none"
+            poster="/saha-videolari/marin-hmi-v1/poster.jpg"
+            aria-label="Dümen başında motor ve batarya takibi saha videosu"
+            width={464}
+            height={832}
+            className="max-h-[440px] w-full bg-slate-950 object-contain"
+          >
+            <source src="/saha-videolari/marin-hmi-v1/video.mp4" type="video/mp4" />
+            Tarayıcınız video oynatmayı desteklemiyor.
+          </video>
+          <figcaption className="px-5 py-4 text-sm font-medium text-slate-600">Tekne kontrol ekranı · Saha videosu</figcaption>
+        </figure>
+      ),
+    }} />
+    <section aria-labelledby="marin-uygulama-gorselleri" className="bg-white px-5 py-12 sm:px-8">
       <div className="mx-auto max-w-6xl">
-        <h2 className={`mb-8 bg-gradient-to-r ${gradient} bg-clip-text text-2xl font-bold text-transparent sm:text-3xl`}>Marin uygulama görselleri</h2>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {photos.map((photo, index) => <div key={photo} className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-slate-100">
-            <Image src={photo} alt={`Marin enerji uygulaması görseli ${index + 1}`} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover" />
-          </div>)}
+        <h2 id="marin-uygulama-gorselleri" className={`mb-8 bg-gradient-to-r ${gradient} bg-clip-text text-2xl font-bold text-transparent sm:text-3xl`}>Marin uygulama görselleri</h2>
+        <div className="grid gap-5 sm:grid-cols-2">
+          {photos.map((photo) => <figure key={photo.src} className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+            <a href={photo.src} target="_blank" rel="noopener noreferrer" aria-label={`${photo.alt} — fotoğrafı büyütün`} className="relative block aspect-[4/3] bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600">
+              <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 639px) calc(100vw - 40px), (max-width: 1215px) calc((100vw - 84px) / 2), 566px" className="object-contain" />
+            </a>
+            <figcaption className="px-5 py-4 text-sm font-medium leading-6 text-slate-600">{photo.caption}</figcaption>
+          </figure>)}
         </div>
       </div>
     </section>

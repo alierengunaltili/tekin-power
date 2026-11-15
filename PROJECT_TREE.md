@@ -58,3 +58,14 @@ public/akuler/hero/green-marine-camping-v2.png: karavan ve denizi izleyen çift 
 - public/arsimet-burgusu/: PDF'den çıkarılmış altı özgün görsel ve tekin-power-arsimet-sunumu-2026.pdf. Kaynak PDF SHA256 F771F7812CC84A143E54CAD5F63F902DCBF3B9C54CEF1184A14660DAC8BBD7C8.
 
 Sahadan Görseller rotaları artık yalnız kalıcı yönlendirme içerir; galeri arayüzü ve menü/sitemap bağlantıları kaldırıldı. public/sahadan-gorseller ve src/data/fieldGalleries.ts korunur, başka sayfalara medya taşınmadı.
+
+## Açıklama videoları — 15 Kasım 2026 (yerel)
+- public/saha-videolari/{marin-hmi-v1,manavgat-donusum-v1,manavgat-batarya-v1,demre-donusum-v1,manavgat-seyir-v1,motor-su-itisi-v1}/: her klasörde özgün akışlı video.mp4 ve poster.jpg.
+- src/components/services/MarinContent.tsx: beş yeni videonun açıklama eşlemeleri.
+- src/app/dewjet-elektrikli-motor/page.tsx: su itiş gücü videosunun menzil bölümüne eşlemesi.
+- src/components/SolutionGuide.tsx ve SolutionInfoPage.tsx: isteğe bağlı sectionMedia alanıyla yan yana/mobil alt alta medya yerleşimi.
+
+- public/saha-videolari/{demre-motor-secimi-v1,demre-kumanda-v1,pervaneli-motor-v1,batarya-tasarimi-v1}/: sonradan kullanıcı tarafından seçilen dört videonun MP4 ve posterleri; ilk üçü motor sayfasında, sonuncusu MarinContent içinde.
+- public/saha-gorselleri/dewjet-rim-fuar-v1.jpeg: kullanıcı tarafından seçilen özgün 996×1600 fuar fotoğrafı; motor sayfasının motor-secimi bölümünde.
+
+- public/saha-gorselleri/marin-{demre-ekip,manavgat-gunes,demre-tekneler,manavgat-batarya}-v1.jpeg: MarinContent uygulama galerisindeki dört özgün fotoğraf. Başlık kimliği marin-uygulama-gorselleri; açıklama ve sıra aynı bileşenin photos listesinde.

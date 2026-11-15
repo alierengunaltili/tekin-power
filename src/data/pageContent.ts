@@ -67,20 +67,20 @@ export const pumpContent: PageContent = {
   path: '/dewjet-pompa', title: 'DewJet Dünyanın En Hafif Elektrikli Su Pompası',
   seoTitle: 'DewJet Elektrikli Su Pompası | 20 ve 45 kW | Tekin Power',
   description: 'DewJet RIM Drive elektrikli su pompaları: 20 kW / 25 kg ve 45 kW / 55 kg. 420 ve 1.200 m³/h maksimum debi, IP69 ve 2 yıl garanti. Modelleri inceleyin.',
-  intro: 'Hafif ve yüksek debili elektrikli su pompası arayanlar için DewJet, RIM Drive teknolojisini kompakt bir yapıda sunar. 20 kW ve 45 kW modelleri; su transferi, tahliye ve sahada taşınabilir pompa ihtiyacınıza göre karşılaştırın.',
+  intro: 'Hafif ve yüksek debili elektrikli su pompası arayanlar için DewJet, RIM Drive teknolojisini kompakt bir yapıda sunar. 20 kW ve 45 kW modellerinin ikisi de demaraj gerektirmez ve mevcut güce göre su pompalar. Modelleri su transferi, tahliye ve sahada taşınabilir pompa ihtiyacınıza göre karşılaştırın.',
   sources: ['SU POMPASI!B2:B51', 'SEO SAYFA PLANI!A3:F3', 'DWE-APUMP-20 ve DWE-APUMP-45 malzeme bilgi kartları, sayfa 1', 'pompa ingilizce sunum.pdf, sayfa 3–9', 'Kullanıcı onayı 2026-11-04: 45 kW ağırlığı 55 kg; eşdeğer güç ve performans sınıfında bilinen en hafif pompa değerlendirmesi'],
   sections: [
     { id: 'rim-drive', title: 'RIM Drive: az mekanik parça, kompakt yapı', paragraphs: [
       'DewJet RIM Drive elektrikli su pompası, dişli kutusu gerektirmeyen ve mekanik parça sayısını azaltan bir tasarıma sahiptir. Kompakt gövde, pompanın taşınması ve kurulum alanına yerleştirilmesi açısından öne çıkar.',
       'DewJet pompa tasarımı kolay kurulum, düşük bakım ihtiyacı ve sessiz çalışma sunar. Değiştirilebilir difüzör yapısı, akış ve performans gereksinimlerine göre yapılandırma imkânı sağlar; uygun donanım uygulamaya göre seçilir.',
-    ], points: ['RIM Drive elektrikli tahrik', 'Dişli kutusuz tasarım', 'Kompakt gövde'] },
+    ], points: ['RIM Drive elektrikli tahrik', 'Dişli kutusuz tasarım', 'Kompakt gövde', 'Demaraj gerektirmez', 'Mevcut güce göre su pompalar'] },
     { id: 'tasinabilirlik', title: 'Hafiflik ve yüksek debi bir arada', paragraphs: [
-      'DWE-APUMP-20, 25 kg ağırlığıyla saatte 420 tona kadar suyu yalnızca 20 kW güçle tahliye eder. 33 × 33 × 25 cm ölçülerindeki kompakt gövdesiyle yüksek debiyi hafif bir yapıda sunar. Basma yüksekliği 15 metredir.',
-      'DWE-APUMP-45, 55 kg ağırlığıyla saatte 1.200 tona kadar suyu yalnızca 45 kW güçle tahliye eder. 62 × 62 × 41 cm ölçülerindeki gövdesiyle yüksek kapasiteli su tahliyesi sağlar. Basma yüksekliği 18 metredir. Taşıma planında pompayla birlikte güç kaynağı, sürücü, hortum ve bağlantı ekipmanlarını da değerlendirin.',
+      'DWE-APUMP-20: 25 KG AĞIRLIĞI İLE SAATTE 420 TON SUYU YALNIZCA 20 kW GÜÇ İLE TAHLİYE EDİYOR. Demaraj gerektirmez; mevcut güce göre su pompalar. 33 × 33 × 25 cm ölçülerindeki kompakt gövdesiyle yüksek debiyi hafif bir yapıda sunar. Basma yüksekliği 15 metredir.',
+      'DWE-APUMP-45: 55 KG AĞIRLIĞI İLE SAATTE 1200 TON SUYU YALNIZCA 45 kW GÜÇ KULLANARAK TAHLİYE EDİYOR. Demaraj gerektirmez; mevcut güce göre su pompalar. 62 × 62 × 41 cm ölçülerindeki gövdesiyle yüksek kapasiteli su tahliyesi sağlar. Basma yüksekliği 18 metredir. Taşıma planında pompayla birlikte güç kaynağı, sürücü, hortum ve bağlantı ekipmanlarını da değerlendirin.',
     ] },
     { id: 'debi-basinc', title: 'Projenize uygun debi, basınç ve besleme', paragraphs: [
       'Yüksek debili su pompası seçiminde hedef su miktarı kadar basma yüksekliği, boru veya hortum uzunluğu ve çalışma süresi de önemlidir. Maksimum debi, her kurulumda elde edilecek sabit bir akış miktarı değildir; çalışma noktası pompa performans eğrisiyle değerlendirilmelidir.',
-      'Her iki model de 96 V veya 380 V besleme seçenekleriyle kullanılabilir. Kurulumunuza uygun besleme seçeneğini ve sistem donanımını projenizin ihtiyaçlarına göre birlikte belirleyelim.',
+      'Her iki model de demaraj gerektirmez ve güç kaynağının sağlayabildiği güce göre su pompalar. 96 V veya 380 V besleme seçenekleriyle kullanılabilir. Kurulumunuza uygun besleme seçeneğini ve sistem donanımını projenizin ihtiyaçlarına göre birlikte belirleyelim.',
     ] },
     { id: 'kullanim-alanlari', title: 'Su transferinden sel tahliyesine', paragraphs: [
       'DewJet pompaları su transferi, sel ve taşkın tahliyesi, afet müdahalesi ve yangınla mücadeleye yönelik su aktarımında kullanılır. Mobil pompa ihtiyacınızda taşıma düzeni ve sahadaki enerji kaynağı birlikte planlanır.',
@@ -95,6 +95,7 @@ export const pumpContent: PageContent = {
     { question: 'DewJet elektrikli su pompası kaç kilogram?', answer: '20 kW DWE-APUMP-20 modeli 25 kg, 45 kW DWE-APUMP-45 modeli 55 kg ağırlığındadır. Taşıma ve sistem kurulumu için yardımcı ekipmanların kapsamı ayrıca değerlendirilmelidir.' },
     { question: '20 kW ve 45 kW modellerin debisi nedir?', answer: 'DWE-APUMP-20 modelinin maksimum debisi 420 m³/h, DWE-APUMP-45 modelinin maksimum debisi 1.200 m³/h değerindedir. Gerçek çalışma debisi, basınç ve kurulum koşullarıyla birlikte değerlendirilir.' },
     { question: 'Elektrikli su pompası hangi gerilimle çalışır?', answer: 'Her iki model de 96 V veya 380 V besleme seçenekleriyle çalışabilir. Kurulumunuza uygun besleme seçeneği ve sistem donanımı proje kapsamında belirlenir.' },
+    { question: 'Pompalar demaraj gerektirir mi, mevcut güce göre çalışabilir mi?', answer: 'DWE-APUMP-20 ve DWE-APUMP-45 modelleri demaraj gerektirmez. Her iki pompa da güç kaynağının sağlayabildiği güce göre su pompalar. Elde edilen debi, mevcut güç ile basınç ve kurulum koşullarına bağlıdır.' },
     { question: 'Pompa garanti süresi ne kadar?', answer: 'Her iki model için garanti süresi 2 yıldır. Kapsam ve kullanım şartlarını teklif aşamasında öğrenebilirsiniz.' },
     { question: 'Deniz suyu ve kirli su için kullanılabilir mi?', answer: 'Tuzlu ve kirli sularda çalışır. Kimyasal ve Endüstriyel sular için uygunluğu hakkında bilgi alınız.' },
     { question: 'Elektrikli su pompası fiyatı için hangi bilgiler gerekir?', answer: 'İlgilendiğiniz model, hedef debi ve basınç, suyun niteliği, emiş ve tahliye mesafeleri, çalışma süresi ve güç kaynağı bilgileriyle teklif talep edebilirsiniz.' },

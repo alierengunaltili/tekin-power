@@ -171,3 +171,7 @@ Kullanıcı görselle yalnız motor sayfasındaki tahrik-yerlesimi tekne videosu
 Kullanıcının verdiği “20 kW güçle saatte 400 ton su aktarımı” ifadesi yalnız gösterdiği yatay Sapanca tatbikatı videosunun (pompa-debi-1-v1) açıklamasına eklendi. Modelin teknik tablosundaki maksimum 420 m³/h değeri ve diğer video açıklamaları korunur.
 
 İkinci, dikey Sapanca videosunun açıklamasına kullanıcı isteğiyle “Saatte 1.200 ton kapasiteli 45 kW su pompası yükseklik ve basınç testi” eklendi. Ortak Sapanca/belediye açıklaması korunur; yeni sayısal basınç veya yükseklik değeri eklenmedi.
+
+## Pompa güç ve demaraj vurgusu — 15 Kasım 2026
+
+Kullanıcının ürün bilgisi ve metin talimatıyla pompa sayfasında iki modelin ağırlık/debi/güç açıklamaları büyük harflerle vurgulandı. Demaraj gerektirmeme ve mevcut güce göre su pompalama özellikleri girişe, ürün özetine, iki modelin teknik tablosuna, RIM özelliklerine, besleme açıklamasına ve yeni SSS yanıtına eklendi. Mevcut teknik maksimum debi tabloları ve çalışma koşulu açıklamaları korunur.

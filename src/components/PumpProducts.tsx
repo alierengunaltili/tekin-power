@@ -13,7 +13,7 @@ export default function PumpProducts() {
             <span className="mb-3 block text-base font-medium leading-6 tracking-normal text-blue-100 sm:text-xl">Eşdeğer güç ve performans sınıfında</span>
             DÜNYANIN<br className="hidden sm:block" /> EN HAFİF POMPASI
           </h2>
-          <p className="mt-5 max-w-xl text-base leading-7 text-blue-100">RIM Drive tasarımı, yüksek debiyi kompakt bir elektrikli pompa gövdesinde buluşturur.</p>
+          <p className="mt-5 max-w-xl text-base leading-7 text-blue-100">RIM Drive tasarımı, yüksek debiyi kompakt bir elektrikli pompa gövdesinde buluşturur. Her iki model de demaraj gerektirmez ve mevcut güce göre su pompalar.</p>
           </div>
           <div className="grid min-w-0 gap-4 sm:grid-cols-2">
             {pumps.map((pump) => (
@@ -57,6 +57,7 @@ export default function PumpProducts() {
                   <dl className="mt-5 divide-y divide-slate-200 text-sm sm:text-base">
                     {[
                       ['Motor gücü', pump.power], ['Ağırlık', pump.weight], ['Maksimum debi', pump.flow],
+                      ['Demaraj', 'Gerektirmez'], ['Güce göre çalışma', 'Mevcut güce göre su pompalar'],
                       ['Basma yüksekliği', pump.head], ['Maksimum devir', pump.speed],
                       ['Besleme seçenekleri', pump.supply], ['Koruma sınıfı', 'IP69'],
                       ['Ölçüler (en × boy × yükseklik)', pump.dimensions], ['Garanti süresi', '2 yıl'],

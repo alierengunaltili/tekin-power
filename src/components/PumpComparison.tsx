@@ -95,8 +95,6 @@ export default function PumpComparison() {
           ))}
         </div>
 
-        <p className="mt-5 text-xs leading-6 text-slate-500">Karşılaştırma değerleri Tekin Power tarafından sağlanan tabloya dayanır; diğer ürünlerin ağırlıkları ve demaraj akımları yaklaşık değerlerdir. DewJet için güncel model ve ağırlık bilgileri kullanılmıştır. Debi, basma yüksekliği ve sistem kapsamı birlikte değerlendirilmelidir; tablolar aynı çalışma noktasında ölçülmüş bir performans testi değildir.</p>
-
         <div className="mt-10 rounded-3xl bg-blue-950 p-6 text-white sm:p-8">
           <h3 className="text-2xl font-bold">Sahada DewJet farkı</h3>
           <div className="mt-6 grid gap-6 sm:grid-cols-2">

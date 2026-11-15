@@ -179,3 +179,7 @@ Kullanıcının ürün bilgisi ve metin talimatıyla pompa sayfasında iki model
 ## Ana sayfa pompa vurguları — 15 Kasım 2026
 
 Ağırlık/debi/güç vurguları `pumps.ts` highlight alanlarından ana sayfa pompa slaytına ve Çözümlerimiz kartına taşındı. Mobil kartlar tek sütunda okunur. Kullanıcının son düzeltmesiyle ana sayfa ve pompa detayındaki iki cümle “TAHLİYE ETMEKTEDİR” ile biter.
+
+## Pompa karşılaştırması — 16 Kasım 2026
+
+Kullanıcının karşılaştırma görselinden iki kapasite sınıfı ve beşer anonim alternatif oluşturuldu. `PumpComparison.tsx`, ürün kartlarının hemen ardından yer alır. Rakip marka/model bilgileri kaynak koduna ve DOM’a alınmaz; sis görünümü kimlik içermeyen yer tutucudadır. DewJet modelleri güncel `pumps.ts` verilerinden 20 kW / 25 kg ve 45 kW / 55 kg olarak gelir; eski görseldeki APUMP-40/80 ve ağırlıklar kullanılmaz. Karşılaştırmanın yaklaşık ve eşit çalışma noktasında test verisi olmadığı belirtilir. Sekiz avantaj alanı ve mobil yatay kaydırılabilir semantik tablolar bulunur.

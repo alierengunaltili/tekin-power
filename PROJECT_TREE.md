@@ -87,3 +87,5 @@ Sahadan Görseller rotaları artık yalnız kalıcı yönlendirme içerir; galer
 - public/saha-gorselleri/pompa-{afad,belediye}-ekip-{1,2}-v1.jpeg: pompa sayfası sonundaki dört saha fotoğrafı. Eşlemeler dewjet-pompa/page.tsx fieldPhotos listesinde; SolutionInfoPage children alanında gösterilir.
 
 - SolutionGuide.tsx GuideClosing: iletişim ve ilgili çözümler. SolutionInfoPage closingAfterChildren yalnız pompa sayfasında bu kapanışı galeriden sonra yerleştirir. Motor seyir-kontrolu saha videosu gösterimden kaldırıldı; tahrik-yerlesimi demre-motor-secimi-v1 dosyası Oymapınar açıklamasıyla kullanılır.
+
+- `src/components/PumpComparison.tsx`: pompa model kartları sonrasında iki anonim karşılaştırma tablosu ve DewJet avantajları; müşteri görselindeki karşılaştırma değerleri, güncel DewJet katalog verileri.

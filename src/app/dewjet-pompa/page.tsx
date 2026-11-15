@@ -18,13 +18,14 @@ export default function DewJetPompaPage() {
   return (
     <SolutionInfoPage
       content={pumpContent}
+      closingAfterChildren
       featuredContent={<PumpProducts />}
       sectionMedia={{
         'debi-basinc': (
           <div className="min-w-0 space-y-5">
             {[
-              { name: 'pompa-debi-1-v1', caption: 'Sapanca Gölü — Kocaeli Belediyesi, Sakarya Belediyesi Elektrikli Su Pompası Tatbikatı', width: 848, height: 478 },
-              { name: 'pompa-debi-2-v1', caption: 'Sapanca Gölü — Kocaeli Belediyesi, Sakarya Belediyesi Elektrikli Su Pompası Tatbikatı', width: 478, height: 850 },
+              { name: 'pompa-debi-1-v1', caption: 'Sapanca Gölü — Kocaeli Belediyesi, Sakarya Belediyesi Elektrikli Su Pompası Tatbikatı. 20 kW güçle saatte 400 ton su aktarımı.', width: 848, height: 478 },
+              { name: 'pompa-debi-2-v1', caption: 'Sapanca Gölü — Kocaeli Belediyesi, Sakarya Belediyesi Elektrikli Su Pompası Tatbikatı. Saatte 1.200 ton kapasiteli 45 kW su pompası yükseklik ve basınç testi.', width: 478, height: 850 },
             ].map(({ name, caption, width, height }) => (
               <figure key={name} className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white">
                 <video

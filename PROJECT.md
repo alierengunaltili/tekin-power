@@ -163,3 +163,11 @@ debi-basinc bölümüne kullanıcının 15.36.40 - Trim ve 2026-10-07 21.13.13 -
 23.14.10 - Trim videosu “20 kW Elektrikli Su Pompası Hafifliği” açıklamasıyla tasinabilirlik bölümünün ilk videosu olarak eklendi. İki AFAD videosu ardından korunur. Kaynak 464×832, 15,42 saniye; ses ve görüntü faststart paketlemeyle korunur. Pompa rehberindeki saha videosu sayısı sekizdir.
 
 Pompa sayfasının sonunda, alt bilgiden önce dört fotoğraflı “Pompa uygulama görselleri” bölümü bulunur (#pompa-uygulama-gorselleri). İlk iki fotoğraf kullanıcının AFAD 17.14.54 ve 17.14.53 dosyalarıdır; “AFAD Ekibi ve Tekin Power Ekibi Saha Tatbikatı” açıklamasını taşır. Ardından 23.14.03 ve 23.14.03 (1) dosyaları “Kocaeli-Sakarya Belediyesi Ekipleri ve Tekin Power Ekibi Saha Tatbikatı” açıklamasıyla gelir. Özgün JPEG'ler korunur, görseller kırpılmaz, tam boy açılır; masaüstünde iki sütun, telefonda tek sütun kullanılır.
+
+## Sayfa sıralaması ve motor videosu düzeltmesi — 15 Kasım 2026
+Pompa seçim/iletişim kutusu ve İlgili çözümler, kullanıcının isteğiyle fotoğraf galerisinden sonra sayfanın en sonuna taşındı. GuideClosing ortak içeriği korur; SolutionInfoPage closingAfterChildren yalnız pompa sayfasında etkindir. Diğer sayfaların sıralaması değişmez.
+Kullanıcı görselle yalnız motor sayfasındaki tahrik-yerlesimi tekne videosunu seçti: açıklama/erişilebilir ad “Antalya Oymapınar Elektrikli Tekne Dönüşümü” oldu. Marin sayfasının diğer Demre açıklamaları korunur. Ayrı talimatıyla motor sayfasının seyir-kontrolu bölümündeki demre-kumanda-v1 videosu gösterimden kaldırıldı; bölüm metni ve eski medya dosyaları korunur.
+
+Kullanıcının verdiği “20 kW güçle saatte 400 ton su aktarımı” ifadesi yalnız gösterdiği yatay Sapanca tatbikatı videosunun (pompa-debi-1-v1) açıklamasına eklendi. Modelin teknik tablosundaki maksimum 420 m³/h değeri ve diğer video açıklamaları korunur.
+
+İkinci, dikey Sapanca videosunun açıklamasına kullanıcı isteğiyle “Saatte 1.200 ton kapasiteli 45 kW su pompası yükseklik ve basınç testi” eklendi. Ortak Sapanca/belediye açıklaması korunur; yeni sayısal basınç veya yükseklik değeri eklenmedi.

@@ -14,25 +14,6 @@ export default function DewJetElektrikliMotorPage() {
       featuredContent={<MotorProducts />}
       showGuideNavigation={false}
       sectionMedia={{
-        'seyir-kontrolu': (
-          <figure className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white">
-            <video
-              controls
-              controlsList="nodownload"
-              playsInline
-              preload="none"
-              poster="/saha-videolari/demre-kumanda-v1/poster.jpg"
-              aria-label="Antalya Demre Elektrikli Tekne Dönüşümü — gaz kolu ve seyir ekranı"
-              width={480}
-              height={848}
-              className="max-h-[440px] w-full bg-slate-950 object-contain"
-            >
-              <source src="/saha-videolari/demre-kumanda-v1/video.mp4" type="video/mp4" />
-              Tarayıcınız video oynatmayı desteklemiyor.
-            </video>
-            <figcaption className="px-5 py-4 text-sm font-medium text-slate-600">Antalya Demre Elektrikli Tekne Dönüşümü</figcaption>
-          </figure>
-        ),
         'motor-secimi': (
           <figure className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white">
             <a href="/saha-gorselleri/dewjet-rim-fuar-v1.jpeg" target="_blank" rel="noopener noreferrer" aria-label="DewJet RIM motorlarının fuar fotoğrafını büyütün" className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600">
@@ -57,7 +38,7 @@ export default function DewJetElektrikliMotorPage() {
               playsInline
               preload="none"
               poster="/saha-videolari/demre-motor-secimi-v1/poster.jpg"
-              aria-label="Antalya Demre Elektrikli Tekne Dönüşümü"
+              aria-label="Antalya Oymapınar Elektrikli Tekne Dönüşümü"
               width={832}
               height={464}
               className="h-auto w-full bg-slate-950 object-contain"
@@ -65,7 +46,7 @@ export default function DewJetElektrikliMotorPage() {
               <source src="/saha-videolari/demre-motor-secimi-v1/video.mp4" type="video/mp4" />
               Tarayıcınız video oynatmayı desteklemiyor.
             </video>
-            <figcaption className="px-5 py-4 text-sm font-medium text-slate-600">Antalya Demre Elektrikli Tekne Dönüşümü</figcaption>
+            <figcaption className="px-5 py-4 text-sm font-medium text-slate-600">Antalya Oymapınar Elektrikli Tekne Dönüşümü</figcaption>
           </figure>
           <figure className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white">
             <video

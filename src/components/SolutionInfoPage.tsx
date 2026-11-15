@@ -1,17 +1,18 @@
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { GuideBody, GuideIntro } from '@/components/SolutionGuide';
+import { GuideBody, GuideIntro, GuideClosing } from '@/components/SolutionGuide';
 import type { PageContent } from '@/data/pageContent';
 import type { ReactNode } from 'react';
 
-export default function SolutionInfoPage({ content, children, featuredContent, headerMedia, afterHeader, sectionMedia, showGuideNavigation = true }: {
+export default function SolutionInfoPage({ content, children, featuredContent, headerMedia, afterHeader, sectionMedia, closingAfterChildren = false, showGuideNavigation = true }: {
   content: PageContent;
   children?: ReactNode;
   featuredContent?: ReactNode;
   headerMedia?: ReactNode;
   afterHeader?: ReactNode;
   sectionMedia?: Record<string, ReactNode>;
+  closingAfterChildren?: boolean;
   showGuideNavigation?: boolean;
 }) {
   return (
@@ -37,8 +38,15 @@ export default function SolutionInfoPage({ content, children, featuredContent, h
         {afterHeader}
         <GuideIntro content={content} showNavigation={showGuideNavigation} />
         {featuredContent}
-        <GuideBody content={content} sectionMedia={sectionMedia} />
+        <GuideBody content={content} sectionMedia={sectionMedia} showClosing={!closingAfterChildren} />
         {children}
+        {closingAfterChildren && (
+          <div className="bg-slate-50 px-5 pb-12 pt-1 sm:px-8 sm:pb-16">
+            <div className="mx-auto max-w-6xl">
+              <GuideClosing content={content} />
+            </div>
+          </div>
+        )}
       </main>
       <Footer />
     </div>

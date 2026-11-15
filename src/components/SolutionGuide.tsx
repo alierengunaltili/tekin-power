@@ -21,13 +21,7 @@ export function GuideIntro({ content, showNavigation = true }: { content: PageCo
   );
 }
 
-export function GuideBody({ content, sectionMedia = {} }: { content: PageContent; sectionMedia?: Record<string, ReactNode> }) {
-  const contactClass = 'mt-8 flex flex-wrap gap-3';
-  const contactLinks = (
-    <>
-      <a href="tel:+905323276293" className="rounded-xl border border-white/30 px-6 py-3 font-semibold hover:bg-white/10">Bizi arayın</a>
-    </>
-  );
+export function GuideBody({ content, sectionMedia = {}, showClosing = true }: { content: PageContent; sectionMedia?: Record<string, ReactNode>; showClosing?: boolean }) {
   return (
     <div className="bg-slate-50 px-5 py-12 sm:px-8 sm:py-16">
       <div className="mx-auto max-w-6xl">
@@ -58,6 +52,21 @@ export function GuideBody({ content, sectionMedia = {} }: { content: PageContent
             ))}
           </div>
         </section>
+        {showClosing && <GuideClosing content={content} />}
+      </div>
+    </div>
+  );
+}
+
+export function GuideClosing({ content }: { content: PageContent }) {
+  const contactClass = 'mt-8 flex flex-wrap gap-3';
+  const contactLinks = (
+    <>
+      <a href="tel:+905323276293" className="rounded-xl border border-white/30 px-6 py-3 font-semibold hover:bg-white/10">Bizi arayın</a>
+    </>
+  );
+  return (
+    <>
         <section id="bilgi-talebi" className="mt-12 scroll-mt-40 rounded-3xl bg-blue-950 p-6 text-white sm:p-10">
           <h2 className="text-2xl font-bold sm:text-3xl">{content.requestTitle}</h2>
           <p className="mt-4 text-blue-100">Görüşme öncesinde aşağıdaki bilgileri hazırlayabilirsiniz:</p>
@@ -74,7 +83,6 @@ export function GuideBody({ content, sectionMedia = {} }: { content: PageContent
             {content.related.map((item) => <Link key={item.href} href={item.href} className="rounded-xl border border-blue-200 bg-white px-5 py-3 font-medium text-blue-800 hover:bg-blue-50">{item.label}</Link>)}
           </div>
         </nav>
-      </div>
-    </div>
+    </>
   );
 }

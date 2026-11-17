@@ -89,3 +89,5 @@ Sahadan Görseller rotaları artık yalnız kalıcı yönlendirme içerir; galer
 - SolutionGuide.tsx GuideClosing: iletişim ve ilgili çözümler. SolutionInfoPage closingAfterChildren yalnız pompa sayfasında bu kapanışı galeriden sonra yerleştirir. Motor seyir-kontrolu saha videosu gösterimden kaldırıldı; tahrik-yerlesimi demre-motor-secimi-v1 dosyası Oymapınar açıklamasıyla kullanılır.
 
 - `src/components/PumpComparison.tsx`: pompa model kartları sonrasında iki anonim karşılaştırma tablosu ve DewJet avantajları; müşteri görselindeki karşılaştırma değerleri, güncel DewJet katalog verileri.
+
+- public/saha-videolari/tekne-hmi-izleme-v1/{video.mp4,poster.jpg}: /tekne-hmi#izleme videosu; bağlantı src/app/tekne-hmi/page.tsx.

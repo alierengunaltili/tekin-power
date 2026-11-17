@@ -187,3 +187,7 @@ Kullanıcının karşılaştırma görselinden iki kapasite sınıfı ve beşer 
 ## Üst menü sırası — 16 Kasım 2026
 Yenilenebilir Enerji menüsü DewJet Elektrikli Pompa ile İletişim arasına taşındı; mobil sıra da aynı. Enerji alt menüsü sağa hizalandı, dört bağlantı korundu.
 
+
+## Tekne HMI izleme videosu — 17 Kasım 2026
+Kullanıcının WhatsApp Video 2026-11-17 at 12.21.29.mp4 dosyası /tekne-hmi sayfasındaki izleme bölümüne eklendi. sectionMedia ile masaüstünde sağda, mobilde metnin altında; 464×832, 23,63 sn, kaynak ses ve görüntü korunarak faststart kopya. Kapak, manuel oynatma ve nodownload kontrolleri kullanılır.
+

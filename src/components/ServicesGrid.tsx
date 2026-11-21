@@ -56,9 +56,6 @@ const ServicesGrid = () => {
 
               {/* Content */}
               <div className="p-4 sm:p-6">
-                <div className={`inline-block px-2.5 sm:px-3 py-1 bg-gradient-to-r ${service.gradient} text-white text-xs font-semibold rounded-full mb-2 sm:mb-3`}>
-                  {service.title}
-                </div>
                 <h3 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300 leading-tight">
                   {service.productTitle}
                 </h3>

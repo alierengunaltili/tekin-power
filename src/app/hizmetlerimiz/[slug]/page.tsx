@@ -228,11 +228,6 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
           <div className="mobile-video-content relative z-10 h-full flex items-center justify-center">
             <div className="text-center text-white max-w-4xl mx-auto px-3 sm:px-4">
-              {service.showHeroCategory !== false && (
-                <span className={`inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r ${service.gradient} text-white text-xs sm:text-sm font-semibold rounded-full mb-4 sm:mb-6 shadow-lg`}>
-                  {service.category}
-                </span>
-              )}
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 drop-shadow-lg">
                 {service.title}
               </h1>

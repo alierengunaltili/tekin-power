@@ -286,9 +286,6 @@ const PhotoSwiper = () => {
                   {/* Content */}
                   <div className="absolute bottom-28 left-0 right-0 px-6 sm:px-24 lg:px-28">
                     <div className="max-w-2xl">
-                      <span className={`inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r ${slide.gradient} text-white text-xs sm:text-sm font-semibold rounded-full mb-3 sm:mb-4 shadow-lg`}>
-                        {slide.title}
-                      </span>
                       <h3 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-2 sm:mb-3 lg:mb-4 drop-shadow-lg">
                         {slide.productTitle}
                       </h3>

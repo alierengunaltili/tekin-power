@@ -17,8 +17,7 @@ import {
   Globe,
   Leaf,
   Target,
-  Users,
-  Zap
+  Users
 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
@@ -210,7 +209,7 @@ const HakkimizdaPage = () => {
               <div className="w-16 sm:w-20 lg:w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto mb-6 sm:mb-8"></div>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+            <div className="max-w-4xl mx-auto">
               {/* Content Card */}
               <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
                 <div className="text-left space-y-4 sm:space-y-6">
@@ -229,42 +228,6 @@ const HakkimizdaPage = () => {
                 </div>
               </div>
 
-              {/* Statistics Card */}
-              <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
-                <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
-                  <div className="text-center">
-                    <div className="w-12 sm:w-14 lg:w-16 h-12 sm:h-14 lg:h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 lg:mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <Users className="w-6 sm:w-7 lg:w-8 h-6 sm:h-7 lg:h-8 text-white" />
-                    </div>
-                    <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">500+</h4>
-                    <p className="text-sm sm:text-base text-gray-600">Müşteri</p>
-                  </div>
-                  
-                  <div className="text-center">
-                    <div className="w-12 sm:w-14 lg:w-16 h-12 sm:h-14 lg:h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 lg:mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <Zap className="w-6 sm:w-7 lg:w-8 h-6 sm:h-7 lg:h-8 text-white" />
-                    </div>
-                    <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">1000+</h4>
-                    <p className="text-sm sm:text-base text-gray-600">Proje</p>
-                  </div>
-                  
-                  <div className="text-center">
-                    <div className="w-12 sm:w-14 lg:w-16 h-12 sm:h-14 lg:h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 lg:mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <Battery className="w-6 sm:w-7 lg:w-8 h-6 sm:h-7 lg:h-8 text-white" />
-                    </div>
-                    <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">50MW</h4>
-                    <p className="text-sm sm:text-base text-gray-600">Kurulu Güç</p>
-                  </div>
-                  
-                  <div className="text-center">
-                    <div className="w-12 sm:w-14 lg:w-16 h-12 sm:h-14 lg:h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 lg:mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <Leaf className="w-6 sm:w-7 lg:w-8 h-6 sm:h-7 lg:h-8 text-white" />
-                    </div>
-                    <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">25K</h4>
-                    <p className="text-sm sm:text-base text-gray-600">Ton CO₂ Tasarruf</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </section>
 

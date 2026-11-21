@@ -5,7 +5,6 @@ const waterPagePaths = [
   '/dewjet-elektrikli-motor',
   '/dewjet-pompa',
   '/dewjet',
-  '/dalyan',
 ];
 
 export function isWaterPagePath(pathname: string): boolean {

@@ -25,7 +25,7 @@ const pages = [
   ['/hizmetlerimiz', 'Tekin Power Çözümleri'], ['/dewjet-elektrikli-motor', 'Elektrikli Tekne Motorları'],
   ['/dewjet-pompa', 'Elektrikli Su Pompası'], ['/lifepo4', 'LiFePO4 Batarya'],
   ['/tekne-hmi', 'Tekne HMI'], ['/gunespaneli', 'Güneş Paneli Sistemleri'],
-  ['/dalyan', 'DALYAN'], ['/arsimet-burgusu', 'Arşimet Burgusu'],
+  ['/arsimet-burgusu', 'Arşimet Burgusu'],
   ['/hizmetlerimiz/marin', 'Elektrikli Marin'],
   ['/hizmetlerimiz/enerji-depolama', 'Unisun Enerji Depolama'],
   ['/hizmetlerimiz/askeri-sistem-uygulamalari', 'Askeri Sistem'],
@@ -73,4 +73,6 @@ const urls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m => m[1]);
 assert.equal(new Set(urls).size, urls.length, 'Sitemap has no duplicates');
 for (const [path] of pages) assert.ok(urls.some(url => new URL(url).href === canonical + path), path + ' in sitemap');
 assert.equal((await request('/hizmetlerimiz/olmayan-hizmet-kontrol')).status, 404, 'Unknown service must not redirect to unrelated content');
-console.log('PASS: 14 legacy redirects on both hosts, queries and AFAD anchor, 14 current pages and canonical titles/icons, sitemap, unknown-route 404.');
+assert.equal((await request('/dalyan')).status, 404, 'Removed Dalyan page');
+assert.ok(!sitemap.includes('<loc>' + canonical + '/dalyan</loc>'), 'Removed Dalyan page not in sitemap');
+console.log('PASS: 14 legacy redirects on both hosts, queries and AFAD anchor, 13 current pages and canonical titles/icons, sitemap, removed/unknown-route 404.');

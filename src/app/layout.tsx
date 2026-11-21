@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SITE_URL, SITE_LOGO } from "@/lib/seo";
+import { SITE_URL } from "@/lib/seo";
 import Script from "next/script";
 import WhatsAppContact from '@/components/WhatsAppContact';
 import { Geist, Geist_Mono } from "next/font/google";
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   creator: 'Tekin Power',
   publisher: 'Tekin Power',
   formatDetection: { email: false, address: false, telephone: false },
-  icons: { icon: SITE_LOGO, shortcut: SITE_LOGO, apple: SITE_LOGO },
+  icons: { icon: `${SITE_URL}/tekinpower-icon.png`, shortcut: `${SITE_URL}/tekinpower-icon.png`, apple: `${SITE_URL}/tekinpower-icon.png` },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-video-preview': -1, 'max-image-preview': 'large', 'max-snippet': -1 } },
 };
 

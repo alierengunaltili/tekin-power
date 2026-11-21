@@ -12,7 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/hizmetlerimiz',
     '/lifepo4',
     '/tekne-hmi',
-    '/dewjet',
     '/dalyan',
     '/gunespaneli',
     '/arsimet-burgusu',

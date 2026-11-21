@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 
 const base = process.argv[2] || 'http://127.0.0.1:3000';
 const canonicalBase = 'https://tekinpower.com';
-const paths = ['/', '/hakkimizda', '/hizmetlerimiz', '/hizmetlerimiz/marin', '/hizmetlerimiz/enerji-depolama', '/dewjet-elektrikli-motor', '/dewjet-pompa', '/tekne-hmi', '/lifepo4', '/dewjet', '/hizmetlerimiz/askeri-sistem-uygulamalari', '/hizmetlerimiz/deniz-gol-dibi-arama-tarama'];
+const paths = ['/', '/hakkimizda', '/hizmetlerimiz', '/hizmetlerimiz/marin', '/hizmetlerimiz/enerji-depolama', '/dewjet-elektrikli-motor', '/dewjet-pompa', '/tekne-hmi', '/lifepo4', '/hizmetlerimiz/askeri-sistem-uygulamalari', '/hizmetlerimiz/deniz-gol-dibi-arama-tarama'];
 
 async function main() {
   const titles = new Set();

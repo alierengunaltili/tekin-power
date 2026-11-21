@@ -5,11 +5,12 @@ import { ArrowDown, ArrowUpRight, Waves } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { dalyanNews, dalyanReviewedAt } from '@/data/dalyan';
+import { SITE_URL } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'DALYAN | Elektrikli Tekne Haberleri | Tekin Power',
   description: 'Dalyan’dan ve dünyadan elektrikli tekne haberleri, görseller ve deniz ulaşımındaki elektrikli dönüşümden gelişmeler.',
-  alternates: { canonical: 'https://tekinpower.com.tr/dalyan' },
+  alternates: { canonical: `${SITE_URL}/dalyan` },
 };
 
 const externalLinkProps = { target: '_blank', rel: 'noopener noreferrer' } as const;

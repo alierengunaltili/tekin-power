@@ -204,7 +204,7 @@ const SolarPhotoSwiper = () => {
     return (
     <>
       {/* Photo Swiper Section */}
-      <section ref={sectionRef} className="pt-12 sm:pt-16 lg:pt-20 pb-8 sm:pb-12 lg:pb-16 relative overflow-hidden min-h-[90vh] sm:min-h-[95vh] lg:min-h-[110vh]">
+      <section ref={sectionRef} className="pt-36 sm:pt-40 pb-8 sm:pb-12 lg:pb-16 relative overflow-hidden min-h-[90vh] sm:min-h-[95vh] lg:min-h-[110vh]">
         {/* Dynamic Background */}
         <div ref={backgroundRef} className="absolute inset-0 -z-10">
           <Image

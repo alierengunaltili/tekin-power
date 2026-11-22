@@ -13,6 +13,14 @@ const navy = rgb(.043,.129,.227), cyan = rgb(0,.42,.57), gray = rgb(.31,.37,.44)
 export async function createPumpSavingsPdf(input: PumpDetailInput, result: PumpSavingsResult, company: string) {
   const doc = await PDFDocument.create(); doc.registerFontkit(fontkit);
   const font = await doc.embedFont(await readFile(path.join(process.cwd(), 'assets/fonts/NotoSans-Regular.ttf')), { subset:true });
+  const reportAsset = (name: string) => readFile(path.join(process.cwd(), 'assets/reports', name));
+  const [cover, product, logo] = await Promise.all([
+    reportAsset('pumps-cover.jpg').then(bytes => doc.embedJpg(bytes)),
+    reportAsset(`pump-${input.pump.dewjetPower}.jpg`).then(bytes => doc.embedJpg(bytes)),
+    reportAsset('tekin-power-logo.png').then(bytes => doc.embedPng(bytes)),
+  ]);
+  const model = `DWE-APUMP-${input.pump.dewjetPower}`;
+  const weight = input.pump.dewjetPower === 20 ? 25 : 55;
   const supported = new Set(font.getCharacterSet());
   const clean = (s: string) => Array.from(s.normalize('NFC')).filter(c => !/[\r\n\t\x00-\x1f]/.test(c)).map(c => supported.has(c.codePointAt(0)!) ? c : '?').join('');
   const date = new Intl.DateTimeFormat('tr-TR', {dateStyle:'long',timeStyle:'short',timeZone:'Europe/Istanbul'}).format(new Date());
@@ -32,7 +40,12 @@ export async function createPumpSavingsPdf(input: PumpDetailInput, result: PumpS
   }
   function page(title: string, number: number) {
     const p=doc.addPage([595,842]); p.drawRectangle({x:0,y:720,width:595,height:122,color:navy});
-    text(p,'TEKİN POWER  /  DEWJET',42,27,11,rgb(.44,.87,.96)); text(p,title,42,54,23,rgb(1,1,1)); text(p,date+' · Türkiye saati',42,92,9,rgb(.8,.85,.9));
+    const logoSize=logo.scaleToFit(90,44); p.drawImage(logo,{x:42,y:842-17-logoSize.height,...logoSize});
+    text(p,'DEWJET / ENERJİ VERİMLİLİĞİ',149,28,9,rgb(.44,.87,.96),225);
+    text(p,title,42,70,22,rgb(1,1,1),345); text(p,date+' · Türkiye saati',42,102,8,rgb(.8,.85,.9));
+    const productSize=product.scaleToFit(152,56); p.drawImage(product,{x:401,y:842-23-productSize.height,...productSize});
+    text(p,model,401,88,9,rgb(.44,.87,.96),152);
+    p.drawRectangle({x:0,y:717,width:595,height:3,color:cyan});
     text(p,company.trim()||'Pompa enerji maliyeti karşılaştırması',42,143,13,navy);
     p.drawLine({start:{x:42,y:47},end:{x:553,y:47},color:rgb(.8,.85,.9),thickness:.6});
     text(p,'tekinpower.com · Müşteri girdilerine dayalı hesaplama raporu',42,807,8,gray); text(p,`${number} / 3`,510,807,8,gray,43);
@@ -47,20 +60,26 @@ export async function createPumpSavingsPdf(input: PumpDetailInput, result: PumpS
   }
   const benefit=result.savedPower>=0;
   const p1=page('Enerji Tasarruf Raporu',1);
-  text(p1,'YÖNETİCİ ÖZETİ',42,185,10,cyan);
-  text(p1,`%${f(Math.abs(result.savingsPercent))}`,42,208,42,navy);
-  text(p1,`DewJet ile ${benefit?'daha az':'daha fazla'} elektrik tüketimi`,42,266,15,cyan);
-  paragraph(p1,`Saatlik ${f(input.pump.water)} m³ su tahliyesi varsayımında DewJet ${f(input.pump.dewjetPower)} kW, karşılaştırılan pompa ${f(input.pump.competitorPower)} kW güç kullanır.`,301);
+  p1.drawImage(cover,{x:42,y:842-175-170,width:511,height:170});
+  p1.drawRectangle({x:42,y:842-345-29,width:511,height:29,color:navy});
+  text(p1,`SEÇİLEN MODEL  /  ${model}`,54,354,10,rgb(1,1,1),320);
+  text(p1,`${input.pump.dewjetPower} kW  ·  ${weight} kg`,431,354,10,rgb(.44,.87,.96),110);
+  text(p1,'YÖNETİCİ ÖZETİ',42,391,9,cyan);
+  text(p1,`%${f(Math.abs(result.savingsPercent))}`,42,408,36,navy,150);
+  text(p1,`DewJet ile ${benefit?'daha az':'daha fazla'}`,207,415,15,navy,345);
+  text(p1,'elektrik tüketimi',207,438,15,cyan,345);
+  paragraph(p1,`Saatlik ${f(input.pump.water)} m³ su tahliyesi varsayımında DewJet ${f(input.pump.dewjetPower)} kW, karşılaştırılan pompa ${f(input.pump.competitorPower)} kW güç kullanır.`,469,9);
   result.scenarios.forEach((s,i) => {
-    const x=42+i*263; p1.drawRectangle({x,y:842-374-207,width:248,height:207,color:pale});
-    text(p1,s.label,x+15,390,13,navy,218); text(p1,`${f(s.hoursPerMonth)} saat/ay`,x+15,417,10,gray,218);
-    text(p1,`Aylık ${benefit?'tasarruf':'ek maliyet'}`,x+15,450,10,cyan,218); text(p1,`${f(Math.abs(s.monthlySavings))} TL`,x+15,471,20,navy,218);
-    text(p1,`5 yıllık ${benefit?'tasarruf':'ek maliyet'}`,x+15,514,10,cyan,218); text(p1,`${f(Math.abs(s.fiveYearSavings))} TL`,x+15,535,20,navy,218);
+    const x=42+i*263; p1.drawRectangle({x,y:842-510-216,width:248,height:216,color:pale});
+    p1.drawRectangle({x,y:842-510-3,width:248,height:3,color:cyan});
+    text(p1,s.label,x+15,524,13,navy,218); text(p1,`${f(s.hoursPerMonth)} saat/ay`,x+15,548,9,gray,218);
+    text(p1,`Aylık ${benefit?'tasarruf':'ek maliyet'}`,x+15,573,9,cyan,218); text(p1,`${f(Math.abs(s.monthlySavings))} TL`,x+15,588,18,navy,218);
+    text(p1,`1 yıllık ${benefit?'tasarruf':'ek maliyet'}`,x+15,622,9,cyan,218); text(p1,`${f(Math.abs(s.years[0].savings))} TL`,x+15,637,18,navy,218);
+    text(p1,`5 yıllık ${benefit?'tasarruf':'ek maliyet'}`,x+15,671,9,cyan,218); text(p1,`${f(Math.abs(s.fiveYearSavings))} TL`,x+15,686,18,navy,218);
   });
-  let y=614;
-  if (!benefit) y=paragraph(p1,'Girilen değerlerde DewJet diğer pompadan daha fazla enerji tüketmektedir. Tablolardaki negatif farklar DewJet için ek maliyeti gösterir.',y);
-  y=paragraph(p1,'Bu rapor, firmanızın girdiği güç, elektrik bedeli ve çalışma süresine göre hazırlanmıştır. KDV, satın alma, bakım ve finansman giderleri dahil değildir.',y+5);
-  paragraph(p1,'Karşılaştırma aynı debi ve basma yüksekliğinde yapılmalıdır. Gerçek çalışma noktası pompa performans eğrileriyle doğrulanmalıdır.',y+5);
+  let y=740;
+  if (!benefit) y=paragraph(p1,'Girilen değerlerde DewJet daha fazla enerji tüketir. Negatif farklar ek maliyeti gösterir.',y,8);
+  paragraph(p1,'KDV hariçtir. 1 yıllık tutar, rapordaki ilk yıl fiyat artışını içerir. Girdiler ve hesaplama varsayımları 3. sayfadadır.',y,8);
 
   const p2=page('Maliyet ve Karbon Karşılaştırması',2);
   result.scenarios.forEach((s,i) => {
@@ -79,6 +98,7 @@ export async function createPumpSavingsPdf(input: PumpDetailInput, result: PumpS
   text(p3,`Karbon katsayısı: ${precise(input.emissionFactor)} ton CO₂e/MWh`,42,581,10,cyan);
   result.scenarios.forEach((s,i)=>text(p3,`Plan ${i+1} · ${benefit?'Önlenen':'Ek'} emisyon: yılda ${f(Math.abs(s.yearlyCarbon))}, 5 yılda ${f(Math.abs(s.fiveYearCarbon))} ton CO₂e`,42,605+i*22,10));
   y=paragraph(p3,'Yıllık fiyat artışları: %29, %24, %18, %16, %12. İlk yıl artışı ilk yıllık tutara uygulanır; sonraki artışlar birikimli olarak iki pompaya eşit uygulanır.',664,9);
-  paragraph(p3,'Güçler ve çalışma süreleri sabitken debinin değiştirilmesi aylık maliyeti değiştirmez. Tek zamanlı planda tek zamanlı bedel; çok zamanlı planda girilen zaman dilimleri kullanılır. Karbon farkı her planın çalışma süresini içerir.',y,9);
+  y=paragraph(p3,'Güçler ve çalışma süreleri sabitken debinin değiştirilmesi aylık maliyeti değiştirmez. Tek zamanlı planda tek zamanlı bedel; çok zamanlı planda girilen zaman dilimleri kullanılır. Karbon farkı her planın çalışma süresini içerir.',y,9);
+  paragraph(p3,'Aynı debi ve basma yüksekliği esas alınır; çalışma noktası pompa eğrileriyle doğrulanmalıdır. Satın alma, bakım ve finansman giderleri dahil değildir.',y,8);
   return doc.save();
 }

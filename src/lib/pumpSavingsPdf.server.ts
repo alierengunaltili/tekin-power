@@ -57,7 +57,8 @@ export async function createPumpSavingsPdf(input: PumpDetailInput, result: PumpS
     text(p1,`Aylık ${benefit?'tasarruf':'ek maliyet'}`,x+15,450,10,cyan,218); text(p1,`${f(Math.abs(s.monthlySavings))} TL`,x+15,471,20,navy,218);
     text(p1,`5 yıllık ${benefit?'tasarruf':'ek maliyet'}`,x+15,514,10,cyan,218); text(p1,`${f(Math.abs(s.fiveYearSavings))} TL`,x+15,535,20,navy,218);
   });
-  let y=paragraph(p1,benefit?'Pozitif farklar DewJet lehine enerji ve maliyet tasarrufunu gösterir.':'Girilen değerlerde DewJet diğer pompadan daha fazla enerji tüketmektedir. Tablolardaki negatif farklar DewJet için ek maliyeti gösterir.',614);
+  let y=614;
+  if (!benefit) y=paragraph(p1,'Girilen değerlerde DewJet diğer pompadan daha fazla enerji tüketmektedir. Tablolardaki negatif farklar DewJet için ek maliyeti gösterir.',y);
   y=paragraph(p1,'Bu rapor, firmanızın girdiği güç, elektrik bedeli ve çalışma süresine göre hazırlanmıştır. KDV, satın alma, bakım ve finansman giderleri dahil değildir.',y+5);
   paragraph(p1,'Karşılaştırma aynı debi ve basma yüksekliğinde yapılmalıdır. Gerçek çalışma noktası pompa performans eğrileriyle doğrulanmalıdır.',y+5);
 

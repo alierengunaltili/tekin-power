@@ -90,6 +90,7 @@ export default function DewJetElektrikliMotorPage() {
       headerMedia={
         <AdaptiveVideo
           name="dewjet-twin-marine-v2"
+          priority
           prefix="service"
           label="Lüks teknede iki DewJet motor ve su altı akışı konsept animasyonu"
           fit="contain"

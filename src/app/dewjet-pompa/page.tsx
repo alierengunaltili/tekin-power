@@ -149,6 +149,7 @@ export default function DewJetPompaPage() {
       headerMedia={
         <AdaptiveVideo
           name="dewjet-pompa-showcase-v1"
+          priority
           prefix="service"
           label="DewJet elektrikli su pompaları tanıtım videosu"
           fit="contain"

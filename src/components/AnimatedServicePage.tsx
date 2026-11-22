@@ -26,13 +26,17 @@ interface Service {
 interface AnimatedServicePageProps {
   service: Service;
   children: React.ReactNode;
+  immediateMobileContent?: boolean;
 }
 
-const AnimatedServicePage = ({ service, children }: AnimatedServicePageProps) => {
+const AnimatedServicePage = ({ children, immediateMobileContent = false }: AnimatedServicePageProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
+    const media = gsap.matchMedia();
+    media.add(immediateMobileContent
+      ? '(min-width: 1024px) and (prefers-reduced-motion: no-preference)'
+      : '(prefers-reduced-motion: no-preference)', () => {
       // Set initial states for all sections
       gsap.set('.hero-section', {
         opacity: 0,
@@ -85,8 +89,8 @@ const AnimatedServicePage = ({ service, children }: AnimatedServicePageProps) =>
 
     }, containerRef);
 
-    return () => ctx.revert();
-  }, []);
+    return () => media.revert();
+  }, [immediateMobileContent]);
 
   return (
     <div ref={containerRef} className="min-h-screen">

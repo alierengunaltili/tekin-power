@@ -205,13 +205,13 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       {/* Navigation */}
       <Navbar />
 
-      <AnimatedServicePage service={animatedServicePageProps}>
+      <AnimatedServicePage service={animatedServicePageProps} immediateMobileContent={slug === 'enerji-depolama'}>
         {/* Hero Section */}
         <section className={`hero-section relative h-[560px] sm:h-[620px] overflow-hidden bg-slate-950 ${service.video ? 'mobile-video-hero' : ''}`}>
           <div className="absolute inset-0">
             {service.video ? (
               <div className="mobile-video-stage absolute inset-0">
-                <AdaptiveVideo name={service.video} prefix="service" label={`${service.title} tanıtım videosu`} loop />
+                <AdaptiveVideo name={service.video} prefix="service" label={`${service.title} tanıtım videosu`} priority={slug === 'enerji-depolama'} loop />
               </div>
             ) : service.image ? (
               <Image

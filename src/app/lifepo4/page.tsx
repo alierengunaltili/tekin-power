@@ -13,7 +13,7 @@ export default function LiFePO4Page() {
         <Image
           src="/akuler/hero/green-marine-camping-v2.png"
           alt="Karavanlarının yanında kamp sandalyelerinde denizi izleyen kadın ve erkek; tekneli kıyıda yeşil ve mavi etiketli 12.8V 100Ah LiFePO4 aküler"
-          fill priority sizes="100vw" quality={90} className="object-cover"
+          fill priority fetchPriority="high" sizes="100vw" quality={80} className="object-cover"
         />
       } afterHeader={<LiFePO4BatterySection />} />
     </div>

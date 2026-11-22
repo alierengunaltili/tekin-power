@@ -28,6 +28,7 @@ export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnd
   const [quality, setQuality] = useState<VideoQuality>('balanced');
   const [codec, setCodec] = useState<'vp9' | 'h264'>('h264');
   const [enabled, setEnabled] = useState(false);
+  const [posterReady, setPosterReady] = useState(false);
   const [visible, setVisible] = useState(false);
   const [failed, setFailed] = useState(false);
   const [presentedSource, setPresentedSource] = useState('');
@@ -42,6 +43,8 @@ export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnd
   const hasPresentedFrame = presentedSource === source;
 
   useEffect(() => {
+    // Let the opening image finish before a multi-megabyte video competes for bandwidth.
+    if (priority && !posterReady) return;
     const connection = (navigator as Navigator & { connection?: NetworkConnection }).connection;
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let timer: number | undefined;
@@ -74,7 +77,7 @@ export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnd
       connection?.removeEventListener('change', applyPreferences);
       motion.removeEventListener('change', applyPreferences);
     };
-  }, [asset, playbackChoice]);
+  }, [asset, playbackChoice, priority, posterReady]);
 
   useEffect(() => {
     let inViewport = false;
@@ -158,6 +161,8 @@ export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnd
           priority={priority}
           loading={priority ? undefined : 'eager'}
           fetchPriority={priority ? 'high' : 'auto'}
+          onLoad={priority ? () => setPosterReady(true) : undefined}
+          onError={priority ? () => setPosterReady(true) : undefined}
           className={`video-poster ${fit === 'contain' ? 'object-contain' : 'object-cover'}`}
         />
         {enabled && !failed && (

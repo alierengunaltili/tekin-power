@@ -1,17 +1,18 @@
 import 'server-only';
 import { pumpComparisons } from '@/data/pumpComparisons';
+import { pumpInflation } from '@/data/pumpInflation';
 import type { PumpDetailInput, PumpSavingsInput, PumpSavingsResult } from '@/types/pumpSavings';
 
 // Source: supplied workbook Sayfa1 C2:C5, C9:F12, B16:G17, B20:F20.
 // Private calculation code: never import into a client component or copy the XLSX to public/.
 export const defaultPumpSavingsInput: PumpSavingsInput = { water: 1200, competitorPower: Number.parseFloat(pumpComparisons[0].alternatives[0].power), dewjetPower: 45 };
-const annualIncreases = [0.29, 0.24, 0.18, 0.16, 0.12];
+const annualIncreases = pumpInflation.periods.map(period => period.rate);
 const emissionFactor = 0.434;
 const distribution = 1.829503;
 const tax = 0.01;
 const scenarios = [
   { id: 'shift', label: '8 saat tek vardiya', hoursPerDay: 8, daysPerMonth: 22, activeTariff: 3.0346 },
-  { id: 'continuous', label: '24 saat sürekli çalışma', hoursPerDay: 24, daysPerMonth: 30.4167, activeTariff: 2.985253 },
+  { id: 'continuous', label: '24 saat sürekli çalışma', hoursPerDay: 24, daysPerMonth: 30, activeTariff: 2.985253 },
 ];
 
 export function validPumpSavingsInput(value: unknown): value is PumpSavingsInput {
@@ -47,13 +48,13 @@ export function calculatePumpSavings(input: PumpSavingsInput, config?: Calculati
       let dewjetAnnual = dewjetMonthlyCost * 12;
       let competitorAnnual = competitorMonthlyCost * 12;
       let cumulativeSavings = 0;
-      // Apply the workbook's year-one increase, then compound equally for both pumps in both scenarios.
+      // Apply the first scenario year's inflation, then compound equally for both pumps.
       const years = annualIncreases.map((increase, index) => {
         dewjetAnnual *= 1 + increase;
         competitorAnnual *= 1 + increase;
         const savings = competitorAnnual - dewjetAnnual;
         cumulativeSavings += savings;
-        return { year: index + 1, dewjetCost: dewjetAnnual, competitorCost: competitorAnnual, savings, cumulativeSavings };
+        return { year: pumpInflation.periods[index].year, dewjetCost: dewjetAnnual, competitorCost: competitorAnnual, savings, cumulativeSavings };
       });
       const monthlyCarbon = savedEnergy / 1000 * (config?.emissionFactor ?? emissionFactor);
       return {
@@ -74,7 +75,7 @@ export function defaultPumpDetailInput(pump = defaultPumpSavingsInput): PumpDeta
     tariffs: [3.0346, 5.1574, 1.3212, 2.985253].map(active => ({ active, distribution, tax })),
     schedules: [
       { day: 8, peak: 0, night: 0, days: 22, mode: 'timed' },
-      { day: 11, peak: 5, night: 8, days: 30.4167, mode: 'single' },
+      { day: 11, peak: 5, night: 8, days: 30, mode: 'single' },
     ],
   };
 }

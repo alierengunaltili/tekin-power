@@ -1,4 +1,5 @@
 import type { PumpSavingsResult } from '@/types/pumpSavings';
+import { pumpInflation } from '@/data/pumpInflation';
 
 const number = new Intl.NumberFormat('tr-TR', { maximumFractionDigits: 2 });
 const f = (n: number) => number.format(n);
@@ -14,7 +15,7 @@ export default function PumpSavingsResults({ result }: { result: PumpSavingsResu
     </div>
     <div className="grid gap-6 lg:grid-cols-2">{result.scenarios.map(s => <article key={s.id} className="min-w-0 rounded-3xl border border-slate-200 bg-white p-6">
       <h2 className="text-xl font-bold text-slate-900">{s.label}</h2>
-      <p className="mt-2 text-sm text-slate-500">Ayda {f(s.daysPerMonth)} gün · {f(s.hoursPerMonth)} saat</p>
+      <p className="mt-2 text-sm text-slate-500">{f(s.hoursPerMonth / s.daysPerMonth)} saat × {f(s.daysPerMonth)} gün = {f(s.hoursPerMonth)} saat/ay</p>
       <div className="my-5 rounded-2xl bg-cyan-50 p-5"><p className="text-sm text-sky-900">5 yılda {benefit ? 'tasarruf' : 'ek maliyet'}</p><p className="mt-2 break-words text-3xl font-bold text-sky-950">{f(Math.abs(s.fiveYearSavings))} TL</p></div>
       <dl className="divide-y divide-slate-100 text-sm">{[
         ['Birim elektrik bedeli', `${precise(s.tariff)} TL/kWh`],
@@ -31,7 +32,10 @@ export default function PumpSavingsResults({ result }: { result: PumpSavingsResu
     <div className="rounded-2xl border border-slate-200 bg-white p-6 text-sm leading-7 text-slate-600">
       <h2 className="font-bold text-slate-900">Raporun dayandığı varsayımlar</h2>
       <p>KDV hariçtir. Girilen aktif enerji, dağıtım ve BTV bedelleri kullanılır. İki pompa aynı çalışma süresi ve saatlik su miktarıyla karşılaştırılır; gerçek debi için aynı basma yüksekliği ve uygulama koşulları esas alınmalıdır.</p>
-      <p>Yıllık elektrik fiyatı artışları sırasıyla {result.annualIncreases.map(n => `%${f(n*100)}`).join(', ')}. İlk yıl artışı ilk yıllık tutara uygulanır; sonraki artışlar birikimli ve iki pompaya eşit uygulanır. Karbon katsayısı: {precise(result.emissionFactor)} ton CO₂e/MWh.</p>
+      <h3 className="mt-5 font-bold text-slate-900">TCMB verileriyle 2026–2030 maliyet projeksiyonu</h3>
+      <ul className="my-3 space-y-1">{pumpInflation.periods.map(p => <li key={p.year}><strong>{p.year}: %{f(p.rate * 100)}</strong> · {p.label}</li>)}</ul>
+      <p>Kaynak: <a className="text-sky-700 underline" href={pumpInflation.url} target="_blank" rel="noopener noreferrer">{pumpInflation.source} ({pumpInflation.date})</a>.</p>
+      <p>2030 için TCMB’nin %5 orta vadeli hedefi varsayım olarak kullanılır. Bu oranlar elektrik tarifesi tahmini değil, enflasyona bağlı maliyet senaryosudur. Girilen aylık gider baz alınır; 2026 oranı ilk 12 aylık tutara, sonraki oranlar birikimli ve iki pompaya eşit uygulanır. Yıllar senaryo dönemlerini gösterir; gerçekleşmiş gider değildir. Karbon katsayısı: {precise(result.emissionFactor)} ton CO₂e/MWh.</p>
       <p>Su miktarı değişirken güçler ve çalışma süreleri sabit kalırsa aylık gider değişmez. Sonuçlar girilen değerlere dayalı bir öngörüdür; satın alma, bakım ve finansman giderleri dahil değildir.</p>
     </div>
   </div>;

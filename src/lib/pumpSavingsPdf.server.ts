@@ -1,9 +1,10 @@
 import 'server-only';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
-import { PDFDocument, rgb, type PDFPage } from 'pdf-lib';
+import { PDFDocument, PDFName, PDFString, rgb, type PDFPage } from 'pdf-lib';
 import fontkit from '@pdf-lib/fontkit';
 import type { PumpDetailInput, PumpSavingsResult } from '@/types/pumpSavings';
+import { pumpInflation } from '@/data/pumpInflation';
 
 const nf = new Intl.NumberFormat('tr-TR', { maximumFractionDigits: 2 });
 const f = (n: number) => nf.format(n);
@@ -48,7 +49,7 @@ export async function createPumpSavingsPdf(input: PumpDetailInput, result: PumpS
     p.drawRectangle({x:0,y:717,width:595,height:3,color:cyan});
     text(p,company.trim()||'Pompa enerji maliyeti karşılaştırması',42,143,13,navy);
     p.drawLine({start:{x:42,y:47},end:{x:553,y:47},color:rgb(.8,.85,.9),thickness:.6});
-    text(p,'tekinpower.com · Müşteri girdilerine dayalı hesaplama raporu',42,807,8,gray); text(p,`${number} / 3`,510,807,8,gray,43);
+    text(p,'tekinpower.com · Müşteri girdilerine dayalı hesaplama raporu',42,807,8,gray); text(p,`${number} / 4`,510,807,8,gray,43);
     return p;
   }
   function table(p: PDFPage, headers: string[], rows: string[][], widths: number[], top: number) {
@@ -72,22 +73,22 @@ export async function createPumpSavingsPdf(input: PumpDetailInput, result: PumpS
   result.scenarios.forEach((s,i) => {
     const x=42+i*263; p1.drawRectangle({x,y:842-510-216,width:248,height:216,color:pale});
     p1.drawRectangle({x,y:842-510-3,width:248,height:3,color:cyan});
-    text(p1,s.label,x+15,524,13,navy,218); text(p1,`${f(s.hoursPerMonth)} saat/ay`,x+15,548,9,gray,218);
+    text(p1,s.label,x+15,524,13,navy,218); text(p1,`${f(s.hoursPerMonth / s.daysPerMonth)} saat × ${f(s.daysPerMonth)} gün = ${f(s.hoursPerMonth)} saat/ay`,x+15,548,9,gray,218);
     text(p1,`Aylık ${benefit?'tasarruf':'ek maliyet'}`,x+15,573,9,cyan,218); text(p1,`${f(Math.abs(s.monthlySavings))} TL`,x+15,588,18,navy,218);
     text(p1,`1 yıllık ${benefit?'tasarruf':'ek maliyet'}`,x+15,622,9,cyan,218); text(p1,`${f(Math.abs(s.years[0].savings))} TL`,x+15,637,18,navy,218);
     text(p1,`5 yıllık ${benefit?'tasarruf':'ek maliyet'}`,x+15,671,9,cyan,218); text(p1,`${f(Math.abs(s.fiveYearSavings))} TL`,x+15,686,18,navy,218);
   });
   let y=740;
   if (!benefit) y=paragraph(p1,'Girilen değerlerde DewJet daha fazla enerji tüketir. Negatif farklar ek maliyeti gösterir.',y,8);
-  paragraph(p1,'KDV hariçtir. 1 yıllık tutar, rapordaki ilk yıl fiyat artışını içerir. Girdiler ve hesaplama varsayımları 3. sayfadadır.',y,8);
+  paragraph(p1,'KDV hariçtir. 1 yıllık tutar, ilk senaryo yılının enflasyon artışını içerir. Girdiler 3., TCMB kaynaklı varsayımlar 4. sayfadadır.',y,8);
 
   const p2=page('Maliyet ve Karbon Karşılaştırması',2);
   result.scenarios.forEach((s,i) => {
     const top=185+i*287;
-    text(p2,`${s.label} · ${f(s.hoursPerMonth)} saat/ay`,42,top,14,cyan);
+    text(p2,`${s.label} · ${f(s.hoursPerMonth / s.daysPerMonth)} saat × ${f(s.daysPerMonth)} gün = ${f(s.hoursPerMonth)} saat/ay`,42,top,14,cyan);
     text(p2,`Aylık gider: Diğer pompa ${f(s.competitorMonthlyCost)} TL  |  DewJet ${f(s.dewjetMonthlyCost)} TL`,42,top+27,10);
     text(p2,`Aylık enerji: Diğer pompa ${f(s.competitorEnergy)} kWh  |  DewJet ${f(s.dewjetEnergy)} kWh`,42,top+45,9);
-    table(p2,['Yıl','Diğer pompa (TL)','DewJet (TL)','Yıllık fark (TL)','Birikimli fark (TL)'],s.years.map(y=>[String(y.year),f(y.competitorCost),f(y.dewjetCost),f(y.savings),f(y.cumulativeSavings)]),[35,119,119,119,119],top+65);
+    table(p2,['Yıl','Diğer pompa (TL)','DewJet (TL)','Yıllık fark (TL)','Birikimli fark (TL)'],s.years.map(y=>[String(y.year),f(y.competitorCost),f(y.dewjetCost),f(y.savings),f(y.cumulativeSavings)]),[45,116,116,117,117],top+65);
   });
   const p3=page('Girdiler ve Hesaplama Varsayımları',3);
   text(p3,`Su: ${f(input.pump.water)} m³/saat  ·  DewJet: ${f(input.pump.dewjetPower)} kW  ·  Diğer pompa: ${f(input.pump.competitorPower)} kW`,42,180,10);
@@ -97,8 +98,18 @@ export async function createPumpSavingsPdf(input: PumpDetailInput, result: PumpS
   table(p3,['Plan / tarife','Gündüz sa.','Puant sa.','Gece sa.','Gün/ay'],input.schedules.map((s,i)=>[`${i+1} / ${s.mode==='single'?'Tek zamanlı':'Çok zamanlı'}`,f(s.day),f(s.peak),f(s.night),precise(s.days)]),[171,85,85,85,85],454);
   text(p3,`Karbon katsayısı: ${precise(input.emissionFactor)} ton CO₂e/MWh`,42,581,10,cyan);
   result.scenarios.forEach((s,i)=>text(p3,`Plan ${i+1} · ${benefit?'Önlenen':'Ek'} emisyon: yılda ${f(Math.abs(s.yearlyCarbon))}, 5 yılda ${f(Math.abs(s.fiveYearCarbon))} ton CO₂e`,42,605+i*22,10));
-  y=paragraph(p3,'Yıllık fiyat artışları: %29, %24, %18, %16, %12. İlk yıl artışı ilk yıllık tutara uygulanır; sonraki artışlar birikimli olarak iki pompaya eşit uygulanır.',664,9);
-  y=paragraph(p3,'Güçler ve çalışma süreleri sabitken debinin değiştirilmesi aylık maliyeti değiştirmez. Tek zamanlı planda tek zamanlı bedel; çok zamanlı planda girilen zaman dilimleri kullanılır. Karbon farkı her planın çalışma süresini içerir.',y,9);
+  y=paragraph(p3,'Güçler ve çalışma süreleri sabitken debinin değiştirilmesi aylık maliyeti değiştirmez. Tek zamanlı planda tek zamanlı bedel; çok zamanlı planda girilen zaman dilimleri kullanılır. Karbon farkı her planın çalışma süresini içerir.',664,9);
   paragraph(p3,'Aynı debi ve basma yüksekliği esas alınır; çalışma noktası pompa eğrileriyle doğrulanmalıdır. Satın alma, bakım ve finansman giderleri dahil değildir.',y,8);
+  const p4=page('Enflasyon ve Maliyet Projeksiyonu',4);
+  text(p4,'2026–2030 · BEŞ YILLIK SENARYO',42,182,11,cyan);
+  y=table(p4,['Dönem','Oran','Dayanak'],pumpInflation.periods.map(p=>[String(p.year),`%${f(p.rate*100)}`,p.label]),[70,65,376],212);
+  y=paragraph(p4,'Kaynak: '+pumpInflation.source+' · '+pumpInflation.date+'. Başkan Fatih Karahan’ın rapor bilgilendirme konuşması.',y+23,10);
+  text(p4,'TCMB resmî açıklamasını aç',42,y,10,cyan);
+  const link=doc.context.register(doc.context.obj({ Type:'Annot', Subtype:'Link', Rect:[42,842-y-16,270,842-y+2], Border:[0,0,0], A:{Type:'Action',S:'URI',URI:PDFString.of(pumpInflation.url)} }));
+  p4.node.set(PDFName.of('Annots'),doc.context.obj([link]));
+  y=paragraph(p4,'2030 için %5, TCMB’nin orta vadeli hedefinin bu senaryo yılına uygulanmasıdır; 2030’a özel açıklanmış kesin bir tahmin olarak sunulmaz.',y+35,10);
+  y=paragraph(p4,'Bu enflasyon oranları elektrik tarifesi tahmini değildir. Elektrik maliyetleri, girilen tarife üzerinden enflasyona bağlı bir senaryo olarak hesaplanır.',y+8,10);
+  y=paragraph(p4,'Girilen aylık gider baz alınır. 2026 oranı ilk 12 aylık tutara uygulanır; sonraki yılların oranları birikimli olarak iki pompaya eşit uygulanır. Yıllar senaryo dönemleridir; gerçekleşmiş gider değildir.',y+8,10);
+  paragraph(p4,'Enflasyon, parasal maliyetleri etkiler. Güç ve çalışma süresi sabitken enerji tüketimi ve karbon farkı enflasyonla artırılmaz.',y+8,10);
   return doc.save();
 }

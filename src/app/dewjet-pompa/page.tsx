@@ -150,6 +150,7 @@ export default function DewJetPompaPage() {
       }}
       headerMedia={
         <AdaptiveVideo
+          responsivePoster
           name="dewjet-pompa-showcase-v1"
           priority
           prefix="service"

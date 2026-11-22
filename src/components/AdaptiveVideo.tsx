@@ -9,7 +9,7 @@ import { videoAssets } from '@/lib/videoAssets';
 type NetworkConnection = ConnectionHints & EventTarget;
 
 /** One decoder, bounded downloads and a poster when motion/data preferences disallow autoplay. */
-export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnded, fit = 'cover', fillBackground = false, poster: posterOverride, smoothStart = true, playbackControl = false, priority = false }: {
+export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnded, fit = 'cover', fillBackground = false, poster: posterOverride, smoothStart = true, playbackControl = false, priority = false, responsivePoster = false }: {
   name: string;
   prefix: 'landing-page' | 'service';
   label: string;
@@ -21,6 +21,7 @@ export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnd
   smoothStart?: boolean;
   playbackControl?: boolean;
   priority?: boolean;
+  responsivePoster?: boolean;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -157,7 +158,8 @@ export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnd
           src={poster}
           alt=""
           fill
-          unoptimized
+          unoptimized={!responsivePoster}
+          sizes={responsivePoster ? '100vw' : undefined}
           priority={priority}
           loading={priority ? undefined : 'eager'}
           fetchPriority={priority ? 'high' : 'auto'}
@@ -172,7 +174,7 @@ export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnd
             // Keep the decoded frame and buffer when scrolled out of view.
             // Playback pauses in the effect; preload="none" defers the initial load.
             src={source}
-            poster={poster}
+            poster={responsivePoster ? undefined : poster}
             className={`relative h-full w-full ${fit === 'contain' ? 'object-contain' : 'object-cover'} ${smoothStart ? 'transition-opacity duration-150 ease-out motion-reduce:transition-none' : ''}`}
             style={smoothStart ? { opacity: hasPresentedFrame ? 1 : 0 } : undefined}
             aria-label={label}

@@ -1,6 +1,5 @@
 'use client';
 
-import { gsap } from 'gsap';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -19,10 +18,12 @@ const Navbar = () => {
 
   useEffect(() => {
     // Navbar animasyonu
-    const animation = gsap.fromTo(navRef.current,
-      { y: -100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }
-    );
+    const animation = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      ? undefined
+      : navRef.current?.animate(
+          [{ transform: 'translateY(-100px)', opacity: 0 }, { transform: 'translateY(0)', opacity: 1 }],
+          { duration: 1000, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
+        );
 
     // Scroll event listener
     const handleScroll = () => {
@@ -32,7 +33,7 @@ const Navbar = () => {
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
-      animation.kill();
+      animation?.cancel();
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);

@@ -5,7 +5,15 @@ import { ArrowRight, Droplets, RotateCcw, Zap, Leaf } from 'lucide-react';
 import { pumpComparisons } from '@/data/pumpComparisons';
 import type { PumpSavingsInput, PumpSavingsResult } from '@/types/pumpSavings';
 
-const format = (value: number, digits = 0) => new Intl.NumberFormat('tr-TR', { maximumFractionDigits: digits }).format(value);
+const numberFormats = new Map<number, Intl.NumberFormat>();
+const format = (value: number, digits = 0) => {
+  let formatter = numberFormats.get(digits);
+  if (!formatter) {
+    formatter = new Intl.NumberFormat('tr-TR', { maximumFractionDigits: digits });
+    numberFormats.set(digits, formatter);
+  }
+  return formatter.format(value);
+};
 const money = (value: number) => `${format(value)} TL`;
 type Fields = Record<keyof PumpSavingsInput, string>;
 

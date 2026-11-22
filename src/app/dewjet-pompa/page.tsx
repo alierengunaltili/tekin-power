@@ -2,6 +2,8 @@ import SolutionInfoPage from '@/components/SolutionInfoPage';
 import Image from 'next/image';
 import PumpProducts from '@/components/PumpProducts';
 import PumpComparison from '@/components/PumpComparison';
+import PumpSavingsDashboard from '@/components/PumpSavingsDashboard';
+import { calculatePumpSavings, defaultPumpSavingsInput } from '@/lib/pumpSavings.server';
 import AdaptiveVideo from '@/components/AdaptiveVideo';
 import { pumpContent } from '@/data/pageContent';
 import { pageMetadata } from '@/lib/seo';
@@ -20,7 +22,7 @@ export default function DewJetPompaPage() {
     <SolutionInfoPage
       content={pumpContent}
       closingAfterChildren
-      featuredContent={<><PumpProducts /><PumpComparison /></>}
+      featuredContent={<><PumpProducts /><PumpComparison afterTables={<PumpSavingsDashboard initialResult={calculatePumpSavings(defaultPumpSavingsInput)} />} /></>}
       sectionMedia={{
         'debi-basinc': (
           <div className="min-w-0 space-y-5">

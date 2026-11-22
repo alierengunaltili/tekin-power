@@ -1,29 +1,5 @@
-import { pumps } from '@/data/pumps';
-
-// User-supplied comparison, 2026-11-16. Competitor identities are deliberately
-// omitted, including model identifiers. DewJet values use the current catalogue.
-const comparisons = [
-  {
-    id: '1200', title: '1.200 Ton/Saat Kapasite Sınıfı', pump: pumps[1],
-    alternatives: [
-      { power: '250 kW', current: '≈ 800 A', weight: '1.200–1.500 kg' },
-      { power: '315 kW', current: '≈ 1.000 A', weight: '1.450–1.800 kg' },
-      { power: '200 kW', current: '≈ 700 A', weight: '1.100–1.350 kg' },
-      { power: '355 kW', current: '≈ 1.300 A', weight: '1.600–2.100 kg' },
-      { power: '315 kW', current: '≈ 1.000 A', weight: '1.500–1.900 kg' },
-    ],
-  },
-  {
-    id: '400', title: '400 Ton/Saat Kapasite Sınıfı', pump: pumps[0],
-    alternatives: [
-      { power: '55 kW', current: '≈ 105 A', weight: '≈ 680 kg' },
-      { power: '45 kW', current: '≈ 85 A', weight: '≈ 420 kg' },
-      { power: '45 kW', current: '≈ 85 A', weight: '≈ 390 kg' },
-      { power: '75 kW', current: '≈ 140 A', weight: '≈ 850 kg' },
-      { power: '92 kW', current: '≈ 175 A', weight: '≈ 1.100 kg' },
-    ],
-  },
-];
+import { pumpComparisons } from '@/data/pumpComparisons';
+import type { ReactNode } from 'react';
 
 const advantages = [
   { title: 'Hafif ve kolay taşınabilir', text: '20 kW model 25 kg, 45 kW model 55 kg. Kompakt gövdeler taşıma ve yerleşimi kolaylaştırır.' },
@@ -36,7 +12,7 @@ const advantages = [
   { title: 'IP69 koruma sınıfı', text: 'Her iki modelde IP69 koruma sınıfı ve 2 yıl garanti.' },
 ];
 
-export default function PumpComparison() {
+export default function PumpComparison({ afterTables }: { afterTables?: ReactNode }) {
   return (
     <section id="pompa-karsilastirma" aria-labelledby="pompa-karsilastirma-baslik" className="scroll-mt-36 bg-white px-5 pb-16 sm:px-8">
       <div className="mx-auto max-w-6xl">
@@ -47,7 +23,7 @@ export default function PumpComparison() {
         </header>
 
         <div className="space-y-8">
-          {comparisons.map(({ id, title, pump, alternatives }) => (
+          {pumpComparisons.map(({ id, title, pump, alternatives }) => (
             <div key={id} className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
               <div className="bg-blue-950 px-5 py-5 text-white sm:px-7">
                 <h3 id={`karsilastirma-${id}`} className="text-xl font-bold">{title}</h3>
@@ -95,6 +71,9 @@ export default function PumpComparison() {
           ))}
         </div>
 
+      </div>
+      {afterTables && <div className="-mx-5 mt-10 sm:-mx-8">{afterTables}</div>}
+      <div className="mx-auto max-w-6xl">
         <div className="mt-10 rounded-3xl bg-blue-950 p-6 text-white sm:p-8">
           <h3 className="text-2xl font-bold">Sahada DewJet farkı</h3>
           <div className="mt-6 grid gap-6 sm:grid-cols-2">

@@ -1,4 +1,12 @@
 export type PumpSavingsInput = { water: number; competitorPower: number; dewjetPower: number };
+export type PumpTariff = { active: number; distribution: number; tax: number };
+export type PumpSchedule = { day: number; peak: number; night: number; days: number; mode: 'timed' | 'single' };
+export type PumpDetailInput = {
+  pump: PumpSavingsInput;
+  emissionFactor: number;
+  tariffs: PumpTariff[];
+  schedules: PumpSchedule[];
+};
 export type PumpScenarioResult = {
   id: string;
   label: string;

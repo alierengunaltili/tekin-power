@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  serverExternalPackages: ['pdf-lib', '@pdf-lib/fontkit'],
+  outputFileTracingIncludes: { '/api/pump-savings/detail': ['./assets/fonts/NotoSans-Regular.ttf'] },
   async redirects() {
     return [
       {

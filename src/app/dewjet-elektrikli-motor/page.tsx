@@ -89,6 +89,7 @@ export default function DewJetElektrikliMotorPage() {
       }}
       headerMedia={
         <AdaptiveVideo
+          responsivePoster
           name="dewjet-twin-marine-v2"
           priority
           prefix="service"

@@ -136,7 +136,7 @@ const Navbar = () => {
                aria-label={isMenuOpen ? 'Menüyü kapat' : 'Menüyü aç'}
                aria-expanded={isMenuOpen}
                aria-controls="mobile-navigation"
-               className={`p-1 sm:p-1.5 rounded-lg transition-colors duration-300 ${
+               className={`flex h-11 w-11 items-center justify-center rounded-lg transition-colors duration-300 ${
                  useDarkText
                    ? 'text-gray-700 hover:bg-gray-100' 
                    : 'text-white hover:bg-white/10'

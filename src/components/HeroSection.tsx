@@ -27,6 +27,7 @@ const HeroSection = () => {
   >([]);
   // Generate particles only on client side to avoid hydration mismatch
   useEffect(() => {
+    if (window.matchMedia('(max-width: 1023px), (prefers-reduced-motion: reduce)').matches) return;
     const generatedParticles = Array.from({ length: 8 }, () => ({
       left: Math.random() * 100,
       top: Math.random() * 100,
@@ -36,7 +37,9 @@ const HeroSection = () => {
   }, []);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
+    const media = gsap.matchMedia();
+    // Keep the first mobile frame and text visible immediately, including after resizing.
+    media.add('(min-width: 1024px) and (prefers-reduced-motion: no-preference)', () => {
     const tl = gsap.timeline({ delay: 0.5 });
 
     // Background animasyonu
@@ -116,7 +119,7 @@ const HeroSection = () => {
       delay: "random(0, 3)",
     });
     }, heroRef);
-    return () => ctx.revert();
+    return () => media.revert();
   }, []);
 
   const categories = heroCategories;
@@ -164,6 +167,7 @@ const HeroSection = () => {
               name={currentCategory.video}
               poster={currentCategory.videoPoster}
               smoothStart
+              priority={currentSlide === 0}
               prefix="landing-page"
               fit={currentCategory.videoFit ?? 'cover'}
               fillBackground={currentCategory.videoFit === 'contain'}
@@ -245,7 +249,7 @@ const HeroSection = () => {
                 <button
                   aria-label="Önceki çözüm"
                   onClick={prevSlide}
-                  className="w-10 h-10 bg-white/15 border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors group"
+                  className="w-11 h-11 bg-white/15 border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors group"
                 >
                   <ChevronLeft className="w-4 sm:w-5 h-4 sm:h-5 text-white group-hover:scale-110 transition-transform duration-300" />
                 </button>
@@ -253,7 +257,7 @@ const HeroSection = () => {
                 <button
                   aria-label="Sonraki çözüm"
                   onClick={nextSlide}
-                  className="w-10 h-10 bg-white/15 border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors group"
+                  className="w-11 h-11 bg-white/15 border border-white/30 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors group"
                 >
                   <ChevronRight className="w-4 sm:w-5 h-4 sm:h-5 text-white group-hover:scale-110 transition-transform duration-300" />
                 </button>
@@ -262,7 +266,7 @@ const HeroSection = () => {
             </div>
 
             {/* Category Indicators */}
-            <div ref={categoriesRef} className="mt-5 flex flex-wrap gap-2">
+            <div ref={categoriesRef} className="mt-3 flex flex-wrap sm:gap-1">
               {categories.map((_, index) => (
                 <button
                   key={index}
@@ -271,12 +275,14 @@ const HeroSection = () => {
                   onClick={() => {
                     changeSlide(index);
                   }}
-                  className={`w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full transition-all duration-300 ${
+                  className="flex h-11 w-11 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+                >
+                  <span aria-hidden="true" className={`block w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full transition-all duration-300 ${
                     index === currentSlide
                       ? `bg-gradient-to-r ${categories[index].gradient} scale-125`
                       : "bg-white/30 hover:bg-white/50"
-                  }`}
-                />
+                  }`} />
+                </button>
               ))}
             </div>
           </div>

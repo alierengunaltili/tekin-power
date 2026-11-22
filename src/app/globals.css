@@ -117,7 +117,8 @@ html {
     height: var(--mobile-video-height);
   }
 
-  .mobile-video-stage video {
+  .mobile-video-stage video,
+  .mobile-video-stage .video-poster {
     object-fit: contain;
   }
 

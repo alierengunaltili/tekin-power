@@ -46,6 +46,8 @@ const Footer = () => {
     <footer className="bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative">
       {/* Scroll to Top Button */}
       <button
+        type="button"
+        aria-label="Sayfanın başına dön"
         onClick={scrollToTop}
         className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
       >
@@ -63,9 +65,8 @@ const Footer = () => {
                   src={isWaterPage ? '/tekinpowerlogos/tekinpower-marin-light-v2.png' : '/tekinpowerlogos/tekinpower-02.webp'}
                   alt={isWaterPage ? 'Tekin Power Marin Logo' : 'Tekin Power Logo'}
                   fill
-                  sizes={isWaterPage ? '224px' : undefined}
+                  sizes={isWaterPage ? '224px' : '(min-width: 1024px) 448px, (min-width: 640px) 384px, 288px'}
                   className={isWaterPage ? 'object-contain object-left' : 'object-contain'}
-                  priority
                 />
               </div>
             </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { canSustainVideo, chooseVideoQuality, lowerVideoQuality, shouldPlayVideo, type ConnectionHints, type VideoQuality } from '@/lib/videoQuality';
 import { startVideoPlayback } from '@/lib/videoPlayback';
 import { videoAssets } from '@/lib/videoAssets';
@@ -8,7 +9,7 @@ import { videoAssets } from '@/lib/videoAssets';
 type NetworkConnection = ConnectionHints & EventTarget;
 
 /** One decoder, bounded downloads and a poster when motion/data preferences disallow autoplay. */
-export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnded, fit = 'cover', fillBackground = false, poster: posterOverride, smoothStart = true, playbackControl = false }: {
+export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnded, fit = 'cover', fillBackground = false, poster: posterOverride, smoothStart = true, playbackControl = false, priority = false }: {
   name: string;
   prefix: 'landing-page' | 'service';
   label: string;
@@ -19,6 +20,7 @@ export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnd
   poster?: string;
   smoothStart?: boolean;
   playbackControl?: boolean;
+  priority?: boolean;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -147,9 +149,17 @@ export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnd
           aria-hidden="true"
         />
       )}
-      <div className={`absolute inset-0 bg-center bg-no-repeat ${fit === 'contain' ? 'bg-contain' : 'bg-cover'}`} style={{
-        backgroundImage: `url(${poster})`,
-      }}>
+      <div className="absolute inset-0">
+        <Image
+          src={poster}
+          alt=""
+          fill
+          unoptimized
+          priority={priority}
+          loading={priority ? undefined : 'eager'}
+          fetchPriority={priority ? 'high' : 'auto'}
+          className={`video-poster ${fit === 'contain' ? 'object-contain' : 'object-cover'}`}
+        />
         {enabled && !failed && (
           <video
             key={source}
@@ -158,7 +168,7 @@ export default function AdaptiveVideo({ name, prefix, label, loop = false, onEnd
             // Playback pauses in the effect; preload="none" defers the initial load.
             src={source}
             poster={poster}
-            className={`h-full w-full ${fit === 'contain' ? 'object-contain' : 'object-cover'} ${smoothStart ? 'transition-opacity duration-150 ease-out motion-reduce:transition-none' : ''}`}
+            className={`relative h-full w-full ${fit === 'contain' ? 'object-contain' : 'object-cover'} ${smoothStart ? 'transition-opacity duration-150 ease-out motion-reduce:transition-none' : ''}`}
             style={smoothStart ? { opacity: hasPresentedFrame ? 1 : 0 } : undefined}
             aria-label={label}
             data-quality={quality}

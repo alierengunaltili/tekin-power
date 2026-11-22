@@ -158,7 +158,7 @@ const ServicesSection = () => {
                   )}
                   
                   {/* CTA */}
-                  <Link href={service.href} className={`w-full bg-gradient-to-r ${service.gradient} text-white px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-medium hover:shadow-lg transition-all duration-300 hover:scale-105 text-xs sm:text-sm inline-flex items-center justify-center`}>
+                  <Link href={service.href} aria-label={`${service.productTitle} detaylarını incele`} className={`min-h-11 w-full bg-gradient-to-r ${service.gradient} text-white px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-medium hover:shadow-lg transition-all duration-300 hover:scale-105 text-xs sm:text-sm inline-flex items-center justify-center`}>
                     Detayları İncele
                   </Link>
                 </div>

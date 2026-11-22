@@ -56,7 +56,7 @@ export default function ServiceNavigation({ mobile = false, group = 'services', 
           aria-expanded={open}
           aria-controls={panelId}
           onClick={() => setOpen(!open)}
-          className={`shrink-0 rounded-md p-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 ${mobile ? 'text-gray-700 hover:bg-blue-50' : `${linkClass} hover:bg-white/10`}`}
+          className={`shrink-0 rounded-md p-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 ${mobile ? 'flex h-11 w-11 items-center justify-center text-gray-700 hover:bg-blue-50' : `${linkClass} hover:bg-white/10`}`}
         ><ChevronDown size={16} aria-hidden="true" className={`transition-transform ${open ? 'rotate-180' : ''}`} /></button>
       </div>
       <div id={panelId} hidden={!open} className={mobile ? 'mx-3 mb-2' : `absolute ${isEnergy ? 'right-0' : 'left-0'} top-full w-[360px] pt-3`}>

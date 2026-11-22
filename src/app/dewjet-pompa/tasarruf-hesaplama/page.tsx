@@ -1,8 +1,16 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import PumpSavingsDetail from '@/components/PumpSavingsDetail';
 import { calculatePumpDetail, defaultPumpDetailInput, defaultPumpSavingsInput, validPumpSavingsInput } from '@/lib/pumpSavings.server';
 
-export const metadata: Metadata = { title: 'DewJet Detaylı Enerji Tasarruf Raporu | Tekin Power', robots: { index:false, follow:false } };
+export const metadata: Metadata = {
+  ...pageMetadata(
+    '/dewjet-pompa/tasarruf-hesaplama',
+    'Pompa Elektrik Tasarrufu Hesaplama | Tekin Power',
+    'DewJet ile diğer pompaların elektrik maliyetlerini karşılaştırın. Tarifenize göre aylık, yıllık ve 5 yıllık tasarrufu hesaplayın, PDF raporunuzu indirin.',
+  ),
+  robots: { index: true, follow: true },
+};
 export default async function SavingsDetailPage({ searchParams }: { searchParams: Promise<Record<string,string|string[]|undefined>> }) {
   const params = await searchParams;
   const candidate = { water:Number(params.water), competitorPower:Number(params.competitorPower), dewjetPower:Number(params.dewjetPower) };

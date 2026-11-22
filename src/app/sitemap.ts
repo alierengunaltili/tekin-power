@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/tekne-hmi',
     '/gunespaneli',
     '/arsimet-burgusu',
+    '/dewjet-pompa/tasarruf-hesaplama',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),

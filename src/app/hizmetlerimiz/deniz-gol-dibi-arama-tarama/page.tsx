@@ -23,7 +23,7 @@ export default function UnderwaterSearchPage() {
       <Navbar />
       <main>
         <section id="tarama-giris" className="relative isolate flex min-h-[85svh] items-center overflow-hidden bg-[#071d32] pb-28 pt-36 text-white sm:pt-44 lg:min-h-[760px]">
-          <AdaptiveVideo name="deniz-gol-detail-v3" prefix="service" label="Deniz ve göl tarama arka plan videosu" fit="cover" loop playbackControl />
+          <AdaptiveVideo name="deniz-gol-detail-v3" prefix="service" label="Deniz ve göl tarama arka plan videosu" fit="cover" priority responsivePoster loop playbackControl />
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/60 to-slate-950/35 lg:via-slate-950/40 lg:to-slate-950/10" />
           <div className={`${container} pointer-events-none relative z-10 w-full [text-shadow:0_2px_4px_rgba(0,0,0,0.9)] [&_a]:pointer-events-auto [&_a]:[text-shadow:none]`}>
             <nav aria-label="Sayfa yolu" className="mb-10 flex flex-wrap gap-3 text-xs text-slate-300">

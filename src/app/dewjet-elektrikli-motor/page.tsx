@@ -37,7 +37,7 @@ export default function DewJetElektrikliMotorPage() {
               controlsList="nodownload"
               playsInline
               preload="none"
-              poster="/saha-videolari/demre-motor-secimi-v1/poster.jpg"
+              poster="/saha-videolari/demre-motor-secimi-v1/poster.webp"
               aria-label="Antalya Oymapınar Elektrikli Tekne Dönüşümü"
               width={832}
               height={464}
@@ -54,7 +54,7 @@ export default function DewJetElektrikliMotorPage() {
               controlsList="nodownload"
               playsInline
               preload="none"
-              poster="/saha-videolari/pervaneli-motor-v1/poster.jpg"
+              poster="/saha-videolari/pervaneli-motor-v1/poster.webp"
               aria-label="Elektrikli Pervaneli Motor"
               width={478}
               height={850}
@@ -74,7 +74,7 @@ export default function DewJetElektrikliMotorPage() {
               controlsList="nodownload"
               playsInline
               preload="none"
-              poster="/saha-videolari/motor-su-itisi-v1/poster.jpg"
+              poster="/saha-videolari/motor-su-itisi-v1/poster.webp"
               aria-label="Elektrikli Motor Su İtiş Gücü"
               width={848}
               height={478}

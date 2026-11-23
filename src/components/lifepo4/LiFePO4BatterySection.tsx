@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Battery, ChevronRight, Zap, ChevronLeft } from 'lucide-react';
 
@@ -97,9 +97,8 @@ interface BatteryCardProps {
 
 const BatteryCard: React.FC<BatteryCardProps> = ({ product, onClick }) => {
   return (
-    <div 
-      onClick={onClick}
-      className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-400/40 cursor-pointer"
+    <div
+      className="group relative w-full text-left overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-400/40 focus-within:ring-2 focus-within:ring-blue-600"
     >
       <div className="relative aspect-square p-6">
         {product.image ? <Image
@@ -128,6 +127,7 @@ const BatteryCard: React.FC<BatteryCardProps> = ({ product, onClick }) => {
       
       {/* Hover overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-blue-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <button type="button" aria-label={`${product.title} ürün detayını aç`} aria-haspopup="dialog" onClick={onClick} className="absolute inset-0 cursor-pointer rounded-2xl focus-visible:outline-2 focus-visible:outline-blue-600 focus-visible:-outline-offset-4" />
     </div>
   );
 };
@@ -142,6 +142,22 @@ interface BatterySectionProps {
 const BatterySection: React.FC<BatterySectionProps> = ({ title, categories, type }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>(categories[0].id);
   const [selectedProduct, setSelectedProduct] = useState<BatteryProduct | null>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    if (!selectedProduct || !dialogRef.current) return;
+    const dialog = dialogRef.current;
+    const trigger = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const previousOverflow = document.body.style.overflow;
+    dialog.showModal();
+    document.body.style.overflow = 'hidden';
+    dialog.querySelector('button')?.focus();
+    return () => {
+      dialog.close();
+      document.body.style.overflow = previousOverflow;
+      trigger?.focus({ preventScroll: true });
+    };
+  }, [selectedProduct]);
 
   const currentCategory = categories.find(cat => cat.id === selectedCategory);
 
@@ -155,7 +171,9 @@ const BatterySection: React.FC<BatterySectionProps> = ({ title, categories, type
 
   // Modal dışına tıklandığında kapat
   const handleModalBackdropClick = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) {
+    const bounds = e.currentTarget.getBoundingClientRect();
+    if (e.target === e.currentTarget &&
+        (e.clientX < bounds.left || e.clientX > bounds.right || e.clientY < bounds.top || e.clientY > bounds.bottom)) {
       handleModalClose();
     }
   };
@@ -180,6 +198,8 @@ const BatterySection: React.FC<BatterySectionProps> = ({ title, categories, type
         {categories.map((category) => (
           <button
             key={category.id}
+            type="button"
+            aria-pressed={selectedCategory === category.id}
             onClick={() => setSelectedCategory(category.id)}
             className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
               selectedCategory === category.id
@@ -211,20 +231,32 @@ const BatterySection: React.FC<BatterySectionProps> = ({ title, categories, type
 
       {/* Product detail modal */}
       {selectedProduct && (
-        <div 
-          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[10000] flex items-center justify-center p-4"
+        <dialog
+          ref={dialogRef}
+          aria-label={selectedProduct.title}
+          className="fixed inset-0 m-auto w-[calc(100%_-_2rem)] max-w-lg max-h-[85dvh] overflow-y-auto border-0 rounded-3xl p-0 bg-white backdrop:bg-black/70 backdrop:backdrop-blur-sm"
           onClick={handleModalBackdropClick}
+          onCancel={(event) => { event.preventDefault(); handleModalClose(); }}
+          onKeyDown={(event) => {
+            if (event.key !== 'Tab') return;
+            const controls = event.currentTarget.querySelectorAll<HTMLElement>('button:not([disabled]), a[href]');
+            const first = controls[0];
+            const last = controls[controls.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+              event.preventDefault(); last?.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+              event.preventDefault(); first?.focus();
+            }
+          }}
         >
           <div 
-            role="dialog"
-            aria-modal="true"
-            aria-label={selectedProduct.title}
             className="bg-white border border-gray-200 rounded-3xl p-6 max-w-lg max-h-[85dvh] overflow-y-auto w-full shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-between items-start mb-6">
               <h3 className="text-2xl font-bold text-gray-900">{selectedProduct.title}</h3>
               <button
+                type="button"
                 onClick={handleModalClose}
                 aria-label="Ürün detayını kapat"
                 className="text-gray-400 hover:text-gray-600 transition-colors text-2xl font-bold"
@@ -270,7 +302,7 @@ const BatterySection: React.FC<BatterySectionProps> = ({ title, categories, type
               <ChevronRight className="w-5 h-5" />
             </a>
           </div>
-        </div>
+        </dialog>
       )}
     </div>
   );

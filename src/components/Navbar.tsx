@@ -61,7 +61,7 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { label: 'AnaSayfa', href: '/' },
+    { label: 'Ana Sayfa', href: '/' },
     { label: 'Hakkımızda', href: '/hakkimizda' },
     { label: 'Hizmetlerimiz', href: '/hizmetlerimiz' },
     { label: 'Deniz & Göl Dibi Tarama ve Temizleme', href: '/hizmetlerimiz/deniz-gol-dibi-arama-tarama', lineTitle: 'Deniz & Göl Dibi', subtitle: 'Tarama ve Temizleme' },

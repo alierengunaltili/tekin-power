@@ -81,7 +81,7 @@ const EnerjiDepolamaContent = ({ gradient }: EnerjiDepolamaContentProps) => {
     <nav aria-label="Enerji ve batarya bölümleri" className="bg-white px-5 pt-10 sm:px-8">
       <div className="mx-auto flex max-w-6xl flex-wrap gap-3">
         <a href="#enerji-depolama-gorselleri" className="rounded-xl bg-blue-950 px-5 py-3 font-semibold text-white hover:bg-blue-900">Enerji Depolama Sistemleri</a>
-        <a href="#lifepo4-bataryalar" className="rounded-xl bg-cyan-700 px-5 py-3 font-semibold text-white hover:bg-cyan-800">LiFePO₄ Bataryalar</a>
+        <a href="#lifepo4-bataryalar" className="rounded-xl bg-cyan-700 px-5 py-3 font-semibold text-white hover:bg-cyan-800">LiFePO4 Bataryalar</a>
         <a href="/unisun/unisun-2024-katalog.pdf" download className="rounded-xl border border-blue-200 px-5 py-3 font-semibold text-blue-950 hover:bg-blue-50">Unisun 2024 Kataloğunu İndir (PDF)</a>
       </div>
     </nav>
@@ -157,6 +157,8 @@ const EnerjiDepolamaContent = ({ gradient }: EnerjiDepolamaContentProps) => {
                       {/* Carousel Controls */}
                       <button
                         onClick={prevElektrik}
+                        type="button"
+                        aria-label="Önceki elektrik dolabı görseli"
                         className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white/30 p-2 sm:p-3 rounded-full shadow-lg hover:bg-white transition-all duration-300"
                       >
                         <svg className="w-4 sm:w-6 h-4 sm:h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -166,6 +168,8 @@ const EnerjiDepolamaContent = ({ gradient }: EnerjiDepolamaContentProps) => {
                       
                       <button
                         onClick={nextElektrik}
+                        type="button"
+                        aria-label="Sonraki elektrik dolabı görseli"
                         className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white/30 p-2 sm:p-3 rounded-full shadow-lg hover:bg-white transition-all duration-300"
                       >
                         <svg className="w-4 sm:w-6 h-4 sm:h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -179,6 +183,9 @@ const EnerjiDepolamaContent = ({ gradient }: EnerjiDepolamaContentProps) => {
                           <button
                             key={idx}
                             onClick={() => setElektrikDolabiIndex(idx)}
+                            type="button"
+                            aria-label={`Elektrik dolabı: ${idx + 1}. görseli göster`}
+                            aria-current={idx === elektrikDolabiIndex ? 'true' : undefined}
                             className={`w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full transition-all duration-300 ${
                               idx === elektrikDolabiIndex 
                                 ? 'bg-blue-600 w-6 sm:w-8' 
@@ -216,6 +223,8 @@ const EnerjiDepolamaContent = ({ gradient }: EnerjiDepolamaContentProps) => {
                         {/* Controls */}
                         <button
                           onClick={prevBatarya}
+                          type="button"
+                          aria-label="Önceki batarya dolabı görseli"
                           className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white/30 p-2 sm:p-3 rounded-full shadow-lg hover:bg-white transition-all duration-300"
                         >
                           <svg className="w-4 sm:w-6 h-4 sm:h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -225,6 +234,8 @@ const EnerjiDepolamaContent = ({ gradient }: EnerjiDepolamaContentProps) => {
                         
                         <button
                           onClick={nextBatarya}
+                          type="button"
+                          aria-label="Sonraki batarya dolabı görseli"
                           className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white/30 p-2 sm:p-3 rounded-full shadow-lg hover:bg-white transition-all duration-300"
                         >
                           <svg className="w-4 sm:w-6 h-4 sm:h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -241,6 +252,9 @@ const EnerjiDepolamaContent = ({ gradient }: EnerjiDepolamaContentProps) => {
                           <button
                             key={idx}
                             onClick={() => setBataryaDolabiIndex(idx)}
+                            type="button"
+                            aria-label={`Batarya dolabı: ${idx + 1}. görseli göster`}
+                            aria-current={idx === bataryaDolabiIndex ? 'true' : undefined}
                             className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
                               idx === bataryaDolabiIndex 
                                 ? 'bg-green-600 w-3 sm:w-4' 

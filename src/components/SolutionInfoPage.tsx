@@ -29,7 +29,7 @@ export default function SolutionInfoPage({ content, children, featuredContent, h
           <div className="mobile-video-content relative z-10 mx-auto w-full max-w-6xl">
             <nav aria-label="Sayfa yolu" className="mb-7 flex flex-wrap gap-2 text-sm text-blue-100">
               <Link href="/" className="hover:underline">Ana Sayfa</Link><span aria-hidden="true">/</span>
-              <Link href="/hizmetlerimiz" className="hover:underline">Çözümlerimiz</Link>
+              <Link href="/hizmetlerimiz" className="hover:underline">Hizmetlerimiz</Link>
             </nav>
             <h1 className="max-w-4xl text-3xl font-bold leading-tight sm:text-5xl lg:text-6xl">{content.title}</h1>
             <a href="#bilgi-talebi" className="mt-8 inline-flex rounded-xl border border-white/30 px-6 py-3 font-semibold transition-colors hover:bg-white/10">Projeniz için bilgi alın</a>

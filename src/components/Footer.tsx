@@ -22,13 +22,6 @@ const Footer = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
@@ -36,7 +29,7 @@ const Footer = () => {
     { label: 'Hizmetlerimiz', href: '/hizmetlerimiz' },
     { label: 'Hakkımızda', href: '/hakkimizda' },
     { label: 'Tekne HMI', href: '/tekne-hmi' },
-    { label: 'İletişim', href: 'contact' }
+    { label: 'İletişim', href: '/#contact' }
   ];
 
   const services = solutions;
@@ -73,7 +66,7 @@ const Footer = () => {
             </div>
             <p className="text-blue-100 mb-6 leading-relaxed">
               Güçlü enerji çözümleri ile geleceği bugünden inşa ediyoruz. 
-              LiFePO₄ batarya teknolojisi ve yenilikçi solar sistemlerle 
+              LiFePO4 batarya teknolojisi ve yenilikçi solar sistemlerle
               sürdürülebilir enerji geleceğinde yanınızdayız.
             </p>
           </div>
@@ -84,21 +77,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  {link.href.startsWith('/') ? (
-                    <Link
-                      href={link.href}
-                      className="text-blue-200 hover:text-white transition-colors duration-300 hover:translate-x-1 transform inline-block"
-                    >
-                      {link.label}
-                    </Link>
-                  ) : (
-                    <button
-                      onClick={() => scrollToSection(link.href)}
-                      className="text-blue-200 hover:text-white transition-colors duration-300 hover:translate-x-1 transform inline-block"
-                    >
-                      {link.label}
-                    </button>
-                  )}
+                  <Link
+                    href={link.href}
+                    className="text-blue-200 hover:text-white transition-colors duration-300 hover:translate-x-1 transform inline-block"
+                  >
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>

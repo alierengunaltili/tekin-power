@@ -34,7 +34,7 @@ export const motorContent: PageContent = {
       'Motor seçimi; teknenin gövde yapısı, montaj alanı, yüklü ağırlığı, hedef seyir hızı ve günlük kullanım süresine göre yapılır. Motor gücü, batarya kapasitesi ve şarj altyapısı bir bütün olarak planlanır. Her modelin güç değerlerini ve teknik özelliklerini yukarıdaki model seçim alanında inceleyebilirsiniz.',
     ] },
     { id: 'motor-secimi', title: 'RIM motorlarda kapalı çark tasarımı', paragraphs: [
-      'DewJet’in Rim Motor tasarımında çark, merkezinde bir tahrik mili olmadan halka biçimli bir gövdenin içinde döner. Çıkıştaki sabit kanatlar suyu aynı doğrultuya yönlendirir. Böylece su akışındaki düzensizlikten kaynaklanan enerji kaybı ve gürültü azalır.',
+      'DewJet’in RIM motor tasarımında çark, merkezinde bir tahrik mili olmadan halka biçimli bir gövdenin içinde döner. Çıkıştaki sabit kanatlar suyu aynı doğrultuya yönlendirir. Böylece su akışındaki düzensizlikten kaynaklanan enerji kaybı ve gürültü azalır.',
     ] },
     { id: 'seyir-kontrolu', title: 'Manevrada gaz kolu ve seyir ekranı', paragraphs: [
       'DWE-IB-30 ve RIM serisi, elektronik gaz koluyla kademesiz ileri-geri kontrolü sunar. Kaptan, yanaşma ve dar alan manevralarında motor gücünü gaz koluyla ayarlar.',
@@ -46,17 +46,17 @@ export const motorContent: PageContent = {
     ] },
   ],
   questions: [
-    { question: 'Teknem için hangi elektrikli motoru seçmeliyim?', answer: 'Teknenize uygun motoru; gövde yapısı, yüklü ağırlık, montaj alanı ve hedef seyir hızını inceleyerek belirliyoruz. Motor, batarya ve şarj sistemini kullanımınıza uygun bir çözüm olarak planlamamız için Tekin Power ekibiyle iletişime geçin.' },
-    { question: 'DewJet elektrikli tekne motorlarında hangi seçenekler var?', answer: 'İçten takma IB-30, 18 kW pervaneli dıştan takma, kapalı çarklı OB-10, OB-30 ve OB-80 ile gövde altı UB-80 seçeneklerimiz bulunuyor. Modeller arasından teknenize uygun çözümü belirlemek ve donanım kapsamını öğrenmek için bize ulaşın.' },
-    { question: '18 kW içten takma motorun sürekli gücü nedir?', answer: 'DWE-IB-30’un maksimum giriş gücü 18 kW, sürekli giriş gücü 15 kW’tır. Bu motorun teknenizin yük ve seyir ihtiyacına uygunluğunu ekibimiz değerlendirir. Projenize özel motor ve batarya eşleştirmesi için bizimle iletişime geçin.' },
-    { question: 'Maksimum güç ile sürekli güç arasındaki fark nedir?', answer: 'Sürekli güç, uzun süreli çalışma için tanımlanan değerdir; maksimum güç motorun ulaşabildiği üst güç değerini ifade eder. Teknenizin çalışma koşullarına uygun güç seçimini ekibimiz yapar. Doğru model ve sistem planlaması için bize ulaşın.' },
-    { question: 'İçten takma ve dıştan takma motor arasındaki fark nedir?', answer: 'İçten takma motor teknenin içinde yer alır ve gücü şaft üzerinden pervaneye aktarır; dıştan takma motor kıça monte edilir. Hangi yerleşimin uygun olduğunu gövde ve montaj alanını inceleyerek belirliyoruz. Teknenize özel yerleşim değerlendirmesi için ekibimizle görüşün.' },
-    { question: 'Gövde altı motor ile dıştan takma motorun farkı nedir?', answer: 'Gövde altı tahrik ünitesi teknenin altına, dıştan takma sistem ise kıçına yerleşir. DewJet UB-80 gövde altı, OB serisi dıştan takma çözüm sunar. Gövdenize ve kullanımınıza uygun sistemi belirlememiz için Tekin Power ekibine ulaşın.' },
-    { question: 'Pervaneli motor ile kapalı çarklı RIM motor nasıl ayrılır?', answer: 'Pervaneli sistem itkiyi pervaneyle üretir; RIM sisteminde çark halka biçimli motor gövdesinin içinde döner. Bu iki yapıyı teknenizin montaj ve seyir ihtiyaçlarına göre değerlendiriyoruz. Uygun tahrik çözümü için bizimle iletişime geçin.' },
-    { question: 'Mevcut teknemi elektrikli motora dönüştürebilir miyim?', answer: 'Dönüşümün uygunluğunu mevcut tahrik düzeni, motor bağlantıları, batarya alanı ve şarj altyapısını inceleyerek belirliyoruz. Teknenizin ölçülerini ve mevcut motor bilgilerini ekibimize iletin; dönüşüm kapsamını ve uygun sistem yerleşimini sizin için değerlendirelim.' },
-    { question: 'Elektrikli tekne motoru kaç saat çalışır?', answer: 'Seyir süresi teknenin yüküne, kullanım hızına ve bataryanın kullanılabilir enerjisine bağlıdır. Rotanıza uygun tahmini çalışma süresini ve batarya ihtiyacını ekibimiz hesaplar. Günlük seyir planınıza özel değerlendirme için bize ulaşın.' },
-    { question: 'Elektrikli tekne motoruyla hangi hıza ulaşabilirim?', answer: 'Ulaşılabilecek hız; gövde biçimi, yüklü ağırlık, motor ve tahrik seçimi ile su koşullarına bağlıdır. Hedef hızınıza uygun motor seçeneğini teknik ekibimiz değerlendirir. Tekne bilgilerinizi bizimle paylaşın; projenize uygun çözümü belirleyelim.' },
-    { question: 'Batarya kapasitesi nasıl seçilir?', answer: 'Batarya kapasitesini hedef seyir süresi, motorun enerji ihtiyacı ve teknedeki diğer tüketimleri birlikte hesaplayarak belirliyoruz. Motor, sürücü ve batarya yönetim sistemi uyumunu da bu planlamaya dahil ediyoruz. Teknenize uygun batarya çözümü için ekibimizle iletişime geçin.' },
+    { question: 'Teknem için hangi elektrikli motoru seçmeliyim?', answer: 'Teknenize uygun motoru; gövde yapısı, yüklü ağırlık, montaj alanı ve hedef seyir hızını inceleyerek belirliyoruz. Motor, batarya ve şarj sistemini kullanımınıza uygun olarak birlikte planlıyoruz.' },
+    { question: 'DewJet elektrikli tekne motorlarında hangi seçenekler var?', answer: 'İçten takma IB-30, 18 kW pervaneli dıştan takma, kapalı çarklı OB-10, OB-30 ve OB-80 ile gövde altı UB-80 seçeneklerimiz bulunuyor.' },
+    { question: '18 kW içten takma motorun sürekli gücü nedir?', answer: 'DWE-IB-30’un maksimum giriş gücü 18 kW, sürekli giriş gücü 15 kW’tır. Bu motorun teknenizin yük ve seyir ihtiyacına uygunluğunu ekibimiz değerlendirir.' },
+    { question: 'Maksimum güç ile sürekli güç arasındaki fark nedir?', answer: 'Sürekli güç, uzun süreli çalışma için tanımlanan değerdir; maksimum güç motorun ulaşabildiği üst güç değeridir. Teknenizin çalışma koşullarına uygun güç seçimini ekibimiz yapar.' },
+    { question: 'İçten takma ve dıştan takma motor arasındaki fark nedir?', answer: 'İçten takma motor teknenin içinde yer alır ve gücü şaft üzerinden pervaneye aktarır; dıştan takma motor kıça monte edilir. Uygun yerleşimi gövde ve montaj alanını inceleyerek belirliyoruz.' },
+    { question: 'Gövde altı motor ile dıştan takma motorun farkı nedir?', answer: 'Gövde altı tahrik ünitesi teknenin altına, dıştan takma sistem ise kıçına yerleşir. DewJet UB-80 gövde altı, OB serisi dıştan takma çözüm sunar.' },
+    { question: 'Pervaneli motor ile kapalı çarklı RIM motor nasıl ayrılır?', answer: 'Pervaneli sistem itkiyi pervaneyle üretir; RIM sisteminde çark halka biçimli motor gövdesinin içinde döner. Bu iki yapıyı teknenizin montaj ve seyir ihtiyaçlarına göre değerlendiriyoruz.' },
+    { question: 'Mevcut teknemi elektrikli motora dönüştürebilir miyim?', answer: 'Dönüşümün uygunluğunu mevcut tahrik düzeni, motor bağlantıları, batarya alanı ve şarj altyapısını inceleyerek belirliyoruz. Teknenizin ölçüleri ve mevcut motor bilgileriyle dönüşüm kapsamını değerlendiriyoruz.' },
+    { question: 'Elektrikli tekne motoru kaç saat çalışır?', answer: 'Seyir süresi teknenin yüküne, kullanım hızına ve bataryanın kullanılabilir enerjisine bağlıdır. Rotanıza uygun tahmini çalışma süresini ve batarya ihtiyacını ekibimiz hesaplar.' },
+    { question: 'Elektrikli tekne motoruyla hangi hıza ulaşabilirim?', answer: 'Ulaşılabilecek hız; gövde biçimi, yüklü ağırlık, motor ve tahrik seçimi ile su koşullarına bağlıdır. Hedef hızınıza uygun motor seçeneğini teknik ekibimiz değerlendirir.' },
+    { question: 'Batarya kapasitesi nasıl seçilir?', answer: 'Batarya kapasitesini hedef seyir süresi, motorun enerji ihtiyacı ve teknedeki diğer tüketimleri birlikte hesaplayarak belirliyoruz. Motor, sürücü ve batarya yönetim sistemi uyumunu da planlamaya dahil ediyoruz.' },
   ],
   requestTitle: 'Teknenize uygun DewJet motoru seçelim',
   requestItems: ['Tekne tipi, boyu ve yaklaşık yüklü ağırlığı', 'Hedef seyir hızı ve günlük rota', 'Mevcut motor ve batarya bilgileri', 'Şarj edebileceğiniz yer ve süre'],
@@ -75,8 +75,8 @@ export const pumpContent: PageContent = {
       'DewJet pompa tasarımı kolay kurulum, düşük bakım ihtiyacı ve sessiz çalışma sunar. Değiştirilebilir difüzör yapısı, akış ve performans gereksinimlerine göre yapılandırma imkânı sağlar; uygun donanım uygulamaya göre seçilir.',
     ], points: ['RIM Drive elektrikli tahrik', 'Dişli kutusuz tasarım', 'Kompakt gövde', 'Demaraj gerektirmez', 'Mevcut güce göre su pompalar'] },
     { id: 'tasinabilirlik', title: 'Hafiflik ve yüksek debi bir arada', paragraphs: [
-      'DWE-APUMP-20: 25 KG AĞIRLIĞI İLE SAATTE 420 TON SUYU YALNIZCA 20 kW GÜÇ İLE TAHLİYE ETMEKTEDİR. Demaraj gerektirmez; mevcut güce göre su pompalar. 33 × 33 × 25 cm ölçülerindeki kompakt gövdesiyle yüksek debiyi hafif bir yapıda sunar. Basma yüksekliği 15 metredir.',
-      'DWE-APUMP-45: 55 KG AĞIRLIĞI İLE SAATTE 1200 TON SUYU YALNIZCA 45 kW GÜÇ KULLANARAK TAHLİYE ETMEKTEDİR. Demaraj gerektirmez; mevcut güce göre su pompalar. 62 × 62 × 41 cm ölçülerindeki gövdesiyle yüksek kapasiteli su tahliyesi sağlar. Basma yüksekliği 18 metredir. Taşıma planında pompayla birlikte güç kaynağı, sürücü, hortum ve bağlantı ekipmanlarını da değerlendirin.',
+      'DWE-APUMP-20, yalnızca 25 kg ağırlığı ve 20 kW gücüyle maksimum 420 m³/h debi sunar. Demaraj gerektirmez; mevcut güce göre su pompalar. Kompakt gövdesi 33 × 33 × 25 cm ölçülerindedir. Basma yüksekliği 15 metredir.',
+      'DWE-APUMP-45, yalnızca 55 kg ağırlığı ve 45 kW gücüyle maksimum 1.200 m³/h debi sunar. Demaraj gerektirmez; mevcut güce göre su pompalar. Gövdesi 62 × 62 × 41 cm ölçülerindedir. Basma yüksekliği 18 metredir. Taşıma planında güç kaynağı, sürücü, hortum ve bağlantı ekipmanlarını da değerlendirin.',
     ] },
     { id: 'debi-basinc', title: 'Projenize uygun debi, basınç ve besleme', paragraphs: [
       'Yüksek debili su pompası seçiminde hedef su miktarı kadar basma yüksekliği, boru veya hortum uzunluğu ve çalışma süresi de önemlidir. Maksimum debi, her kurulumda elde edilecek sabit bir akış miktarı değildir; çalışma noktası pompa performans eğrisiyle değerlendirilmelidir.',
@@ -97,7 +97,7 @@ export const pumpContent: PageContent = {
     { question: 'Elektrikli su pompası hangi gerilimle çalışır?', answer: 'Her iki model de 96 V veya 380 V besleme seçenekleriyle çalışabilir. Kurulumunuza uygun besleme seçeneği ve sistem donanımı proje kapsamında belirlenir.' },
     { question: 'Pompalar demaraj gerektirir mi, mevcut güce göre çalışabilir mi?', answer: 'DWE-APUMP-20 ve DWE-APUMP-45 modelleri demaraj gerektirmez. Her iki pompa da güç kaynağının sağlayabildiği güce göre su pompalar. Elde edilen debi, mevcut güç ile basınç ve kurulum koşullarına bağlıdır.' },
     { question: 'Pompa garanti süresi ne kadar?', answer: 'Her iki model için garanti süresi 2 yıldır. Kapsam ve kullanım şartlarını teklif aşamasında öğrenebilirsiniz.' },
-    { question: 'Deniz suyu ve kirli su için kullanılabilir mi?', answer: 'Tuzlu ve kirli sularda çalışır. Kimyasal ve Endüstriyel sular için uygunluğu hakkında bilgi alınız.' },
+    { question: 'Deniz suyu ve kirli su için kullanılabilir mi?', answer: 'Tuzlu ve kirli sularda çalışır. Kimyasal ve endüstriyel sulara uygunluğu hakkında bilgi alabilirsiniz.' },
     { question: 'Elektrikli su pompası fiyatı için hangi bilgiler gerekir?', answer: 'İlgilendiğiniz model, hedef debi ve basınç, suyun niteliği, emiş ve tahliye mesafeleri, çalışma süresi ve güç kaynağı bilgileriyle teklif talep edebilirsiniz.' },
   ],
   requestTitle: 'İhtiyacınıza uygun DewJet pompayı seçelim',
@@ -142,16 +142,16 @@ export const storageContent: PageContent = {
   sources: ['LIFEPO4!B15:B21', 'LIFEPO4!B34:B45', 'SİTE EKSİKLİKLERİ!A9:E9'],
   sections: [
     { id: 'kapasite', title: 'Güç ihtiyacı ve batarya kapasite hesabı', paragraphs: [
-      'Enerji depolamada hangi cihazların besleneceği ve bu cihazların ne kadar süre çalışacağı belirlenmelidir. LiFePO4 batarya kapasite hesabı için tüketim bilgisiyle hedef çalışma süresi birlikte değerlendirilir.',
-      'Endüstriyel enerji depolama sistemi veya fabrika pik yük dengeleme bataryası ihtiyacında günlük tüketim profili ve yüksek güç çekilen zaman aralıkları da görüşmeye dahil edilmelidir.',
+      'Batarya kapasitesi, beslenecek cihazların tüketimi ve hedef çalışma süresine göre belirlenir.',
+      'Endüstriyel enerji depolama ve fabrikalarda pik yük dengeleme için günlük tüketim profili ve yüksek güç çekilen zaman aralıkları da değerlendirilir.',
     ] },
     { id: 'solar-depolama', title: 'Güneş enerjisi LiFePO4 depolama ve inverter uyumu', paragraphs: [
-      'Güneş enerjisi depolama projesinde mevcut üretim, tüketim saatleri ve bataryanın kullanım amacı birlikte değerlendirilir. Off grid LiFePO4 batarya ihtiyacıyla şebekeye bağlı bir sistemin çalışma koşulları aynı olmayabilir.',
-      'Hibrit inverter LiFePO4 uyumu, batarya yönetim sistemi ve şarj cihazı bilgileri model bazında kontrol edilmelidir. Mevcut inverter modelini ve bağlantı düzenini talebinize ekleyebilirsiniz.',
+      'Güneş enerjisi depolamada üretim, tüketim saatleri ve bataryanın kullanım amacı birlikte değerlendirilir. Şebekeden bağımsız sistemlerle şebekeye bağlı sistemlerin çalışma koşulları farklı olabilir.',
+      'LiFePO4 bataryanın hibrit inverter, batarya yönetim sistemi ve şarj cihazıyla uyumu model bazında kontrol edilmelidir. Bunun için mevcut inverter modeli ve bağlantı düzeni gerekir.',
     ] },
     { id: 'yedek-enerji', title: 'Yedek enerji ve uygulama ihtiyacı', paragraphs: [
-      'UPS LiFePO4 batarya, veri merkezi batarya sistemi veya bir tesisin yedek enerji ihtiyacında öncelikle beslenmesi gereken yükler tanımlanır. İstenen çalışma süresi ve kesinti sırasında kabul edilebilir koşullar proje kapsamının parçasıdır.',
-      'Her uygulama için uygunluk, seçilecek sistemin teknik özellikleriyle ayrıca değerlendirilmelidir. Kritik yüklerinizi ve mevcut altyapınızı paylaşarak bilgi talep edebilirsiniz.',
+      'UPS, veri merkezi veya tesis yedek enerjisi için öncelikle beslenmesi gereken yükler belirlenir. Hedef çalışma süresi ve kesinti sırasında kabul edilebilir koşullar birlikte değerlendirilir.',
+      'Sistemin uygulamaya uygunluğu, teknik özellikleri ve mevcut altyapı üzerinden kontrol edilir.',
     ] },
   ],
   questions: [
@@ -171,13 +171,13 @@ export const batteryContent: PageContent = {
   intro: 'Lityum demir fosfat batarya olarak da adlandırılan LiFePO4 batarya seçiminde çalışma gerilimi, kapasite ve kullanım koşulları birlikte değerlendirilir. Marin ve enerji depolama projenizde batarya paketini, BMS ve şarj altyapısıyla birlikte ele alabilirsiniz.',
   sources: ['LIFEPO4!B2:B21', 'LIFEPO4!B31:B45'],
   sections: [
-    { id: 'batarya-kapasitesi', title: 'LiFePO4 batarya kapasite hesabı', paragraphs: [
-      'LiFePO4 akü seçerken yalnızca kapasite değerini karşılaştırmayın. Sistemin çalışma gerilimi, besleyeceği cihazlar ve hedef çalışma süresi, batarya paketinin değerlendirilmesi için birlikte gereklidir.',
-      'Tekne motoru, yat servis aküsü veya enerji depolama uygulamanız için tüketim bilgilerini paylaşarak kapasite ihtiyacınızı görüşebilirsiniz.',
+    { id: 'batarya-kapasitesi', title: 'LiFePO4 batarya kapasitesi nasıl seçilir?', paragraphs: [
+      'LiFePO4 akü seçiminde kapasiteyle birlikte sistemin çalışma gerilimi, beslenecek cihazlar ve hedef çalışma süresi değerlendirilir.',
+      'Tekne motoru, yat servis aküsü veya enerji depolama uygulamanızın tüketim bilgileri, kapasite ihtiyacını belirlemek için kullanılır.',
     ] },
     { id: 'bms-sarj', title: 'BMS ve şarj cihazı uyumu', paragraphs: [
-      'LiFePO4 BMS uyumlu akü ve LiFePO4 batarya şarj cihazı arayışında mevcut sistemin model bilgileri önemlidir. BMS, hücre dengeleme ve şarj gereksinimleri seçilecek paketin teknik bilgileriyle birlikte değerlendirilmelidir.',
-      'Gerilim, akım ve haberleşme uyumunu yalnızca ürün başlığından varsaymak yerine ilgili teknik veri sayfasıyla kontrol edin.',
+      'LiFePO4 bataryanın BMS ve şarj cihazıyla uyumu, mevcut sistemin model bilgileri üzerinden değerlendirilir. Hücre dengeleme ve şarj gereksinimleri, seçilecek paketin teknik bilgileriyle birlikte kontrol edilir.',
+      'Gerilim, akım ve haberleşme uyumu için ürün başlığı yerine teknik veri sayfası esas alınmalıdır.',
     ] },
     { id: 'omur-guvenlik', title: 'Çevrim ömrü ve güvenlik bilgilerini nasıl değerlendirmeli?', paragraphs: [
       'LiFePO4 batarya çevrim ömrü karşılaştırılırken test koşulları da okunmalıdır. Kullanım sıcaklığı, şarj-deşarj koşulları ve kapasite değerlendirme ölçütü belirtilmeden tek bir çevrim sayısı yeterli bilgi vermez.',
@@ -193,15 +193,15 @@ export const batteryContent: PageContent = {
   related: [{ label: 'Enerji depolama sistemleri', href: '/hizmetlerimiz/enerji-depolama' }, { label: 'Elektrikli marin çözümleri', href: '/hizmetlerimiz/marin' }, { label: 'Tekne HMI ekranı', href: '/tekne-hmi' }],
 };
 
-// Share the existing guides rather than maintaining a second battery copy.
+// Keep the storage guide focused on system selection; battery guides live on /lifepo4.
 export const unisunStorageContent: PageContent = {
   ...storageContent,
   title: 'Unisun Enerji Depolama Sistemleri',
   seoTitle: 'Unisun Enerji Depolama ve LiFePO4 Bataryalar | Tekin Power',
   description: 'Unisun enerji depolama sistemleri ve LiFePO4 bataryalar. Kapasite, BMS ve inverter uyumu, marin ve diğer batarya seçenekleri için Tekin Power ile iletişime geçin.',
   intro: 'Enerji depolama sistemleri ve LiFePO4 batarya çözümlerini birlikte değerlendirin. Güç ihtiyacı, çalışma süresi, batarya kapasitesi, BMS, inverter ve şarj altyapısı için projenize uygun sistemi ekibimizle planlayın.',
-  sections: [...storageContent.sections, ...batteryContent.sections],
-  questions: [...storageContent.questions, ...batteryContent.questions],
+  sections: storageContent.sections,
+  questions: storageContent.questions,
   requestTitle: 'Enerji depolama ve LiFePO4 batarya ihtiyacınızı paylaşın',
   requestItems: [...storageContent.requestItems, 'Sistemin çalışma gerilimi ve mevcut batarya bilgileri'],
   related: [

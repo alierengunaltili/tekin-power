@@ -277,6 +277,8 @@ const SolarPhotoSwiper = () => {
             <div className="flex items-center space-x-3 sm:space-x-4">
               <button
                 onClick={prevSlide}
+                type="button"
+                aria-label="Önceki güneş paneli çeşidi"
                 className="w-10 sm:w-12 h-10 sm:h-12 bg-white/10 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 hover:scale-110"
               >
                 <ChevronLeft className="w-4 sm:w-5 h-4 sm:h-5" />
@@ -284,6 +286,8 @@ const SolarPhotoSwiper = () => {
               
               <button
                 onClick={nextSlide}
+                type="button"
+                aria-label="Sonraki güneş paneli çeşidi"
                 className="w-10 sm:w-12 h-10 sm:h-12 bg-white/10 backdrop-blur-lg border border-white/30 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 hover:scale-110"
               >
                 <ChevronRight className="w-4 sm:w-5 h-4 sm:h-5" />
@@ -296,6 +300,9 @@ const SolarPhotoSwiper = () => {
                 <button
                   key={index}
                   onClick={() => changeSlide(index)}
+                  type="button"
+                  aria-label={`${solarTypes[index].title} göster`}
+                  aria-current={index === currentSlide ? 'true' : undefined}
                   className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
                     index === currentSlide 
                       ? 'bg-white scale-125' 
@@ -310,6 +317,9 @@ const SolarPhotoSwiper = () => {
               {solarTypes.map((type, index) => (
                 <button
                   key={type.id}
+                  type="button"
+                  aria-label={`${type.title} göster`}
+                  aria-current={index === currentSlide ? 'true' : undefined}
                   onClick={() => changeSlide(index)}
                   className={`relative w-24 sm:w-20 h-24 sm:h-20 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
                     index === currentSlide 

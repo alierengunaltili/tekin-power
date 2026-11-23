@@ -50,6 +50,8 @@ export default function RootLayout({
         </Script>
       </head>
       <body
+        // Writing extensions add body attributes before hydration; tolerate only this element's mismatch.
+        suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-gray-900`}
       >
         {children}

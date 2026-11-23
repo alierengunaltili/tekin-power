@@ -10,7 +10,7 @@ interface AskeriSistemContentProps {
 const AskeriSistemContent = ({ gradient }: AskeriSistemContentProps) => {
   const contentSections = [
     {
-      title: 'Askeri Sistem Uygulamalarında LiFEPO4 Batarya ve Enerji Çözümlerimiz',
+      title: 'Askeri Sistem Uygulamalarında LiFePO4 Batarya ve Enerji Çözümlerimiz',
       content: `
 Modern savunma sistemlerinde enerji yönetimi kritik bir öneme sahiptir. Askeri araçlar ve platformlar, güvenilir ve uzun ömürlü enerji çözümlerine ihtiyaç duymaktadır. LiFePO4 (Lityum Demir Fosfat) batarya teknolojisi, geleneksel enerji kaynaklarına göre üstün avantajlar sunarak askeri uygulamalarda tercih edilmektedir. Tekin Power Energy, bu teknolojiyi savunma sanayisindeki helikopterler, savaş gemileri ve tanklar gibi platformlara entegre etmektedir.
       `,

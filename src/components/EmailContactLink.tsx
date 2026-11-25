@@ -2,6 +2,7 @@
 
 import { useId, useRef, useState } from 'react';
 import { Mail, X } from 'lucide-react';
+import { recordEmailAddressCopy, recordEmailOptionsOpen } from '@/lib/contactAnalytics';
 
 const address = 'info@tekinpower.com';
 const subject = 'Tekin Power İletişim';
@@ -19,6 +20,7 @@ export default function EmailContactLink() {
   async function copyAddress() {
     try {
       await navigator.clipboard.writeText(address);
+      recordEmailAddressCopy();
       setCopyStatus('E-posta adresi kopyalandı.');
     } catch {
       setCopyStatus('Kopyalanamadı. Yukarıdaki e-posta adresini seçerek kopyalayabilirsiniz.');
@@ -30,6 +32,7 @@ export default function EmailContactLink() {
       <a
         ref={triggerRef}
         href={mailto}
+        data-email-options
         aria-haspopup="dialog"
         className="text-blue-200 underline decoration-blue-300/50 underline-offset-4 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
         onClick={(event) => {
@@ -37,6 +40,7 @@ export default function EmailContactLink() {
           event.preventDefault();
           setCopyStatus('');
           dialogRef.current?.showModal();
+          recordEmailOptionsOpen();
         }}
       >
         {address}

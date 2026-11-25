@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/seo";
 import Script from "next/script";
 import WhatsAppContact from '@/components/WhatsAppContact';
+import ContactClickTracking from '@/components/ContactClickTracking';
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -55,6 +56,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-gray-900`}
       >
         {children}
+        <ContactClickTracking />
         <WhatsAppContact />
       </body>
     </html>

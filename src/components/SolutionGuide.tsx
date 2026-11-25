@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import TrackedContactActions from '@/components/TrackedContactActions';
 import type { PageContent } from '@/data/pageContent';
 import type { ReactNode } from 'react';
 
@@ -73,9 +72,7 @@ export function GuideClosing({ content }: { content: PageContent }) {
           <ul className="mt-5 list-disc space-y-2 pl-5 leading-7 text-blue-100">
             {content.requestItems.map((item) => <li key={item}>{item}</li>)}
           </ul>
-          {content.path === '/dewjet-elektrikli-motor' || content.path === '/hizmetlerimiz/marin'
-            ? <TrackedContactActions page={content.path} className={contactClass}>{contactLinks}</TrackedContactActions>
-            : <div className={contactClass}>{contactLinks}</div>}
+          <div className={contactClass}>{contactLinks}</div>
         </section>
         <nav aria-label="İlgili çözümler" className="mt-12">
           <h2 className="mb-5 text-xl font-bold text-slate-900">İlgili çözümler</h2>

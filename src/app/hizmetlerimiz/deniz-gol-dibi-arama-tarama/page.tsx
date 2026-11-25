@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowDown, ArrowRight, Download, Waves, ScanLine, Ship, Wrench, Compass, BatteryCharging, Phone, Mail, FileText, Plus } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import EmailContactLink from '@/components/EmailContactLink';
 import AdaptiveVideo from '@/components/AdaptiveVideo';
 import { pageMetadata } from '@/lib/seo';
 import { dredgingCatalog, dredgingEquipment, dredgingProcess, dredgingReferences, dredgingServices } from '@/data/dredging';
@@ -127,7 +128,7 @@ export default function UnderwaterSearchPage() {
         </section>
 
         <section id="tarama-iletisim" className={`${container} scroll-mt-40 py-16 sm:py-24`}>
-          <div className="grid items-center gap-8 lg:grid-cols-[1fr_auto]"><div><p className={sectionLabel}>Projenizi konuşalım</p><h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">Sahanıza uygun çözümü<br />birlikte planlayalım.</h2><p className="mt-5 max-w-2xl leading-8 text-slate-600">Çalışma alanınızı ve tarama ihtiyacınızı ekibimizle paylaşın. Ölçüm, ekipman seçimi, imalat ve saha hizmetlerini projenize göre değerlendirelim.</p></div><div className="flex flex-col gap-3"><a href="tel:+905323276293" className="inline-flex items-center justify-center gap-3 rounded-full bg-cyan-700 px-7 py-4 font-semibold text-white hover:bg-cyan-800"><Phone size={18} /> +90 (532) 327 62 93</a><a href="mailto:info@tekinpower.com?subject=Su%20alt%C4%B1%20tarama%20projesi" className="inline-flex items-center justify-center gap-3 rounded-full border border-slate-300 px-7 py-4 font-semibold hover:bg-slate-50"><Mail size={18} /> info@tekinpower.com</a></div></div>
+          <div className="grid items-center gap-8 lg:grid-cols-[1fr_auto]"><div><p className={sectionLabel}>Projenizi konuşalım</p><h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">Sahanıza uygun çözümü<br />birlikte planlayalım.</h2><p className="mt-5 max-w-2xl leading-8 text-slate-600">Çalışma alanınızı ve tarama ihtiyacınızı ekibimizle paylaşın. Ölçüm, ekipman seçimi, imalat ve saha hizmetlerini projenize göre değerlendirelim.</p></div><div className="flex flex-col gap-3"><a href="tel:+905323276293" className="inline-flex items-center justify-center gap-3 rounded-full bg-cyan-700 px-7 py-4 font-semibold text-white hover:bg-cyan-800"><Phone size={18} /> +90 (532) 327 62 93</a><EmailContactLink subject="Su altı tarama projesi" className="inline-flex items-center justify-center gap-3 rounded-full border border-slate-300 px-7 py-4 font-semibold hover:bg-slate-50"><Mail size={18} /> info@tekinpower.com</EmailContactLink></div></div>
         </section>
       </main>
       <Footer />

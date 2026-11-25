@@ -1,15 +1,18 @@
 'use client';
 
-import { useId, useRef, useState } from 'react';
+import { useId, useRef, useState, type ReactNode } from 'react';
 import { Mail, X } from 'lucide-react';
 import { recordEmailAddressCopy, recordEmailOptionsOpen } from '@/lib/contactAnalytics';
 
 const address = 'info@tekinpower.com';
-const subject = 'Tekin Power İletişim';
-const mailto = `mailto:${address}?subject=${encodeURIComponent(subject)}`;
-const gmail = `https://mail.google.com/mail/?view=cm&fs=1&to=${address}&su=${encodeURIComponent(subject)}`;
-
-export default function EmailContactLink() {
+export default function EmailContactLink({
+  children = address,
+  subject = 'Tekin Power İletişim',
+  body = '',
+  className = 'text-blue-200 underline decoration-blue-300/50 underline-offset-4 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white',
+}: { children?: ReactNode; subject?: string; body?: string; className?: string }) {
+  const mailto = `mailto:${address}?subject=${encodeURIComponent(subject)}${body ? `&body=${encodeURIComponent(body)}` : ''}`;
+  const gmail = `https://mail.google.com/mail/?view=cm&fs=1&to=${address}&su=${encodeURIComponent(subject)}${body ? `&body=${encodeURIComponent(body)}` : ''}`;
   const dialogRef = useRef<HTMLDialogElement>(null);
   const triggerRef = useRef<HTMLAnchorElement>(null);
   const titleId = useId();
@@ -34,7 +37,7 @@ export default function EmailContactLink() {
         href={mailto}
         data-email-options
         aria-haspopup="dialog"
-        className="text-blue-200 underline decoration-blue-300/50 underline-offset-4 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+        className={className}
         onClick={(event) => {
           if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
           event.preventDefault();
@@ -43,7 +46,7 @@ export default function EmailContactLink() {
           recordEmailOptionsOpen();
         }}
       >
-        {address}
+        {children}
       </a>
       <dialog
         ref={dialogRef}

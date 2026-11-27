@@ -24,7 +24,7 @@ function setup() {
     removeEventListener(type, handler, capture) { assert.equal(capture, true); listeners.get(type)?.delete(handler); },
   };
   const module = { exports: {} };
-  new Function('exports', 'module', 'window', 'document', 'Node', 'Element', 'HTMLAnchorElement', code)(module.exports, module, window, document, Node, Element, Anchor);
+  new Function('exports', 'module', 'window', 'document', 'Node', 'Element', 'HTMLAnchorElement', 'require', code)(module.exports, module, window, document, Node, Element, Anchor, () => ({ trackMetricaContact() {} }));
   const api = module.exports;
   const emit = (target, overrides = {}) => {
     const event = { target, type: 'click', button: 0, ctrlKey: false, metaKey: false, shiftKey: false, altKey: false, ...overrides };

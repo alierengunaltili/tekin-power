@@ -1,3 +1,5 @@
+import { trackMetricaContact } from './yandexMetrica';
+
 type ContactChannel = 'phone' | 'whatsapp' | 'email';
 type ContactAction = 'call' | 'chat' | 'compose' | 'open_options' | 'copy_address';
 
@@ -26,6 +28,11 @@ export function classifyContactLink(href: string, baseUrl: string): ContactInter
 
 export function recordContactInteraction(interaction: ContactInteraction) {
   if (typeof window === 'undefined' || /^\/admin(?:\/|$)/.test(window.location.pathname)) return;
+  try {
+    trackMetricaContact(interaction.name, interaction.channel, interaction.method);
+  } catch {
+    // A blocked Metrica tag must not affect Google Analytics or contact actions.
+  }
   const params = {
     page_path: window.location.pathname,
     contact_channel: interaction.channel,

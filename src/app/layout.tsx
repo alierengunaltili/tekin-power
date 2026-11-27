@@ -3,6 +3,7 @@ import { SITE_URL } from "@/lib/seo";
 import Script from "next/script";
 import WhatsAppContact from '@/components/WhatsAppContact';
 import ContactClickTracking from '@/components/ContactClickTracking';
+import YandexMetrica from '@/components/YandexMetrica';
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -57,6 +58,7 @@ export default function RootLayout({
       >
         {children}
         <ContactClickTracking />
+        <YandexMetrica />
         <WhatsAppContact />
       </body>
     </html>
